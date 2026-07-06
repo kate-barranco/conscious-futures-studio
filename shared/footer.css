@@ -35,6 +35,18 @@
 }
 .shared-footer-links a:hover { color: #F5F1E8; }
 
+.shared-footer-socials {
+  display: flex;
+  gap: 0.9rem;
+}
+
+.shared-footer-socials a {
+  color: rgba(245, 241, 232, 0.7);
+  display: inline-flex;
+  transition: color 0.2s ease;
+}
+.shared-footer-socials a:hover { color: #F5F1E8; }
+
 .shared-footer-copy {
   width: 100%;
   margin: 2rem 0 0;

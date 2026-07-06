@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://conscious-futures.studio/sitemap.xml
