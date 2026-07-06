@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ideas & Recognition — Kate Barranco | Conscious Futures Studio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=Inter+Tight:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../shared/nav.css">
+<link rel="stylesheet" href="../shared/footer.css">
+<!-- Analytics: placeholder — provider not yet chosen (Cloudflare Web Analytics vs. Plausible). Add snippet here once decided. -->
+<style>
+:root {
+  --navy:   #1A1F5B;
+  --purple: #800287;
+  --orange: #E75213;
+  --cream:  #F5F1E8;
+  --ink:    #1a1a1a;
+  --rule:   rgba(26,31,91,0.12);
+  --f-display: 'Fraunces', Georgia, serif;
+  --f-body:    'Inter Tight', system-ui, sans-serif;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--f-body);
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--ink);
+  background: var(--cream);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── NAV ── */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.85rem 3rem;
+  background: rgba(245,241,232,0.94);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--rule);
+}
+.nav-logo img { height: 36px; width: auto; display: block; }
+.nav-cta {
+  font-size: 0.78rem;
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--cream);
+  background: var(--navy);
+  padding: 0.55rem 1.3rem;
+  border-radius: 2px;
+  transition: background 0.2s;
+  white-space: nowrap;
+}
+.nav-cta:hover { background: var(--purple); }
+
+/* ── HERO: full-bleed photo, quote reveals on hover ── */
+.hero {
+  margin-top: 68px;
+  position: relative;
+  width: 100%;
+  height: calc(100vh - 68px);
+  max-height: 920px;
+  min-height: 560px;
+  overflow: hidden;
+}
+
+.hero-photo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* Kate is left of center in the frame — show her fully */
+  object-position: 35% 60%;
+  display: block;
+  transition: transform 0.6s var(--ease-out);
+}
+
+/* very subtle scale on hover so the photo feels alive */
+.hero:hover .hero-photo {
+  transform: scale(1.015);
+}
+
+/* left-to-transparent gradient so text is readable */
+.hero-gradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    105deg,
+    rgba(26,31,91,0.82) 0%,
+    rgba(26,31,91,0.5) 42%,
+    rgba(26,31,91,0.08) 70%,
+    transparent 100%
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* page title + description — bottom left */
+.hero-content {
+  position: absolute;
+  bottom: 3.5rem;
+  left: 3.5rem;
+  max-width: 40ch;
+  z-index: 2;
+}
+.hero-eyebrow {
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--orange);
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+.hero-eyebrow::before {
+  content: '';
+  display: block;
+  width: 2rem;
+  height: 1px;
+  background: var(--orange);
+}
+.hero h1 {
+  font-family: var(--f-display);
+  font-size: clamp(2.6rem, 4.5vw, 4rem);
+  font-weight: 300;
+  line-height: 1.06;
+  color: var(--cream);
+  letter-spacing: -0.02em;
+  margin-bottom: 1.2rem;
+}
+.hero h1 em { font-style: italic; color: #c97dd4; }
+.hero-desc {
+  font-size: 0.88rem;
+  line-height: 1.7;
+  color: rgba(245,241,232,0.58);
+  max-width: 40ch;
+}
+
+/* Quote — bottom right, hidden until hover, then stays */
+.hero-quote {
+  position: absolute;
+  bottom: 3.5rem;
+  right: 3.5rem;
+  max-width: 36ch;
+  text-align: right;
+  z-index: 2;
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.6s var(--ease-out), transform 0.6s var(--ease-out);
+  pointer-events: none;
+  background: rgba(26,31,91,0.72);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(245,241,232,0.15);
+  border-radius: 3px;
+  padding: 1.4rem 1.6rem;
+}
+.hero-quote.revealed {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+/* also reveal on hover (before JS fires) */
+.hero:hover .hero-quote {
+  opacity: 1;
+  transform: translateY(0);
+}
+.hero-quote blockquote {
+  font-family: var(--f-display);
+  font-size: clamp(0.85rem, 1.3vw, 1rem);
+  font-weight: 300;
+  font-style: italic;
+  color: rgba(245,241,232,0.96);
+  line-height: 1.7;
+  margin-bottom: 0.65rem;
+}
+.hero-quote .q-attr {
+  font-size: 0.63rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(245,241,232,0.6);
+}
+
+/* ── SECTION SWITCHER ── */
+.switcher-wrap {
+  background: var(--cream);
+  border-bottom: 1px solid var(--rule);
+  position: sticky;
+  top: 68px;
+  z-index: 90;
+}
+.switcher {
+  display: flex;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 3rem;
+}
+.sw-btn {
+  font-size: 0.73rem;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border: none;
+  background: none;
+  cursor: pointer;
+  padding: 0.9rem 1.4rem 0.9rem 0;
+  color: var(--navy);
+  opacity: 0.42;
+  transition: opacity 0.2s, color 0.2s;
+  position: relative;
+  white-space: nowrap;
+}
+.sw-btn::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 1.4rem;
+  height: 2px;
+  background: var(--purple);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.22s var(--ease-out);
+}
+.sw-btn.active { opacity: 1; color: var(--purple); }
+.sw-btn.active::after { transform: scaleX(1); }
+.sw-btn:hover { opacity: 0.8; }
+
+/* ── PANEL SYSTEM ── */
+.panel { display: none; }
+.panel.active { display: block; }
+
+.panel-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 3.5rem 3rem;
+}
+.panel-header {
+  margin-bottom: 2.5rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid var(--rule);
+}
+.panel-label {
+  font-size: 0.67rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--purple);
+  margin-bottom: 0.3rem;
+}
+.panel-h2 {
+  font-family: var(--f-display);
+  font-size: clamp(1.6rem, 2.5vw, 2.2rem);
+  font-weight: 300;
+  color: var(--navy);
+  letter-spacing: -0.015em;
+  line-height: 1.15;
+}
+.panel-h2 em { font-style: italic; color: var(--purple); }
+
+/* ── PANEL: AWARDS ── */
+#panel-recognition { background: var(--navy); }
+#panel-recognition .panel-label { color: rgba(245,241,232,0.4); }
+#panel-recognition .panel-h2 { color: var(--cream); }
+#panel-recognition .panel-h2 em { color: #c97dd4; }
+#panel-recognition .panel-header { border-bottom-color: rgba(245,241,232,0.12); }
+.recog-cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+}
+.recog-group-label {
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--orange);
+  margin-bottom: 1.25rem;
+}
+.recog-item {
+  padding: 1rem 0;
+  border-bottom: 1px solid rgba(245,241,232,0.1);
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 1rem;
+  align-items: start;
+}
+.recog-item:last-child { border-bottom: none; }
+.recog-name {
+  font-family: var(--f-display);
+  font-size: 0.9rem;
+  font-weight: 300;
+  color: var(--cream);
+  line-height: 1.35;
+  text-decoration: none;
+}
+a.recog-name:hover { color: #c97dd4; }
+.recog-org { font-size: 0.68rem; color: rgba(245,241,232,0.38); margin-top: 0.2rem; }
+.recog-year { font-size: 0.68rem; color: rgba(245,241,232,0.28); white-space: nowrap; padding-top: 0.1rem; }
+
+/* ── PANEL: PUBLICATIONS ── */
+.pub-featured {
+  background: var(--navy);
+  border-radius: 3px;
+  padding: 2rem 2.5rem;
+  margin-bottom: 2rem;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 2rem;
+  align-items: center;
+  text-decoration: none;
+  transition: opacity 0.2s;
+}
+.pub-featured:hover { opacity: 0.88; }
+.pub-feat-badge { font-size: 0.62rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--orange); margin-bottom: 0.55rem; }
+.pub-feat-title { font-family: var(--f-display); font-size: 1.35rem; font-weight: 300; font-style: italic; color: var(--cream); line-height: 1.2; margin-bottom: 0.45rem; }
+.pub-feat-source { font-size: 0.76rem; color: rgba(245,241,232,0.42); }
+.pub-feat-arrow { width: 2.4rem; height: 2.4rem; border: 1px solid rgba(245,241,232,0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--cream); flex-shrink: 0; }
+.pub-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1px; background: var(--rule); border: 1px solid var(--rule); border-radius: 3px; overflow: hidden; }
+.pub-card { background: var(--cream); padding: 1.4rem; text-decoration: none; display: flex; flex-direction: column; gap: 0.35rem; transition: background 0.18s; }
+.pub-card:hover { background: white; }
+.pub-card-title { font-family: var(--f-display); font-size: 0.9rem; font-weight: 300; color: var(--navy); line-height: 1.35; }
+.pub-card-source { font-size: 0.67rem; color: rgba(26,26,26,0.38); margin-top: auto; padding-top: 0.7rem; border-top: 1px solid var(--rule); }
+.pub-card-arrow { font-size: 0.7rem; color: var(--purple); }
+
+/* ── PANEL: SPEAKING ── */
+.speaking-list { display: flex; flex-direction: column; }
+.speaking-item { display: grid; grid-template-columns: 10rem 1fr; gap: 2rem; padding: 1.6rem 0; border-bottom: 1px solid var(--rule); align-items: start; }
+.speaking-item:last-child { border-bottom: none; }
+.speaking-year { font-size: 0.8rem; font-weight: 500; letter-spacing: 0.08em; color: var(--orange); text-transform: uppercase; }
+.speaking-venue { font-size: 0.85rem; color: rgba(26,26,26,0.6); margin-top: 0.3rem; line-height: 1.45; font-weight: 400; }
+.speaking-title { font-family: var(--f-display); font-size: 1.1rem; font-weight: 300; color: var(--navy); line-height: 1.3; margin-bottom: 0.35rem; }
+.speaking-body { font-size: 0.88rem; color: rgba(26,26,26,0.58); line-height: 1.65; max-width: 60ch; }
+
+/* ── PANEL: MEDIA ── */
+.media-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 1px; background: var(--rule); border: 1px solid var(--rule); border-radius: 3px; overflow: hidden; }
+.media-card { background: var(--cream); padding: 1.4rem 1.6rem; text-decoration: none; display: flex; flex-direction: column; gap: 0.32rem; min-height: 7.5rem; transition: background 0.18s; }
+.media-card:hover { background: white; }
+.media-type { font-size: 0.62rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--purple); margin-bottom: 0.12rem; }
+.media-title { font-family: var(--f-display); font-size: 0.88rem; font-weight: 300; color: var(--navy); line-height: 1.35; }
+.media-source { font-size: 0.66rem; color: rgba(26,26,26,0.36); margin-top: auto; padding-top: 0.55rem; }
+.media-link { font-size: 0.66rem; color: var(--purple); }
+
+/* ── PHOTO STRIP ── */
+.photo-strip { display: grid; grid-template-columns: 1fr 1fr; height: 260px; overflow: hidden; }
+.photo-strip img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.photo-strip img:first-child { object-position: center top; transform: scale(0.75); transform-origin: center top; }
+.photo-strip img:last-child { object-position: center 35%; }
+
+/* ── FOOTER ── */
+footer { background: var(--navy); padding: 2.25rem 3rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.5rem; }
+.footer-logo img { height: 26px; width: auto; opacity: 0.65; }
+footer p { font-size: 0.68rem; color: rgba(245,241,232,0.28); }
+.footer-cta { font-size: 0.76rem; font-weight: 400; letter-spacing: 0.06em; text-transform: uppercase; text-decoration: none; color: var(--cream); background: rgba(245,241,232,0.1); padding: 0.55rem 1.3rem; border-radius: 2px; border: 1px solid rgba(245,241,232,0.18); transition: background 0.2s, border-color 0.2s; white-space: nowrap; }
+.footer-cta:hover { background: var(--purple); border-color: var(--purple); }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  nav { padding: 0.85rem 1.5rem; }
+  .hero { height: auto; min-height: 85vw; max-height: none; }
+  .hero-photo { object-position: 30% 60%; }
+  .hero-content { bottom: 2rem; left: 1.5rem; max-width: 34ch; }
+  .hero-quote { bottom: 2rem; right: 1.5rem; max-width: 28ch; }
+  .hero h1 { font-size: clamp(2rem, 8vw, 3rem); }
+  .panel-inner { padding: 2.5rem 1.5rem; }
+  .switcher { padding: 0 1.5rem; overflow-x: auto; }
+  .recog-cols { grid-template-columns: 1fr; gap: 2rem; }
+  .pub-grid { grid-template-columns: 1fr 1fr; }
+  .media-grid { grid-template-columns: 1fr; }
+  .speaking-item { grid-template-columns: 1fr; gap: 0.35rem; }
+  .photo-strip { height: 180px; }
+  .pub-featured { grid-template-columns: 1fr; padding: 1.5rem; }
+  footer { padding: 2rem 1.5rem; }
+}
+@media (max-width: 580px) {
+  .pub-grid { grid-template-columns: 1fr; }
+  .hero-quote { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; transform: none !important; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<div id="site-nav-placeholder" data-theme="light-bg" data-current="ideas"></div>
+
+<!-- HERO: full-bleed photo, quote reveals on hover then stays -->
+<div class="hero" id="hero">
+  <img class="hero-photo" src="IMG_1580.jpeg" alt="Kate Barranco writing in a stained-glass window alcove">
+  <div class="hero-gradient"></div>
+
+  <!-- Page title — bottom left -->
+  <div class="hero-content">
+    <div class="hero-eyebrow">Ideas & Recognition</div>
+    <h1>Where the<br><em>thinking</em><br>goes public.</h1>
+    <p class="hero-desc">Publications, speaking, media features, and recognition — the public trace of a practice built at the intersection of imagination, healing, and civic futures.</p>
+  </div>
+
+  <!-- Toni Morrison quote — bottom right, hover to reveal -->
+  <div class="hero-quote" id="heroQuote">
+    <blockquote>This is precisely the time when artists go to work. Not when everything is fine, but in times of dread. There is no time for despair, no place for self-pity, no need for silence, no room for fear. We speak, we write, we do language. That is how civilizations heal.</blockquote>
+    <p class="q-attr">— Toni Morrison</p>
+  </div>
+</div>
+
+<!-- SECTION SWITCHER -->
+<div class="switcher-wrap">
+  <div class="switcher">
+    <button class="sw-btn active" data-panel="recognition">Awards & Fellowships</button>
+    <button class="sw-btn" data-panel="publications">Publications</button>
+    <button class="sw-btn" data-panel="speaking">Speaking</button>
+    <button class="sw-btn" data-panel="media">Media</button>
+  </div>
+</div>
+
+<!-- PANEL: AWARDS & FELLOWSHIPS -->
+<div class="panel active" id="panel-recognition">
+  <div class="panel-inner">
+    <div class="panel-header">
+      <div class="panel-label">Recognition</div>
+      <h2 class="panel-h2">Awards &amp; <em>Fellowships</em></h2>
+    </div>
+    <div class="recog-cols">
+      <div>
+        <div class="recog-group-label">Awards</div>
+        <div class="recog-item">
+          <div>
+            <a href="https://sips.georgetown.edu/" class="recog-name" target="_blank">Social Innovation &amp; Public Service Award</a>
+            <div class="recog-org">Georgetown University</div>
+          </div>
+          <div class="recog-year">2020</div>
+        </div>
+        <div class="recog-item">
+          <div>
+            <a href="https://global.georgetown.edu/features/improving-the-human-condition-grant-enables-students-to-contribute-to-global-communities" class="recog-name" target="_blank">Improving the Human Condition Award</a>
+            <div class="recog-org">Georgetown University</div>
+          </div>
+          <div class="recog-year">2020–21</div>
+        </div>
+      </div>
+      <div>
+        <div class="recog-group-label">Fellowships</div>
+        <div class="recog-item">
+          <div>
+            <a href="https://www.chathamhouse.org/academy/common-futures-conversations" class="recog-name" target="_blank">Common Futures Conversations Member</a>
+            <div class="recog-org">Chatham House</div>
+          </div>
+          <div class="recog-year">2026</div>
+        </div>
+        <div class="recog-item">
+          <div>
+            <a href="https://newpublic.org/afterthefeed" class="recog-name" target="_blank">New_Public Co-Investigator — AI &amp; Social Conversation</a>
+            <div class="recog-org">New_Public</div>
+          </div>
+          <div class="recog-year">2025–26</div>
+        </div>
+        <div class="recog-item">
+          <div>
+            <a href="https://www.legacyprojectinc.org/intergenchange" class="recog-name" target="_blank">Intergenerational Changemakers Fellowship</a>
+            <div class="recog-org">The Legacy Project</div>
+          </div>
+          <div class="recog-year">2025</div>
+        </div>
+        <div class="recog-item">
+          <div>
+            <a href="https://beeckcenter.georgetown.edu/projects/gu-impacts-fellowship/" class="recog-name" target="_blank">GU Impacts Fellowship</a>
+            <div class="recog-org">Georgetown University Beeck Center</div>
+          </div>
+          <div class="recog-year">2021</div>
+        </div>
+        <div class="recog-item">
+          <div>
+            <a href="https://college.georgetown.edu/research/undergraduate-research/royden-b-davis-fellowship/" class="recog-name" target="_blank">Royden B. Davis Summer Fellowship</a>
+            <div class="recog-org">Georgetown University</div>
+          </div>
+          <div class="recog-year">2020–21</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PANEL: PUBLICATIONS -->
+<div class="panel" id="panel-publications">
+  <div class="panel-inner">
+    <div class="panel-header">
+      <div class="panel-label">Writing</div>
+      <h2 class="panel-h2"><em>Publications</em></h2>
+    </div>
+    <a href="https://www.newamerica.org/insights/operationalizing-imagination/" class="pub-featured" target="_blank">
+      <div>
+        <div class="pub-feat-badge">Featured · New America</div>
+        <div class="pub-feat-title">Operationalizing Imagination</div>
+        <div class="pub-feat-source">Futures Security Scenario Lab · New America</div>
+      </div>
+      <div class="pub-feat-arrow">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 12L12 2M12 2H5M12 2V9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+    </a>
+    <div class="pub-grid">
+      <a href="https://timeleft.com/essays/why-its-easier-to-joke-about-the-apocalypse-than-imagine-a-better-community" class="pub-card" target="_blank">
+        <div class="pub-card-title">Why It's Easier to Joke About the Apocalypse Than Imagine a Better Community</div>
+        <div class="pub-card-source">Timeleft</div>
+        <div class="pub-card-arrow">Read →</div>
+      </a>
+      <a href="https://thred.com/culture/is-gen-z-too-emotionally-literate-to-feel/" class="pub-card" target="_blank">
+        <div class="pub-card-title">Is Gen Z Too Emotionally Literate to Feel?</div>
+        <div class="pub-card-source">Thred Media</div>
+        <div class="pub-card-arrow">Read →</div>
+      </a>
+      <a href="https://networkofwellbeing.org/2024/03/05/ecological-belonging-reweaving-ourselves-each-other-and-the-natural-world/" class="pub-card" target="_blank">
+        <div class="pub-card-title">Ecological Belonging: Weaving People, Purpose and Planet</div>
+        <div class="pub-card-source">Network of Wellbeing</div>
+        <div class="pub-card-arrow">Read →</div>
+      </a>
+      <a href="https://journals.plos.org/digitalhealth/article/metrics?id=10.1371/journal.pdig.0000876" class="pub-card" target="_blank">
+        <div class="pub-card-title">The Digital Crossroads: Media Literacy and the Future of Youth Online</div>
+        <div class="pub-card-source">PLOS Digital Health</div>
+        <div class="pub-card-arrow">Read →</div>
+      </a>
+      <a href="https://www.advancejournal.org/article/94666-transforming-higher-education-building-trauma-informed-communities-for-healing-and-intergenerational-wellbeing" class="pub-card" target="_blank">
+        <div class="pub-card-title">Transforming Higher Education: Trauma-Informed Communities for Healing and Intergenerational Wellbeing</div>
+        <div class="pub-card-source">The ADVANCE OSU Journal · Vol. 5, 2024</div>
+        <div class="pub-card-arrow">Read →</div>
+      </a>
+      <a href="https://indd.adobe.com/view/11ad3a3f-a931-40c1-a758-4b643b2785a6" class="pub-card" target="_blank">
+        <div class="pub-card-title">The Journey Framework</div>
+        <div class="pub-card-source">Red House, Georgetown University</div>
+        <div class="pub-card-arrow">Read →</div>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- PANEL: SPEAKING -->
+<div class="panel" id="panel-speaking">
+  <div class="panel-inner">
+    <div class="panel-header">
+      <div class="panel-label">In the room</div>
+      <h2 class="panel-h2">Speaking &amp; <em>Facilitation</em></h2>
+    </div>
+    <div class="speaking-list">
+      <div class="speaking-item">
+        <div><div class="speaking-year">2026</div><div class="speaking-venue">Civics Unplugged Civic Innovation Academy · UPenn · Philadelphia, PA</div></div>
+        <div>
+          <div class="speaking-title">Guest Speaker &amp; Session Facilitator</div>
+          <div class="speaking-body">Designed and led an experiential 60-minute session on operationalizing imagination for 40+ high school fellows at a week-long civic leadership academy hosted at the University of Pennsylvania. Session centered on constrained creativity as a tool for navigating AI-driven uncertainty in education and the future of work.</div>
+        </div>
+      </div>
+      <div class="speaking-item">
+        <div><div class="speaking-year">2026</div><div class="speaking-venue">World Futures Day – Young Voices · Teach the Future</div></div>
+        <div>
+          <div class="speaking-title">Sandbox for Imagination: A Playground for Regenerative Futures</div>
+          <div class="speaking-body">Designed and facilitated an interactive, intergenerational workshop engaging global youth and adult participants in experiential futures practices, ethical AI dialogue, and collaborative worldbuilding exercises to strengthen futures literacy and regenerative imagination.</div>
+        </div>
+      </div>
+      <div class="speaking-item">
+        <div><div class="speaking-year">2026</div><div class="speaking-venue">Harvard Innovation Lab Start-Up Fair</div></div>
+        <div>
+          <div class="speaking-title">Experiential Futures Sandbox</div>
+          <div class="speaking-body">Activated an interactive AI + Imagination Curriculum experience at Harvard's i-lab, engaging undergraduate and graduate innovators in hands-on futures literacy, ethical AI exploration, and worldbuilding practices that strengthen imagination as a real-world skill.</div>
+        </div>
+      </div>
+      <div class="speaking-item">
+        <div><div class="speaking-year">2026</div><div class="speaking-venue">Wired Human Roundtable · U.S. Capitol</div></div>
+        <div>
+          <div class="speaking-title">Youth Coalition Ambassador</div>
+          <div class="speaking-body">Facilitated a cross-sector roundtable convening policymakers, technologists, and civic leaders to explore ethical AI, youth wellbeing, and the future of digital public infrastructure — guiding dialogue that bridged youth voice, policy design, and human-centered innovation.</div>
+        </div>
+      </div>
+      <div class="speaking-item">
+        <div><div class="speaking-year">2025</div><div class="speaking-venue">Youth Innovators Fellowship · ReThink Citizen</div></div>
+        <div>
+          <div class="speaking-title">Storytelling for Social Change &amp; Catalyzing Imagination</div>
+          <div class="speaking-body">Facilitated storytelling for social change workshop and catalyzing imagination sessions with youth innovators from diverse Midwest communities.</div>
+        </div>
+      </div>
+      <div class="speaking-item">
+        <div><div class="speaking-year">2025</div><div class="speaking-venue">Foundation for Social Connection</div></div>
+        <div>
+          <div class="speaking-title">Intergenerational Dialogue Series</div>
+          <div class="speaking-body">Led participatory dialogues on AI, technology, and intergenerational connection in partnership with Joint Family, bridging youth and elder perspectives.</div>
+        </div>
+      </div>
+      <div class="speaking-item">
+        <div><div class="speaking-year">2025</div><div class="speaking-venue">UN Science Summit · UN General Assembly</div></div>
+        <div>
+          <div class="speaking-title">Beyond Awareness — For You Page</div>
+          <div class="speaking-body">Panelist on <em>The Power of Connection: Fostering Social Support for Youth Wellbeing</em>, highlighting youth-driven mental health advocacy and relational civic ecosystems.</div>
+        </div>
+      </div>
+      <div class="speaking-item">
+        <div><div class="speaking-year">2025</div><div class="speaking-venue">Digital Health Week · PLOS Digital Health &amp; DTH-Lab</div></div>
+        <div>
+          <div class="speaking-title">Building Trust, Literacy, and Participation in the Digital Health Era</div>
+          <div class="speaking-body">Panelist exploring Gen-Z media literacy, health futures, and digital participation.</div>
+        </div>
+      </div>
+      <div class="speaking-item">
+        <div><div class="speaking-year">2025</div><div class="speaking-venue">Joint Family · Northeastern University</div></div>
+        <div>
+          <div class="speaking-title">Guest Lecture</div>
+          <div class="speaking-body">Delivered a guest lecture translating research on storytelling, intergenerational dialogue, and participatory design into actionable guidance for students exploring freelance futures, relational leadership, and cross-generational collaboration in a rapidly evolving work landscape.</div>
+        </div>
+      </div>
+      <div class="speaking-item">
+        <div><div class="speaking-year">2025</div><div class="speaking-venue">Columbia Climate School · MR2025</div></div>
+        <div>
+          <div class="speaking-title">Crafting a Shared Story for Resilience in Transitions</div>
+          <div class="speaking-body">Co-facilitated workshop guiding participants through narrative and ecological resilience exercises rooted in solastalgia, belonging, and transition design.</div>
+        </div>
+      </div>
+      <div class="speaking-item">
+        <div><div class="speaking-year">2024</div><div class="speaking-venue">The Wellbeing Project · Global Gatherings</div></div>
+        <div>
+          <div class="speaking-title">Ecological Belonging &amp; Intergenerational Healing</div>
+          <div class="speaking-body">Facilitated conversations on ecological belonging and intergenerational healing with global social-change leaders, integrating art, systems thinking, and dialogue practice.</div>
+        </div>
+      </div>
+      <div class="speaking-item">
+        <div><div class="speaking-year">2023</div><div class="speaking-venue">Georgetown University · Class Lecture</div></div>
+        <div>
+          <div class="speaking-title">Bearing Witness</div>
+          <div class="speaking-body">Guest lecture on trauma-informed approaches to systems change, narrative strategy, and intergenerational wellbeing.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PANEL: MEDIA -->
+<div class="panel" id="panel-media">
+  <div class="panel-inner">
+    <div class="panel-header">
+      <div class="panel-label">Press &amp; Podcast</div>
+      <h2 class="panel-h2">Media <em>Features</em></h2>
+    </div>
+    <div class="media-grid">
+      <a href="https://indd.adobe.com/view/11ad3a3f-a931-40c1-a758-4b643b2785a6" class="media-card" target="_blank">
+        <div class="media-type">Framework</div>
+        <div class="media-title">The Journey Framework</div>
+        <div class="media-source">Georgetown University Red House</div>
+        <div class="media-link">Learn more →</div>
+      </a>
+      <a href="https://www.social-connection.ai/" class="media-card" target="_blank">
+        <div class="media-type">Research</div>
+        <div class="media-title">Navigating Generative AI and Youth Social Connection Through Intergenerational Conversation</div>
+        <div class="media-source">Foundation for Social Connection</div>
+        <div class="media-link">Learn more →</div>
+      </a>
+      <a href="https://www.georgetown.edu/news/georgetown-expands-commitment-to-mental-health-services-for-university-community/" class="media-card" target="_blank">
+        <div class="media-type">Press Release</div>
+        <div class="media-title">Georgetown Expands Commitment to Mental Health Services for University Community</div>
+        <div class="media-source">Georgetown University</div>
+        <div class="media-link">Read →</div>
+      </a>
+      <a href="https://open.spotify.com/episode/6GAlOYcNr4CFv4Wc94GUHB?si=62cf8c87f15640b8" class="media-card" target="_blank">
+        <div class="media-type">Podcast</div>
+        <div class="media-title">Media Literacy and Artificial Intimacy</div>
+        <div class="media-source">The With Intention Podcast · Kendall Bryant &amp; Hannah Folau</div>
+        <div class="media-link">Listen →</div>
+      </a>
+      <a href="https://www.instagram.com/stories/highlights/17958273148422808/?hl=en" class="media-card" target="_blank">
+        <div class="media-type">Social / Collaboration</div>
+        <div class="media-title">FreeState Justice / One Love Instagram Live — Inclusive Curriculum</div>
+        <div class="media-source">FreeState Justice &amp; One Love</div>
+        <div class="media-link">Watch →</div>
+      </a>
+      <a href="https://www.hercampus.com/career/college-major-doesnt-determine-career-post-grad-jobs/" class="media-card" target="_blank">
+        <div class="media-type">Press Feature</div>
+        <div class="media-title">The Biggest Post-Grad Myth? Your Major Locks You Into A Specific Career</div>
+        <div class="media-source">Her Campus</div>
+        <div class="media-link">Read →</div>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- PHOTO STRIP -->
+<div class="photo-strip">
+  <img src="1778546267042.jpeg" alt="Kate Barranco speaking on Next Generation Democracy panel">
+  <img src="EBPhoto.png" alt="Kate Barranco co-designing with a collaborator">
+</div>
+
+<!-- FOOTER -->
+<div id="site-footer-placeholder"></div>
+
+<script>
+// ── Panel switcher ──
+const btns = document.querySelectorAll('.sw-btn');
+const panels = document.querySelectorAll('.panel');
+btns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    const target = btn.dataset.panel;
+    btns.forEach(b => b.classList.remove('active'));
+    panels.forEach(p => p.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById('panel-' + target).classList.add('active');
+    const sw = document.querySelector('.switcher-wrap');
+    window.scrollTo({ top: sw.getBoundingClientRect().bottom + window.scrollY, behavior: 'smooth' });
+  });
+});
+
+// ── Quote: reveal on first hover, then stays ──
+const hero = document.getElementById('hero');
+const quote = document.getElementById('heroQuote');
+let revealed = false;
+hero.addEventListener('mouseenter', () => {
+  if (!revealed) {
+    revealed = true;
+    quote.classList.add('revealed');
+  }
+});
+</script>
+<script src="../shared/nav.js"></script>
+<script src="../shared/footer.js"></script>
+</body>
+</html>

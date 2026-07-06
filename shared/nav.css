@@ -1,0 +1,74 @@
+/* Shared navigation — single source of truth, injected by shared/nav.js */
+.shared-nav-bar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  font-family: 'Inter', 'Inter Tight', -apple-system, sans-serif;
+}
+
+.shared-nav--dark .shared-nav-bar { background: rgba(17, 20, 41, 0.55); }
+.shared-nav--light .shared-nav-bar { background: rgba(245, 241, 232, 0.8); box-shadow: 0 1px 0 rgba(26,26,24,0.08); }
+
+.shared-nav-logo { display: flex; align-items: center; }
+.shared-nav-logo img { height: 30px; width: auto; display: block; }
+
+.shared-nav-links {
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.shared-nav-links a {
+  text-decoration: none;
+  font-size: 0.9rem;
+  letter-spacing: 0.01em;
+  transition: opacity 0.2s ease;
+  white-space: nowrap;
+}
+
+.shared-nav--dark .shared-nav-links a { color: #F5F1E8; opacity: 0.82; }
+.shared-nav--light .shared-nav-links a { color: #1A1A18; opacity: 0.72; }
+.shared-nav-links a:hover { opacity: 1; }
+.shared-nav-links a.active { opacity: 1; border-bottom: 1px solid currentColor; padding-bottom: 3px; }
+
+.shared-nav-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.4rem;
+}
+.shared-nav-toggle span { width: 22px; height: 2px; border-radius: 1px; }
+.shared-nav--dark .shared-nav-toggle span { background: #F5F1E8; }
+.shared-nav--light .shared-nav-toggle span { background: #1A1A18; }
+
+@media (max-width: 860px) {
+  .shared-nav-toggle { display: flex; }
+  .shared-nav-links {
+    position: absolute;
+    top: 100%; left: 0; right: 0;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.25s ease;
+  }
+  .shared-nav--dark .shared-nav-links { background: rgba(17, 20, 41, 0.97); }
+  .shared-nav--light .shared-nav-links { background: rgba(245, 241, 232, 0.98); }
+  .shared-nav-bar.is-open .shared-nav-links { max-height: 26rem; }
+  .shared-nav-links a { padding: 0.85rem 2rem; width: 100%; }
+  .shared-nav-links a.active { border-bottom: none; border-left: 2px solid currentColor; padding-left: calc(2rem - 2px); }
+}

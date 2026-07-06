@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About — Conscious Futures Studio</title>
+  <meta name="description" content="Two lenses, one way of seeing: the practitioner behind Conscious Futures, and the studio itself.">
+  <meta property="og:title" content="About — Conscious Futures Studio">
+  <meta property="og:description" content="Two lenses, one way of seeing.">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300..900,0..100,0..1;1,9..144,300..900,0..100,0..1&family=Inter+Tight:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="assets/images/logos/favicon.png">
+  <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="stylesheet" href="../shared/nav.css">
+  <link rel="stylesheet" href="../shared/footer.css">
+  <!-- ANALYTICS PLACEHOLDER: Insert Cloudflare Web Analytics or Plausible <script> snippet here once a provider is chosen. -->
+  <style>
+    /* ---- ABOUT HUB — brand-accent tokens (layered on top of main.css cream/ink system) ---- */
+    :root{
+      --orange: #E75213;
+      --navy:   #1A1F5B;
+      --purple: #800287;
+    }
+    @media (prefers-reduced-motion: reduce){
+      *, *::before, *::after{ animation-duration:.01ms !important; transition-duration:.01ms !important; }
+    }
+
+    body.hub-body{ background:var(--navy); }
+
+    /* ---- HUB SECTION ---- */
+    .hub{
+      position:relative;
+      min-height:100vh;
+      display:flex;
+      flex-direction:column;
+      overflow:hidden;
+      background:linear-gradient(160deg, var(--navy) 0%, #331257 58%, var(--purple) 100%);
+      color:var(--bg);
+    }
+    /* Soft navy/purple depth + a warm glow at the horizon — no flat black */
+    .hub::after{
+      content:'';
+      position:absolute; inset:0; z-index:0; pointer-events:none;
+      background:
+        linear-gradient(to bottom, rgba(15,17,48,.4) 0%, transparent 45%, rgba(128,2,135,.3) 100%),
+        radial-gradient(ellipse 75% 50% at 50% 100%, rgba(231,82,19,.28) 0%, transparent 68%);
+    }
+    .hub-grid{
+      position:absolute; inset:0; z-index:0; pointer-events:none;
+      background-image:
+        linear-gradient(rgba(245,241,232,.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(245,241,232,.02) 1px, transparent 1px);
+      background-size:72px 72px;
+    }
+    .hub-ghost{
+      position:absolute; left:50%; top:54%; transform:translate(-50%,-50%);
+      font-family:'Fraunces', serif; font-size:clamp(9rem,30vw,20rem); font-weight:700; line-height:1;
+      color:transparent; -webkit-text-stroke:1px rgba(245,241,232,.05);
+      pointer-events:none; user-select:none; z-index:0; letter-spacing:-.03em;
+      font-variation-settings:"opsz" 144,"SOFT" 0;
+    }
+
+    .hub-inner{
+      position:relative; z-index:1;
+      flex:1;
+      display:flex; flex-direction:column; align-items:center; justify-content:center;
+      padding: calc(var(--nav-h) + 3rem) var(--pad-x) 2.5rem;
+      text-align:center;
+    }
+    .hub-eyebrow{
+      color:rgba(245,241,232,.55);
+      justify-content:center;
+      margin-bottom:1.25rem;
+    }
+    .hub-eyebrow::before{ background:rgba(245,241,232,.4); }
+
+    .hub-h1{
+      display:flex; flex-direction:column; align-items:center; gap:.6rem;
+      margin-bottom:.85rem;
+    }
+    .hub-h1-lead{
+      font-family:'Fraunces', serif;
+      font-size:clamp(1.1rem, 2vw, 1.5rem);
+      font-weight:400; font-style:italic;
+      letter-spacing:.02em;
+      font-variation-settings:"opsz" 40,"SOFT" 60,"WONK" 1;
+      color:rgba(245,241,232,.6);
+    }
+    .hub-h1-logo{
+      width:clamp(240px, 28vw, 380px); height:auto;
+      filter:drop-shadow(0 2px 20px rgba(26,26,24,.55));
+    }
+    .hub-sub{
+      font-size:1.02rem;
+      color:rgba(245,241,232,.68);
+      max-width:46ch;
+      margin: 0 auto 3.75rem;
+      text-shadow:0 1px 8px rgba(26,26,24,.6);
+    }
+
+    /* ---- LENS ROW ---- */
+    .lens-row{
+      position:relative; z-index:1;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+
+    .lens-wrap{
+      position:relative;
+      width:clamp(220px, 30vw, 380px);
+      height:clamp(220px, 30vw, 380px);
+      flex-shrink:0;
+    }
+    .lens-btn{
+      position:relative;
+      width:100%; height:100%;
+      border-radius:50%;
+      display:flex; align-items:center; justify-content:center;
+      text-decoration:none;
+      color:var(--bg);
+      overflow:hidden;
+      cursor:pointer;
+      transition: transform .35s cubic-bezier(0.16,1,0.3,1),
+                  box-shadow .35s ease,
+                  opacity .3s ease;
+      box-shadow: 0 0 0 1px rgba(245,241,232,.06), 0 20px 60px rgba(0,0,0,.35);
+    }
+    .lens-kate{ background: radial-gradient(circle at center, rgba(231,82,19,.26) 0%, rgba(26,31,91,.55) 72%); }
+    .lens-cf{   background: radial-gradient(circle at center, rgba(128,2,135,.36) 0%, rgba(26,31,91,.55) 72%); }
+
+    /* Hand-drawn frame — the actual logo artwork (legs cropped off), so the button traces the same hand-wobbled circle as the glasses mark */
+    .lens-frame{
+      position:absolute; inset:-6%; width:112%; height:112%;
+      pointer-events:none; z-index:2; overflow:visible;
+    }
+    .lens-frame img{
+      width:100%; height:100%; object-fit:contain; display:block;
+      opacity:.5;
+      transition:opacity .3s ease, transform .35s cubic-bezier(0.16,1,0.3,1);
+    }
+
+    .lens-glass{
+      position:absolute; inset:0; border-radius:50%;
+      background:radial-gradient(circle at 34% 30%, rgba(245,241,232,.2) 0%, transparent 46%);
+      pointer-events:none;
+    }
+
+    .lens-wrap:hover .lens-btn{ transform:scale(1.035); }
+    .lens-wrap:hover .lens-frame img{ opacity:.85; }
+    .lens-wrap:hover .lens-glass{ background:radial-gradient(circle at 34% 30%, rgba(245,241,232,.3) 0%, transparent 50%); }
+    .lens-btn.focusing{ transform:scale(1.08); opacity:.94; }
+    .lens-btn.unfocusing{ transform:scale(.94); opacity:.32; }
+    .lens-btn.focusing + .lens-frame img{ transform:scale(1.08); opacity:.94; transform-origin:center; }
+    .lens-btn.unfocusing + .lens-frame img{ transform:scale(.94); opacity:.32; transform-origin:center; }
+
+    .lens-content{ position:relative; z-index:1; text-align:center; padding:0 2.1rem; }
+    .lens-eyebrow{
+      font-family:'JetBrains Mono', monospace;
+      font-size:.62rem; letter-spacing:.14em; text-transform:uppercase;
+      color:rgba(245,241,232,.55);
+      margin-bottom:.65rem;
+    }
+    .lens-name{
+      font-family:'Fraunces', serif;
+      font-size:clamp(1.45rem,2.6vw,2.05rem);
+      font-weight:400; letter-spacing:-.02em;
+      font-variation-settings:"opsz" 144,"SOFT" 30,"WONK" 1;
+      margin-bottom:.65rem;
+      line-height:1.05;
+    }
+    .lens-desc{ font-size:.86rem; line-height:1.5; color:rgba(245,241,232,.75); max-width:22ch; margin:0 auto; }
+    .lens-name-logo{ width:clamp(120px,13vw,170px); height:auto; display:block; margin:0 auto .65rem; }
+
+    /* ---- BRIDGE ---- */
+    .lens-bridge{
+      position:relative;
+      width:clamp(56px, 7vw, 108px);
+      height:clamp(56px, 7vw, 108px);
+      flex-shrink:0;
+      display:flex; align-items:center; justify-content:center;
+      z-index:0;
+    }
+    .lens-bridge svg{ width:100%; height:auto; overflow:visible; position:relative; z-index:1; }
+    .bridge-path{
+      fill:none;
+      stroke:rgba(245,241,232,.55);
+      stroke-width:1.4;
+      stroke-linecap:round;
+      filter:url(#bridge-wobble);
+    }
+    .bridge-glow{
+      position:absolute; inset:-40px;
+      background: radial-gradient(ellipse 80% 60% at 50% 50%, rgba(231,82,19,.22) 0%, rgba(128,2,135,.26) 62%, transparent 100%);
+      filter:blur(16px);
+      opacity:.85;
+      pointer-events:none;
+      z-index:0;
+    }
+    .bridge-pulse{
+      position:absolute; top:50%; left:50%; width:10px; height:10px; border-radius:50%;
+      background:radial-gradient(circle, rgba(245,241,232,.95) 0%, transparent 72%);
+      transform:translate(-50%,-50%) scale(0);
+      opacity:0;
+      pointer-events:none;
+      z-index:2;
+      transition: transform .6s cubic-bezier(0.16,1,0.3,1), opacity .35s ease;
+    }
+    .lens-row.hover-left .bridge-pulse{ transform:translate(-320%,-50%) scale(1); opacity:1; }
+    .lens-row.hover-right .bridge-pulse{ transform:translate(220%,-50%) scale(1); opacity:1; }
+
+    .bridge-caption{
+      position:relative; z-index:1;
+      font-family:'JetBrains Mono', monospace;
+      font-size:.66rem; letter-spacing:.1em; text-transform:uppercase;
+      color:rgba(245,241,232,.4);
+      margin-top:2.25rem;
+      text-align:center;
+    }
+
+    /* ---- WHY GLASSES ACCORDION ---- */
+    .hub-accordion{
+      position:relative; z-index:1;
+      max-width:560px; margin:2.5rem auto 0;
+      background:rgba(245,241,232,.05);
+      border:1px solid rgba(245,241,232,.16);
+      border-radius:var(--radius);
+      backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px);
+      text-align:left;
+      overflow:hidden;
+      transition:background .3s ease, border-color .3s ease;
+    }
+    .hub-accordion:hover{ background:rgba(245,241,232,.08); border-color:rgba(245,241,232,.26); }
+    .hub-accordion-toggle{
+      display:flex; align-items:center; justify-content:space-between; gap:1rem;
+      padding:1rem 1.4rem;
+      cursor:pointer;
+      list-style:none;
+      font-family:'JetBrains Mono', monospace;
+      font-size:.75rem; letter-spacing:.08em; text-transform:uppercase;
+      color:rgba(245,241,232,.72);
+      transition:color .2s ease;
+    }
+    .hub-accordion-toggle::-webkit-details-marker{ display:none; }
+    .hub-accordion-toggle:hover{ color:var(--bg); }
+    .hub-accordion-toggle-label{ display:flex; align-items:center; gap:.6rem; }
+    .hub-accordion-toggle-label img{ width:22px; height:auto; opacity:.85; }
+    .hub-accordion-caret{ font-size:1.15rem; font-family:'Inter Tight', sans-serif; font-weight:300; transition:transform .3s ease; flex-shrink:0; }
+    .hub-accordion[open] .hub-accordion-caret{ transform:rotate(45deg); }
+    .hub-accordion-panel{ padding:0 1.4rem 1.6rem; }
+    .hub-accordion-panel p{
+      font-family:'Inter Tight', sans-serif;
+      font-size:.92rem; line-height:1.7; color:rgba(245,241,232,.78);
+    }
+    .hub-accordion-panel p + p{ margin-top:.9rem; }
+
+    @media (max-width: 720px){
+      .lens-row{ flex-direction:column; }
+      .lens-wrap{ width:min(78vw,300px); height:min(78vw,300px); }
+      .lens-bridge{ width:60px; height:60px; transform:rotate(90deg); margin:-6px 0; }
+      .bridge-glow{ inset:-30px; }
+    }
+
+    /* ---- NAV — About dropdown (this build only routes within the About experience) ---- */
+    .nav-dropdown{ position:relative; }
+    .nav-dropdown-toggle{ display:flex; align-items:center; gap:.3rem; }
+    .nav-caret{ font-size:.65em; transition:transform .25s ease; display:inline-block; }
+    .nav-dropdown:hover .nav-caret, .nav-dropdown:focus-within .nav-caret{ transform:rotateX(180deg); }
+    .nav-dropdown-menu{
+      position:absolute; top:calc(100% + 14px); right:0; transform:translateY(6px);
+      background:var(--paper); border:1px solid var(--line); border-radius:var(--radius);
+      box-shadow:0 20px 50px rgba(0,0,0,.14);
+      min-width:220px; padding:.5rem; list-style:none;
+      opacity:0; visibility:hidden; pointer-events:none;
+      transition:opacity .22s ease, transform .22s ease;
+      z-index:50;
+    }
+    .nav-dropdown:hover .nav-dropdown-menu,
+    .nav-dropdown:focus-within .nav-dropdown-menu{
+      opacity:1; visibility:visible; pointer-events:auto; transform:translateY(0);
+    }
+    .nav-dropdown-menu a{
+      display:block; padding:.65rem .85rem; border-radius:calc(var(--radius) - 6px);
+      font-size:.88rem; color:var(--ink); text-decoration:none; white-space:nowrap;
+    }
+    .nav-dropdown-menu a:hover{ background:var(--bg); }
+    .nav-mobile-sub{ padding-left:1.5rem !important; font-size:.9em !important; opacity:.75; }
+  </style>
+</head>
+<body class="hub-body">
+
+<!-- ============================================================
+     NAV
+     ============================================================ -->
+<div id="site-nav-placeholder" data-theme="dark-bg" data-current="about"></div>
+
+<!-- ============================================================
+     HUB — two lenses, one bridge
+     ============================================================ -->
+<section class="hub" aria-label="About Conscious Futures — choose a lens">
+  <div class="hub-grid" aria-hidden="true"></div>
+  <div class="hub-ghost" aria-hidden="true">SEE</div>
+
+  <!-- inline SVG filter for the bridge's hand-drawn wobble, echoing the logo's own hand-drawn imperfection -->
+  <svg width="0" height="0" style="position:absolute">
+    <filter id="bridge-wobble">
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="1" seed="7" result="noise"/>
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="2.2"/>
+    </filter>
+  </svg>
+
+  <div class="hub-inner">
+    <div class="section-label hub-eyebrow" data-reveal>
+      <span></span>
+      How we see
+    </div>
+    <h1 class="hub-h1" data-reveal data-reveal-delay="1">
+      <span class="hub-h1-lead">About</span>
+      <img class="hub-h1-logo" src="assets/images/logos/logo-white-full.png" alt="Conscious Futures">
+    </h1>
+    <p class="hub-sub" data-reveal data-reveal-delay="2">
+      One studio, two ways in — the person behind the practice, and the practice itself. Pick a lens.
+    </p>
+
+    <div class="lens-row" id="lens-row" data-reveal data-reveal-delay="3">
+      <div class="lens-wrap">
+        <a href="about-kate-barranco.html" class="lens-btn lens-kate" id="lens-kate" aria-label="About Kate Barranco — the practitioner behind Conscious Futures">
+          <div class="lens-glass" aria-hidden="true"></div>
+          <div class="lens-content">
+            <div class="lens-eyebrow">The practitioner</div>
+            <h2 class="lens-name">Kate Barranco</h2>
+            <p class="lens-desc">Background, methodology, and how she works.</p>
+          </div>
+        </a>
+        <div class="lens-frame" aria-hidden="true">
+          <img src="assets/images/logos/logo-white-lens-left.png" alt="">
+        </div>
+      </div>
+
+      <div class="lens-bridge" aria-hidden="true">
+        <div class="bridge-glow"></div>
+        <svg viewBox="0 0 100 30" preserveAspectRatio="none">
+          <path class="bridge-path" d="M2,15 Q50,7 98,15" />
+        </svg>
+        <div class="bridge-pulse"></div>
+      </div>
+
+      <div class="lens-wrap">
+        <a href="about-conscious-futures.html" class="lens-btn lens-cf" id="lens-cf" aria-label="About Conscious Futures — the studio">
+          <div class="lens-glass" aria-hidden="true"></div>
+          <div class="lens-content">
+            <div class="lens-eyebrow">The studio</div>
+            <h2 class="lens-name"><img class="lens-name-logo" src="assets/images/logos/logo-white-full.png" alt="Conscious Futures"></h2>
+            <p class="lens-desc">What it does, who it's for, and how to work together.</p>
+          </div>
+        </a>
+        <div class="lens-frame" aria-hidden="true">
+          <img src="assets/images/logos/logo-white-lens-right.png" alt="">
+        </div>
+      </div>
+    </div>
+
+    <p class="bridge-caption" data-reveal data-reveal-delay="4">Two lenses, one way of seeing.</p>
+
+    <details class="hub-accordion" data-reveal data-reveal-delay="5">
+      <summary class="hub-accordion-toggle">
+        <span class="hub-accordion-toggle-label">
+          <img src="assets/images/logos/logo-white-glasses.png" alt="" aria-hidden="true">
+          Why glasses?
+        </span>
+        <span class="hub-accordion-caret" aria-hidden="true">+</span>
+      </summary>
+      <div class="hub-accordion-panel">
+        <p>Our mark is a hand-drawn pair of glasses, designed by Abby Fish — a little wobbly at the edges, not a razor-clean vector arc. That's not an accident.</p>
+        <p>The future was never going to arrive polished and pre-rendered. It gets sketched, revised, and drawn again by the people paying the closest attention. Glasses are a lens, not a crystal ball — a tool for sharper sight into what's already emerging, not a promise of what's coming next.</p>
+        <p>Emergent, not polished. That's the whole idea.</p>
+      </div>
+    </details>
+  </div>
+</section>
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer class="footer">
+  <div class="footer-logo">
+    <img src="assets/images/logos/logo-white-full.png" alt="Conscious Futures Studio">
+    <p class="footer-tagline">"The future can't be predicted, but it can be envisioned and brought lovingly into being." — Donella Meadows</p>
+  </div>
+</footer>
+
+<div id="site-footer-placeholder"></div>
+
+<script src="assets/js/main.js"></script>
+<script src="../shared/nav.js"></script>
+<script src="../shared/footer.js"></script>
+<script>
+  /* ---- Bridge hover reaction: a small light travels toward the hovered lens ---- */
+  (function(){
+    var row = document.getElementById('lens-row');
+    var kate = document.getElementById('lens-kate');
+    var cf = document.getElementById('lens-cf');
+    if(!row || !kate || !cf) return;
+    kate.addEventListener('mouseenter', function(){ row.classList.add('hover-left'); });
+    kate.addEventListener('mouseleave', function(){ row.classList.remove('hover-left'); });
+    cf.addEventListener('mouseenter', function(){ row.classList.add('hover-right'); });
+    cf.addEventListener('mouseleave', function(){ row.classList.remove('hover-right'); });
+  })();
+
+  /* ---- Click transition: lens "focuses" before navigating ---- */
+  (function(){
+    var lenses = document.querySelectorAll('.lens-btn');
+    lenses.forEach(function(btn){
+      btn.addEventListener('click', function(e){
+        e.preventDefault();
+        var href = this.getAttribute('href');
+        var self = this;
+        lenses.forEach(function(o){
+          if(o === self){ o.classList.add('focusing'); }
+          else { o.classList.add('unfocusing'); }
+        });
+        setTimeout(function(){ window.location.href = href; }, 260);
+      });
+    });
+  })();
+</script>
+</body>
+</html>

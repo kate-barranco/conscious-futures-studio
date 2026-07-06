@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Kate Barranco — Conscious Futures Studio</title>
+  <meta name="description" content="Kate Barranco is the founder of Conscious Futures Studio — a practitioner working with civic and nonprofit leaders through research, narrative, facilitation, and futures thinking.">
+  <meta property="og:title" content="About Kate Barranco">
+  <meta property="og:description" content="The practitioner behind Conscious Futures Studio.">
+  <meta property="og:type" content="profile">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300..900,0..100,0..1;1,9..144,300..900,0..100,0..1&family=Inter+Tight:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="assets/images/logos/favicon.png">
+  <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="stylesheet" href="../shared/nav.css">
+  <link rel="stylesheet" href="../shared/footer.css">
+  <!-- ANALYTICS PLACEHOLDER: Insert Cloudflare Web Analytics or Plausible <script> snippet here once a provider is chosen. -->
+  <style>
+    :root{ --orange:#E75213; --navy:#1A1F5B; --purple:#800287; }
+    @media (prefers-reduced-motion: reduce){
+      *, *::before, *::after{ animation-duration:.01ms !important; transition-duration:.01ms !important; }
+    }
+
+
+    /* ---- NAV — About dropdown (this build only routes within the About experience) ---- */
+    .nav-dropdown{ position:relative; }
+    .nav-dropdown-toggle{ display:flex; align-items:center; gap:.3rem; }
+    .nav-caret{ font-size:.65em; transition:transform .25s ease; display:inline-block; }
+    .nav-dropdown:hover .nav-caret, .nav-dropdown:focus-within .nav-caret{ transform:rotateX(180deg); }
+    .nav-dropdown-menu{
+      position:absolute; top:calc(100% + 14px); right:0; transform:translateY(6px);
+      background:var(--paper); border:1px solid var(--line); border-radius:var(--radius);
+      box-shadow:0 20px 50px rgba(0,0,0,.14);
+      min-width:220px; padding:.5rem; list-style:none;
+      opacity:0; visibility:hidden; pointer-events:none;
+      transition:opacity .22s ease, transform .22s ease;
+      z-index:50;
+    }
+    .nav-dropdown:hover .nav-dropdown-menu,
+    .nav-dropdown:focus-within .nav-dropdown-menu{
+      opacity:1; visibility:visible; pointer-events:auto; transform:translateY(0);
+    }
+    .nav-dropdown-menu a{
+      display:block; padding:.65rem .85rem; border-radius:calc(var(--radius) - 6px);
+      font-size:.88rem; color:var(--ink); text-decoration:none; white-space:nowrap;
+    }
+    .nav-dropdown-menu a:hover{ background:var(--bg); }
+    .nav-dropdown-menu a.active{ color:var(--orange); }
+    .nav-mobile-sub{ padding-left:1.5rem !important; font-size:.9em !important; opacity:.75; }
+
+    /* ---- HERO — orange-dominant horizon, echoes the hub's Kate lens ---- */
+    .kb-hero{
+      position:relative; overflow:hidden;
+      min-height:76vh;
+      display:flex; flex-direction:column; justify-content:flex-end;
+      color:var(--bg);
+      background:linear-gradient(150deg, var(--orange) 0%, #9c3420 32%, var(--navy) 72%, var(--purple) 118%);
+    }
+    .kb-hero::after{
+      content:''; position:absolute; inset:0; z-index:0; pointer-events:none;
+      background:
+        linear-gradient(to bottom, rgba(15,17,48,.12) 0%, rgba(15,17,48,.32) 50%, rgba(15,17,48,.78) 100%),
+        radial-gradient(ellipse 70% 50% at 18% 100%, rgba(128,2,135,.35) 0%, transparent 68%);
+    }
+    .kb-hero-inner{
+      position:relative; z-index:1;
+      max-width:var(--max-w); margin:0 auto; width:100%;
+      padding:calc(var(--nav-h) + 4rem) var(--pad-x) 3.5rem;
+      display:grid; grid-template-columns:1.15fr .85fr; gap:3rem; align-items:end;
+    }
+    .kb-hero h1{
+      font-family:'Fraunces', serif;
+      font-size:clamp(2.8rem, 6vw, 5rem);
+      font-weight:400; line-height:.95; letter-spacing:-.03em;
+      font-variation-settings:"opsz" 144,"SOFT" 30,"WONK" 1;
+      text-shadow:0 2px 20px rgba(26,26,24,.5);
+    }
+    .kb-hero-desc{ font-size:1.02rem; line-height:1.65; color:rgba(245,241,232,.85); max-width:42ch; margin-top:1rem; }
+    .kb-eyebrow{ color:rgba(245,241,232,.5); margin-bottom:1.25rem; }
+    .kb-eyebrow::before{ background:rgba(245,241,232,.4); }
+    .kb-portrait{ position:relative; aspect-ratio:4/5; border-radius:var(--radius); overflow:hidden; box-shadow:0 30px 70px rgba(0,0,0,.4); }
+    .kb-portrait img{ width:100%; height:100%; object-fit:cover; object-position:center top; }
+    @media (max-width:800px){
+      .kb-hero-inner{ grid-template-columns:1fr; }
+      .kb-portrait{ max-height:280px; }
+    }
+
+    /* ---- WHO SHE IS — pull quote ---- */
+    .kb-pull{ padding:5.5rem var(--pad-x); background:var(--paper); }
+    .kb-pull blockquote{
+      max-width:60ch; margin:0 auto; text-align:center;
+      font-family:'Fraunces', serif; font-style:italic; font-weight:300;
+      font-size:clamp(1.25rem,2.5vw,1.85rem); line-height:1.5;
+      font-variation-settings:"opsz" 40,"SOFT" 60,"WONK" 1;
+      color:var(--ink);
+    }
+
+    /* ---- WAYS OF PRACTICE ---- */
+    .kb-practice{ background:linear-gradient(to bottom, var(--navy) 0%, var(--purple) 145%); color:var(--bg); padding:var(--pad-section) var(--pad-x); }
+    .kb-practice-in{ max-width:var(--max-w); margin:0 auto; }
+    .kb-practice-head{ text-align:center; max-width:56ch; margin:0 auto 3.5rem; }
+    .kb-practice-head .section-label{ justify-content:center; color:rgba(245,241,232,.45); margin:0 auto 1.25rem; }
+    .kb-practice-head .section-label::before{ background:rgba(245,241,232,.45); }
+    .kb-practice-head h2{
+      font-family:'Fraunces', serif; font-size:clamp(2rem,4vw,3rem); font-weight:400;
+      letter-spacing:-.02em; font-variation-settings:"opsz" 144,"SOFT" 30,"WONK" 1;
+    }
+    .kb-practice-head h2 em{ font-style:italic; font-variation-settings:"opsz" 144,"SOFT" 100,"WONK" 1; color:var(--gold); }
+    .kb-practice-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; }
+    .kb-practice-card{
+      border:1px solid rgba(245,241,232,.12); border-radius:var(--radius);
+      padding:2.25rem 1.85rem;
+      transition:background .3s, border-color .3s;
+    }
+    .kb-practice-card:hover{ background:rgba(245,241,232,.04); border-color:var(--gold); }
+    .kb-practice-icon{ width:34px; height:34px; margin-bottom:1.5rem; color:var(--gold); }
+    .kb-practice-icon svg{ width:100%; height:100%; display:block; }
+    .kb-practice-num{ font-family:'JetBrains Mono', monospace; font-size:.65rem; letter-spacing:.1em; text-transform:uppercase; color:var(--gold); margin-bottom:1.75rem; }
+    .kb-practice-card h3{ font-family:'Fraunces', serif; font-size:1.35rem; font-weight:400; margin-bottom:.4rem; }
+    .kb-practice-kicker{ font-size:.8rem; font-style:italic; color:rgba(245,241,232,.5); margin-bottom:.85rem; font-family:'Fraunces', serif; font-variation-settings:"opsz" 144,"SOFT" 80; }
+    .kb-practice-card p{ font-size:.92rem; line-height:1.6; color:rgba(245,241,232,.65); }
+    @media (max-width:900px){ .kb-practice-grid{ grid-template-columns:1fr; } }
+
+    /* ---- PROOF + ROUTING ---- */
+    .kb-proof{ background:var(--navy); color:var(--bg); padding:4rem var(--pad-x); }
+    .kb-proof-in{ max-width:var(--max-w); margin:0 auto; display:grid; grid-template-columns:1.3fr auto; gap:3rem; align-items:center; }
+    .kb-proof-badge{
+      font-family:'JetBrains Mono', monospace; font-size:.62rem; letter-spacing:.1em; text-transform:uppercase;
+      color:var(--gold); border:1px solid rgba(200,161,77,.4); display:inline-flex;
+      padding:.25rem .75rem; border-radius:99px; margin-bottom:1.1rem;
+    }
+    .kb-proof-in p{ font-size:1.05rem; line-height:1.65; color:rgba(245,241,232,.85); max-width:60ch; }
+    .kb-proof-btns{ display:flex; flex-direction:column; gap:.85rem; }
+    @media (max-width:900px){ .kb-proof-in{ grid-template-columns:1fr; } }
+
+    /* ---- HUMAN CLOSE ---- */
+    .kb-human{ padding:6rem var(--pad-x); background:var(--bg); text-align:center; }
+    .kb-human .section-label{ justify-content:center; margin:0 auto 1.5rem; color:var(--ink-mute); }
+    .kb-human .section-label::before{ background:var(--ink-mute); }
+    .kb-human p{ max-width:56ch; margin:0 auto; font-size:1.1rem; line-height:1.75; color:var(--ink-soft); }
+  </style>
+</head>
+<body>
+
+<!-- ============================================================
+     NAV
+     ============================================================ -->
+<div id="site-nav-placeholder" data-theme="dark-bg" data-current="about"></div>
+
+<!-- ============================================================
+     HERO
+     ============================================================ -->
+<section class="kb-hero" aria-label="Introduction">
+  <div class="kb-hero-inner">
+    <div>
+      <div class="section-label kb-eyebrow" data-reveal>
+        <span></span>
+        The practitioner
+      </div>
+      <h1 data-reveal data-reveal-delay="1">Kate Barranco</h1>
+      <p class="kb-hero-desc" data-reveal data-reveal-delay="2">Founder of Conscious Futures — researcher, facilitator, and futures strategist.</p>
+    </div>
+    <div class="kb-portrait" data-reveal data-reveal-delay="2">
+      <img src="assets/images/kate-portrait.jpg" alt="Kate Barranco, Founder of Conscious Futures Studio">
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     WHO SHE IS
+     ============================================================ -->
+<section class="kb-pull">
+  <blockquote data-reveal>
+    "I'm Kate Barranco, founder of Conscious Futures. I work with civic and nonprofit leaders on the strategic questions in front of them — through research, narrative, facilitation, and futures thinking, grounded in the belief that the people closest to the work should help shape the answers."
+  </blockquote>
+</section>
+
+<!-- ============================================================
+     PROOF + ROUTING
+     ============================================================ -->
+<section class="kb-proof">
+  <div class="kb-proof-in">
+    <div data-reveal>
+      <div class="kb-proof-badge">Track record</div>
+      <p>Over five years and 30+ projects, Kate has partnered with 20+ organizations and collaborators — including a featured essay with New America, a Community of Practice engagement with Harmony Labs, and contributions to the Civic AI Index with the National Conference on Citizenship.</p>
+    </div>
+    <div class="kb-proof-btns" data-reveal data-reveal-delay="1">
+      <a href="../portfolio/" class="btn btn-light">See the full body of work <span class="arrow">→</span></a>
+      <a href="../ideas/" class="btn btn-outline" style="border-color:rgba(245,241,232,.4); color:var(--bg);">Publications, speaking &amp; recognition <span class="arrow">→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     WAYS OF PRACTICE
+     ============================================================ -->
+<section class="kb-practice">
+  <div class="kb-practice-in">
+    <div class="kb-practice-head">
+      <div class="section-label" data-reveal>
+        <span></span>
+        How the work moves
+      </div>
+      <h2 data-reveal data-reveal-delay="1">Ways of <em>Practice</em>.</h2>
+    </div>
+
+    <div class="kb-practice-grid">
+      <div class="kb-practice-card" data-reveal data-reveal-delay="1">
+        <div class="kb-practice-icon" aria-hidden="true">
+          <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 20c4-7 10.5-11 16-11s12 4 16 11c-4 7-10.5 11-16 11S8 27 4 20z"/>
+            <circle cx="20" cy="20" r="5"/>
+          </svg>
+        </div>
+        <div class="kb-practice-num">01 — Attention</div>
+        <div class="kb-practice-kicker">what we learn to notice</div>
+        <h3>Attention</h3>
+        <p>Participatory research, systems awareness, and listening practices that surface patterns often overlooked, marginalized, or buried beneath dominant narratives.</p>
+      </div>
+      <div class="kb-practice-card" data-reveal data-reveal-delay="2">
+        <div class="kb-practice-icon" aria-hidden="true">
+          <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 5c-6 0-10.5 4.5-10.5 10 0 4 2.3 6.5 4 8.5 1 1.2 1.5 2 1.5 3.5v2h10v-2c0-1.5.5-2.3 1.5-3.5 1.7-2 4-4.5 4-8.5C30.5 9.5 26 5 20 5z"/>
+            <line x1="16.5" y1="33" x2="23.5" y2="33"/>
+            <line x1="17.5" y1="36" x2="22.5" y2="36"/>
+          </svg>
+        </div>
+        <div class="kb-practice-num">02 — Imagination</div>
+        <div class="kb-practice-kicker">what we allow ourselves to consider possible</div>
+        <h3>Imagination</h3>
+        <p>Futures thinking, narrative reframing, and speculative design that expand the space of what feels plausible and desirable — especially against dystopian defaults.</p>
+      </div>
+      <div class="kb-practice-card" data-reveal data-reveal-delay="3">
+        <div class="kb-practice-icon" aria-hidden="true">
+          <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 35V19"/>
+            <path d="M20 19c0-6-5-10-11-10 0 6 5 10 11 10z"/>
+            <path d="M20 24c0-5 4.5-9 9.5-9 0 5-4.5 9-9.5 9z"/>
+          </svg>
+        </div>
+        <div class="kb-practice-num">03 — Emergent Practice</div>
+        <div class="kb-practice-kicker">how possibility becomes practice</div>
+        <h3>Emergent Practice</h3>
+        <p>Translating insight and imagination into strategic orientation, prototype design, and relational practice, so futures aren't just imagined but lived into.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     HUMAN CLOSE
+     ============================================================ -->
+<section class="kb-human">
+  <div class="section-label" data-reveal>
+    <span></span>
+    Beyond the work
+  </div>
+  <p data-reveal data-reveal-delay="1">Outside of projects, I come alive through movement, music, and discovery. Boxing grounds me, music fuels my creativity, and solo travel opens me to wonder and perspective. I feel most at home when I'm exploring new places and leaning into moments that spark joy and curiosity.</p>
+</section>
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer class="footer">
+  <div class="footer-logo">
+    <img src="assets/images/logos/logo-white-full.png" alt="Conscious Futures Studio">
+    <p class="footer-tagline">"The future can't be predicted, but it can be envisioned and brought lovingly into being." — Donella Meadows</p>
+  </div>
+</footer>
+
+<div id="site-footer-placeholder"></div>
+
+<script src="assets/js/main.js"></script>
+<script src="../shared/nav.js"></script>
+<script src="../shared/footer.js"></script>
+</body>
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Conscious Futures — Through the Lens</title>
+<meta name="description" content="Conscious Futures is a research and strategy studio designing for the futures we actually want to inherit.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;1,300;1,400&family=Inter:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/main.css">
+<link rel="stylesheet" href="shared/nav.css">
+<link rel="stylesheet" href="shared/footer.css">
+<!-- ANALYTICS PLACEHOLDER: Insert Cloudflare Web Analytics or Plausible <script> snippet here once a provider is chosen. -->
+</head>
+<body>
+
+<div id="site-nav-placeholder" data-theme="dark-bg" data-current="home"></div>
+
+<main class="portal" id="portal">
+  <div class="portal-sticky">
+
+    <!-- Layer 1: starfield -->
+    <div class="starfield rm-section rm-hero" id="starfield">
+      <canvas id="starCanvas"></canvas>
+
+      <!-- Layer 2: horizon reveal, masked to lens circles by JS -->
+      <div class="horizon-layer" id="horizonLayer"></div>
+
+      <!-- Layer 3: glasses graphic -->
+      <div class="glasses-wrap" id="glassesWrap">
+        <svg viewBox="0 0 700 280" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="198" cy="140" r="108" stroke="rgba(245,241,232,0.8)" stroke-width="6"/>
+          <circle cx="502" cy="140" r="108" stroke="rgba(245,241,232,0.8)" stroke-width="6"/>
+          <path d="M306 140 H394" stroke="rgba(245,241,232,0.8)" stroke-width="6" stroke-linecap="round"/>
+          <path d="M90 132 C 50 120, 30 130, 20 150" stroke="rgba(245,241,232,0.8)" stroke-width="6" stroke-linecap="round"/>
+          <path d="M610 132 C 650 120, 670 130, 680 150" stroke="rgba(245,241,232,0.8)" stroke-width="6" stroke-linecap="round"/>
+        </svg>
+      </div>
+
+      <!-- Layer 4: hero text -->
+      <div class="hero-text" id="heroText">
+        <h1>The future needs a <span class="word-reframe">reframe</span>.<br>What futures have we yet to <span class="word-imagine">imagine</span>?</h1>
+        <button type="button" class="scroll-cue" id="scrollCue">Look closer.</button>
+      </div>
+    </div>
+
+    <!-- Layer 5: quote -->
+    <div class="quote-layer rm-section" id="quoteLayer">
+      <blockquote>
+        “The future can’t be predicted, but it can be envisioned and brought lovingly into being.”
+        <cite>— Donella Meadows</cite>
+      </blockquote>
+    </div>
+
+    <!-- Layer 6: bridge -->
+    <div class="bridge-layer rm-section" id="bridgeLayer">
+      <p>Conscious Futures is a research and strategy studio designing for the futures we actually want to inherit.</p>
+    </div>
+
+    <!-- Layer 7: landmarks -->
+    <div class="landmarks rm-section" id="landmarks">
+      <div class="landmark-grid">
+        <a class="landmark-tile lt-about" href="about/">
+          <h3>About</h3>
+          <p>Who we are, how we work, and the people behind the studio.</p>
+        </a>
+        <a class="landmark-tile lt-lens" href="our-lens/">
+          <h3>Our Lens</h3>
+          <p>The frameworks and questions that shape how we see what's next.</p>
+        </a>
+        <a class="landmark-tile lt-projects" href="portfolio/">
+          <h3>Projects</h3>
+          <p>Work in the field — research, strategy, and design in practice.</p>
+        </a>
+        <a class="landmark-tile lt-ideas" href="ideas/">
+          <h3>Ideas</h3>
+          <p>Recognition, writing, and provocations worth sitting with.</p>
+        </a>
+        <a class="landmark-tile lt-library" href="resources/">
+          <h3>Resource Library</h3>
+          <p>A growing collection of tools, research, and reference points.</p>
+        </a>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<section class="marquee-section">
+  <p class="marquee-label">Alongside changemakers and collaborators at</p>
+  <div class="marquee-track" id="marqueeTrack">
+    <span>New_Public</span><span>AARP</span><span>IDEO U</span><span>New America</span><span>Made By Us</span><span>Democracy 2076</span><span>Georgetown University Red House (R&amp;D Innovation Unit)</span><span>Foundation for Social Connection</span><span>CoGenerate</span><span>National Conference on Citizenship</span><span>Harmony Labs</span>
+    <span>New_Public</span><span>AARP</span><span>IDEO U</span><span>New America</span><span>Made By Us</span><span>Democracy 2076</span><span>Georgetown University Red House (R&amp;D Innovation Unit)</span><span>Foundation for Social Connection</span><span>CoGenerate</span><span>National Conference on Citizenship</span><span>Harmony Labs</span>
+  </div>
+</section>
+
+<footer class="site-footer" id="contact">
+  <h2>Let's imagine what's next, together.</h2>
+  <a class="footer-cta" href="contact/">Get in touch</a>
+</footer>
+
+<div id="site-footer-placeholder"></div>
+
+<script src="assets/js/main.js"></script>
+<script src="shared/nav.js"></script>
+<script src="shared/footer.js"></script>
+</body>
+</html>
