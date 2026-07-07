@@ -280,6 +280,7 @@ body::before {
 }
 .thread-card.active .thread-connections { display: flex; }
 .conn-tag {
+  font-family: inherit; text-align: left;
   font-size: .62rem; padding: .18rem .55rem;
   border-radius: 20px;
   background: rgba(237,232,220,0.05);
@@ -289,10 +290,20 @@ body::before {
   transition: all .15s;
 }
 .conn-tag:hover { background: rgba(237,232,220,0.1); color: var(--ink2); }
+.conn-tag.active { background: rgba(237,232,220,0.12); border-color: rgba(237,232,220,0.35); }
 .conn-label {
   font-size: .58rem; letter-spacing: .1em; text-transform: uppercase;
   color: var(--ink3); margin-bottom: .4rem; width: 100%;
 }
+.mm-detail-conns .mm-idea-expand, .thread-connections .mm-idea-expand { flex-basis: 100%; }
+.conn-goto {
+  display: block; margin-top: .45rem;
+  font-family: inherit; font-size: .64rem; letter-spacing: .02em;
+  background: none; border: none; padding: 0;
+  color: var(--ink2); cursor: pointer; text-decoration: underline; text-underline-offset: 2px;
+  transition: color .15s;
+}
+.conn-goto:hover { color: var(--ink); }
 
 /* work links */
 .thread-work {
@@ -316,52 +327,95 @@ body::before {
   color: var(--ink3); margin-bottom: .3rem; width: 100%;
 }
 
-/* ── EVIDENCE ROW ── */
-.evidence-row {
+/* ── SIGNAL ROW (evidence, reimagined as clickable orbit chips — echoes the mind-map's visual language) ── */
+.signal-intro {
+  font-size: .85rem; color: var(--ink2); line-height: 1.6;
+  max-width: 46rem; margin: -.5rem 0 1.6rem;
+}
+.signal-row {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1px;
-  background: rgba(160,170,230,0.08);
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin-bottom: 1.4rem;
+}
+@media (min-width: 769px) {
+  .signal-row { grid-template-columns: repeat(6, 1fr); }
+}
+@media (min-width: 1280px) {
+  .signal-row {
+    width: calc(100% + 184px);
+    margin-left: -92px;
+    margin-right: -92px;
+    gap: 1.15rem;
+  }
+}
+.signal-chip {
+  --accent-color: #6B6B6B;
+  position: relative;
+  display: flex; flex-direction: column; align-items: flex-start;
+  gap: .35rem;
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  padding: 1.1rem 1.15rem 1.2rem;
+  background: rgba(18,23,46,0.75);
+  backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+  border-radius: 12px;
+  border: 0.5px solid rgba(160,170,230,0.14);
+  cursor: pointer;
+  text-align: left;
+  font-family: inherit;
+  transition: transform .25s, box-shadow .3s, border-color .3s, background .3s;
+}
+.signal-chip:hover {
+  transform: translateY(-3px);
+  border-color: var(--accent-color);
+  box-shadow: 0 0 24px -10px var(--accent-color);
+}
+.signal-chip.active {
+  border-color: var(--accent-color);
+  background: rgba(18,23,46,0.95);
+  box-shadow: 0 0 30px -8px var(--accent-color);
+}
+.signal-chip.active::after {
+  content: '';
+  position: absolute; left: 50%; bottom: -9px;
+  transform: translateX(-50%);
+  width: 14px; height: 14px;
+  background: rgba(18,23,46,0.98);
+  border-right: 0.5px solid var(--accent-color);
+  border-bottom: 0.5px solid var(--accent-color);
+  rotate: 45deg;
+  border-radius: 0 0 3px 0;
+  opacity: 0;
+}
+@media (min-width: 761px) {
+  .signal-chip.active::after { opacity: 1; }
+}
+.signal-num {
+  font-family: 'Fraunces', serif;
+  font-size: 1.7rem; font-weight: 300;
+  line-height: 1; letter-spacing: -.02em;
+  color: var(--accent-color);
+}
+.signal-claim {
+  font-size: .7rem; color: var(--ink2);
+  line-height: 1.45;
+}
+.signal-detail {
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height .4s ease;
   margin-bottom: 1px;
 }
-@media (max-width: 760px) {
-  .evidence-row { grid-template-columns: repeat(2, 1fr); }
-}
-@media (max-width: 480px) {
-  .evidence-row { grid-template-columns: 1fr; }
-}
-.evidence-card {
-  background: rgba(18,23,46,0.85);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  padding: 1.4rem 1.5rem;
-  position: relative; overflow: hidden;
-  border-radius: 2px;
-  border: 0.5px solid rgba(160,170,230,0.08);
-  transition: transform .25s, box-shadow .3s, border-color .3s;
-  cursor: default;
-}
-.evidence-card:hover {
-  transform: translateY(-2px);
-  border-color: var(--accent-color);
-  box-shadow: 0 0 24px -8px var(--accent-color);
-}
-.evidence-card::after {
-  content: '';
-  position: absolute; bottom: 0; right: 0;
-  width: 80px; height: 80px;
-  background: radial-gradient(circle at bottom right, var(--accent-color) 0%, transparent 70%);
-  opacity: 0.1;
-  transition: opacity .3s;
-}
-.evidence-card:hover::after { opacity: 0.2; }
-.evidence-num {
-  font-family: 'Fraunces', serif;
-  font-size: 2.4rem; font-weight: 300;
-  line-height: 1; letter-spacing: -.03em;
-  color: var(--accent-color);
-  margin-bottom: .5rem;
-  display: block;
+.signal-detail.open { max-height: 24rem; }
+.signal-detail-inner {
+  border-top: 0.5px solid rgba(160,170,230,0.14);
+  border-left: 2px solid var(--accent-color, #6B6B6B);
+  background: rgba(18,23,46,0.55);
+  border-radius: 0 8px 8px 0;
+  padding: 1.4rem 1.6rem 1.6rem;
+  margin-bottom: 1.4rem;
 }
 .evidence-claim {
   font-size: .77rem; color: #D0CCE8;
@@ -394,31 +448,14 @@ body::before {
   opacity: 0.7;
 }
 
-/* ── TENSIONS ROW ── */
-.tensions-section {
-  margin-top: 1px;
-  background: rgba(237,232,220,0.06);
-  display: grid; grid-template-columns: repeat(2, 1fr);
-  gap: 1px;
+/* ── OPEN QUESTION (embedded in a thread's detail/accordion card) ── */
+.mm-detail-tension, .thread-card .mm-detail-tension {
+  margin-bottom: 1.1rem; padding: .9rem 1rem;
+  background: rgba(197,120,15,0.06);
+  border: 0.5px solid rgba(197,120,15,0.22);
+  border-radius: 3px;
 }
-@media (max-width: 600px) {
-  .tensions-section { grid-template-columns: 1fr; }
-}
-.tension-card {
-  background: rgba(18,23,46,0.82);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  padding: 1.4rem 1.5rem;
-  cursor: default;
-  transition: background .25s, box-shadow .3s, border-color .3s;
-  border: 0.5px solid rgba(160,170,230,0.06);
-  border-radius: 2px;
-}
-.tension-card:hover {
-  background: var(--surface);
-  border-color: rgba(197,120,15,0.3);
-  box-shadow: 0 0 20px -8px rgba(197,120,15,0.4);
-}
+.mm-detail-tension .tension-q { font-size: .88rem; }
 .tension-mark {
   font-size: .6rem; letter-spacing: .15em; text-transform: uppercase;
   color: var(--ink3); margin-bottom: .6rem;
@@ -450,73 +487,6 @@ body::before {
 }
 .section-label-placeholder { display: none; } /* replaced by shimmer version above */
 
-/* ── INTERSECTION BAND ── */
-.intersections-section {
-  margin-top: 1px;
-  background: rgba(237,232,220,0.03);
-  padding: 1.8rem 1.5rem;
-  display: grid; grid-template-columns: repeat(3, 1fr);
-  gap: 1.2rem 2rem;
-}
-@media (max-width: 600px) {
-  .intersections-section { grid-template-columns: 1fr; }
-}
-.intersection-item {
-  padding: .75rem .5rem;
-  border-radius: 3px;
-  transition: background .2s;
-  cursor: default;
-}
-.intersection-item:hover {
-  background: rgba(160,170,230,0.05);
-}
-.int-threads {
-  display: flex; align-items: center; gap: .4rem;
-  margin-bottom: .4rem;
-}
-.int-dot {
-  width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0;
-  position: relative; cursor: default;
-}
-.int-dot::before {
-  /* enlarges the hover hit-area well past the visible 7px dot */
-  content: ''; position: absolute; inset: -8px;
-}
-.int-dot::after {
-  content: attr(data-tooltip);
-  position: absolute; left: 50%; bottom: 130%; transform: translateX(-50%) translateY(4px);
-  background: rgba(11,13,28,0.96); color: var(--ink);
-  font-size: .62rem; letter-spacing: .02em; white-space: nowrap;
-  padding: .35rem .6rem; border-radius: 4px;
-  border: 0.5px solid rgba(160,170,230,0.25);
-  opacity: 0; pointer-events: none; z-index: 20;
-  transition: opacity .15s, transform .15s;
-}
-.int-dot:hover::after { opacity: 1; transform: translateX(-50%) translateY(0); }
-.int-x { font-size: .65rem; color: var(--ink3); }
-.int-threads { position: relative; }
-.int-threads::after {
-  content: '';
-  position: absolute; left: 50%; top: 50%;
-  transform: translate(-50%,-50%);
-  width: 1px; height: 100%;
-  background: linear-gradient(to bottom, transparent, rgba(160,170,230,0.2), transparent);
-  pointer-events: none;
-}
-.int-label {
-  font-family: 'Fraunces', serif;
-  font-size: .9rem; font-weight: 400;
-  color: #D0CCE8; line-height: 1.3;
-  margin-bottom: .3rem;
-}
-.int-desc { font-size: .73rem; color: #B8B4D4; line-height: 1.65; }
-.int-tagline {
-  font-family: 'Fraunces', serif; font-style: italic;
-  font-size: 1rem; color: var(--ink);
-  max-width: 680px; padding-bottom: 1.4rem;
-}
-.int-tagline em { color: #FFE9C7; }
-
 /* ── ANIMATED THREAD LINES ── */
 @keyframes drawLine {
   from { stroke-dashoffset: 1000; }
@@ -536,45 +506,6 @@ body::before {
   0%, 100% { opacity: .35; r: 3; }
   50% { opacity: .7; r: 4.5; }
 }
-
-/* ── HOPE SECTION ── */
-.hope-section {
-  background: linear-gradient(135deg, rgba(26,31,91,0.4) 0%, rgba(128,2,135,0.08) 100%);
-  border: 0.5px solid rgba(160,170,230,0.15);
-  padding: 2rem 1.8rem 1.8rem;
-  margin-bottom: 1px;
-}
-.hope-headline {
-  font-family: 'Fraunces', serif;
-  font-size: clamp(1.1rem, 2.2vw, 1.5rem);
-  font-weight: 300; line-height: 1.3;
-  color: var(--ink); margin-bottom: 1rem; letter-spacing: -.01em;
-}
-.hope-headline em { font-style: italic; color: #E75213; }
-.hope-body {
-  font-size: .8rem; color: var(--ink2); line-height: 1.75;
-  max-width: 720px; margin-bottom: 1.5rem;
-}
-.hope-principles {
-  display: grid; grid-template-columns: repeat(3, 1fr);
-  gap: .75rem 1.25rem; margin-bottom: 1.5rem;
-}
-@media (max-width: 680px) {
-  .hope-principles { grid-template-columns: repeat(2,1fr); }
-}
-.hope-principle { padding: .75rem 0; }
-.hp-icon { font-size: .85rem; color: #E75213; margin-bottom: .35rem; opacity: .7; }
-.hp-label {
-  font-family: 'Fraunces', serif; font-weight: 400;
-  font-size: .95rem; color: var(--ink); margin-bottom: .3rem;
-}
-.hp-desc { font-size: .72rem; color: var(--ink3); line-height: 1.65; }
-.hope-coda {
-  font-size: .8rem; color: var(--ink2); line-height: 1.7;
-  border-top: 0.5px solid rgba(160,170,230,0.12); padding-top: 1rem;
-  max-width: 640px;
-}
-.hope-coda strong { color: var(--ink); font-weight: 400; }
 
 /* ── FOOTER ── */
 .page-footer {
@@ -643,6 +574,30 @@ body::before {
   background: linear-gradient(to right, rgba(128,2,135,0.4), rgba(231,82,19,0.2), transparent);
 }
 
+/* ── THREADS INTRO (deliberately heavier than a standard section-label — this is
+   the hinge the whole page turns on, so it needs to read as a destination, not
+   just another heading) ── */
+.threads-intro {
+  text-align: center;
+  max-width: 700px;
+  margin: 2.6rem auto 2.8rem;
+  padding-top: .5rem;
+}
+.threads-eyebrow {
+  font-size: .6rem; letter-spacing: .18em; text-transform: uppercase;
+  color: var(--ink3); margin-bottom: 1rem;
+}
+.threads-heading {
+  font-family: 'Fraunces', serif; font-weight: 300;
+  font-size: clamp(1.9rem, 4.2vw, 2.7rem);
+  letter-spacing: -.01em; line-height: 1.15;
+  color: #F5F1E8; margin-bottom: 1.2rem;
+}
+.threads-lead {
+  font-size: .85rem; color: var(--ink2); line-height: 1.75;
+}
+.threads-lead em { font-style: italic; color: #FFE9C7; }
+
 /* ═══════════════════════ VISION HERO ═══════════════════════ */
 .vision-hero {
   position: relative;
@@ -657,16 +612,26 @@ body::before {
   background: linear-gradient(to bottom, transparent, var(--bg));
   pointer-events: none;
 }
-.vh-inner { position: relative; z-index: 2; max-width: 780px; margin: 0 auto; padding: 0 1rem; }
+.vh-inner { position: relative; z-index: 2; max-width: 1080px; margin: 0 auto; padding: 0 1rem; }
 .vh-eyebrow {
   font-size: .62rem; letter-spacing: .18em; text-transform: uppercase;
-  color: rgba(232,228,240,0.65); margin-bottom: 2.2rem; text-align: center;
+  color: rgba(232,228,240,0.65); margin-bottom: 2.6rem; text-align: center;
 }
-.vh-strike-wrap { max-width: 620px; margin: 0 auto; }
+.vh-columns {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.6rem;
+  margin-bottom: 2.2rem;
+}
+@media (min-width: 900px) {
+  .vh-columns { grid-template-columns: 0.95fr 1.05fr; gap: 4.5rem; align-items: start; }
+}
+.vh-col-left, .vh-col-right { min-width: 0; }
+.vh-strike-wrap { max-width: 100%; }
 .vh-strike-line {
   font-family: 'Fraunces', serif; font-weight: 300;
-  font-size: clamp(1.4rem, 3.2vw, 2.1rem);
-  color: #F5F1E8; text-align: right; line-height: 1.3;
+  font-size: clamp(1.5rem, 3.4vw, 2.3rem);
+  color: #F5F1E8; text-align: left; line-height: 1.3;
 }
 .vh-struck { position: relative; }
 .vh-struck::after {
@@ -677,8 +642,8 @@ body::before {
 .reveal.in .vh-struck::after { transform: scaleX(1); }
 .vh-revision-line {
   font-family: 'Fraunces', serif; font-style: italic; font-weight: 300;
-  font-size: clamp(1.4rem, 3.2vw, 2.1rem);
-  text-align: right; margin-top: .4rem; color: #FFE9C7;
+  font-size: clamp(1.5rem, 3.4vw, 2.3rem);
+  text-align: left; margin-top: .4rem; color: #FFE9C7;
   opacity: 0; transform: translateY(8px);
   transition: opacity .6s ease .95s, transform .6s ease .95s;
 }
@@ -689,13 +654,21 @@ body::before {
 }
 .vh-thesis {
   font-size: .95rem; line-height: 1.8; color: rgba(245,241,232,0.88);
-  text-align: center; max-width: 640px; margin: 2.6rem auto 2.4rem;
+  text-align: left; max-width: 100%; margin: 2rem 0 0;
+}
+.vh-principles-head { margin-bottom: 1.4rem; }
+.vh-principles-label {
+  font-family: 'Fraunces', serif; font-style: italic; font-weight: 400;
+  font-size: 1.25rem; color: #FFE9C7; margin-bottom: .55rem;
+}
+.vh-principles-intro {
+  font-size: .82rem; line-height: 1.6; color: rgba(245,241,232,0.78);
+  max-width: 34rem;
 }
 .vh-values {
-  display: grid; grid-template-columns: repeat(3,1fr);
-  gap: .9rem 1.4rem; margin: 0 auto 2.6rem; max-width: 720px;
+  display: grid; grid-template-columns: repeat(2,1fr);
+  gap: .9rem 1.4rem; margin: 0 0 2rem; max-width: 100%;
 }
-@media (max-width: 680px) { .vh-values { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 420px) { .vh-values { grid-template-columns: 1fr; } }
 .vh-value {
   font-size: .92rem; line-height: 1.5; color: rgba(245,241,232,0.9);
@@ -708,7 +681,7 @@ body::before {
 .vh-bridge {
   position: relative; z-index: 0;
   font-size: .82rem; line-height: 1.8; color: rgba(245,241,232,0.92);
-  text-align: center; max-width: 600px; margin: 0 auto;
+  text-align: left; max-width: 100%; margin: 0;
   border-top: 0.5px solid rgba(245,241,232,0.18);
   padding: 1.9rem 1.8rem 1.5rem;
 }
@@ -804,6 +777,45 @@ body::before {
   transition: opacity .25s, transform .25s;
 }
 .mindmap-stage.focused .mm-back { opacity: 1; pointer-events: auto; transform: none; }
+
+/* ── ON-MAP CONNECTION BUBBLES (echo of the intersections list, anchored to the focused circle) ── */
+.mm-conn-bubble {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  z-index: 7;
+  font-family: inherit; font-size: .64rem; letter-spacing: .01em;
+  padding: .32rem .75rem;
+  border-radius: 20px;
+  background: rgba(15,18,38,0.92);
+  backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
+  border: 1px solid currentColor;
+  cursor: pointer;
+  white-space: nowrap;
+  opacity: 0;
+  animation: mm-bubble-in .45s ease .45s forwards;
+  transition: box-shadow .2s;
+}
+.mm-conn-bubble:hover, .mm-conn-bubble.active {
+  box-shadow: 0 0 18px -4px currentColor;
+}
+@keyframes mm-bubble-in {
+  from { opacity: 0; transform: translate(-50%, -50%) scale(.7); }
+  to { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+}
+@media (prefers-reduced-motion: reduce) { .mm-conn-bubble { animation: none; opacity: 1; } }
+.mm-conn-pop {
+  position: absolute;
+  z-index: 9;
+  width: 230px;
+  transform: translate(-50%, 0);
+  background: rgba(15,18,38,0.98);
+  border: 0.5px solid rgba(160,170,230,0.25);
+  border-radius: 4px;
+  padding: .8rem .9rem;
+  font-size: .7rem; line-height: 1.55; color: #C8C4E0;
+  box-shadow: 0 12px 30px -8px rgba(0,0,0,0.55);
+}
+.mm-conn-pop .conn-goto { display: block; margin-top: .55rem; font-size: .64rem; }
 .mm-detail {
   position: absolute; top: 0; right: 0; bottom: 0; width: 360px;
   background: rgba(15,18,38,0.96);
@@ -853,33 +865,61 @@ body::before {
   <section class="vision-hero reveal" id="vision-hero">
     <div class="vh-inner">
       <div class="vh-eyebrow">conscious futures · the vision</div>
-      <div class="header-note">the intersections that shape the future</div>
-      <div class="vh-strike-wrap">
-        <p class="vh-strike-line">We are living through a <span class="vh-struck">crisis</span>.</p>
-        <p class="vh-revision-line"><span class="vh-revision">threshold of imagination.</span></p>
+
+      <div class="vh-columns">
+        <div class="vh-col-left">
+          <div class="header-note">the intersections that shape the future</div>
+          <div class="vh-strike-wrap">
+            <p class="vh-strike-line">We are living through a <span class="vh-struck">crisis</span>.</p>
+            <p class="vh-revision-line"><span class="vh-revision">threshold of imagination.</span></p>
+          </div>
+          <p class="vh-thesis">
+            We believe the future is not fixed — it is shaped by how we pay attention, what we imagine, and how we act together.
+            Conscious Futures exists to interrupt the single, narrowing story that treats the future as inevitable, extractive, or already lost — and widen the frame.
+          </p>
+        </div>
+
+        <div class="vh-col-right">
+          <div class="vh-principles-head">
+            <div class="vh-principles-label">how we operate</div>
+            <p class="vh-principles-intro">Six commitments that turn belief into daily practice — not aspirations, but working principles.</p>
+          </div>
+          <div class="vh-values">
+            <div class="vh-value"><span class="vh-value-num">01</span>Imagination is a discipline, not a luxury.</div>
+            <div class="vh-value"><span class="vh-value-num">02</span>Attention is infrastructure.</div>
+            <div class="vh-value"><span class="vh-value-num">03</span>Practice over reaction.</div>
+            <div class="vh-value"><span class="vh-value-num">04</span>Futures are collective.</div>
+            <div class="vh-value"><span class="vh-value-num">05</span>Young people are present co-creators.</div>
+            <div class="vh-value"><span class="vh-value-num">06</span>Regeneration over extraction.</div>
+          </div>
+          <p class="vh-bridge">
+            Our commitment: to practice conscious, collective ways of relating — so repair is shared, imagination is practical,
+            and the future becomes something we build together.
+          </p>
+        </div>
       </div>
-      <p class="vh-thesis">
-        We believe the future is not fixed — it is shaped by how we pay attention, what we imagine, and how we act together.
-        Conscious Futures exists to interrupt the single, narrowing story that treats the future as inevitable, extractive, or already lost — and widen the frame.
-      </p>
-      <div class="vh-values">
-        <div class="vh-value"><span class="vh-value-num">01</span>Imagination is a discipline, not a luxury.</div>
-        <div class="vh-value"><span class="vh-value-num">02</span>Attention is infrastructure.</div>
-        <div class="vh-value"><span class="vh-value-num">03</span>Practice over reaction.</div>
-        <div class="vh-value"><span class="vh-value-num">04</span>Futures are collective.</div>
-        <div class="vh-value"><span class="vh-value-num">05</span>Young people are present co-creators.</div>
-        <div class="vh-value"><span class="vh-value-num">06</span>Regeneration over extraction.</div>
-      </div>
-      <p class="vh-bridge">
-        Our commitment: to practice conscious, collective ways of relating — so repair is shared, imagination is practical,
-        and the future becomes something we build together.
-      </p>
+
       <p class="vh-explore"><em>Explore where these commitments meet reality — thread by thread, below.</em></p>
     </div>
   </section>
 
+  <!-- EVIDENCE / SIGNALS — why this is urgent, before the threads that respond to it -->
+  <div class="section-label reveal">why this is urgent — the data</div>
+  <p class="signal-intro reveal">Six signals, from six different fields, pointing at the same threshold. Click any one to see the full picture — and which threads below respond to it.</p>
+  <div class="signal-row reveal" id="signal-row"><!-- injected by JS from EVIDENCE --></div>
+  <div class="signal-detail" id="signal-detail"></div>
+
   <!-- THREADS -->
-  <div class="section-label reveal">seven threads, one web</div>
+  <div class="threads-intro reveal">
+    <div class="threads-eyebrow">the six signals above converge into</div>
+    <h2 class="threads-heading">Seven threads, one web</h2>
+    <p class="threads-lead">
+      No single thread shapes the future alone — imagination without leadership stays theoretical, technology without
+      healing extracts, intergenerational thinking without youth becomes nostalgia. This is
+      <em>designing from the intersections, consciously</em> — click a thread
+      below, then click any connection inside it to see exactly where the real work lives.
+    </p>
+  </div>
 
   <!-- Thread nav strip -->
   <div class="thread-nav-strip" id="thread-nav">
@@ -906,289 +946,11 @@ body::before {
       </div>
       <div class="mm-detail" id="mm-detail"></div>
     </div>
-    <p class="mm-hint">Click a thread to explore it. Click a connection inside to pan directly to where it touches another.</p>
+    <p class="mm-hint">Click a thread to explore it. Inside, click a connection to reveal how the two intersect — or jump straight there.</p>
   </div>
 
   <!-- Mobile / narrow-viewport accordion fallback (<769px), rendered from the same THREADS data -->
   <div class="threads-grid reveal" id="threads-accordion"><!-- injected by JS from THREADS --></div>
-
-  <!-- EVIDENCE -->
-  <div class="section-label reveal">why this is urgent — the data</div>
-  <div class="evidence-row reveal">
-
-    <div class="evidence-card" style="--accent-color: #800287">
-      <span class="evidence-num">98%→2%</span>
-      <div class="evidence-claim">98% of children ages 4–5 score at "creative genius" levels on divergent thinking tests. By high school: 12%. By adulthood: less than 2%.</div>
-      <div class="evidence-implication">"The same test. The same people. Thirty years apart. Imagination is not lost — it is designed out of us." — Dr. George Land, NASA-commissioned research</div>
-      <a class="evidence-source" href="https://twentyonetoys.com/blogs/teaching-21st-century-skills/creative-genius-divergent-thinking" target="_blank" rel="noopener">view source ↗</a>
-      <div class="evidence-threads">
-        <span class="ev-thread-tag" style="border-color:var(--thread-imagination);color:var(--thread-imagination)">imagination</span>
-        <span class="ev-thread-tag" style="border-color:var(--thread-youth);color:var(--thread-youth)">youth</span>
-        <span class="ev-thread-tag" style="border-color:var(--thread-healing);color:var(--thread-healing)">systems</span>
-      </div>
-    </div>
-
-    <div class="evidence-card" style="--accent-color: #3A6B8A">
-      <span class="evidence-num">8%</span>
-      <div class="evidence-claim">Only 8% of streaming media content is set in a future context — and the vast majority of that future is dystopian or authoritarian.</div>
-      <div class="evidence-implication">"The stories we rehearse become the futures we build. We are practicing collapse." — Harmony Labs &amp; Democracy 2076, 2024</div>
-      <a class="evidence-source" href="https://harmonylabs.org/news/democracy-highlights" target="_blank" rel="noopener">view source ↗</a>
-      <div class="evidence-threads">
-        <span class="ev-thread-tag" style="border-color:var(--thread-imagination);color:var(--thread-imagination)">imagination</span>
-        <span class="ev-thread-tag" style="border-color:var(--thread-technology);color:var(--thread-technology)">technology</span>
-        <span class="ev-thread-tag" style="border-color:var(--thread-youth);color:var(--thread-youth)">youth</span>
-      </div>
-    </div>
-
-    <div class="evidence-card" style="--accent-color: #8B6B4A">
-      <span class="evidence-num">80%</span>
-      <div class="evidence-claim">80% of Americans do not believe their children's generation will be better off than they were — a majority position across age, income, and party.</div>
-      <div class="evidence-implication">"Despair is not a personal failing. It is a collective signal — and collective signals have collective responses." — WSJ/NORC Poll</div>
-      <a class="evidence-source" href="https://www.wsj.com/articles/most-americans-doubt-their-children-will-be-better-off-wsj-norc-poll-finds-35500ba8" target="_blank" rel="noopener">view source ↗</a>
-      <div class="evidence-threads">
-        <span class="ev-thread-tag" style="border-color:var(--thread-intergenerational);color:var(--thread-intergenerational)">intergenerational</span>
-        <span class="ev-thread-tag" style="border-color:var(--thread-youth);color:var(--thread-youth)">youth</span>
-      </div>
-    </div>
-
-    <div class="evidence-card" style="--accent-color: #E75213">
-      <span class="evidence-num">1 in 2</span>
-      <div class="evidence-claim">1 in 2 American adults reported feeling lonely — before the pandemic even began. The U.S. Surgeon General declared it a public health epidemic in 2023.</div>
-      <div class="evidence-implication">"Loneliness is as harmful as smoking 15 cigarettes a day. Connection is not a luxury — it is infrastructure." — U.S. Surgeon General Advisory, 2023</div>
-      <a class="evidence-source" href="https://www.hhs.gov/sites/default/files/surgeon-general-social-connection-advisory.pdf" target="_blank" rel="noopener">view source ↗</a>
-      <div class="evidence-threads">
-        <span class="ev-thread-tag" style="border-color:var(--thread-technology);color:var(--thread-technology)">technology</span>
-        <span class="ev-thread-tag" style="border-color:var(--thread-healing);color:var(--thread-healing)">healing</span>
-        <span class="ev-thread-tag" style="border-color:var(--thread-intergenerational);color:var(--thread-intergenerational)">intergenerational</span>
-      </div>
-    </div>
-
-    <div class="evidence-card" style="--accent-color: #3D8C55">
-      <span class="evidence-num">1 in 4</span>
-      <div class="evidence-claim">1 in 4 young changemakers experience burnout. Fewer than 1 in 10 can financially sustain their social change work without another job.</div>
-      <div class="evidence-implication">"We are asking people to change the world on empty. Sustainability of people is inseparable from sustainability of movements." — The Possibilists, 2023</div>
-      <a class="evidence-source" href="https://thepossibilists.org/" target="_blank" rel="noopener">view source ↗</a>
-      <div class="evidence-threads">
-        <span class="ev-thread-tag" style="border-color:var(--thread-youth);color:var(--thread-youth)">youth</span>
-        <span class="ev-thread-tag" style="border-color:var(--thread-healing);color:var(--thread-healing)">healing</span>
-        <span class="ev-thread-tag" style="border-color:var(--thread-leadership);color:var(--thread-leadership)">leadership</span>
-      </div>
-    </div>
-
-    <div class="evidence-card" style="--accent-color: #3B6FBF">
-      <span class="evidence-num">42%</span>
-      <div class="evidence-claim">42% of Americans actively avoid the news. Only 59% receive formal civic education. Entertainment media may be the primary source of civic imagination for most people.</div>
-      <div class="evidence-implication">"If people aren't getting civic education in school or news, story is doing the work. The question is which stories — and whose futures they imagine." — Harmony Labs, 2024</div>
-      <a class="evidence-source" href="https://harmonylabs.org/news/democracy-highlights" target="_blank" rel="noopener">view source ↗</a>
-      <div class="evidence-threads">
-        <span class="ev-thread-tag" style="border-color:var(--thread-civic);color:var(--thread-civic)">civic</span>
-        <span class="ev-thread-tag" style="border-color:var(--thread-imagination);color:var(--thread-imagination)">imagination</span>
-        <span class="ev-thread-tag" style="border-color:var(--thread-youth);color:var(--thread-youth)">youth</span>
-        <span class="ev-thread-tag" style="border-color:var(--thread-technology);color:var(--thread-technology)">technology</span>
-      </div>
-    </div>
-
-  </div>
-
-  <!-- INTERSECTIONS -->
-  <div class="section-label reveal">the intersections — where the real work lives</div>
-  <p class="reveal" style="font-size:.82rem;color:var(--ink2);line-height:1.7;max-width:680px;padding-bottom:1.2rem;">
-    No single force shapes the future in isolation. Imagination without leadership stays theoretical.
-    Technology without healing extracts. Intergenerational thinking without youth becomes nostalgia.
-    The practice of Conscious Futures is the conscious navigation of where these forces meet —
-    because that's where the real leverage is.
-  </p>
-  <p class="reveal int-tagline">This is <em>designing from the intersections, consciously.</em></p>
-  <div class="intersections-section reveal" id="intersections">
-
-    <div class="intersection-item" id="int-imagination-leadership">
-      <div class="int-threads">
-        <div class="int-dot" style="background:var(--thread-imagination)"></div>
-        <span class="int-x">×</span>
-        <div class="int-dot" style="background:var(--thread-leadership)"></div>
-      </div>
-      <div class="int-label">Curious & futures-facing leaders</div>
-      <div class="int-desc">A curious leader is a futures-facing leader. The capacity to imagine alternatives is itself a leadership skill — one that can be taught, cultivated, and made structural.</div>
-    </div>
-
-    <div class="intersection-item" id="int-imagination-civic">
-      <div class="int-threads">
-        <div class="int-dot" style="background:var(--thread-imagination)"></div>
-        <span class="int-x">×</span>
-        <div class="int-dot" style="background:var(--thread-civic)"></div>
-      </div>
-      <div class="int-label">Civic imagination as practice</div>
-      <div class="int-desc">Young people don't need to be told to hope — they need spaces to practice it. Civic imagination is the infrastructure that makes that practice possible.</div>
-    </div>
-
-    <div class="intersection-item" id="int-civic-technology">
-      <div class="int-threads">
-        <div class="int-dot" style="background:var(--thread-civic)"></div>
-        <span class="int-x">×</span>
-        <div class="int-dot" style="background:var(--thread-technology)"></div>
-      </div>
-      <div class="int-label">Civic infrastructure meets platform power</div>
-      <div class="int-desc">The platforms shaping public attention are also, by design or by default, shaping civic life. Designing technology consciously is inseparable from designing for democratic futures.</div>
-    </div>
-
-    <div class="intersection-item" id="int-civic-youth">
-      <div class="int-threads">
-        <div class="int-dot" style="background:var(--thread-civic)"></div>
-        <span class="int-x">×</span>
-        <div class="int-dot" style="background:var(--thread-youth)"></div>
-      </div>
-      <div class="int-label">Young people as civic co-authors</div>
-      <div class="int-desc">Civic imagination isn't handed down from one generation to the next — it's practiced by the people inheriting the system. Gen Z's civic voice belongs in the room now, not someday.</div>
-    </div>
-
-    <div class="intersection-item" id="int-imagination-technology">
-      <div class="int-threads">
-        <div class="int-dot" style="background:var(--thread-imagination)"></div>
-        <span class="int-x">×</span>
-        <div class="int-dot" style="background:var(--thread-technology)"></div>
-      </div>
-      <div class="int-label">Attention shapes what we can envision</div>
-      <div class="int-desc">What we pay attention to shapes what we believe is real and possible. Platforms that capture attention shape the imaginative ceiling of an entire generation.</div>
-    </div>
-
-    <div class="intersection-item" id="int-intergenerational-healing">
-      <div class="int-threads">
-        <div class="int-dot" style="background:var(--thread-intergenerational)"></div>
-        <span class="int-x">×</span>
-        <div class="int-dot" style="background:var(--thread-healing)"></div>
-      </div>
-      <div class="int-label">Inherited harm requires long-arc repair</div>
-      <div class="int-desc">Generational trauma is not metaphor — it is biologically and culturally transmitted. Repair that ignores its long arc will reproduce the harm at a different scale.</div>
-    </div>
-
-    <div class="intersection-item" id="int-intergenerational-youth">
-      <div class="int-threads">
-        <div class="int-dot" style="background:var(--thread-intergenerational)"></div>
-        <span class="int-x">×</span>
-        <div class="int-dot" style="background:var(--thread-youth)"></div>
-      </div>
-      <div class="int-label">What we pass forward</div>
-      <div class="int-desc">Young people don't exist in isolation — they exist in relationship to every generation before them. The question "what kind of ancestors are we?" is a youth question as much as an elder one.</div>
-    </div>
-
-    <div class="intersection-item" id="int-leadership-healing">
-      <div class="int-threads">
-        <div class="int-dot" style="background:var(--thread-leadership)"></div>
-        <span class="int-x">×</span>
-        <div class="int-dot" style="background:var(--thread-healing)"></div>
-      </div>
-      <div class="int-label">Healing leadership</div>
-      <div class="int-desc">The leaders who build conditions for repair — not just performance — are the ones whose institutions survive complexity. Healing and leading are not separate disciplines.</div>
-    </div>
-
-    <div class="intersection-item" id="int-leadership-intergenerational">
-      <div class="int-threads">
-        <div class="int-dot" style="background:var(--thread-leadership)"></div>
-        <span class="int-x">×</span>
-        <div class="int-dot" style="background:var(--thread-intergenerational)"></div>
-      </div>
-      <div class="int-label">Leading across time</div>
-      <div class="int-desc">Leadership in complexity requires thinking in longer timescales. The best leaders ask not just "what works now" but "what are we leaving behind?"</div>
-    </div>
-
-    <div class="intersection-item" id="int-technology-youth">
-      <div class="int-threads">
-        <div class="int-dot" style="background:var(--thread-technology)"></div>
-        <span class="int-x">×</span>
-        <div class="int-dot" style="background:var(--thread-youth)"></div>
-      </div>
-      <div class="int-label">Designing for agency, not extraction</div>
-      <div class="int-desc">AI is becoming a social role in young people's lives. The design choices baked into those systems shape relational behavior, emotional development, and long-term civic futures.</div>
-    </div>
-
-    <div class="intersection-item" id="int-technology-healing">
-      <div class="int-threads">
-        <div class="int-dot" style="background:var(--thread-technology)"></div>
-        <span class="int-x">×</span>
-        <div class="int-dot" style="background:var(--thread-healing)"></div>
-      </div>
-      <div class="int-label">Conscious tech design</div>
-      <div class="int-desc">Technology that was designed to connect us may be redesigning what connection means. Designing for resilience and digital sovereignty is trauma-informed work.</div>
-    </div>
-
-    <div class="intersection-item" id="int-healing-youth">
-      <div class="int-threads">
-        <div class="int-dot" style="background:var(--thread-healing)"></div>
-        <span class="int-x">×</span>
-        <div class="int-dot" style="background:var(--thread-youth)"></div>
-      </div>
-      <div class="int-label">Sustaining the changemakers</div>
-      <div class="int-desc">Burnout among young changemakers is not a personal failing — it is a systems design issue. Sustainable change requires infrastructures of rest, interdependence, and care.</div>
-    </div>
-
-  </div><!-- /intersections -->
-
-  <!-- TENSIONS -->
-  <!-- HOPEFUL COUNTER-FRAME -->
-  <div class="section-label reveal">what makes change possible — the case for imagination</div>
-  <!-- subtle mycelium divider -->
-  <div aria-hidden="true" style="height:48px;overflow:hidden;margin-bottom:-1px;pointer-events:none;">
-    <svg width="100%" height="48" viewBox="0 0 1100 48" preserveAspectRatio="none" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M0 32 C80 12, 180 44, 300 28 S520 8, 650 30 S850 46, 1100 20" stroke="rgba(128,2,135,0.18)" stroke-width="1" fill="none"/>
-      <path d="M0 38 C120 22, 250 46, 400 32 S600 14, 750 36 S950 42, 1100 28" stroke="rgba(231,82,19,0.12)" stroke-width="0.8" fill="none"/>
-      <circle cx="300" cy="28" r="2.5" fill="rgba(128,2,135,0.25)"/>
-      <circle cx="650" cy="30" r="2" fill="rgba(231,82,19,0.2)"/>
-      <circle cx="950" cy="32" r="2" fill="rgba(46,138,138,0.2)"/>
-    </svg>
-  </div>
-  <div class="hope-section reveal">
-    <div class="hope-headline">
-      Curiosity, imagination, and empathy aren't soft skills.<br>
-      <em>They are the most adaptive capacities humans have.</em>
-    </div>
-    <p class="hope-body">
-      Research shows imagination narrows with age — but it can be recovered, given permission to play and explore without predetermined answers. Not personality traits. Learnable, teachable, designable — and exactly what's needed to navigate complexity and build trust across difference.
-    </p>
-    <div class="hope-principles">
-      <div class="hope-principle">
-        <div class="hp-icon">◎</div>
-        <div class="hp-label">Curiosity</div>
-        <div class="hp-desc">Staying genuinely open to people, ideas, and what you don't yet understand — the antidote to polarization.</div>
-      </div>
-      <div class="hope-principle">
-        <div class="hp-icon">◎</div>
-        <div class="hp-label">Imagination</div>
-        <div class="hp-desc">Envisioning what doesn't yet exist — the seed of every system, institution, and future ever built.</div>
-      </div>
-      <div class="hope-principle">
-        <div class="hp-icon">◎</div>
-        <div class="hp-label">Empathy</div>
-        <div class="hp-desc">Understanding experience from inside someone else's reality — what turns insight into shared movement.</div>
-      </div>
-    </div>
-    <p class="hope-coda">
-      Cultivate these and systems become more <strong>adaptive</strong>, more <strong>resilient</strong>, more <strong>flexible</strong>. Not optimism — the record of every transformative era in history.
-    </p>
-  </div>
-
-  <div class="section-label reveal">the questions that won't let go</div>
-  <div class="tensions-section reveal">
-    <div class="tension-card">
-      <div class="tension-mark">open question</div>
-      <div class="tension-q">Why is dystopia the only story we tell about the future — and what does that cost us?</div>
-      <div class="tension-body">When 92% of future-set media portrays collapse, control, or catastrophe, what imaginative range are we actually operating with? The stories we rehearse become the futures we enact. Dystopia as the only frame is not realism — it is a failure of collective imagination with direct civic consequences. What would it take to make hopeful futures feel as compelling as collapse?</div>
-    </div>
-    <div class="tension-card">
-      <div class="tension-mark">open question</div>
-      <div class="tension-q">What actually makes it possible for someone to pursue — and sustain — a commitment to change?</div>
-      <div class="tension-body">The barriers aren't just burnout. They're financial precarity, isolation, the pressure to be a savior generation, the slow pace of systems change, and a cultural narrative that treats exhaustion as a badge of purpose. 1 in 4 young changemakers experiences burnout; fewer than 1 in 10 can financially sustain their work. The question is not "how do we motivate more people?" It's "what infrastructures of support, belonging, and sustainability do we need to build?"</div>
-    </div>
-    <div class="tension-card">
-      <div class="tension-mark">open question</div>
-      <div class="tension-q">What does it mean to lead — or make change — when the map runs out?</div>
-      <div class="tension-body">The challenges people face today — ecological breakdown, democratic erosion, AI's reshaping of work and relationship — are genuinely novel. They have no precedent, no clear playbook. That means the most important capacity is not expertise in a known domain — it is the ability to stay curious, stay in relationship, and keep imagining in conditions of uncertainty. That is a learnable skill. It is also a design challenge.</div>
-    </div>
-    <div class="tension-card">
-      <div class="tension-mark">open question</div>
-      <div class="tension-q">What do we owe the generations who come after us — and how would we design differently if we took that seriously?</div>
-      <div class="tension-body">Intergenerational responsibility is rarely built into how we make decisions — in institutions, in policy, in design. We optimize for the immediate. But every choice we make is an inheritance: a set of conditions, norms, stories, and systems that future generations will inhabit without having been asked. What would it mean to design with them in mind — not as recipients of our solutions, but as co-authors of what comes next?</div>
-    </div>
-  </div>
 
   <!-- FOOTER -->
   <footer class="page-footer reveal">
@@ -1249,7 +1011,11 @@ const THREADS = [
       { label:'New America — Operationalizing Imagination', url:'https://www.newamerica.org/insights/operationalizing-imagination/' },
       { label:'Democracy 2076', url: PORTFOLIO_URL }
     ],
-    connections: ['leadership','civic','technology']
+    connections: ['leadership','civic','technology'],
+    openQuestion: {
+      q: "Why is dystopia the only story we tell about the future — and what does that cost us?",
+      body: "When 92% of future-set media portrays collapse, control, or catastrophe, what imaginative range are we actually operating with? The stories we rehearse become the futures we enact. Dystopia as the only frame is not realism — it is a failure of collective imagination with direct civic consequences. What would it take to make hopeful futures feel as compelling as collapse?"
+    }
   },
   {
     id: 'leadership', color: 'var(--thread-leadership)',
@@ -1267,7 +1033,11 @@ const THREADS = [
       { label:'Curiosity Mobile / Scott Shigeoka', url: PORTFOLIO_URL },
       { label:'Early Years Leadership Diversity Initiative', url: PORTFOLIO_URL }
     ],
-    connections: ['imagination','healing','intergenerational']
+    connections: ['imagination','healing','intergenerational'],
+    openQuestion: {
+      q: "What does it mean to lead — or make change — when the map runs out?",
+      body: "The challenges people face today — ecological breakdown, democratic erosion, AI's reshaping of work and relationship — are genuinely novel. They have no precedent, no clear playbook. That means the most important capacity is not expertise in a known domain — it is the ability to stay curious, stay in relationship, and keep imagining in conditions of uncertainty. That is a learnable skill. It is also a design challenge."
+    }
   },
   {
     id: 'intergenerational', color: 'var(--thread-intergenerational)',
@@ -1285,7 +1055,11 @@ const THREADS = [
       { label:'CoGenerate / CoGen Voices', url: PORTFOLIO_URL },
       { label:'Trauma-Informed Publication (ADVANCE)', url: PORTFOLIO_URL }
     ],
-    connections: ['healing','youth','leadership']
+    connections: ['healing','youth','leadership'],
+    openQuestion: {
+      q: "What do we owe the generations who come after us — and how would we design differently if we took that seriously?",
+      body: "Intergenerational responsibility is rarely built into how we make decisions — in institutions, in policy, in design. We optimize for the immediate. But every choice we make is an inheritance: a set of conditions, norms, stories, and systems that future generations will inhabit without having been asked. What would it mean to design with them in mind — not as recipients of our solutions, but as co-authors of what comes next?"
+    }
   },
   {
     id: 'technology', color: 'var(--thread-technology)',
@@ -1322,7 +1096,11 @@ const THREADS = [
       { label:'Social-Ecological Resilience Framework', url: PORTFOLIO_URL },
       { label:'Trauma-Informed Publication', url: PORTFOLIO_URL }
     ],
-    connections: ['intergenerational','youth','leadership','technology']
+    connections: ['intergenerational','youth','leadership','technology'],
+    openQuestion: {
+      q: "What actually makes it possible for someone to pursue — and sustain — a commitment to change?",
+      body: "The barriers aren't just burnout. They're financial precarity, isolation, the pressure to be a savior generation, the slow pace of systems change, and a cultural narrative that treats exhaustion as a badge of purpose. 1 in 4 young changemakers experiences burnout; fewer than 1 in 10 can financially sustain their work. The question is not \"how do we motivate more people?\" It's \"what infrastructures of support, belonging, and sustainability do we need to build?\""
+    }
   },
   {
     id: 'youth', color: 'var(--thread-youth)',
@@ -1346,9 +1124,122 @@ const THREADS = [
 const THREADS_BY_ID = Object.fromEntries(THREADS.map(t => [t.id, t]));
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-function scrollToIntersection(key) {
-  const el = document.getElementById('int-' + key);
-  if (el) el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+// ─── INTERSECTIONS (where the real work lives — keyed the same way as the map's connection lines) ──
+const INTERSECTIONS = {
+  'imagination-leadership': { label:'Curious & futures-facing leaders', desc:'A curious leader is a futures-facing leader. The capacity to imagine alternatives is itself a leadership skill — one that can be taught, cultivated, and made structural.' },
+  'civic-imagination': { label:'Civic imagination as practice', desc:"Young people don't need to be told to hope — they need spaces to practice it. Civic imagination is the infrastructure that makes that practice possible." },
+  'civic-technology': { label:'Civic infrastructure meets platform power', desc:'The platforms shaping public attention are also, by design or by default, shaping civic life. Designing technology consciously is inseparable from designing for democratic futures.' },
+  'civic-youth': { label:'Young people as civic co-authors', desc:"Civic imagination isn't handed down from one generation to the next — it's practiced by the people inheriting the system. Gen Z's civic voice belongs in the room now, not someday." },
+  'imagination-technology': { label:'Attention shapes what we can envision', desc:'What we pay attention to shapes what we believe is real and possible. Platforms that capture attention shape the imaginative ceiling of an entire generation.' },
+  'healing-intergenerational': { label:'Inherited harm requires long-arc repair', desc:'Generational trauma is not metaphor — it is biologically and culturally transmitted. Repair that ignores its long arc will reproduce the harm at a different scale.' },
+  'intergenerational-youth': { label:'What we pass forward', desc:'Young people don’t exist in isolation — they exist in relationship to every generation before them. The question "what kind of ancestors are we?" is a youth question as much as an elder one.' },
+  'healing-leadership': { label:'Healing leadership', desc:'The leaders who build conditions for repair — not just performance — are the ones whose institutions survive complexity. Healing and leading are not separate disciplines.' },
+  'intergenerational-leadership': { label:'Leading across time', desc:'Leadership in complexity requires thinking in longer timescales. The best leaders ask not just "what works now" but "what are we leaving behind?"' },
+  'technology-youth': { label:'Designing for agency, not extraction', desc:'AI is becoming a social role in young people’s lives. The design choices baked into those systems shape relational behavior, emotional development, and long-term civic futures.' },
+  'healing-technology': { label:'Conscious tech design', desc:'Technology that was designed to connect us may be redesigning what connection means. Designing for resilience and digital sovereignty is trauma-informed work.' },
+  'healing-youth': { label:'Sustaining the changemakers', desc:'Burnout among young changemakers is not a personal failing — it is a systems design issue. Sustainable change requires infrastructures of rest, interdependence, and care.' }
+};
+function intersectionFor(a, b) {
+  return INTERSECTIONS[[a, b].sort().join('-')];
+}
+
+// ─── EVIDENCE / "why this is urgent" — rendered as clickable signal chips ──
+const EVIDENCE = [
+  {
+    color: '#800287', num: '98%→2%',
+    chip: 'Creative genius collapses from childhood to adulthood',
+    claim: '98% of children ages 4–5 score at "creative genius" levels on divergent thinking tests. By high school: 12%. By adulthood: less than 2%.',
+    implication: '"The same test. The same people. Thirty years apart. Imagination is not lost — it is designed out of us." — Dr. George Land, NASA-commissioned research',
+    source: 'https://twentyonetoys.com/blogs/teaching-21st-century-skills/creative-genius-divergent-thinking',
+    tags: [ { label:'imagination', var:'--thread-imagination' }, { label:'youth', var:'--thread-youth' }, { label:'systems', var:'--thread-healing' } ]
+  },
+  {
+    color: '#3A6B8A', num: '8%',
+    chip: 'Almost no media imagines a hopeful future',
+    claim: 'Only 8% of streaming media content is set in a future context — and the vast majority of that future is dystopian or authoritarian.',
+    implication: '"The stories we rehearse become the futures we build. We are practicing collapse." — Harmony Labs & Democracy 2076, 2024',
+    source: 'https://harmonylabs.org/news/democracy-highlights',
+    tags: [ { label:'imagination', var:'--thread-imagination' }, { label:'technology', var:'--thread-technology' }, { label:'youth', var:'--thread-youth' } ]
+  },
+  {
+    color: '#8B6B4A', num: '80%',
+    chip: 'Most Americans expect the future to be worse',
+    claim: '80% of Americans do not believe their children\'s generation will be better off than they were — a majority position across age, income, and party.',
+    implication: '"Despair is not a personal failing. It is a collective signal — and collective signals have collective responses." — WSJ/NORC Poll',
+    source: 'https://www.wsj.com/articles/most-americans-doubt-their-children-will-be-better-off-wsj-norc-poll-finds-35500ba8',
+    tags: [ { label:'intergenerational', var:'--thread-intergenerational' }, { label:'youth', var:'--thread-youth' } ]
+  },
+  {
+    color: '#E75213', num: '1 in 2',
+    chip: 'Loneliness is now a declared public health epidemic',
+    claim: '1 in 2 American adults reported feeling lonely — before the pandemic even began. The U.S. Surgeon General declared it a public health epidemic in 2023.',
+    implication: '"Loneliness is as harmful as smoking 15 cigarettes a day. Connection is not a luxury — it is infrastructure." — U.S. Surgeon General Advisory, 2023',
+    source: 'https://www.hhs.gov/sites/default/files/surgeon-general-social-connection-advisory.pdf',
+    tags: [ { label:'technology', var:'--thread-technology' }, { label:'healing', var:'--thread-healing' }, { label:'intergenerational', var:'--thread-intergenerational' } ]
+  },
+  {
+    color: '#3D8C55', num: '1 in 4',
+    chip: 'Changemakers burn out faster than movements can sustain',
+    claim: '1 in 4 young changemakers experience burnout. Fewer than 1 in 10 can financially sustain their social change work without another job.',
+    implication: '"We are asking people to change the world on empty. Sustainability of people is inseparable from sustainability of movements." — The Possibilists, 2023',
+    source: 'https://thepossibilists.org/',
+    tags: [ { label:'youth', var:'--thread-youth' }, { label:'healing', var:'--thread-healing' }, { label:'leadership', var:'--thread-leadership' } ]
+  },
+  {
+    color: '#3B6FBF', num: '42%',
+    chip: 'Entertainment, not news, shapes most civic imagination',
+    claim: '42% of Americans actively avoid the news. Only 59% receive formal civic education. Entertainment media may be the primary source of civic imagination for most people.',
+    implication: '"If people aren\'t getting civic education in school or news, story is doing the work. The question is which stories — and whose futures they imagine." — Harmony Labs, 2024',
+    source: 'https://harmonylabs.org/news/democracy-highlights',
+    tags: [ { label:'civic', var:'--thread-civic', civic:true }, { label:'imagination', var:'--thread-imagination' }, { label:'youth', var:'--thread-youth' }, { label:'technology', var:'--thread-technology' } ]
+  }
+];
+
+function renderEvidence() {
+  const row = document.getElementById('signal-row');
+  const detail = document.getElementById('signal-detail');
+  if (!row || !detail) return;
+
+  row.innerHTML = EVIDENCE.map((e, i) => `
+    <button class="signal-chip" type="button" data-i="${i}" style="--accent-color:${e.color}">
+      <span class="signal-num">${e.num}</span>
+      <span class="signal-claim">${e.chip}</span>
+    </button>
+  `).join('');
+
+  function closeDetail() {
+    detail.classList.remove('open');
+    detail.innerHTML = '';
+    row.querySelectorAll('.signal-chip').forEach(c => c.classList.remove('active'));
+  }
+
+  row.querySelectorAll('.signal-chip').forEach(chip => {
+    chip.addEventListener('click', () => {
+      const i = Number(chip.dataset.i);
+      const already = chip.classList.contains('active');
+      closeDetail();
+      if (already) return;
+      const e = EVIDENCE[i];
+      chip.classList.add('active');
+      detail.style.setProperty('--accent-color', e.color);
+      detail.innerHTML = `
+        <div class="signal-detail-inner" style="--accent-color:${e.color}">
+          <div class="evidence-claim">${e.claim}</div>
+          <div class="evidence-implication">${e.implication}</div>
+          <a class="evidence-source" href="${e.source}" target="_blank" rel="noopener">view source ↗</a>
+          <div class="evidence-threads">
+            ${e.tags.map(t => `<span class="ev-thread-tag" style="border-color:var(${t.var});color:${t.civic ? `color-mix(in srgb, var(${t.var}) 55%, white 45%)` : `var(${t.var})`}">${t.label}</span>`).join('')}
+          </div>
+        </div>
+      `;
+      detail.classList.add('open');
+    });
+  });
+
+  document.addEventListener('click', (e) => {
+    if (e.target.closest('.signal-chip') || e.target.closest('.signal-detail')) return;
+    closeDetail();
+  });
 }
 
 // ─── NAV PILL SYNC ──────────────────────────────────────────────────────────
@@ -1394,23 +1285,47 @@ function renderAccordion() {
         ${t.ideas.map(i => `<span class="idea-tag">${i.tag}</span>`).join('')}
       </div>
       <div class="thread-body">${t.body}</div>
+      ${t.openQuestion ? `
+      <div class="mm-detail-tension">
+        <div class="tension-mark">open question</div>
+        <div class="tension-q">${t.openQuestion.q}</div>
+        <div class="tension-body">${t.openQuestion.body}</div>
+      </div>` : ''}
       <div class="thread-work">
         <div class="work-label">in practice →</div>
         ${t.work.map(w => `<a class="work-link" href="${w.url}" target="_blank" rel="noopener">${w.label} <span class="arr">↗</span></a>`).join('')}
       </div>
       <div class="thread-connections">
-        <div class="conn-label">where this thread touches others</div>
-        ${t.connections.map(cid => `<span class="conn-tag" data-goto="${cid}">${THREADS_BY_ID[cid].shortLabel}</span>`).join('')}
+        <div class="conn-label">the intersections — click to explore</div>
+        ${t.connections.map((cid, idx) => {
+          const other = THREADS_BY_ID[cid];
+          const ix = intersectionFor(t.id, cid);
+          return `
+            <button class="conn-tag" type="button">${other.shortLabel}</button>
+            <div class="mm-idea-expand conn-expand" id="conn-${t.id}-${idx}">
+              ${ix ? ix.desc : ''}
+              <button class="conn-goto" type="button" data-goto="${cid}">explore ${other.shortLabel} →</button>
+            </div>`;
+        }).join('')}
       </div>
     </div>
   `).join('');
   grid.querySelectorAll('.thread-card').forEach(card => {
-    card.addEventListener('click', (e) => { if (!e.target.closest('.conn-tag')) toggleThread(card); });
+    card.addEventListener('click', (e) => { if (!e.target.closest('.conn-tag') && !e.target.closest('.conn-goto')) toggleThread(card); });
   });
-  grid.querySelectorAll('.conn-tag').forEach(tag => {
-    tag.addEventListener('click', (e) => {
+  grid.querySelectorAll('.thread-connections').forEach(conns => {
+    conns.querySelectorAll('.conn-tag').forEach((tag, idx) => {
+      tag.addEventListener('click', (e) => {
+        e.stopPropagation();
+        tag.classList.toggle('active');
+        conns.querySelectorAll('.conn-expand')[idx].classList.toggle('open');
+      });
+    });
+  });
+  grid.querySelectorAll('.conn-goto').forEach(btn => {
+    btn.addEventListener('click', (e) => {
       e.stopPropagation();
-      const target = grid.querySelector(`[data-thread="${tag.dataset.goto}"]`);
+      const target = grid.querySelector(`[data-thread="${btn.dataset.goto}"]`);
       toggleThread(target);
       if (target) target.scrollIntoView({ behavior: prefersReducedMotion ? 'auto' : 'smooth', block: 'start' });
     });
@@ -1486,13 +1401,28 @@ function renderDetail(t) {
       `).join('')}
     </div>
     <p class="mm-detail-body">${t.body}</p>
+    ${t.openQuestion ? `
+    <div class="mm-detail-tension">
+      <div class="tension-mark">open question</div>
+      <div class="tension-q">${t.openQuestion.q}</div>
+      <div class="tension-body">${t.openQuestion.body}</div>
+    </div>` : ''}
     <div class="mm-detail-work">
       <div class="work-label">in practice →</div>
       ${t.work.map(w => `<a class="work-link" href="${w.url}" target="_blank" rel="noopener">${w.label} <span class="arr">↗</span></a>`).join('')}
     </div>
     <div class="mm-detail-conns">
-      <div class="conn-label">where this thread touches others</div>
-      ${t.connections.map(cid => `<span class="conn-tag" data-goto="${cid}" style="color:${THREADS_BY_ID[cid].color}">${THREADS_BY_ID[cid].shortLabel}</span>`).join('')}
+      <div class="conn-label">the intersections — click to explore</div>
+      ${t.connections.map((cid, idx) => {
+        const other = THREADS_BY_ID[cid];
+        const ix = intersectionFor(t.id, cid);
+        return `
+          <button class="conn-tag" type="button" style="color:color-mix(in srgb, ${other.color} 55%, white 45%)">${other.shortLabel}</button>
+          <div class="mm-idea-expand conn-expand" id="mm-conn-${idx}">
+            ${ix ? ix.desc : ''}
+            <button class="conn-goto" type="button" data-goto="${cid}">explore ${other.shortLabel} →</button>
+          </div>`;
+      }).join('')}
     </div>
   `;
   detail.querySelectorAll('.mm-idea-btn').forEach(btn => {
@@ -1501,8 +1431,17 @@ function renderDetail(t) {
       document.getElementById('mm-idea-' + btn.dataset.idx).classList.toggle('open');
     });
   });
-  detail.querySelectorAll('.conn-tag').forEach(tag => {
-    tag.addEventListener('click', () => focusThreadMap(tag.dataset.goto));
+  detail.querySelectorAll('.mm-detail-conns .conn-tag').forEach((tag, idx) => {
+    tag.addEventListener('click', () => {
+      tag.classList.toggle('active');
+      document.getElementById('mm-conn-' + idx).classList.toggle('open');
+    });
+  });
+  detail.querySelectorAll('.conn-goto').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      focusThreadMap(btn.dataset.goto);
+    });
   });
 }
 
@@ -1518,6 +1457,7 @@ function focusThreadMap(id) {
     canvas.style.transform = 'none';
     detail.classList.remove('open');
     stage.classList.remove('focused');
+    clearConnBubbles();
     syncNavPill(null);
     return;
   }
@@ -1536,16 +1476,113 @@ function focusThreadMap(id) {
   renderDetail(THREADS_BY_ID[id]);
   detail.classList.add('open');
   syncNavPill(id);
+  renderConnBubbles(id, tx, ty, scale);
+}
+
+// ─── ON-MAP CONNECTION BUBBLES (a second, more discoverable entry point into
+// the same intersections data — sprouting directly off the focused circle,
+// so you don't have to scroll the side panel to find them) ──
+function clearConnBubbles() {
+  document.querySelectorAll('.mm-conn-bubble, .mm-conn-pop').forEach(el => el.remove());
+}
+
+function renderConnBubbles(id, tx, ty, scale) {
+  clearConnBubbles();
+  const stage = document.getElementById('mindmap-stage');
+  const canvas = document.getElementById('mm-canvas');
+  const t = THREADS_BY_ID[id];
+  const focusedNode = canvas.querySelector(`.mm-node[data-id="${id}"]`);
+  if (!t || !focusedNode) return;
+  const px = parseFloat(focusedNode.dataset.x), py = parseFloat(focusedNode.dataset.y);
+
+  t.connections.forEach(cid => {
+    const otherNode = canvas.querySelector(`.mm-node[data-id="${cid}"]`);
+    if (!otherNode) return;
+    const other = THREADS_BY_ID[cid];
+    const qx = parseFloat(otherNode.dataset.x), qy = parseFloat(otherNode.dataset.y);
+    // anchor the bubble at a fixed radius just outside the focused circle's own edge,
+    // in the direction of each connected thread — sprouting off the focused circle
+    // itself rather than crowding the neighboring node (which has its own click target)
+    const dx = qx - px, dy = qy - py;
+    const dist = Math.hypot(dx, dy) || 1;
+    const anchorRadius = 100; // raw px from focused node's center (node radius is 74)
+    const rawX = px + (dx / dist) * anchorRadius, rawY = py + (dy / dist) * anchorRadius;
+    const screenX = tx + scale * rawX, screenY = ty + scale * rawY;
+
+    const bubble = document.createElement('button');
+    bubble.type = 'button';
+    bubble.className = 'mm-conn-bubble';
+    bubble.style.left = screenX + 'px';
+    bubble.style.top = screenY + 'px';
+    bubble.style.color = `color-mix(in srgb, ${other.color} 55%, white 45%)`;
+    bubble.textContent = other.shortLabel;
+    bubble.dataset.cid = cid;
+    bubble.addEventListener('click', (e) => {
+      e.stopPropagation();
+      toggleConnBubblePop(bubble, t, cid, screenX, screenY, stage);
+    });
+    stage.appendChild(bubble);
+  });
+}
+
+function toggleConnBubblePop(bubble, t, cid, screenX, screenY, stage) {
+  const already = bubble.classList.contains('active');
+  document.querySelectorAll('.mm-conn-bubble').forEach(b => b.classList.remove('active'));
+  const existingPop = stage.querySelector('.mm-conn-pop');
+  if (existingPop) existingPop.remove();
+  if (already) return;
+
+  bubble.classList.add('active');
+  const other = THREADS_BY_ID[cid];
+  const ix = intersectionFor(t.id, cid);
+  const pop = document.createElement('div');
+  pop.className = 'mm-conn-pop';
+  pop.style.visibility = 'hidden';
+  pop.innerHTML = `
+    ${ix ? ix.desc : ''}
+    <button class="conn-goto" type="button">explore ${other.shortLabel} →</button>
+  `;
+  pop.querySelector('.conn-goto').addEventListener('click', (e) => {
+    e.stopPropagation();
+    focusThreadMap(cid);
+  });
+  stage.appendChild(pop);
+
+  // Measure, then place — flip above the bubble instead of below whenever the
+  // popover would run past the bottom of the stage (no scroll affordance, so it
+  // must always land fully in view), and clamp horizontally within stage bounds.
+  const margin = 12;
+  const stageW = stage.clientWidth, stageH = stage.clientHeight;
+  const popW = pop.offsetWidth, popH = pop.offsetHeight;
+  const gap = 20;
+
+  let top;
+  if (screenY + gap + popH + margin <= stageH) {
+    top = screenY + gap;
+    pop.style.transform = 'translate(-50%, 0)';
+  } else {
+    top = screenY - gap - popH;
+    pop.style.transform = 'translate(-50%, 0)';
+    if (top < margin) top = margin;
+  }
+
+  let left = screenX;
+  const halfW = popW / 2;
+  if (left - halfW < margin) left = halfW + margin;
+  if (left + halfW > stageW - margin) left = stageW - margin - halfW;
+
+  pop.style.left = left + 'px';
+  pop.style.top = top + 'px';
+  pop.style.visibility = '';
 }
 
 renderMap();
+renderEvidence();
 window.addEventListener('resize', () => { layoutNodes(); if (mapFocusedId) focusThreadMap(mapFocusedId); }, { passive: true });
-
-// ─── INTERSECTION DOT TOOLTIPS (colors alone don't identify a thread — label on hover) ──
-document.querySelectorAll('.int-dot').forEach(dot => {
-  const m = (dot.getAttribute('style') || '').match(/--thread-([a-z]+)/);
-  const thread = m && THREADS_BY_ID[m[1]];
-  if (thread) dot.setAttribute('data-tooltip', thread.navLabel);
+document.addEventListener('click', (e) => {
+  if (e.target.closest('.mm-conn-bubble') || e.target.closest('.mm-conn-pop')) return;
+  document.querySelectorAll('.mm-conn-bubble').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.mm-conn-pop').forEach(p => p.remove());
 });
 
 // ─── REVEAL ON SCROLL ────────────────────────────────────────────────────────
