@@ -69,6 +69,6 @@
   .shared-nav--dark .shared-nav-links { background: rgba(17, 20, 41, 0.97); }
   .shared-nav--light .shared-nav-links { background: rgba(245, 241, 232, 0.98); }
   .shared-nav-bar.is-open .shared-nav-links { max-height: 26rem; }
-  .shared-nav-links a { padding: 0.85rem 2rem; width: 100%; }
+  .shared-nav-links a { padding: 0.95rem 2rem; width: 100%; font-size: 1.05rem; }
   .shared-nav-links a.active { border-bottom: none; border-left: 2px solid currentColor; padding-left: calc(2rem - 2px); }
 }
