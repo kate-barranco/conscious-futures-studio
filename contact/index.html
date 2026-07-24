@@ -45,9 +45,35 @@ main.contact-main {
 }
 
 .contact-card {
-  max-width: 640px;
+  max-width: 1060px;
   width: 100%;
-  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: clamp(2.5rem, 6vw, 5rem);
+}
+
+.contact-text {
+  flex: 1 1 420px;
+  text-align: left;
+}
+
+.contact-photo {
+  flex: 0 0 auto;
+  width: min(320px, 34vw);
+  height: min(320px, 34vw);
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0 20px 50px rgba(26,31,91,0.22);
+  border: 4px solid var(--cream);
+  outline: 1px solid var(--rule);
+}
+.contact-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
 }
 
 .contact-eyebrow {
@@ -60,7 +86,7 @@ main.contact-main {
   margin-bottom: 1.1rem;
 }
 
-.contact-card h1 {
+.contact-text h1 {
   font-family: var(--f-display);
   font-weight: 600;
   font-size: clamp(2.1rem, 4.5vw, 3rem);
@@ -69,22 +95,30 @@ main.contact-main {
   margin-bottom: 1.4rem;
 }
 
-.contact-card p.contact-intro {
+.contact-text p.contact-intro {
   font-family: var(--f-display);
   font-style: italic;
   font-weight: 300;
   font-size: 1.15rem;
   color: rgba(26,26,26,0.78);
   max-width: 480px;
-  margin: 0 auto 2.75rem;
+  margin: 0 0 2.75rem;
   line-height: 1.55;
 }
 
 .contact-buttons {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 1rem;
+}
+
+@media (max-width: 760px) {
+  .contact-card { flex-direction: column; text-align: center; }
+  .contact-text { text-align: center; }
+  .contact-text p.contact-intro { margin: 0 auto 2.75rem; }
+  .contact-buttons { justify-content: center; }
+  .contact-photo { width: 200px; height: 200px; order: -1; }
 }
 
 .contact-btn {
@@ -130,6 +164,7 @@ main.contact-main {
 @media (max-width: 480px) {
   .contact-buttons { flex-direction: column; align-items: stretch; }
   .contact-btn { justify-content: center; }
+  .contact-photo { width: 160px; height: 160px; }
 }
 </style>
 </head>
@@ -139,12 +174,17 @@ main.contact-main {
 
 <main class="contact-main">
   <div class="contact-card">
-    <div class="contact-eyebrow">Get in touch</div>
-    <h1>Schedule a Chat with Kate</h1>
-    <p class="contact-intro">Interested to learn more about Kate's work? Want to meet with her for a specific consultation? Just want to schedule a chit-chat? Email her below.</p>
-    <div class="contact-buttons">
-      <a href="mailto:kate@conscious-futures.studio" class="contact-btn primary">Email Kate <span class="arrow">→</span></a>
-      <a href="https://calendar.google.com/appointments/schedules/AcZssZ0cyJiFy4NcQ5b_gPvfY8OFxMYgnaEjppaQHoI13p6EhT4wJJH6mkX9HPUU93qlpqptEUtYjol4" target="_blank" rel="noopener" class="contact-btn accent">Book a call <span class="arrow">→</span></a>
+    <div class="contact-text">
+      <div class="contact-eyebrow">Get in touch</div>
+      <h1>Schedule a Chat with Kate</h1>
+      <p class="contact-intro">Interested to learn more about Kate's work? Want to meet with her for a specific consultation? Just want to schedule a chit-chat? Email her below.</p>
+      <div class="contact-buttons">
+        <a href="mailto:kate@conscious-futures.studio" class="contact-btn primary">Email Kate <span class="arrow">→</span></a>
+        <a href="https://calendar.google.com/appointments/schedules/AcZssZ0cyJiFy4NcQ5b_gPvfY8OFxMYgnaEjppaQHoI13p6EhT4wJJH6mkX9HPUU93qlpqptEUtYjol4" target="_blank" rel="noopener" class="contact-btn accent">Book a call <span class="arrow">→</span></a>
+      </div>
+    </div>
+    <div class="contact-photo">
+      <img src="assets/images/kate-headshot.jpg" alt="Kate Barranco, Founder of Conscious Futures Studio">
     </div>
   </div>
 </main>
