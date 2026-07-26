@@ -351,6 +351,52 @@ a.recog-name:hover { color: #c97dd4; }
 .media-source { font-size: 0.66rem; color: rgba(26,26,26,0.36); margin-top: auto; padding-top: 0.55rem; }
 .media-link { font-size: 0.66rem; color: var(--purple); }
 
+/* ── "KEEP EXPLORING" NUDGE — bottom of each panel, prompts the next section ── */
+.next-nudge {
+  margin-top: 3rem;
+  padding-top: 1.75rem;
+  border-top: 1px solid var(--rule);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem 2rem;
+}
+.next-nudge-label {
+  font-size: 0.67rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(26,26,26,0.36);
+  white-space: nowrap;
+}
+.next-nudge-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  font-family: var(--f-display);
+  font-style: italic;
+  font-size: 1.15rem;
+  font-weight: 300;
+  color: var(--navy);
+  background: none;
+  border: none;
+  text-decoration: none;
+  cursor: pointer;
+  padding: 0;
+  transition: color 0.2s;
+}
+.next-nudge-btn:hover { color: var(--purple); }
+.next-nudge-btn .arrow { transition: transform 0.2s var(--ease-out); }
+.next-nudge-btn:hover .arrow { transform: translateX(5px); }
+#panel-recognition .next-nudge { border-top-color: rgba(245,241,232,0.12); }
+#panel-recognition .next-nudge-label { color: rgba(245,241,232,0.36); }
+#panel-recognition .next-nudge-btn { color: var(--cream); }
+#panel-recognition .next-nudge-btn:hover { color: #c97dd4; }
+@media (max-width: 480px) {
+  .next-nudge { flex-direction: column; align-items: flex-start; }
+}
+
 /* ── PHOTO STRIP ── */
 .photo-strip { display: grid; grid-template-columns: 1fr 1fr; height: 260px; overflow: hidden; }
 .photo-strip img { width: 100%; height: 100%; object-fit: cover; display: block; }
@@ -418,15 +464,71 @@ footer p { font-size: 0.68rem; color: rgba(245,241,232,0.28); }
 <!-- SECTION SWITCHER -->
 <div class="switcher-wrap">
   <div class="switcher">
-    <button class="sw-btn active" data-panel="recognition">Awards & Fellowships</button>
-    <button class="sw-btn" data-panel="publications">Publications</button>
+    <button class="sw-btn active" data-panel="publications">Publications</button>
+    <button class="sw-btn" data-panel="recognition">Awards & Fellowships</button>
     <button class="sw-btn" data-panel="speaking">Speaking</button>
     <button class="sw-btn" data-panel="media">Media</button>
   </div>
 </div>
 
+<!-- PANEL: PUBLICATIONS -->
+<div class="panel active" id="panel-publications">
+  <div class="panel-inner">
+    <div class="panel-header">
+      <div class="panel-label">Writing</div>
+      <h2 class="panel-h2"><em>Publications</em></h2>
+    </div>
+    <a href="https://www.newamerica.org/insights/operationalizing-imagination/" class="pub-featured" target="_blank">
+      <div>
+        <div class="pub-feat-badge">Featured · New America</div>
+        <div class="pub-feat-title">Operationalizing Imagination</div>
+        <div class="pub-feat-source">Futures Security Scenario Lab · New America</div>
+      </div>
+      <div class="pub-feat-arrow">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 12L12 2M12 2H5M12 2V9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+    </a>
+    <div class="pub-grid">
+      <a href="https://timeleft.com/essays/why-its-easier-to-joke-about-the-apocalypse-than-imagine-a-better-community" class="pub-card" target="_blank">
+        <div class="pub-card-title">Why It's Easier to Joke About the Apocalypse Than Imagine a Better Community</div>
+        <div class="pub-card-source">Timeleft</div>
+        <div class="pub-card-arrow">Read →</div>
+      </a>
+      <a href="https://thred.com/culture/is-gen-z-too-emotionally-literate-to-feel/" class="pub-card" target="_blank">
+        <div class="pub-card-title">Is Gen Z Too Emotionally Literate to Feel?</div>
+        <div class="pub-card-source">Thred Media</div>
+        <div class="pub-card-arrow">Read →</div>
+      </a>
+      <a href="https://networkofwellbeing.org/2024/03/05/ecological-belonging-reweaving-ourselves-each-other-and-the-natural-world/" class="pub-card" target="_blank">
+        <div class="pub-card-title">Ecological Belonging: Weaving People, Purpose and Planet</div>
+        <div class="pub-card-source">Network of Wellbeing</div>
+        <div class="pub-card-arrow">Read →</div>
+      </a>
+      <a href="https://journals.plos.org/digitalhealth/article/metrics?id=10.1371/journal.pdig.0000876" class="pub-card" target="_blank">
+        <div class="pub-card-title">The Digital Crossroads: Media Literacy and the Future of Youth Online</div>
+        <div class="pub-card-source">PLOS Digital Health</div>
+        <div class="pub-card-arrow">Read →</div>
+      </a>
+      <a href="https://www.advancejournal.org/article/94666-transforming-higher-education-building-trauma-informed-communities-for-healing-and-intergenerational-wellbeing" class="pub-card" target="_blank">
+        <div class="pub-card-title">Transforming Higher Education: Trauma-Informed Communities for Healing and Intergenerational Wellbeing</div>
+        <div class="pub-card-source">The ADVANCE OSU Journal · Vol. 5, 2024</div>
+        <div class="pub-card-arrow">Read →</div>
+      </a>
+      <a href="https://indd.adobe.com/view/11ad3a3f-a931-40c1-a758-4b643b2785a6" class="pub-card" target="_blank">
+        <div class="pub-card-title">The Journey Framework</div>
+        <div class="pub-card-source">Red House, Georgetown University</div>
+        <div class="pub-card-arrow">Read →</div>
+      </a>
+    </div>
+    <div class="next-nudge">
+      <div class="next-nudge-label">Keep exploring</div>
+      <button class="next-nudge-btn" data-panel="recognition">Awards &amp; Fellowships <span class="arrow">→</span></button>
+    </div>
+  </div>
+</div>
+
 <!-- PANEL: AWARDS & FELLOWSHIPS -->
-<div class="panel active" id="panel-recognition">
+<div class="panel" id="panel-recognition">
   <div class="panel-inner">
     <div class="panel-header">
       <div class="panel-label">Recognition</div>
@@ -489,57 +591,9 @@ footer p { font-size: 0.68rem; color: rgba(245,241,232,0.28); }
         </div>
       </div>
     </div>
-  </div>
-</div>
-
-<!-- PANEL: PUBLICATIONS -->
-<div class="panel" id="panel-publications">
-  <div class="panel-inner">
-    <div class="panel-header">
-      <div class="panel-label">Writing</div>
-      <h2 class="panel-h2"><em>Publications</em></h2>
-    </div>
-    <a href="https://www.newamerica.org/insights/operationalizing-imagination/" class="pub-featured" target="_blank">
-      <div>
-        <div class="pub-feat-badge">Featured · New America</div>
-        <div class="pub-feat-title">Operationalizing Imagination</div>
-        <div class="pub-feat-source">Futures Security Scenario Lab · New America</div>
-      </div>
-      <div class="pub-feat-arrow">
-        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 12L12 2M12 2H5M12 2V9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </div>
-    </a>
-    <div class="pub-grid">
-      <a href="https://timeleft.com/essays/why-its-easier-to-joke-about-the-apocalypse-than-imagine-a-better-community" class="pub-card" target="_blank">
-        <div class="pub-card-title">Why It's Easier to Joke About the Apocalypse Than Imagine a Better Community</div>
-        <div class="pub-card-source">Timeleft</div>
-        <div class="pub-card-arrow">Read →</div>
-      </a>
-      <a href="https://thred.com/culture/is-gen-z-too-emotionally-literate-to-feel/" class="pub-card" target="_blank">
-        <div class="pub-card-title">Is Gen Z Too Emotionally Literate to Feel?</div>
-        <div class="pub-card-source">Thred Media</div>
-        <div class="pub-card-arrow">Read →</div>
-      </a>
-      <a href="https://networkofwellbeing.org/2024/03/05/ecological-belonging-reweaving-ourselves-each-other-and-the-natural-world/" class="pub-card" target="_blank">
-        <div class="pub-card-title">Ecological Belonging: Weaving People, Purpose and Planet</div>
-        <div class="pub-card-source">Network of Wellbeing</div>
-        <div class="pub-card-arrow">Read →</div>
-      </a>
-      <a href="https://journals.plos.org/digitalhealth/article/metrics?id=10.1371/journal.pdig.0000876" class="pub-card" target="_blank">
-        <div class="pub-card-title">The Digital Crossroads: Media Literacy and the Future of Youth Online</div>
-        <div class="pub-card-source">PLOS Digital Health</div>
-        <div class="pub-card-arrow">Read →</div>
-      </a>
-      <a href="https://www.advancejournal.org/article/94666-transforming-higher-education-building-trauma-informed-communities-for-healing-and-intergenerational-wellbeing" class="pub-card" target="_blank">
-        <div class="pub-card-title">Transforming Higher Education: Trauma-Informed Communities for Healing and Intergenerational Wellbeing</div>
-        <div class="pub-card-source">The ADVANCE OSU Journal · Vol. 5, 2024</div>
-        <div class="pub-card-arrow">Read →</div>
-      </a>
-      <a href="https://indd.adobe.com/view/11ad3a3f-a931-40c1-a758-4b643b2785a6" class="pub-card" target="_blank">
-        <div class="pub-card-title">The Journey Framework</div>
-        <div class="pub-card-source">Red House, Georgetown University</div>
-        <div class="pub-card-arrow">Read →</div>
-      </a>
+    <div class="next-nudge">
+      <div class="next-nudge-label">Keep exploring</div>
+      <button class="next-nudge-btn" data-panel="speaking">Speaking &amp; Facilitation <span class="arrow">→</span></button>
     </div>
   </div>
 </div>
@@ -637,6 +691,10 @@ footer p { font-size: 0.68rem; color: rgba(245,241,232,0.28); }
         </div>
       </div>
     </div>
+    <div class="next-nudge">
+      <div class="next-nudge-label">Keep exploring</div>
+      <button class="next-nudge-btn" data-panel="media">Media Features <span class="arrow">→</span></button>
+    </div>
   </div>
 </div>
 
@@ -685,6 +743,10 @@ footer p { font-size: 0.68rem; color: rgba(245,241,232,0.28); }
         <div class="media-link">Read →</div>
       </a>
     </div>
+    <div class="next-nudge">
+      <div class="next-nudge-label">See it in practice</div>
+      <a class="next-nudge-btn" href="../portfolio/">Explore the Portfolio <span class="arrow">→</span></a>
+    </div>
   </div>
 </div>
 
@@ -701,16 +763,18 @@ footer p { font-size: 0.68rem; color: rgba(245,241,232,0.28); }
 // ── Panel switcher ──
 const btns = document.querySelectorAll('.sw-btn');
 const panels = document.querySelectorAll('.panel');
+function switchToPanel(target) {
+  btns.forEach(b => b.classList.toggle('active', b.dataset.panel === target));
+  panels.forEach(p => p.classList.toggle('active', p.id === 'panel-' + target));
+  const sw = document.querySelector('.switcher-wrap');
+  window.scrollTo({ top: sw.getBoundingClientRect().bottom + window.scrollY, behavior: 'smooth' });
+}
 btns.forEach(btn => {
-  btn.addEventListener('click', () => {
-    const target = btn.dataset.panel;
-    btns.forEach(b => b.classList.remove('active'));
-    panels.forEach(p => p.classList.remove('active'));
-    btn.classList.add('active');
-    document.getElementById('panel-' + target).classList.add('active');
-    const sw = document.querySelector('.switcher-wrap');
-    window.scrollTo({ top: sw.getBoundingClientRect().bottom + window.scrollY, behavior: 'smooth' });
-  });
+  btn.addEventListener('click', () => switchToPanel(btn.dataset.panel));
+});
+// "Keep exploring" nudge buttons at the bottom of each panel — same switch logic
+document.querySelectorAll('.next-nudge-btn[data-panel]').forEach(btn => {
+  btn.addEventListener('click', () => switchToPanel(btn.dataset.panel));
 });
 
 // ── Quote: reveal on first hover, then stays ──
