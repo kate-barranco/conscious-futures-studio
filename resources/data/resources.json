@@ -30687,5 +30687,34 @@
     ],
     "type_display": "Article",
     "confidence": "high"
+  },
+  {
+    "id": "CFT-1113",
+    "title": "Why Gen Z Is Turning to AI for Tarot Readings",
+    "url": "https://sfstandard.com/2026/05/21/ai-tarot-divination-uncertainty-gen-z/",
+    "primary_category": "Tech, AI & Social Change",
+    "categories": [
+      "Tech, AI & Social Change",
+      "Gen Z, Youth Experience & Identity"
+    ],
+    "type_normalized": "Article",
+    "type_raw_variants": [],
+    "note": "",
+    "extra_tag_text": "",
+    "hub": "",
+    "year": "2026",
+    "source_sheets": [
+      "Hand-added (Kate request — link, 2026-08-06)"
+    ],
+    "merged_from_count": 1,
+    "blurb": "As economic anxiety and job-market uncertainty deepen, young people are turning to AI chatbots like ChatGPT and Gemini for tarot readings and divination — seeking a kind of reassurance that traditional institutions no longer seem to offer. SF Standard reporter Samhita Krishnan traces the irony: the same generation worried about AI displacing their careers is now asking it to predict their futures, part of what cultural critics call 'bust-time reenchantment.' Longtime San Francisco tarot practitioners describe what's lost in the exchange ('it doesn't breathe,' says one 30-year reader; 'the magic in tarot is the interpersonal,' says another), while Gen Z users describe AI's round-the-clock availability as a source of solace amid what one calls fundamentally uncertain 'job security.'",
+    "tags": [
+      "Gen Z",
+      "AI & Technology",
+      "Ritual & Belonging",
+      "Identity & Culture"
+    ],
+    "type_display": "Article",
+    "confidence": "high"
   }
 ]
