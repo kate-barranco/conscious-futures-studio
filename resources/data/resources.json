@@ -30716,5 +30716,36 @@
     ],
     "type_display": "Article",
     "confidence": "high"
+  },
+  {
+    "id": "CFT-1114",
+    "title": "How Citizens (Not Politicians) Are Building the Future | TED Talk",
+    "url": "https://www.ted.com/talks/jon_alexander_how_citizens_not_politicians_are_building_the_future",
+    "primary_category": "Government, Democracy & Polarization",
+    "categories": [
+      "Government, Democracy & Polarization",
+      "Hope & Empowerment"
+    ],
+    "type_normalized": "Video/Talk",
+    "type_raw_variants": [
+      "TED Talk"
+    ],
+    "note": "",
+    "extra_tag_text": "",
+    "hub": "",
+    "year": "2026",
+    "source_sheets": [
+      "Hand-added (Kate request — link, 2026-08-06)"
+    ],
+    "merged_from_count": 1,
+    "blurb": "Citizen strategist Jon Alexander draws on a decade of research into democracy in action to argue that most meaningful change doesn't come from politicians or institutions — it comes from ordinary people organizing to improve their own communities. Drawing on global examples, he shows citizens already collaborating to solve problems that top-down politics has failed to address, making the case that the solutions we need may already exist within communities themselves. The talk reframes the future not as something delivered by leaders, but as something citizens are actively building together.",
+    "tags": [
+      "Civic Life",
+      "Democracy",
+      "Collective Imagination",
+      "Hope & Empowerment"
+    ],
+    "type_display": "Video/Talk",
+    "confidence": "high"
   }
 ]
