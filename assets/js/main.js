@@ -80,8 +80,8 @@
 
     if (scrollCue) {
       scrollCue.addEventListener('click', function () {
-        var quoteSection = document.getElementById('quoteLayer');
-        if (quoteSection) quoteSection.scrollIntoView({ behavior: prefersReduced() ? 'auto' : 'smooth' });
+        var nextSection = document.getElementById('bridgeLayer');
+        if (nextSection) nextSection.scrollIntoView({ behavior: prefersReduced() ? 'auto' : 'smooth' });
       });
     }
   }
@@ -165,17 +165,17 @@
 
     /* Phase C: horizon fills viewport (0.42 – 0.5) — nothing else needed, mask already near-full */
 
-    /* Phase D: quote (0.48 – 0.68) */
-    var quoteIn = phase(p, 0.48, 0.56);
-    var quoteOut = phase(p, 0.62, 0.70);
-    quoteLayer.style.opacity = String(Math.min(quoteIn, 1 - quoteOut));
-    quoteLayer.style.pointerEvents = quoteIn > 0.1 && quoteOut < 0.9 ? 'auto' : 'none';
-
-    /* Phase E: bridge (0.66 – 0.82) */
-    var bridgeIn = phase(p, 0.66, 0.74);
-    var bridgeOut = phase(p, 0.80, 0.86);
+    /* Phase D: bridge (0.48 – 0.68) */
+    var bridgeIn = phase(p, 0.48, 0.56);
+    var bridgeOut = phase(p, 0.62, 0.70);
     bridgeLayer.style.opacity = String(Math.min(bridgeIn, 1 - bridgeOut));
     bridgeLayer.style.pointerEvents = bridgeIn > 0.1 && bridgeOut < 0.9 ? 'auto' : 'none';
+
+    /* Phase E: quote (0.66 – 0.82) */
+    var quoteIn = phase(p, 0.66, 0.74);
+    var quoteOut = phase(p, 0.80, 0.86);
+    quoteLayer.style.opacity = String(Math.min(quoteIn, 1 - quoteOut));
+    quoteLayer.style.pointerEvents = quoteIn > 0.1 && quoteOut < 0.9 ? 'auto' : 'none';
 
     /* Phase F: landmarks (0.82 – 1.0) */
     var landmarksIn = phase(p, 0.82, 0.92);
