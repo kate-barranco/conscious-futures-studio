@@ -203,10 +203,11 @@ button{font-family:inherit;cursor:pointer}
 .no-results.vis{display:block}
 
 /* ─── TERRAIN ─── */
-.terrain-sec{padding:4.5rem 0;background:var(--ink);width:100%}
+.terrain-sec{padding:4.5rem 0;background:var(--ink);width:100%;margin-top:1.75rem}
 .terrain-hd{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:.75rem;flex-wrap:wrap;gap:1.25rem;padding:0}
 .terrain-hd p{font-size:.84rem;color:rgba(245,241,232,.45);max-width:54ch;line-height:1.58}
 .terrain-hd a{color:var(--gold);text-decoration:underline;text-underline-offset:2px}
+.terrain-title{font-family:'Fraunces',serif;font-size:clamp(1.9rem,4vw,2.75rem);font-weight:400;letter-spacing:-.02em;line-height:1;color:var(--cream);font-variation-settings:"opsz" 144,"SOFT" 30}
 .terrain-wrap{background:var(--ink);border-radius:0;overflow:hidden;line-height:0}
 .terrain-svg{width:100%;height:auto;display:block}
 .terrain-legend{display:flex;flex-wrap:wrap;gap:.45rem 1.1rem;margin-top:1.1rem}
@@ -215,7 +216,7 @@ button{font-family:inherit;cursor:pointer}
 .tleg-proj{width:5px;height:5px;border-radius:50%;background:rgba(26,26,24,.4);border:1px solid var(--ink-mute);flex-shrink:0}
 
 /* ─── TESTIMONIES — LENS FRAMES ─── */
-.tstrip{background:var(--warm);padding:5rem var(--px);color:var(--ink)}
+.tstrip{background:var(--warm);padding:1.25rem var(--px) 5rem;color:var(--ink)}
 .tstrip-head{max-width:var(--max-w);margin:0 auto 2.5rem}
 .tstrip-head h2{font-family:'Fraunces',serif;font-size:clamp(1.6rem,3vw,2.4rem);font-weight:400;font-variation-settings:"opsz" 144,"SOFT" 30,"WONK" 1;letter-spacing:-.02em;color:var(--ink)}
 .tstrip-head h2 em{font-style:italic;font-variation-settings:"opsz" 144,"SOFT" 100;color:var(--orange)}
@@ -233,7 +234,7 @@ button{font-family:inherit;cursor:pointer}
 .tcard blockquote{font-family:'Fraunces',serif;font-style:normal;font-size:.93rem;line-height:1.65;font-variation-settings:"opsz" 144,"SOFT" 40;color:var(--ink-soft);flex-grow:0;
   display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:4;line-clamp:4;overflow:hidden;min-height:6.6em}
 .tcard-who{display:flex;align-items:center;gap:.75rem}
-.tcard-photo{width:44px;height:44px;border-radius:50%;object-fit:cover;object-position:center top;flex-shrink:0;border:1px solid var(--line);transition:width .4s cubic-bezier(.16,1,.3,1),height .4s cubic-bezier(.16,1,.3,1)}
+.tcard-photo{width:60px;height:60px;border-radius:50%;object-fit:cover;object-position:center top;flex-shrink:0;border:1px solid var(--line);transition:width .4s cubic-bezier(.16,1,.3,1),height .4s cubic-bezier(.16,1,.3,1)}
 .tcard-name{font-size:.82rem;font-weight:500;display:block;color:var(--ink)}
 .tcard-role{font-family:'JetBrains Mono',monospace;font-size:.57rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-mute);display:block;margin-top:.17rem;line-height:1.5}
 /* Blurred, out-of-focus neighbors */
@@ -243,7 +244,7 @@ button{font-family:inherit;cursor:pointer}
    scaling a text-containing element causes browsers to blur-rasterize the text. */
 .tcard-focus{z-index:2;padding:1.75rem 1.9rem 1.6rem;border-color:var(--orange);box-shadow:0 22px 48px rgba(26,26,24,.14),0 0 0 5px rgba(231,82,19,.09);cursor:default}
 .tcard-focus blockquote{font-size:1.05rem;display:flex;align-items:center;overflow:hidden;min-height:18.75rem;max-height:18.75rem}
-.tcard-focus .tcard-photo{width:68px;height:68px;border-color:var(--orange)}
+.tcard-focus .tcard-photo{width:96px;height:96px;border-color:var(--orange)}
 /* Magnifying-glass badge, top-right of the focused card */
 .tcard-glass{position:absolute;top:-15px;right:-15px;width:34px;height:34px;pointer-events:none}
 .tcard-glass-ring{position:absolute;top:0;left:0;width:24px;height:24px;border-radius:50%;
@@ -265,7 +266,7 @@ button{font-family:inherit;cursor:pointer}
 .work-partners-bridge::before,.work-partners-bridge::after{content:'';flex:1;height:1px;background:var(--line)}
 
 /* ─── COLLABS ─── */
-.collab-sec{background:transparent;color:var(--ink);padding:var(--ps) var(--px) 2.5rem}
+.collab-sec{background:transparent;color:var(--ink);padding:.5rem var(--px) 2.5rem}
 .collab-in{max-width:var(--max-w);margin:0 auto}
 .collab-hd{display:grid;grid-template-columns:1fr 1fr;gap:3rem;margin-bottom:2.5rem;align-items:end}
 .collab-hd .sec-lbl{color:var(--ink-mute)}
@@ -297,8 +298,9 @@ button{font-family:inherit;cursor:pointer}
 .cname{font-family:'Fraunces',serif;font-size:1rem;font-weight:400;font-variation-settings:"opsz" 144,"SOFT" 40,"WONK" 1;color:var(--ink);line-height:1.2;letter-spacing:-.01em}
 .cdesc{font-size:.76rem;line-height:1.55;color:var(--ink-mute);margin-top:.3rem;max-width:28ch;display:none}
 .citem:hover .cdesc{display:block}
-.citem-arrow{font-size:.75rem;color:var(--ink-mute);margin-top:auto;padding-top:.5rem;transition:color .2s,transform .2s;display:none}
-.citem:hover .citem-arrow{display:block;color:var(--ink-soft)}
+.citem-arrow{font-family:'JetBrains Mono',monospace;font-size:.6rem;letter-spacing:.06em;text-transform:uppercase;color:var(--orange);margin-top:auto;padding-top:.6rem;transition:transform .2s,opacity .2s;display:flex;align-items:center;gap:.3rem;opacity:.82}
+.citem:hover .citem-arrow{transform:translateX(3px);opacity:1}
+.citem:focus-visible{outline:2px solid var(--orange);outline-offset:-2px}
 .collab-collapse-wrap{text-align:center;margin-top:1.5rem}
 #collab-collapse-btn{font-family:'JetBrains Mono',monospace;font-size:.58rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);background:none;border:none;cursor:pointer;min-height:33px}
 
@@ -411,6 +413,40 @@ button{font-family:inherit;cursor:pointer}
   .terrain-wrap{display:none}
 }
 @media(max-width:480px){.collab-grid{grid-template-columns:1fr}.hero-stats{grid-template-columns:1fr 1fr}}
+
+/* ─── ACCORDION ─── */
+.acc-list{max-width:var(--max-w);margin:1.75rem auto 0;padding:0 var(--px)}
+.acc-item{margin-bottom:.85rem}
+.acc-item:last-child{margin-bottom:0}
+/* Each item's whole header is filled with the color of the section it expands
+   to reveal (navy callout, warm testimony strip, etc.) — a full color block,
+   not just an accent line, so the list reads as a set of distinct sections. */
+#acc-item-featured{--acc-accent:var(--orange);--acc-fg:var(--cream)}
+#acc-item-partners{--acc-accent:var(--purple);--acc-fg:var(--cream)}
+#acc-item-pub{--acc-accent:var(--navy);--acc-fg:var(--cream)}
+#acc-item-full{--acc-accent:var(--green);--acc-fg:var(--cream)}
+#acc-item-testimony{--acc-accent:var(--gold);--acc-fg:var(--cream)}
+.acc-header{display:flex;align-items:center;gap:1.1rem;width:100%;padding:1.7rem 1.6rem;background:var(--acc-accent);border:none;border-radius:16px;text-align:left;cursor:pointer;font-family:inherit;-webkit-appearance:none;appearance:none;transition:filter .2s,border-radius .2s}
+.acc-header:hover{filter:brightness(1.08)}
+.acc-header:focus-visible{outline:2px solid var(--acc-fg);outline-offset:-4px}
+.acc-num{font-family:'JetBrains Mono',monospace;font-size:.66rem;letter-spacing:.08em;color:var(--acc-fg);opacity:.7;flex-shrink:0;width:1.5rem}
+.acc-head-text{display:flex;flex-direction:column;gap:.2rem;flex:1;min-width:0}
+.acc-title{font-family:'Fraunces',serif;font-size:clamp(1.25rem,2.6vw,1.85rem);font-weight:400;letter-spacing:-.02em;line-height:1.1;font-variation-settings:"opsz" 144,"SOFT" 30;color:var(--acc-fg)}
+.acc-sub{font-family:'Inter Tight',sans-serif;font-size:.82rem;color:var(--acc-fg);opacity:.78}
+.acc-chevron{flex-shrink:0;width:32px;height:32px;border-radius:50%;border:1px solid var(--acc-fg);opacity:.85;display:flex;align-items:center;justify-content:center;transition:transform .3s cubic-bezier(.16,1,.3,1),background .2s}
+.acc-chevron::before{content:'';width:7px;height:7px;border-right:1.5px solid var(--acc-fg);border-bottom:1.5px solid var(--acc-fg);transform:rotate(45deg) translate(-1px,-1px)}
+.acc-header:hover .acc-chevron{background:rgba(0,0,0,.1)}
+.acc-item.open>.acc-header .acc-chevron{transform:rotate(180deg)}
+.acc-item.open>.acc-header{border-radius:16px 16px 0 0}
+.acc-panel{padding-bottom:2.75rem;background:var(--warm);border-radius:0 0 16px 16px}
+.acc-panel[hidden]{display:none}
+.acc-item.open .acc-panel{animation:accIn .4s cubic-bezier(.16,1,.3,1)}
+@keyframes accIn{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:none}}
+@media(max-width:768px){
+  .acc-header{padding:1.25rem 1.1rem;gap:.7rem}
+  .acc-title{font-size:1.1rem}
+  .acc-sub{font-size:.76rem}
+}
 </style>
 </head>
 <script id="img-data">
@@ -504,6 +540,67 @@ var IMGS = {
   </div>
 </div>
 
+<!-- ACCORDION LIST -->
+<div class="acc-list" id="acc-list">
+
+<!-- ACC 1: FEATURED PROJECTS -->
+<div class="acc-item" id="acc-item-featured">
+<button type="button" class="acc-header" aria-expanded="false" aria-controls="acc-panel-featured" onclick="toggleAcc('acc-item-featured')">
+  <span class="acc-num">01</span>
+  <span class="acc-head-text"><span class="acc-title">Featured projects</span></span>
+  <span class="acc-chevron" aria-hidden="true"></span>
+</button>
+<div class="acc-panel" id="acc-panel-featured" hidden>
+<div class="acc-panel-in">
+
+<!-- FEATURED PROJECTS -->
+<div class="feat-section-full">
+  <div class="feat-section-inner">
+    <!-- 4 Featured cards -->
+    <div class="feat-row-wrap">
+      <div class="feat-row" id="feat-row"></div>
+    </div>
+  </div>
+</div>
+
+</div><!-- /.acc-panel-in --></div><!-- /.acc-panel --></div><!-- /acc-item-featured -->
+
+<!-- ACC 2: PARTNERSHIPS -->
+<div class="acc-item" id="acc-item-partners">
+<button type="button" class="acc-header" aria-expanded="false" aria-controls="acc-panel-partners" onclick="toggleAcc('acc-item-partners')">
+  <span class="acc-num">02</span>
+  <span class="acc-head-text"><span class="acc-title">Partnerships</span><span class="acc-sub">People &amp; organizations built in partnership — click any logo to explore</span></span>
+  <span class="acc-chevron" aria-hidden="true"></span>
+</button>
+<div class="acc-panel" id="acc-panel-partners" hidden>
+<div class="acc-panel-in">
+
+<!-- COLLABORATORS -->
+<section class="collab-sec" aria-labelledby="collab-h">
+  <div class="collab-in">
+    <div class="collab-hd">
+      <div>
+        <div class="sec-lbl" id="collab-h">People &amp; organizations I've worked with</div>
+        <h2>Built in <em>partnership</em></h2>
+      </div>
+      <p>These are the people and organizations whose work I've been honored to contribute to — each a relationship built on shared purpose. Hover for context; click to open the project.</p>
+    </div>
+    <div class="collab-grid" id="collab-grid"></div>
+  </div>
+</section>
+
+</div><!-- /.acc-panel-in --></div><!-- /.acc-panel --></div><!-- /acc-item-partners -->
+
+<!-- ACC 3: FEATURED PUBLICATION -->
+<div class="acc-item" id="acc-item-pub">
+<button type="button" class="acc-header" aria-expanded="false" aria-controls="acc-panel-pub" onclick="toggleAcc('acc-item-pub')">
+  <span class="acc-num">03</span>
+  <span class="acc-head-text"><span class="acc-title">Featured publication</span><span class="acc-sub">Operationalizing Imagination — New America</span></span>
+  <span class="acc-chevron" aria-hidden="true"></span>
+</button>
+<div class="acc-panel" id="acc-panel-pub" hidden>
+<div class="acc-panel-in">
+
 <!-- NEW AMERICA FEATURED CALLOUT -->
 <div class="na" data-r>
   <div class="na-in">
@@ -517,53 +614,24 @@ var IMGS = {
   </div>
 </div>
 
-<!-- TESTIMONIES — LENS FRAMES -->
-<section class="tstrip" aria-labelledby="tstrip-h">
-  <div class="tstrip-head">
-    <div class="sec-lbl" id="tstrip-h">In the words of collaborators</div>
-    <h2>Seen through <em>their lens</em></h2>
-    <div class="tstrip-sub">Perspectives from people Kate has worked alongside</div>
-  </div>
-  <div class="tlens-carousel">
-    <button type="button" class="tlens-arrow tlens-arrow-prev" id="tlensPrev" aria-label="Previous testimonial">&#8249;</button>
-    <div class="tlens-grid" id="tlens-grid"></div>
-    <button type="button" class="tlens-arrow tlens-arrow-next" id="tlensNext" aria-label="Next testimonial">&#8250;</button>
-  </div>
-  <div class="tlens-dots" id="tlensDots"></div>
-</section>
+</div><!-- /.acc-panel-in --></div><!-- /.acc-panel --></div><!-- /acc-item-pub -->
 
-<!-- PARTNERS + PROJECTS — one continuous section -->
-<div class="work-partners-wrap">
-
-<!-- COLLABORATORS -->
-<section class="collab-sec" aria-labelledby="collab-h">
-  <div class="collab-in">
-    <div class="collab-hd">
-      <div>
-        <div class="sec-lbl" id="collab-h">People &amp; organizations I've worked with</div>
-        <h2>Built in <em>partnership</em></h2>
-      </div>
-      <p>These are the people and organizations whose work I've been honored to contribute to — each a relationship built on shared purpose. Hover for context; click to open the project.</p>
-    </div>
-    <div class="collab-ticker-wrap" id="collab-ticker-wrap" role="button" tabindex="0" aria-expanded="false" aria-label="Show all partners">
-      <div class="collab-ticker-track" id="collab-ticker-track"></div>
-    </div>
-    <div class="collab-ticker-hint" id="collab-ticker-hint">Click to see all partners &amp; organizations →</div>
-    <div class="collab-grid" id="collab-grid" hidden></div>
-    <div class="collab-collapse-wrap" id="collab-collapse-wrap" hidden>
-      <button id="collab-collapse-btn" onclick="collapseCollabs()">↑ Collapse</button>
-    </div>
-  </div>
-</section>
-
-<div class="work-partners-bridge">Which shaped the work, below</div>
+<!-- ACC 4: FULL PORTFOLIO -->
+<div class="acc-item" id="acc-item-full">
+<button type="button" class="acc-header" aria-expanded="false" aria-controls="acc-panel-full" onclick="toggleAcc('acc-item-full')">
+  <span class="acc-num">04</span>
+  <span class="acc-head-text"><span class="acc-title">Full portfolio</span></span>
+  <span class="acc-chevron" aria-hidden="true"></span>
+</button>
+<div class="acc-panel" id="acc-panel-full" hidden>
+<div class="acc-panel-in">
 
 <!-- FULL BODY OF WORK -->
 <section class="portfolio-sec" id="portfolio-main" aria-labelledby="portfolio-h">
   <div class="sec-lbl" id="portfolio-h">The full body of work</div>
 
-  <!-- Filter/search UI — hidden until "View full archive" is expanded (Task 3) -->
-  <div id="archive-controls" hidden>
+  <!-- Filter/search UI -->
+  <div id="archive-controls">
     <!-- Format key -->
     <div class="fmt-key" data-r>
       <div class="fmt-key-lbl">Format key — hover any pill for description</div>
@@ -629,34 +697,7 @@ var IMGS = {
     </div>
     <div class="filter-ctrl">
       <span class="res-ct" id="res-ct" aria-live="polite">Showing all projects</span>
-      <div style="display:flex;align-items:center;gap:1rem">
-        <button class="clear-btn" id="clear-btn">Clear filters ×</button>
-        <button id="collapse-archive-btn" onclick="collapseArchive()"
-          style="font-family:'JetBrains Mono',monospace;font-size:.58rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);background:none;border:none;cursor:pointer;display:inline-flex;min-height:33px;align-items:center">
-          ↑ Collapse to signature projects
-        </button>
-      </div>
-    </div>
-  </div>
-
-  <!-- Featured section — full-bleed gradient background wraps toggle + 4-card row -->
-  <div class="feat-section-full">
-    <div class="feat-section-inner">
-      <!-- Curated / full-archive toggle (Task 3) — shown only while collapsed to signature view -->
-      <div class="archive-toggle-wrap" id="archive-toggle-wrap"
-        style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.75rem;margin-bottom:1.75rem">
-        <span class="res-ct" id="curated-ct" aria-live="polite">Showing signature projects</span>
-        <button id="archive-toggle-btn" onclick="toggleArchive()" aria-expanded="false" aria-controls="archive-controls proj-grid"
-          style="padding:.55rem 1.3rem;border:1px solid var(--line);border-radius:99px;background:transparent;font-family:'JetBrains Mono',monospace;font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);cursor:pointer;transition:all .17s"
-          onmouseenter="this.style.background='var(--warm)'" onmouseleave="this.style.background='transparent'">
-          View full archive (30+) →
-        </button>
-      </div>
-
-      <!-- 4 Featured cards -->
-      <div class="feat-row-wrap">
-        <div class="feat-row" id="feat-row"></div>
-      </div>
+      <button class="clear-btn" id="clear-btn">Clear filters ×</button>
     </div>
   </div>
 
@@ -665,12 +706,41 @@ var IMGS = {
   <div class="no-results" id="no-results">No projects match this filter. <em>Try another combination.</em></div>
 </section>
 
-</div><!-- /.work-partners-wrap -->
+</div><!-- /.acc-panel-in --></div><!-- /.acc-panel --></div><!-- /acc-item-full -->
+
+<!-- ACC 5: TESTIMONY -->
+<div class="acc-item" id="acc-item-testimony">
+<button type="button" class="acc-header" aria-expanded="false" aria-controls="acc-panel-testimony" onclick="toggleAcc('acc-item-testimony')">
+  <span class="acc-num">05</span>
+  <span class="acc-head-text"><span class="acc-title">Testimony</span><span class="acc-sub">Seen through their lens</span></span>
+  <span class="acc-chevron" aria-hidden="true"></span>
+</button>
+<div class="acc-panel" id="acc-panel-testimony" hidden>
+<div class="acc-panel-in">
+
+<!-- TESTIMONIES — LENS FRAMES -->
+<section class="tstrip" aria-labelledby="tstrip-h">
+  <div class="tstrip-head">
+    <div class="sec-lbl" id="tstrip-h">In the words of collaborators</div>
+    <h2>Seen through <em>their lens</em></h2>
+    <div class="tstrip-sub">Perspectives from people Kate has worked alongside</div>
+  </div>
+  <div class="tlens-carousel">
+    <button type="button" class="tlens-arrow tlens-arrow-prev" id="tlensPrev" aria-label="Previous testimonial">&#8249;</button>
+    <div class="tlens-grid" id="tlens-grid"></div>
+    <button type="button" class="tlens-arrow tlens-arrow-next" id="tlensNext" aria-label="Next testimonial">&#8250;</button>
+  </div>
+  <div class="tlens-dots" id="tlensDots"></div>
+</section>
+
+</div><!-- /.acc-panel-in --></div><!-- /.acc-panel --></div><!-- /acc-item-testimony -->
+
+</div><!-- /.acc-list -->
 
 <!-- TERRAIN MAP -->
 <section class="terrain-sec" aria-labelledby="terrain-h">
   <div class="terrain-hd" style="padding:0 var(--px)">
-    <div><div class="sec-lbl" style="color:rgba(245,241,232,.4)" id="terrain-h">Work terrain</div></div>
+    <div><h2 class="terrain-title" id="terrain-h">Work terrain</h2></div>
     <p>This map shows the <strong>threads of the work</strong> and how they connect across themes — reflecting the intersectional logic that animates <a href="../our-lens/">how Conscious Futures thinks</a>. Projects live at intersections, not in silos. Click any theme node to filter.</p>
   </div>
   <div style="padding:0 var(--px)">
@@ -696,7 +766,7 @@ var IMGS = {
 <section class="cta-sec">
   <div class="sec-lbl" style="justify-content:center">What's next</div>
   <h2>Let's build something <em>together</em></h2>
-  <p>If your organization is navigating a question at the intersection of futures thinking, civic life, and human wellbeing — I'd love to hear from you.</p>
+  <p>If your organization is grappling with the biggest questions, challenges, and opportunities shaping this moment, I'd love to hear from you.</p>
   <a href="../contact/" class="btn-cta">Start a conversation →</a>
 </section>
 </main>
@@ -804,7 +874,10 @@ var P=[
 {id:'ngfp',num:'34',title:'Next Generation Foresight Practitioners Sensing Network',formats:['fellowship','certificate'],collab:'Next Generation Foresight Practitioners',themes:['futures','civic'],desc:'Active member of the Next Generation Foresight Practitioners Sensing Network — a global community of emerging futures practitioners. Currently completing the Certificate in Foresight & Futures Methodology.',outcomes:['Active contributor to global sensing network','Certificate in Foresight & Futures Methodology (In Progress)'],links:[{url:'https://nextgenforesight.org/our-network/members/',label:'NGFP Network ↗'}]},
 {id:'visions2030',num:'35',title:'Visions 2030 — New Dreams for America Working Group',formats:['board'],collab:'Visions 2030 / Union Theological Seminary',themes:['civic','futures'],desc:'Contributor to the Visions 2030 working group — a coalition convened following New Dreams for America, bringing together technologists, artists, spiritual leaders, and civic thinkers to co-envision long-term futures for the United States through interdisciplinary collaboration.',links:[{url:'https://www.visions2030.studio/',label:'Visions 2030 ↗'}]},
 
-{id:'upenn',num:'36',title:'Certificate: Social Impact Strategy',formats:['certificate'],collab:'University of Pennsylvania, School of Social Policy & Practice',themes:['civic','futures'],desc:"Completed the Social Impact Strategy: Tools for Entrepreneurs and Innovators certificate at Penn's School of Social Policy & Practice — building frameworks for social entrepreneurship, impact measurement, and organizational strategy."}
+{id:'upenn',num:'36',title:'Certificate: Social Impact Strategy',formats:['certificate'],collab:'University of Pennsylvania, School of Social Policy & Practice',themes:['civic','futures'],desc:"Completed the Social Impact Strategy: Tools for Entrepreneurs and Innovators certificate at Penn's School of Social Policy & Practice — building frameworks for social entrepreneurship, impact measurement, and organizational strategy.",links:[{url:'https://drive.google.com/file/d/1_7h7tEaIlHsy2mMoGTeKbsl61gyh1-Gt/view?usp=drive_link',label:'See certificate ↗',primary:true}]},
+{id:'acp-youth',num:'38',title:'American Conversation Project (Youth Track)',formats:['research','curriculum','convening','strategy','storytelling'],collab:'National Conference on Citizenship (NCoC)',themes:['civic','futures','genz'],desc:"Leading the launch of the American Conversation Project's Youth Track — a National Conference on Citizenship initiative, in partnership with Cortico, distinct from ACP's library- and community-foundation-focused tracks. The Youth Track equips young people ages 13–25 to become certified ACP Conversation Hosts through eight self-paced training modules, then recruit and record honest small-group conversations with peers and neighbors — no debate, no agenda, just listening. Directing the strategy, curriculum, and storytelling behind the track's national rollout, building toward 500 youth-led conversations by the end of 2026 as part of ACP's broader effort to bring Americans together for the country's 250th anniversary.",links:[{url:'https://www.americanconversations.org/youth',label:'Explore ACP Youth Track ↗',primary:true}]},
+{id:'design-feelings',num:'39',title:'Certificate: Designing Unforgettable Experiences / Experiential Design',formats:['certificate'],collab:'Design for Feelings Studio',themes:['healing','leadership'],desc:"Completed Designing Unforgettable Experiences, an 8-week experiential design masterclass led by Olivia Vagelos of The Design for Feelings Studio (formerly IDEO, Stanford d.school) — building fluency across the three pillars of experience design: connection (purpose-setting, emotional mapping, relational design), structure (spatial and narrative container design, sensory activation), and play (designing for emergence, agency, and iterative refinement). Completed with a 120+ page interactive playbook of repeatable frameworks for designing meaningful, memorable experiences.",links:[{url:'https://www.designforfeelings.com/designing-unforgettable-experiences',label:'Explore the course ↗',primary:true},{url:'https://drive.google.com/file/d/11Vzm8MkGAiLCYJ-YOCo-AKNfEFZe6Nk5/view?usp=drive_link',label:"See Kate's certificate ↗"}]},
+{id:'ngfp-cert',num:'40',title:'Certificate: Futures & Foresight',formats:['certificate'],collab:'Next Generation Foresight Practitioners',themes:['futures','healing','intergenerational'],desc:"Completed the Certificate in Futures & Foresight through Next Generation Foresight Practitioners' introductory course — an initiative of the School of International Futures supporting emerging changemakers using foresight to reimagine more equitable, inclusive futures. The course deepened a throughline running across my career: that futures work is inseparable from healing work, and that communities need emotional connection and intergenerational trust before they can envision alternative futures together — connecting directly to earlier systems-change and intergenerational healing work at Georgetown's Red House.",links:[{url:'https://drive.google.com/file/d/1uCt6_NSGmpF2o5Kt7eliGBFgTM9Q3zAY/view?usp=drive_link',label:'See certificate ↗',primary:true}]}
 ];
 
 /* ── TESTIMONIES ── */
@@ -827,7 +900,7 @@ var COLLABS=[
   {name:'Democracy 2076',logo:'logo_dem2076',desc:'Youth foresight representative for long-horizon democratic resilience research',modal:'dem2076',tag:'Civic & Futures',color:'#800287'},
   {name:'AARP × dcdx',logo:'logo_aarp',desc:'Qualitative research on Gen Z perceptions of their own futures',modal:'genz-prep',tag:'Research & Strategy',color:'#E75213'},
   {name:'Harmony Labs',logo:'logo_harmony',desc:'Interim Strategist — Narrative R&D Lab and Robert Wood Johnson Foundation onboarding',modal:'harmony',tag:'Strategy & Research',color:'#E75213'},
-  {name:'NCoC',logo:'logo_ncoc',desc:'Leading development of the Civic Health AI Index',modal:'civic-ai',tag:'Civic & Technology',color:'#1A1F5B'},
+  {name:'NCoC',logo:'logo_ncoc',desc:'Civic Health AI Index research + American Conversation Project Youth Track certification',modals:['civic-ai','acp-youth'],tag:'Civic & Technology',color:'#1A1F5B'},
   {name:'The Wellbeing Project',logo:'logo_wellbeing',desc:'Ecological Belonging initiative — network, storytelling & fellowship coordination',modal:'eco',tag:'Healing & Futures',color:'#4A7B62'},
   {name:'New America',logo:'logo_newamerica',desc:'Author, Operationalizing Imagination editorial series',link:'https://www.newamerica.org/insights/operationalizing-imagination/',tag:'Civic & Futures',color:'#1A1F5B'},
   {name:'IDEO U',logo:'logo_ideo',desc:'Partner on Curiosity Mobile — Building a Curious Culture Toolkit',modal:'curiosity',tag:'Curiosity Mobile Partner',color:'#E75213'},
@@ -850,25 +923,40 @@ var COLLABS=[
 
 var PMAP={};P.forEach(function(p){PMAP[p.id]=p;});
 
-/* ── CURATED / SIGNATURE PROJECTS (Task 3) ──
-   TODO(Kate): paste the exact 6–9 project IDs you want shown by default on page load.
-   Use the "id:" value from each entry in the P=[...] array above, e.g.:
-     var SIGNATURE_IDS=['curiosity','online-irl','wellbeing-adv','freestate','legacy'];
-   Left empty on purpose — we are NOT guessing which projects should be signature.
-   Until you supply this list, the curated view falls back to whichever projects are
-   already flagged featured:true in the data (a pre-existing field, not a new guess),
-   just so the page has a sensible non-empty default in the meantime. */
-var SIGNATURE_IDS=[];
-var archiveExpanded=false;
-function curatedIdSet(){
-  var ids=SIGNATURE_IDS.length?SIGNATURE_IDS:P.filter(function(p){return p.featured;}).map(function(p){return p.id;});
-  var s={};ids.forEach(function(id){s[id]=true;});return s;
-}
-
 /* ── HELPERS ── */
 function pills(fmts){return fmts.map(function(f){return'<span class="fpill '+f+'" title="'+(FMT_DESC[f]||'')+'">'+(FMT_LABELS[f]||f)+'<span class="fpill-tip">'+(FMT_DESC[f]||'')+'</span></span>';}).join('');}
 function dots(themes){return themes.map(function(t){var th=THEMES[t]||{color:'#888',label:t};return'<span class="tdot" style="background:'+th.color+'" title="'+th.label+'"><span class="tdot-tip">'+th.label+'</span></span>';}).join('');}
 function tags(lbls){return(lbls||[]).map(function(l){return'<span class="ttag">'+l+'</span>';}).join('');}
+
+/* ── ACCORDION ── */
+// Multiple panels can be open at once — each is independent, not exclusive.
+function toggleAcc(itemId){
+  var item=document.getElementById(itemId);if(!item)return;
+  var header=item.querySelector('.acc-header');
+  var panel=item.querySelector('.acc-panel');
+  var opening=!item.classList.contains('open');
+  item.classList.toggle('open',opening);
+  if(header)header.setAttribute('aria-expanded',opening?'true':'false');
+  if(!panel)return;
+  panel.hidden=!opening;
+  if(opening){
+    // Scroll-reveal [data-r] elements use an IntersectionObserver that never
+    // fires while their container is display:none — force them visible now
+    // that the panel is actually part of the layout.
+    panel.querySelectorAll('[data-r]').forEach(function(el){el.classList.add('vis');});
+    // The testimony carousel measures its container's clientHeight to size
+    // quote text; that measurement is meaningless while hidden, so re-run it
+    // now that the panel has real layout.
+    if(itemId==='acc-item-testimony'&&window._testimonyRerender){
+      requestAnimationFrame(function(){window._testimonyRerender();});
+    }
+  }
+}
+window.toggleAcc=toggleAcc;
+window.openAccPanel=function(itemId){
+  var item=document.getElementById(itemId);
+  if(item&&!item.classList.contains('open'))toggleAcc(itemId);
+};
 
 /* ── FORMAT KEY ── */
 (function(){
@@ -896,10 +984,11 @@ function tags(lbls){return(lbls||[]).map(function(l){return'<span class="ttag">'
   });
 })();
 
-/* ── PROJECT GRID (non-featured) ── */
+/* ── PROJECT GRID (full archive — includes featured projects too, so every
+   project is searchable/filterable here even if it also appears above) ── */
 (function(){
   var grid=document.getElementById('proj-grid');if(!grid)return;
-  var non=P.filter(function(p){return!p.featured;});
+  var non=P.slice();
   non.forEach(function(p){
     var c=document.createElement('button');c.className='pcard';c.setAttribute('role','listitem');
     c.setAttribute('data-f',p.formats.join(' '));c.setAttribute('data-t',p.themes.join(' '));
@@ -914,30 +1003,16 @@ function tags(lbls){return(lbls||[]).map(function(l){return'<span class="ttag">'
 /* ── FILTER ── */
 (function(){
   var af='all',at='all';
-  var curated=curatedIdSet();
   function apply(){
-    // featured cards always visible unless filtered — gated by curated set until archive is expanded (Task 3)
-    document.querySelectorAll('.feat-card').forEach(function(c){
-      var p=PMAP[c.dataset.modal];if(!p)return;
-      var fok=af==='all'||p.formats.indexOf(af)>-1;
-      var tok=at==='all'||p.themes.indexOf(at)>-1;
-      var cok=archiveExpanded||curated[p.id];
-      c.style.display=(fok&&tok&&cok)?'':'none';
-    });
     var cards=document.querySelectorAll('.pcard'),vis=0;
     cards.forEach(function(c){
-      var p=PMAP[c.dataset.modal];
       var fok=af==='all'||(c.dataset.f||'').split(' ').indexOf(af)>-1;
       var tok=at==='all'||(c.dataset.t||'').split(' ').indexOf(at)>-1;
-      var cok=archiveExpanded||(p&&curated[p.id]);
-      if(fok&&tok&&cok){c.removeAttribute('hidden');vis++;}else c.setAttribute('hidden','');
+      if(fok&&tok){c.removeAttribute('hidden');vis++;}else c.setAttribute('hidden','');
     });
     var ct=document.getElementById('res-ct');if(ct)ct.textContent='Showing '+vis+' project'+(vis!==1?'s':'');
-    var nr=document.getElementById('no-results');if(nr)nr.className='no-results'+(archiveExpanded&&vis===0?' vis':'');
+    var nr=document.getElementById('no-results');if(nr)nr.className='no-results'+(vis===0?' vis':'');
     var cb=document.getElementById('clear-btn');if(cb)cb.className='clear-btn'+((af!=='all'||at!=='all')?' vis':'');
-    // curated-view count label (total signature projects in the curated set)
-    var cct=document.getElementById('curated-ct');
-    if(cct)cct.textContent='Showing '+Object.keys(curated).length+' signature project'+(Object.keys(curated).length!==1?'s':'');
   }
   document.querySelectorAll('.fbtn').forEach(function(b){
     b.addEventListener('click',function(){
@@ -950,26 +1025,7 @@ function tags(lbls){return(lbls||[]).map(function(l){return'<span class="ttag">'
   var cb=document.getElementById('clear-btn');
   if(cb)cb.addEventListener('click',function(){af='all';at='all';document.querySelectorAll('.fbtn').forEach(function(b){var a=b.dataset.fv==='all';b.classList.toggle('active',a);b.setAttribute('aria-pressed',a);});apply();});
 
-  window.toggleArchive=function(){
-    archiveExpanded=true;
-    var ac=document.getElementById('archive-controls');if(ac)ac.hidden=false;
-    var tw=document.getElementById('archive-toggle-wrap');if(tw)tw.style.display='none';
-    var btn=document.getElementById('archive-toggle-btn');if(btn)btn.setAttribute('aria-expanded','true');
-    apply();
-  };
-
-  window.collapseArchive=function(){
-    archiveExpanded=false;
-    af='all';at='all';
-    document.querySelectorAll('.fbtn').forEach(function(b){var a=b.dataset.fv==='all';b.classList.toggle('active',a);b.setAttribute('aria-pressed',a);});
-    var ac=document.getElementById('archive-controls');if(ac)ac.hidden=true;
-    var tw=document.getElementById('archive-toggle-wrap');if(tw)tw.style.display='flex';
-    var btn=document.getElementById('archive-toggle-btn');if(btn)btn.setAttribute('aria-expanded','false');
-    apply();
-    var sec=document.getElementById('portfolio-main');if(sec)sec.scrollIntoView({behavior:'smooth',block:'start'});
-  };
-
-  apply(); // initialize curated view on page load
+  apply(); // initialize counts on page load
 })();
 
 /* ── TERRAIN MAP ── */
@@ -1086,12 +1142,12 @@ function tags(lbls){return(lbls||[]).map(function(l){return'<span class="ttag">'
     ng.addEventListener('mouseenter',function(){outer.setAttribute('r','22');outer.setAttribute('opacity','0.35');inner.setAttribute('r','12');});
     ng.addEventListener('mouseleave',function(){outer.setAttribute('r','16');outer.setAttribute('opacity','0.22');inner.setAttribute('r','9');});
     ng.addEventListener('click',function(){
-      // Expand the archive first (Task 3) so the filter panel + full grid are visible —
-      // otherwise clicking a theme node here would filter the hidden curated grid with no
-      // visible way to see/clear the applied filter.
-      if(!archiveExpanded&&window.toggleArchive)window.toggleArchive();
+      // Open the Full Portfolio accordion panel so the filter controls + full grid
+      // are visible, then apply the theme filter and scroll there.
+      if(window.openAccPanel)window.openAccPanel('acc-item-full');
       var btn=document.querySelector('[data-ft="theme"][data-fv="'+tid+'"]');
-      if(btn){btn.click();document.getElementById('portfolio-main').scrollIntoView({behavior:'smooth',block:'start'});}
+      if(btn)btn.click();
+      setTimeout(function(){var sec=document.getElementById('portfolio-main');if(sec)sec.scrollIntoView({behavior:'smooth',block:'start'});},60);
     });
     ng.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();ng.click();}});
     g.appendChild(ng);
@@ -1257,65 +1313,24 @@ function tags(lbls){return(lbls||[]).map(function(l){return'<span class="ttag">'
   buildDots();
   render();
   resetTimer();
+  // Exposed so the accordion can force a re-measure once the testimony
+  // panel becomes visible — fitFocusQuote reads clientHeight, which is
+  // wrong (near-zero) while the panel is hidden behind an accordion.
+  window._testimonyRerender=render;
 })();
 
 /* ── COLLABS RENDER ── */
 (function(){
   var g=document.getElementById('collab-grid');if(!g)return;
   // Ticker (default collapsed view) — duplicated list twice for a seamless loop
-  var track=document.getElementById('collab-ticker-track');
-  if(track){
-    var hint=document.getElementById('collab-ticker-hint');
-    if(hint)hint.textContent='Click to see all '+COLLABS.length+' partners & organizations →';
-    var frag=document.createDocumentFragment();
-    for(var rep=0;rep<2;rep++){
-      COLLABS.forEach(function(c){
-        var it=document.createElement('span');
-        it.className='ctitem';
-        if(c.logo&&IMGS[c.logo]){
-          var chip=document.createElement('span');
-          chip.className='logo-chip ctitem-logo';
-          var img=document.createElement('img');
-          img.src=IMGS[c.logo];img.alt=c.name;
-          chip.appendChild(img);
-          it.appendChild(chip);
-        } else {
-          var dot=document.createElement('span');
-          dot.className='cdot';
-          dot.style.background=c.color||'var(--ink-mute)';
-          it.appendChild(dot);
-        }
-        it.appendChild(document.createTextNode(c.name));
-        frag.appendChild(it);
-      });
-    }
-    track.appendChild(frag);
-  }
-  var tickerWrap=document.getElementById('collab-ticker-wrap');
-  var collapseWrap=document.getElementById('collab-collapse-wrap');
-  window.expandCollabs=function(){
-    if(tickerWrap){tickerWrap.hidden=true;tickerWrap.setAttribute('aria-expanded','true');}
-    var th=document.getElementById('collab-ticker-hint');if(th)th.hidden=true;
-    g.hidden=false;
-    if(collapseWrap)collapseWrap.hidden=false;
-  };
-  window.collapseCollabs=function(){
-    if(tickerWrap){tickerWrap.hidden=false;tickerWrap.setAttribute('aria-expanded','false');}
-    var th=document.getElementById('collab-ticker-hint');if(th)th.hidden=false;
-    g.hidden=true;
-    if(collapseWrap)collapseWrap.hidden=true;
-    tickerWrap.scrollIntoView({behavior:'smooth',block:'center'});
-  };
-  if(tickerWrap){
-    tickerWrap.addEventListener('click',window.expandCollabs);
-    tickerWrap.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();window.expandCollabs();}});
-  }
-  var tickerHintEl=document.getElementById('collab-ticker-hint');
-  if(tickerHintEl)tickerHintEl.addEventListener('click',window.expandCollabs);
+  // Partnerships now render directly into the full grid — the accordion
+  // panel itself is the reveal gate, so the old ticker-teaser/click-to-expand
+  // toggle is redundant and has been removed.
   COLLABS.forEach(function(c){
     var item=document.createElement('div');
     item.className='citem';
-    if(c.modal){item.tabIndex=0;item.setAttribute('role','button');item.setAttribute('aria-label','Open '+c.name);}
+    if(c.modals&&c.modals.length){item.tabIndex=0;item.setAttribute('role','button');item.setAttribute('aria-label','Open '+c.name+' — choose a project');}
+    else if(c.modal){item.tabIndex=0;item.setAttribute('role','button');item.setAttribute('aria-label','Open '+c.name);}
     else if(c.link){item.tabIndex=0;item.setAttribute('role','link');item.setAttribute('aria-label',c.name);}
     // Logo chip (falls back to color accent bar if no logo)
     if(c.logo&&IMGS[c.logo]){
@@ -1351,10 +1366,13 @@ function tags(lbls){return(lbls||[]).map(function(l){return'<span class="ttag">'
     // Arrow
     var arr=document.createElement('div');
     arr.className='citem-arrow';
-    arr.textContent='→';
+    arr.textContent=(c.modals?'View projects':(c.modal?'View project':'Visit'))+' →';
     item.appendChild(arr);
     // Events
-    if(c.modal){
+    if(c.modals&&c.modals.length){
+      item.addEventListener('click',function(){openChooser(c.modals,c.name);});
+      item.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();openChooser(c.modals,c.name);}});
+    } else if(c.modal){
       item.addEventListener('click',function(){openModal(c.modal);});
       item.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();openModal(c.modal);}});
     } else if(c.link){
@@ -1395,6 +1413,26 @@ function openModal(id){
   if(p.status)h+='<div class="modal-status">● '+p.status+'</div>';
   mBody.innerHTML=h;
   mOv.removeAttribute('hidden');requestAnimationFrame(function(){mOv.classList.add('open');});mClose.focus();document.body.style.overflow='hidden';
+}
+// A partner tied to more than one project (e.g. NCoC — Civic Health AI Index
+// + American Conversation Project Youth Track) opens a lightweight chooser
+// instead of jumping straight into a single project modal.
+function openChooser(ids,name){
+  mLast=document.activeElement;
+  var h='<div class="modal-badge"><span class="fpill" style="background:var(--warm);color:var(--ink);border-color:var(--line)">Choose a project</span></div>';
+  h+='<h2 class="modal-title" id="modal-title-el">'+name+'</h2>';
+  h+='<p class="modal-desc">Which project would you like to see?</p>';
+  h+='<div class="modal-links">';
+  ids.forEach(function(id){
+    var p=PMAP[id];if(!p)return;
+    h+='<button type="button" class="mlink primary chooser-btn" data-id="'+id+'">'+p.title+'</button>';
+  });
+  h+='</div>';
+  mBody.innerHTML=h;
+  mOv.removeAttribute('hidden');requestAnimationFrame(function(){mOv.classList.add('open');});mClose.focus();document.body.style.overflow='hidden';
+  mBody.querySelectorAll('.chooser-btn').forEach(function(b){
+    b.addEventListener('click',function(){openModal(b.dataset.id);});
+  });
 }
 function closeModal(){mOv.classList.remove('open');document.body.style.overflow='';setTimeout(function(){mOv.setAttribute('hidden','');},240);if(mLast)mLast.focus();}
 mClose.addEventListener('click',closeModal);
@@ -1535,16 +1573,6 @@ function applySearchFilter(){
   var at=document.querySelector('[data-ft="theme"].active');
   var activeFormat=af?af.dataset.fv:'all';
   var activeTheme=at?at.dataset.fv:'all';
-
-  // Featured cards
-  document.querySelectorAll('.feat-card').forEach(function(card){
-    var p=PMAP[card.dataset.modal];if(!p)return;
-    var matchSearch=!activeSearch||(p.title+' '+p.collab+' '+(p.desc||'')+' '+p.themes.join(' ')).toLowerCase().indexOf(activeSearch)>-1;
-    var matchPartner=activePartner==='all'||p.collab===activePartner;
-    var matchFormat=activeFormat==='all'||p.formats.indexOf(activeFormat)>-1;
-    var matchTheme=activeTheme==='all'||p.themes.indexOf(activeTheme)>-1;
-    card.style.display=(matchSearch&&matchPartner&&matchFormat&&matchTheme)?'':'none';
-  });
 
   var vis=0;
   document.querySelectorAll('.pcard').forEach(function(card){
