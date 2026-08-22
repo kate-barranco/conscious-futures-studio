@@ -30747,5 +30747,258 @@
     ],
     "type_display": "Video/Talk",
     "confidence": "high"
+  },
+  {
+    "id": "CFT-1115",
+    "title": "Introducing the Imagination Sundial",
+    "url": "https://www.robhopkins.net/2020/06/30/introducing-the-imagination-sundial/",
+    "primary_category": "Imagination, Play & Creativity",
+    "categories": [
+      "Imagination, Play & Creativity"
+    ],
+    "type_normalized": "Article",
+    "type_raw_variants": [],
+    "note": "",
+    "extra_tag_text": "",
+    "hub": "",
+    "year": "2020",
+    "source_sheets": [
+      "Hand-added (Kate request — link, 2026-08-21)"
+    ],
+    "merged_from_count": 1,
+    "blurb": "Rob Hopkins and Rob Shorter introduce the Imagination Sundial, a design tool for diagnosing and deliberately rebuilding imaginative capacity in people, organizations, and nations — grounded in research linking chronic stress and trauma to a shrinking hippocampus and declining creative capacity.",
+    "tags": [
+      "Collective Imagination",
+      "Framework",
+      "Futures Thinking"
+    ],
+    "type_display": "Article",
+    "confidence": "high"
+  },
+  {
+    "id": "CFT-1116",
+    "title": "Why Empowered Women Are Authoritarianism's Targets—And How They Can Be Its Undoing",
+    "url": "https://www.hks.harvard.edu/faculty-research/policycast/why-empowered-women-are-authoritarianisms-targets-and-how-they-can-be",
+    "primary_category": "Government, Democracy & Polarization",
+    "categories": [
+      "Government, Democracy & Polarization"
+    ],
+    "type_normalized": "Podcast",
+    "type_raw_variants": [
+      "PolicyCast episode"
+    ],
+    "note": "",
+    "extra_tag_text": "",
+    "hub": "",
+    "year": "2022",
+    "source_sheets": [
+      "Hand-added (Kate request — link, 2026-08-21)"
+    ],
+    "merged_from_count": 1,
+    "blurb": "Harvard Kennedy School's Erica Chenoweth and Zoe Marks argue that women's empowerment and authoritarianism are mutually reinforcing threats — movements with substantial female participation are more likely to succeed and to produce durable democracies afterward, which is why authoritarian regimes systematically target women's rights first.",
+    "tags": [
+      "Democracy",
+      "Human Rights",
+      "Gender & Sexuality"
+    ],
+    "type_display": "Podcast",
+    "confidence": "high"
+  },
+  {
+    "id": "CFT-1117",
+    "title": "Seneca Falls Convention 2048",
+    "url": "https://senecafalls2048.org/",
+    "primary_category": "Imagination, Play & Creativity",
+    "categories": [
+      "Imagination, Play & Creativity"
+    ],
+    "type_normalized": "Tool/Framework",
+    "type_raw_variants": [],
+    "note": "",
+    "extra_tag_text": "",
+    "hub": "",
+    "year": "",
+    "source_sheets": [
+      "Hand-added (Kate request — link, 2026-08-21)"
+    ],
+    "merged_from_count": 1,
+    "blurb": "A speculative-design project from Radical Futures imagining a bicentennial Seneca Falls gathering in 2048, built around matriarchal governance and asking what if care, rematriation, and collective power reshaped everything — using an elaborate fictional artifact to make transformative feminist futures feel tangible and actionable.",
+    "tags": [
+      "Collective Imagination",
+      "Gender & Sexuality",
+      "Futures Thinking"
+    ],
+    "type_display": "Tool",
+    "confidence": "high"
+  },
+  {
+    "id": "CFT-1118",
+    "title": "Artifacts From The Future",
+    "url": "https://radicalfutures.studio/imagine/artifacts/",
+    "primary_category": "Imagination, Play & Creativity",
+    "categories": [
+      "Imagination, Play & Creativity"
+    ],
+    "type_normalized": "Tool/Framework",
+    "type_raw_variants": [],
+    "note": "",
+    "extra_tag_text": "",
+    "hub": "",
+    "year": "",
+    "source_sheets": [
+      "Hand-added (Kate request — link, 2026-08-21)"
+    ],
+    "merged_from_count": 1,
+    "blurb": "A speculative-design brainstorming game from Radical Futures Studio: draw prompt cards from three thematic decks — Radical, Matriarchal, and Post-War futures — then sketch or write the everyday object, ritual, or institution the combination inspires, moving imagination from abstract dreaming into tangible world-building.",
+    "tags": [
+      "Collective Imagination",
+      "Facilitation Tool",
+      "Futures Thinking"
+    ],
+    "type_display": "Tool",
+    "confidence": "high"
+  },
+  {
+    "id": "CFT-1119",
+    "title": "What's Your Role in a Feminist Dystopia?",
+    "url": "https://radicalfutures.studio/imagine/feminist-dystopia/",
+    "primary_category": "Imagination, Play & Creativity",
+    "categories": [
+      "Imagination, Play & Creativity"
+    ],
+    "type_normalized": "Tool/Framework",
+    "type_raw_variants": [],
+    "note": "Interactive quiz gated behind an email address to view results.",
+    "extra_tag_text": "",
+    "hub": "",
+    "year": "",
+    "source_sheets": [
+      "Hand-added (Kate request — link, 2026-08-21)"
+    ],
+    "merged_from_count": 1,
+    "blurb": "An interactive self-assessment from Radical Futures Studio: ten questions about what you notice, protect, and refuse, framed around a speculative feminist dystopia — a short, gamified prompt for reflecting on your own role and responsibility inside collapsing or contested systems.",
+    "tags": [
+      "Collective Imagination",
+      "Gender & Sexuality",
+      "Storytelling & Narrative"
+    ],
+    "type_display": "Tool",
+    "confidence": "high"
+  },
+  {
+    "id": "CFT-1120",
+    "title": "Wayshaping: A Multiscale Framework for Behavior Change",
+    "url": "https://osf.io/preprints/psyarxiv/tp9wr_v4",
+    "primary_category": "Theories of Change & Impact Mapping",
+    "categories": [
+      "Theories of Change & Impact Mapping"
+    ],
+    "type_normalized": "Academic Paper",
+    "type_raw_variants": [
+      "Preprint"
+    ],
+    "note": "",
+    "extra_tag_text": "",
+    "hub": "",
+    "year": "2025",
+    "source_sheets": [
+      "Hand-added (Kate request — link, 2026-08-21)"
+    ],
+    "merged_from_count": 1,
+    "blurb": "A preprint introducing \"wayshaping,\" a multiscale framework for behavior change that reframes the intention-action gap as three coordination challenges — non-linearity, alignment, and anticipation — drawing on cognitive science, complexity theory, and design to explain why habit-change interventions so often fail to stick.",
+    "tags": [
+      "Theory of Change",
+      "Academic Research",
+      "Framework"
+    ],
+    "type_display": "Academic Paper",
+    "confidence": "high"
+  },
+  {
+    "id": "CFT-1121",
+    "title": "Radical Futures Feminist Sci-Fi Book List",
+    "url": "https://bookshop.org/lists/feminist-sci-fi",
+    "primary_category": "Storytelling for Social Change",
+    "categories": [
+      "Storytelling for Social Change",
+      "Imagination, Play & Creativity"
+    ],
+    "type_normalized": "Resource Hub",
+    "type_raw_variants": [],
+    "note": "",
+    "extra_tag_text": "",
+    "hub": "",
+    "year": "",
+    "source_sheets": [
+      "Hand-added (Kate request — link, 2026-08-22)"
+    ],
+    "merged_from_count": 1,
+    "blurb": "A 30-book feminist speculative fiction reading list curated by Radical Futures Studio — \"the novels and histories I use to help people see the present clearly and imagine what comes next.\" Includes The Handmaid's Tale and The Testaments (Margaret Atwood); Parable of the Sower, Parable of the Talents, Kindred, Dawn, Fledgling, and Bloodchild and Other Stories (Octavia E. Butler); The Left Hand of Darkness, The Dispossessed, and Always Coming Home (Ursula K. Le Guin); The Power (Naomi Alderman); Woman on the Edge of Time and He, She and It (Marge Piercy); Who Fears Death and Binti (Nnedi Okorafor); The Female Man (Joanna Russ); An Unkindness of Ghosts (Rivers Solomon); Ammonite (Nicola Griffith); The Fifth Sacred Thing (Starhawk); and further titles from Jessamine Chan, Leni Zumas, Christina Dalcher, Joanne Ramos, Sophie Mackintosh, Hillary Jordan, Louise Erdrich, Suzette Haden Elgin, Claire Vaye Watkins, and Meg Elison.",
+    "tags": [
+      "Storytelling & Narrative",
+      "Collective Imagination",
+      "Gender & Sexuality"
+    ],
+    "type_display": "Resource Hub",
+    "confidence": "high"
+  },
+  {
+    "id": "CFT-1122",
+    "title": "Feminist Sci-Fi Radical Futures Webinar",
+    "url": "https://us06web.zoom.us/rec/share/Otnv97TtKsb3aM3dJ_hZIs3kEi50bg0mVx2A5VOrsZ4bHhTncO-IKQKBIIB_0hDZ.svpnepVhXzfFuEk0?startTime=1786561215000",
+    "primary_category": "Storytelling for Social Change",
+    "categories": [
+      "Storytelling for Social Change",
+      "Imagination, Play & Creativity",
+      "Government, Democracy & Polarization"
+    ],
+    "type_normalized": "Video/Talk",
+    "type_raw_variants": [
+      "Webinar recording"
+    ],
+    "note": "Recording is passcode-protected on Zoom; passcode is published in the blurb above at Kate's explicit request (2026-08-22).",
+    "hub": "",
+    "year": "2026",
+    "source_sheets": [
+      "Hand-added (Kate request — link, 2026-08-22)"
+    ],
+    "merged_from_count": 1,
+    "blurb": "A live session with Radical Futures Studio founder Tracee Worley on reading feminist speculative fiction as a forecasting method -- using how Margaret Atwood, Octavia Butler, and Ursula K. Le Guin mapped the mechanics of power to make sense of present-day rhetoric around pronatalism, trad-wife culture, the push to end no-fault divorce, and calls to repeal the 19th Amendment. A companion session to the studio's feminist sci-fi reading list. Recording passcode: .dgeP^3v",
+    "tags": [
+      "Storytelling & Narrative",
+      "Collective Imagination",
+      "Gender & Sexuality",
+      "Democracy"
+    ],
+    "type_display": "Video/Talk",
+    "confidence": "high"
+  },
+  {
+    "id": "CFT-1123",
+    "title": "Relationality: An Emergent Politics of Life Beyond the Human",
+    "url": "https://www.barnesandnoble.com/w/relationality-arturo-escobar/1143859425",
+    "primary_category": "Spiritual Ecology & Ecological Belonging",
+    "categories": [
+      "Spiritual Ecology & Ecological Belonging",
+      "Systems Change, Design & Futures Thinking"
+    ],
+    "type_normalized": "Book",
+    "type_raw_variants": [],
+    "note": "",
+    "extra_tag_text": "",
+    "hub": "",
+    "year": "2024",
+    "source_sheets": [
+      "Hand-added (Kate request — link, 2026-08-22)"
+    ],
+    "merged_from_count": 1,
+    "blurb": "Arturo Escobar, Michal Osterweil, and Kriti Sharma argue that the climate, inequality, and meaning crises of our moment share a root cause: the assumption of separateness, or ontological dualism. Drawing on philosophical, scientific, and political sources of relational theory, they trace a path from unrelational \"toxic loops\" toward relational ways of living co-created with human and nonhuman others alike.",
+    "tags": [
+      "Ecological Belonging",
+      "Decolonial Thinking",
+      "Systems Change"
+    ],
+    "type_display": "Book",
+    "confidence": "high"
   }
 ]
