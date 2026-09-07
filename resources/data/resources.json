@@ -3099,7 +3099,7 @@
   {
     "id": "CFT-0110",
     "title": "Geoff Mulgan, The Imaginary Crisis (And How We Might Quicken Social and Public Imagination)",
-    "url": "https://www.ucl.ac.uk/steapp/sites/steapp/files/2020_04_geoff_mulgan_swp.pdf",
+    "url": "https://www.geoffmulgan.org/post/social-imagination",
     "primary_category": "Systems Change, Design & Futures Thinking",
     "categories": [
       "Systems Change, Design & Futures Thinking"
@@ -3108,7 +3108,7 @@
     "type_raw_variants": [
       "Report"
     ],
-    "note": "",
+    "note": "Original UCL-hosted PDF link went dead (403/removed); swapped to Geoff Mulgan's own site, which hosts the same piece (2026-09-07).",
     "extra_tag_text": "",
     "hub": "",
     "year": "",
@@ -30999,6 +30999,176 @@
       "Systems Change"
     ],
     "type_display": "Book",
+    "confidence": "high"
+  },
+  {
+    "id": "CFT-1124",
+    "title": "Advancing Democracy Through Trusted Institutions: A Landscape Assessment of US Public Libraries as Producers of Social Cohesion",
+    "url": "https://www.linkedin.com/posts/terryparrisjr_reading-this-really-valuable-assessment-ugcPost-7499221027311308800-o5Dl/",
+    "primary_category": "Government, Democracy & Polarization",
+    "categories": [
+      "Government, Democracy & Polarization",
+      "Economy, Philanthropy & Wellbeing"
+    ],
+    "type_normalized": "Report",
+    "type_raw_variants": [],
+    "note": "Original report was shared as a signed/expiring LinkedIn CDN PDF link; swapped to this LinkedIn commentary post (Terry Parris Jr.) per Kate's request (2026-09-07) so the link doesn't time out.",
+    "extra_tag_text": "",
+    "hub": "",
+    "year": "2026",
+    "source_sheets": [
+      "Hand-added (Kate request — link, 2026-09-07)"
+    ],
+    "merged_from_count": 1,
+    "blurb": "Terry Parris Jr. shares and expands on a Columbia SIPA capstone report for the Carnegie Corporation of New York on US public libraries as trusted civic institutions. His key addition: \"trusted space is not the same as civic capacity\" -- libraries need repeated, structured programming, not just a building, to genuinely strengthen communities. He points to the Library Newsroom Project's Sunset Park Sun in Brooklyn, where residents co-produce a neighborhood bulletin, as a model, and argues philanthropy should fund the \"connective tissue\" of personnel, partnerships, and time -- not just short-term pilots or infrastructure.",
+    "tags": [
+      "Democracy",
+      "Civic Life",
+      "Policy Innovation",
+      "Philanthropy & Funding",
+      "Community Health"
+    ],
+    "type_display": "Report",
+    "confidence": "high"
+  },
+  {
+    "id": "CFT-1125",
+    "title": "Sparks Toolkit",
+    "url": "https://www.therithmproject.org/sparks-toolkit",
+    "primary_category": "Tech, AI & Social Change",
+    "categories": [
+      "Tech, AI & Social Change",
+      "Gen Z, Youth Experience & Identity"
+    ],
+    "type_normalized": "Tool/Framework",
+    "type_raw_variants": [],
+    "note": "",
+    "extra_tag_text": "",
+    "hub": "",
+    "year": "",
+    "source_sheets": [
+      "Hand-added (Kate request — link, 2026-09-07)"
+    ],
+    "merged_from_count": 1,
+    "blurb": "The Rithm Project's modular facilitation toolkit helps young people and the adults who support them navigate AI's growing role in relationships with discernment and agency. Activities like \"Mapping a Day in Connection,\" \"Demo Day,\" \"Turning to Tech,\" and \"Boss Mode\" move participants from personal reflection on connection, to hands-on evaluation of AI tools, to roleplaying the tradeoffs companies and watchdogs face. Designed as remixable 45-minute sessions sequenced from relationships to technology to impact, it's built to pair with AIEDU's 10-week AI literacy course.",
+    "tags": [
+      "AI & Technology",
+      "Youth Wellbeing",
+      "Facilitation Tool",
+      "Digital Wellbeing",
+      "Gen Z"
+    ],
+    "type_display": "Toolkit",
+    "confidence": "high"
+  },
+  {
+    "id": "CFT-1126",
+    "title": "Your Imagination Is Out of Shape",
+    "url": "https://bookoftheday.nextbigideaclub.com/p/your-imagination-is-out-of-shape",
+    "primary_category": "Imagination, Play & Creativity",
+    "categories": [
+      "Imagination, Play & Creativity",
+      "Hope & Empowerment"
+    ],
+    "type_normalized": "Article",
+    "type_raw_variants": [],
+    "note": "",
+    "extra_tag_text": "",
+    "hub": "",
+    "year": "",
+    "source_sheets": [
+      "Hand-added (Kate request — link, 2026-09-07)"
+    ],
+    "merged_from_count": 1,
+    "blurb": "Featuring psychologist Cassandra Vieten's book Imagine That, this piece names \"The Great Flattening\" -- the way constant information consumption and technology use leave diminished mental space for wonder, contributing to burnout and despair. Vieten argues imagination is a trainable cognitive capacity woven through memory, planning, and problem-solving, and offers a practical rebuilding framework (visualizing, ideating, sensing, transforming, applying) along with protecting unstructured thinking time to restore a sense of possibility.",
+    "tags": [
+      "Hope & Empowerment",
+      "Collective Imagination"
+    ],
+    "type_display": "Article",
+    "confidence": "high"
+  },
+  {
+    "id": "CFT-1127",
+    "title": "Mapping Futures Literacy as a Competence Space: Structure, Measuring and Empirical Patterns",
+    "url": "https://link.springer.com/article/10.1186/s40309-026-00276-w",
+    "primary_category": "Systems Change, Design & Futures Thinking",
+    "categories": [
+      "Systems Change, Design & Futures Thinking"
+    ],
+    "type_normalized": "Academic Paper",
+    "type_raw_variants": [],
+    "note": "",
+    "extra_tag_text": "",
+    "hub": "",
+    "year": "2026",
+    "source_sheets": [
+      "Hand-added (Kate request — link, 2026-09-07)"
+    ],
+    "merged_from_count": 1,
+    "blurb": "Tamás Gáspár, writing in the European Journal of Futures Research, models futures literacy as a three-dimensional competence space combining knowledge of the different \"uses of the future,\" futures-related skills, and consciousness -- the degree to which people intentionally recognize and apply those uses and skills. Using a mixed-methods study within university courses, the paper finds futures literacy develops unevenly and structurally rather than linearly, with growing openness strengthening agency while also generating real uncertainty and future-related anxiety.",
+    "tags": [
+      "Futures Thinking",
+      "Academic Research",
+      "Framework",
+      "Foresight Methodology"
+    ],
+    "type_display": "Academic Paper",
+    "confidence": "high"
+  },
+  {
+    "id": "CFT-1128",
+    "title": "Rethinking Futures Literacy: From Skills to Competence",
+    "url": "https://www.linkedin.com/posts/kumli_innovation-futures-skills-share-7499364023726022656-vyw9/",
+    "primary_category": "Systems Change, Design & Futures Thinking",
+    "categories": [
+      "Systems Change, Design & Futures Thinking"
+    ],
+    "type_normalized": "Article",
+    "type_raw_variants": [],
+    "note": "LinkedIn post that summarizes/shares the same three-dimension framework (uses of the future, capabilities/skills, consciousness) as Tamás Gáspár's academic paper (CFT-1127) -- useful as a shorter, practitioner-facing companion piece to the fuller study.",
+    "extra_tag_text": "",
+    "hub": "",
+    "year": "2026",
+    "source_sheets": [
+      "Hand-added (Kate request — link, 2026-09-07)"
+    ],
+    "merged_from_count": 1,
+    "blurb": "Frank Kumli distills a research-backed argument that futures literacy is more than skill acquisition: it's a three-part competence combining the different \"uses of the future\" (prediction, planning, alternatives, visioning, emergence), futures-related capabilities, and consciousness -- whether those uses and skills are recognized and applied intentionally, not just known. He argues competence is best read as a profile or pattern rather than a single score, and that expanding people's sense of the future can build agency while also stirring real uncertainty.",
+    "tags": [
+      "Futures Thinking",
+      "Framework",
+      "Foresight Methodology"
+    ],
+    "type_display": "LinkedIn Post",
+    "confidence": "high"
+  },
+  {
+    "id": "CFT-1129",
+    "title": "The Turbulent AI Era Is Here. The Choices We Make Now Are Critical.",
+    "url": "https://www.gatesnotes.com/a-turbulent-ai-era-and-critical-choices-to-make",
+    "primary_category": "Tech, AI & Social Change",
+    "categories": [
+      "Tech, AI & Social Change",
+      "Economy, Philanthropy & Wellbeing"
+    ],
+    "type_normalized": "Article",
+    "type_raw_variants": [],
+    "note": "",
+    "extra_tag_text": "",
+    "hub": "",
+    "year": "2026",
+    "source_sheets": [
+      "Hand-added (Kate request — link, 2026-09-07)"
+    ],
+    "merged_from_count": 1,
+    "blurb": "Bill Gates argues AI could be \"the greatest equalizer ever invented, or the worst source of injustice,\" and warns the world isn't preparing for how fast and broadly this transition will hit -- unlike past technology shifts, AI can substitute for human cognition across white- and blue-collar work alike within a decade rather than generations. He calls for urgent, deliberate policy choices now, before displacement happens, to make sure the economic gains from AI are widely shared rather than concentrated among a few.",
+    "tags": [
+      "AI & Technology",
+      "Economy & Wellbeing",
+      "Policy Innovation"
+    ],
+    "type_display": "Article",
     "confidence": "high"
   }
 ]
