@@ -31170,5 +31170,93 @@
     ],
     "type_display": "Article",
     "confidence": "high"
+  },
+  {
+    "id": "CFT-1130",
+    "title": "In 1960, Gordon Allport Wrote... (Personality as a Complex, Nonlinear Dynamic System)",
+    "url": "https://www.linkedin.com/posts/emorie-d-beck_in-1960-gordon-allport-wrote-let-me-repeat-activity-7501468402587213824-EPyg",
+    "primary_category": "Global Mental Health Research",
+    "categories": [
+      "Global Mental Health Research"
+    ],
+    "type_normalized": "Article",
+    "type_raw_variants": [],
+    "note": "",
+    "extra_tag_text": "",
+    "hub": "",
+    "year": "2026",
+    "source_sheets": [
+      "Hand-added (Kate request — link, 2026-09-07)"
+    ],
+    "merged_from_count": 1,
+    "blurb": "Personality researcher Emorie D. Beck shares a new framework, developed with a team of collaborators for Advances in Experimental Social Psychology, proposing that personality is best understood as a person-specific, nonlinear dynamic system rather than a fixed set of traits. Opening with Gordon Allport's 1960 question of \"what makes the system cohere in any one person,\" Beck argues that individual idiosyncrasies -- the multilevel interplay of thoughts, feelings, behaviors, biology, situation, and culture -- are genuine psychological phenomena, not just noise around a population average, with real implications for how researchers study people and design interventions.",
+    "tags": [
+      "Academic Research",
+      "Mental Health",
+      "Framework",
+      "Identity & Culture"
+    ],
+    "type_display": "LinkedIn Post",
+    "confidence": "high"
+  },
+  {
+    "id": "CFT-1131",
+    "title": "Visions for the Future",
+    "url": "https://hopelab.org/visions-for-the-future",
+    "primary_category": "Art & Healing",
+    "categories": [
+      "Art & Healing",
+      "Hope & Empowerment",
+      "Gen Z, Youth Experience & Identity"
+    ],
+    "type_normalized": "Resource Hub",
+    "type_raw_variants": [],
+    "note": "",
+    "extra_tag_text": "",
+    "hub": "",
+    "year": "2026",
+    "source_sheets": [
+      "Hand-added (Kate request — link, 2026-09-07)"
+    ],
+    "merged_from_count": 1,
+    "blurb": "To launch Hopelab Futures, Hopelab commissioned young artists to envision mental health and wellbeing 25 years from now. Framed by Lucille Clifton's line \"we cannot create what we cannot imagine,\" the roughly 20 commissioned pieces -- with titles like \"Tomorrow Is...\" and \"In lieu of police, who shall I fear?\" -- move past crisis and clinical framing toward belonging, joy, cultural connection, safety, care, and collective power. Futures Principal Joshua Lavra frames the collection as evidence that young people are already imagining more connected, humane futures.",
+    "tags": [
+      "Art & Healing",
+      "Youth Co-Design",
+      "Hope & Empowerment",
+      "Collective Imagination"
+    ],
+    "type_display": "Art Collection",
+    "confidence": "high"
+  },
+  {
+    "id": "CFT-1132",
+    "title": "The Art of Staying Human Together: On Joy, Creativity, Defiance, and What Actually Connects Us Across Borders",
+    "url": "https://kettering.org/the-art-of-staying-human-together-on-joy-creativity-defiance-and-what-actually-connects-us-across-borders/",
+    "primary_category": "Government, Democracy & Polarization",
+    "categories": [
+      "Government, Democracy & Polarization",
+      "Storytelling for Social Change",
+      "Imagination, Play & Creativity"
+    ],
+    "type_normalized": "Article",
+    "type_raw_variants": [],
+    "note": "",
+    "extra_tag_text": "",
+    "hub": "",
+    "year": "2026",
+    "source_sheets": [
+      "Hand-added (Kate request — link, 2026-09-13)"
+    ],
+    "merged_from_count": 1,
+    "blurb": "For the Kettering Foundation, Laura Schwartz-Henderson argues that democracy movements have over-invested in laws, institutions, and formal rights while neglecting the cultural glue -- joy, creativity, shared celebration -- that makes people feel democracy is genuinely theirs. Opening from Bad Bunny's 2026 Super Bowl halftime show and her own Big Hope Project at Curious Shapes, she points to groups like the Center for Artistic Activism, Beautiful Trouble, Srđa Popović's \"laughtivism\" training, and Senegal's Kaddu Yaraax theater troupe as evidence that art and humor are strategic tools for cross-border solidarity, not just \"warm and fuzzy\" add-ons -- while honestly wrestling with whether this risks becoming empty \"hopecore.\"",
+    "tags": [
+      "Democracy",
+      "Storytelling & Narrative",
+      "Collective Imagination",
+      "Civic Life"
+    ],
+    "type_display": "Article",
+    "confidence": "high"
   }
 ]
