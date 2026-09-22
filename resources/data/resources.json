@@ -31258,5 +31258,36 @@
     ],
     "type_display": "Article",
     "confidence": "high"
+  },
+  {
+    "id": "CFT-1133",
+    "title": "The Right to Hope: Collective Agency and the Politics of Repair in the Digital Age",
+    "url": "https://link.springer.com/article/10.1057/s41301-026-00518-1",
+    "primary_category": "Hope & Empowerment",
+    "categories": [
+      "Hope & Empowerment",
+      "Imagination, Play & Creativity",
+      "Government, Democracy & Polarization"
+    ],
+    "type_normalized": "Academic Paper",
+    "type_raw_variants": [],
+    "note": "Co-authored by Kate Barranco (site owner) with Bareera Rauf, published in Development (Palgrave Macmillan), 2026.",
+    "extra_tag_text": "",
+    "hub": "",
+    "year": "2026",
+    "source_sheets": [
+      "Hand-added (Kate request — own publication, 2026-09-22)"
+    ],
+    "merged_from_count": 1,
+    "blurb": "Bareera Rauf and Kate Barranco argue that today's political and ecological crises sit alongside a deeper crisis of hope -- a shrinking collective capacity to imagine alternatives and act toward possible futures, sustained by a political economy of fear that privatizes hope into individual resilience. The article reframes hope as a collective political right tied to agency, dignity, and participation, proposes a cyclical model of hope built on rupture, repair, and return (drawing on feminist theories of relationality and Bloch's anticipatory consciousness), and introduces \"micro-institutions of hope\" -- youth-led relational spaces like HopeWorks' Hope Circles in Karachi and the Experiential Futures Sandbox -- as the building blocks of a politics of hope grounded in shared civic practice.",
+    "tags": [
+      "Hope & Empowerment",
+      "Collective Imagination",
+      "Democracy",
+      "Youth Co-Design",
+      "Framework"
+    ],
+    "type_display": "Academic Paper",
+    "confidence": "high"
   }
 ]
