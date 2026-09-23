@@ -12,7 +12,7 @@
 <link rel="stylesheet" href="../shared/footer.css">
 <!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "ea62372e60d5477eb6dc241cc973068b"}'></script><!-- End Cloudflare Web Analytics -->
 <style>
-:root{--orange:#E75213;--navy:#1A1F5B;--cream:#F5F1E8;--gold:#C8A14D;--purple:#800287;--ink:#1A1A18;--ink-soft:#3A3833;--ink-mute:#7A756E;--warm:#EDE6D3;--paper:#FDFBF5;--line:rgba(26,26,24,0.10);--green:#2D4A3E;--nav-h:68px;--max-w:1380px;--px:2.5rem;--ps:5rem}
+:root{--orange:#E75213;--navy:#1A1F5B;--cream:#F5F1E8;--gold:#C8A14D;--purple:#800287;--ink:#111429;--ink-soft:#363B57;--ink-mute:#75798F;--warm:#EDE6D3;--paper:#FDFBF5;--line:rgba(17,20,41,0.10);--green:#2D4A3E;--nav-h:68px;--max-w:1380px;--px:2.5rem;--ps:5rem}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth;font-size:16px}
@@ -43,7 +43,7 @@ button{font-family:inherit;cursor:pointer}
   background:var(--ink)}
 .hero::after{content:'';position:absolute;inset:0;pointer-events:none;z-index:0;
   background:
-    linear-gradient(to bottom, rgba(26,26,24,.52) 0%, rgba(26,26,24,.28) 40%, rgba(26,26,24,.78) 100%),
+    linear-gradient(to bottom, rgba(17,20,41,.52) 0%, rgba(17,20,41,.28) 40%, rgba(17,20,41,.78) 100%),
     linear-gradient(135deg,rgba(26,31,91,.38) 0%,transparent 55%),
     radial-gradient(ellipse 70% 45% at 60% 100%,rgba(231,82,19,.28) 0%,transparent 65%)}
 .hero-grid{position:absolute;inset:0;pointer-events:none;
@@ -67,7 +67,7 @@ button{font-family:inherit;cursor:pointer}
 /* Ghost text */
 .hero-ghost{position:absolute;right:-.03em;bottom:-.06em;font-family:'Fraunces',serif;font-size:clamp(12rem,30vw,25rem);font-weight:700;line-height:1;color:transparent;-webkit-text-stroke:1px rgba(245,241,232,.04);pointer-events:none;user-select:none;letter-spacing:-.04em;font-variation-settings:"opsz" 144,"SOFT" 0}
 .hero-inner{max-width:var(--max-w);margin:0 auto;width:100%;padding:calc(var(--nav-h) + 2.4rem) var(--px) 2.4rem;display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center;flex:1;position:relative;z-index:1}
-.hero h1{font-family:'Fraunces',serif;font-size:clamp(3.2rem,8vw,7rem);line-height:.9;font-weight:400;letter-spacing:-.035em;font-variation-settings:"opsz" 144,"SOFT" 30,"WONK" 1;color:var(--cream);text-shadow:0 2px 20px rgba(26,26,24,.5)}
+.hero h1{font-family:'Fraunces',serif;font-size:clamp(3.2rem,8vw,7rem);line-height:.9;font-weight:400;letter-spacing:-.035em;font-variation-settings:"opsz" 144,"SOFT" 30,"WONK" 1;color:var(--cream);text-shadow:0 2px 20px rgba(17,20,41,.5)}
 .hero h1 em{font-style:italic;font-weight:300;font-variation-settings:"opsz" 144,"SOFT" 100,"WONK" 1;color:var(--orange)}
 /* "The work in focus" eyeline above h1 */
 .hero-eyeline{font-family:'JetBrains Mono',monospace;font-size:.6rem;letter-spacing:.15em;text-transform:uppercase;color:rgba(245,241,232,.4);display:flex;align-items:center;gap:.65rem;margin-bottom:1rem}
@@ -75,7 +75,7 @@ button{font-family:inherit;cursor:pointer}
 /* Glasses icon inline in eyeline */
 .hero-eyeline-glasses{height:14px;width:auto;opacity:.55;vertical-align:middle;margin-right:.4rem}
 .hero-right{display:flex;flex-direction:column;gap:1.75rem;justify-content:flex-end}
-.hero-desc{font-size:.95rem;line-height:1.72;color:rgba(245,241,232,.88);max-width:44ch;text-shadow:0 1px 8px rgba(26,26,24,.6)}
+.hero-desc{font-size:.95rem;line-height:1.72;color:rgba(245,241,232,.88);max-width:44ch;text-shadow:0 1px 8px rgba(17,20,41,.6)}
 .hero-stats{border-top:1px solid rgba(245,241,232,.1);max-width:var(--max-w);margin:0 auto;width:100%;padding:1.4rem var(--px);display:grid;grid-template-columns:repeat(4,1fr);position:relative;z-index:1}
 .hstat{padding:.7rem 1.4rem .7rem 0;border-right:1px solid rgba(245,241,232,.07)}
 .hstat:first-child{padding-left:0}
@@ -213,7 +213,7 @@ button{font-family:inherit;cursor:pointer}
 .terrain-legend{display:flex;flex-wrap:wrap;gap:.45rem 1.1rem;margin-top:1.1rem}
 .tleg{display:flex;align-items:center;gap:.42rem;font-family:'JetBrains Mono',monospace;font-size:.58rem;letter-spacing:.07em;text-transform:uppercase;color:rgba(245,241,232,.42)}
 .tleg-c{width:8px;height:8px;border-radius:50%;flex-shrink:0}
-.tleg-proj{width:5px;height:5px;border-radius:50%;background:rgba(26,26,24,.4);border:1px solid var(--ink-mute);flex-shrink:0}
+.tleg-proj{width:5px;height:5px;border-radius:50%;background:rgba(17,20,41,.4);border:1px solid var(--ink-mute);flex-shrink:0}
 
 /* ─── TESTIMONIES — LENS FRAMES ─── */
 .tstrip{background:var(--warm);padding:1.25rem var(--px) 5rem;color:var(--ink)}
@@ -326,7 +326,7 @@ button{font-family:inherit;cursor:pointer}
 .footer-bot{max-width:var(--max-w);margin:0 auto;padding-top:1.65rem;border-top:1px solid rgba(245,241,232,.09);display:flex;justify-content:space-between;align-items:center;font-size:.74rem;color:rgba(245,241,232,.32)}
 
 /* ─── MODAL ─── */
-.modal-ov{position:fixed;inset:0;background:rgba(26,26,24,.76);backdrop-filter:blur(5px);z-index:1000;display:flex;align-items:center;justify-content:center;padding:1.2rem;opacity:0;pointer-events:none;transition:opacity .22s}
+.modal-ov{position:fixed;inset:0;background:rgba(17,20,41,.76);backdrop-filter:blur(5px);z-index:1000;display:flex;align-items:center;justify-content:center;padding:1.2rem;opacity:0;pointer-events:none;transition:opacity .22s}
 .modal-ov.open{opacity:1;pointer-events:all}
 .modal-panel{background:var(--paper);border-radius:4px;max-width:700px;width:100%;max-height:90vh;overflow-y:auto;padding:2.5rem;position:relative;transform:translateY(16px) scale(.97);transition:transform .28s cubic-bezier(.34,1.46,.64,1);box-shadow:0 32px 80px -18px rgba(26,26,24,.42)}
 .modal-ov.open .modal-panel{transform:none}
@@ -1075,7 +1075,7 @@ window.openAccPanel=function(itemId){
   svg.appendChild(g);
 
   // Background
-  g.appendChild(svgEl('rect',{width:W,height:H,fill:'#1A1A18'}));
+  g.appendChild(svgEl('rect',{width:W,height:H,fill:'#111429'}));
   for(var gx=0;gx<W;gx+=60)g.appendChild(svgEl('line',{x1:gx,y1:0,x2:gx,y2:H,stroke:'rgba(245,241,232,.022)','stroke-width':'1'}));
   for(var gy=0;gy<H;gy+=60)g.appendChild(svgEl('line',{x1:0,y1:gy,x2:W,y2:gy,stroke:'rgba(245,241,232,.022)','stroke-width':'1'}));
 
@@ -1087,7 +1087,7 @@ window.openAccPanel=function(itemId){
 
   // Connection lines from projects to their themes
   // Civic's navy (#1A1F5B) reads almost invisibly at low opacity against the
-  // near-black terrain background, so it gets a brighter line-only tint. All
+  // navy-deep terrain background, so it gets a brighter line-only tint. All
   // themes get a raised opacity so the web reads evenly instead of one color
   // dominating.
   var TERRAIN_LINE_COLOR={civic:'#5B6EF5'};
@@ -1103,7 +1103,7 @@ window.openAccPanel=function(itemId){
 
   // Tooltip group (rendered in SVG root so it's always on top, not clipped by g)
   var tip=svgEl('g',{opacity:'0',style:'pointer-events:none;transition:opacity .14s'});
-  var tipR=svgEl('rect',{rx:'3',fill:'#1A1A18',stroke:'rgba(245,241,232,.2)','stroke-width':'1'});
+  var tipR=svgEl('rect',{rx:'3',fill:'#111429',stroke:'rgba(245,241,232,.2)','stroke-width':'1'});
   var tipT=svgEl('text',{fill:'rgba(245,241,232,.92)',style:'font-family:Inter Tight,sans-serif;font-size:11px'});
   tip.appendChild(tipR);tip.appendChild(tipT);
 
@@ -1499,7 +1499,7 @@ var activeSearch='';
     div.setAttribute('role','option');
     div.setAttribute('tabindex','0');
     div.dataset.partner=partner;
-    div.style.cssText='padding:.5rem 1rem;font-family:Inter Tight,sans-serif;font-size:.82rem;color:var(--ink);cursor:pointer;transition:background .14s;border-bottom:1px solid rgba(26,26,24,.06)';
+    div.style.cssText='padding:.5rem 1rem;font-family:Inter Tight,sans-serif;font-size:.82rem;color:var(--ink);cursor:pointer;transition:background .14s;border-bottom:1px solid rgba(17,20,41,.06)';
     div.textContent=partner;
     div.addEventListener('mouseenter',function(){this.style.background='var(--warm)';});
     div.addEventListener('mouseleave',function(){this.style.background='';});

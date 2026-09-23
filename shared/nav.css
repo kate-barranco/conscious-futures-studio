@@ -36,7 +36,7 @@
 }
 
 .shared-nav--dark .shared-nav-links a { color: #F5F1E8; opacity: 0.82; }
-.shared-nav--light .shared-nav-links a { color: #1A1A18; opacity: 0.72; }
+.shared-nav--light .shared-nav-links a { color: #1A1F5B; opacity: 0.72; }
 .shared-nav-links a:hover { opacity: 1; }
 .shared-nav-links a.active { opacity: 1; border-bottom: 1px solid currentColor; padding-bottom: 3px; }
 
@@ -52,7 +52,7 @@
 }
 .shared-nav-toggle span { width: 22px; height: 2px; border-radius: 1px; }
 .shared-nav--dark .shared-nav-toggle span { background: #F5F1E8; }
-.shared-nav--light .shared-nav-toggle span { background: #1A1A18; }
+.shared-nav--light .shared-nav-toggle span { background: #1A1F5B; }
 
 @media (max-width: 860px) {
   .shared-nav-toggle { display: flex; }

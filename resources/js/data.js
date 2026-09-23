@@ -22,7 +22,7 @@ export async function loadData() {
     ...categoriesPresent.filter((n) => !categoryMeta[n]),
   ];
   categoryOrder.forEach((name) => {
-    if (!categoryMeta[name]) categoryMeta[name] = { name, color: "#6FBFB0", blurb: "" };
+    if (!categoryMeta[name]) categoryMeta[name] = { name, color: "#3B6FBF", blurb: "" };
   });
 
   const usedTags = new Set(resources.flatMap((r) => r.tags || []));
@@ -37,5 +37,5 @@ export async function loadData() {
 }
 
 export function categoryColor(categoryMeta, name) {
-  return (categoryMeta[name] && categoryMeta[name].color) || "#6FBFB0";
+  return (categoryMeta[name] && categoryMeta[name].color) || "#3B6FBF";
 }
