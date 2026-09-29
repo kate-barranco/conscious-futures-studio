@@ -31,13 +31,13 @@
   text-decoration: none;
   font-size: 0.9rem;
   letter-spacing: 0.01em;
-  transition: opacity 0.2s ease;
+  transition: opacity 0.2s ease, color 0.2s ease;
   white-space: nowrap;
 }
 
 .shared-nav--dark .shared-nav-links a { color: #F5F1E8; opacity: 0.82; }
 .shared-nav--light .shared-nav-links a { color: #1A1F5B; opacity: 0.72; }
-.shared-nav-links a:hover { opacity: 1; }
+.shared-nav-links a:hover { opacity: 1; color: #E75213; }
 .shared-nav-links a.active { opacity: 1; border-bottom: 1px solid currentColor; padding-bottom: 3px; }
 
 .shared-nav-toggle {
