@@ -667,17 +667,61 @@ body::before {
 }
 .vh-values {
   display: grid; grid-template-columns: repeat(2,1fr);
-  gap: .9rem 1.4rem; margin: 0 0 2rem; max-width: 100%;
+  gap: .9rem 1.4rem; margin: 0; max-width: 100%;
 }
 @media (max-width: 420px) { .vh-values { grid-template-columns: 1fr; } }
-.vh-value {
+
+/* Each commitment is a disclosure trigger. Its description does NOT pop
+   up next to the trigger itself — with six short rows in a tight 2-col
+   grid there isn't room for a floating box to open without covering the
+   row below it. Instead, hovering/focusing/tapping any commitment reveals
+   its text in a single shared panel directly under the whole grid, so
+   none of the six rows ever move, resize, or get covered by a sibling's
+   description. The panel animates open/closed with a height transition
+   (0fr → 1fr) that only ever displaces the "our commitment" line below
+   it — never the commitments themselves. */
+.vh-value-trigger {
+  all: unset; box-sizing: border-box;
+  display: flex; gap: .5rem; align-items: flex-start; width: 100%;
   font-size: .92rem; line-height: 1.5; color: rgba(245,241,232,0.9);
-  display: flex; gap: .5rem;
+  cursor: pointer; border-radius: 4px;
+  transition: color .2s ease;
+}
+.vh-value-trigger:hover,
+.vh-value-trigger:focus,
+.vh-value-trigger.is-open { color: #FFE9C7; }
+.vh-value-trigger:focus-visible {
+  outline: 1.5px solid rgba(255,233,199,.6); outline-offset: 4px;
 }
 .vh-value-num {
   font-family: 'Fraunces', serif; font-style: italic;
   color: rgba(255,233,199,0.55); flex-shrink: 0;
 }
+.vh-value-headline { flex: 1; }
+
+/* Holds the canonical description text for each commitment; never shown
+   in place — read by JS and mirrored into the shared panel below. */
+.vh-value-desc-src { display: none; }
+
+.vh-value-panel {
+  display: grid; grid-template-rows: 0fr;
+  transition: grid-template-rows .2s ease;
+}
+.vh-value-panel.is-open { grid-template-rows: 1fr; }
+.vh-value-panel-inner { overflow: hidden; min-height: 0; }
+.vh-value-panel-body {
+  background: rgba(17,20,41,0.9);
+  border-left: 2px solid rgba(255,233,199,.45);
+  border-radius: 0 8px 8px 0;
+  padding: .85rem 1rem;
+  margin-top: .9rem;
+  font-size: .78rem; line-height: 1.6; font-weight: 300;
+  color: rgba(245,241,232,.88);
+  opacity: 0;
+  transition: opacity .2s ease;
+}
+.vh-value-panel.is-open .vh-value-panel-body { opacity: 1; transition: opacity .2s ease .05s; }
+.vh-value-panel-body p { margin: 0; }
 .vh-bridge {
   position: relative; z-index: 0;
   font-size: .82rem; line-height: 1.8; color: rgba(245,241,232,0.92);
@@ -702,6 +746,9 @@ body::before {
 .vh-explore em { font-style: italic; color: #FFE9C7; }
 @media (prefers-reduced-motion: reduce) {
   .vh-struck::after, .vh-revision-line { transition: none !important; }
+  .vh-value-panel, .vh-value-panel-body, .vh-value-trigger { transition: opacity .01ms linear !important; transform: none !important; grid-template-rows: unset !important; }
+  .vh-value-panel-inner { overflow: visible !important; }
+  .vh-value-panel:not(.is-open) .vh-value-panel-inner { display: none; }
 }
 
 /* ═══════════════════════ MIND MAP (desktop, >=769px) ═══════════════════════ */
@@ -885,12 +932,47 @@ body::before {
             <p class="vh-principles-intro">Six commitments that turn belief into daily practice — not aspirations, but working principles.</p>
           </div>
           <div class="vh-values">
-            <div class="vh-value"><span class="vh-value-num">01</span>Imagination is a precondition for change.</div>
-            <div class="vh-value"><span class="vh-value-num">02</span>Attention is infrastructure.</div>
-            <div class="vh-value"><span class="vh-value-num">03</span>Practice over reaction.</div>
-            <div class="vh-value"><span class="vh-value-num">04</span>Futures are collective.</div>
-            <div class="vh-value"><span class="vh-value-num">05</span>Young people are present co-creators.</div>
-            <div class="vh-value"><span class="vh-value-num">06</span>Regeneration over extraction.</div>
+            <div class="vh-value">
+              <button type="button" class="vh-value-trigger" aria-expanded="false">
+                <span class="vh-value-num">01</span><span class="vh-value-headline">Imagination is a precondition for change.</span>
+              </button>
+              <div class="vh-value-desc-src"><p>We begin by listening to the stories people carry, because being heard is what makes room to imagine.</p></div>
+            </div>
+            <div class="vh-value">
+              <button type="button" class="vh-value-trigger" aria-expanded="false">
+                <span class="vh-value-num">02</span><span class="vh-value-headline">Attention is infrastructure.</span>
+              </button>
+              <div class="vh-value-desc-src"><p>What we notice shapes what we build, so we design spaces and practices that protect people's capacity to focus, reflect, and imagine together.</p></div>
+            </div>
+            <div class="vh-value">
+              <button type="button" class="vh-value-trigger" aria-expanded="false">
+                <span class="vh-value-num">03</span><span class="vh-value-headline">Build capacity before crisis.</span>
+              </button>
+              <div class="vh-value-desc-src"><p>We treat imagination and reflection as skills built through regular practice, so people can meet change with intention when it arrives.</p></div>
+            </div>
+            <div class="vh-value">
+              <button type="button" class="vh-value-trigger" aria-expanded="false">
+                <span class="vh-value-num">04</span><span class="vh-value-headline">Futures are collective.</span>
+              </button>
+              <div class="vh-value-desc-src"><p>We imagine with communities across generations and disciplines, because no one builds a livable future alone.</p></div>
+            </div>
+            <div class="vh-value">
+              <button type="button" class="vh-value-trigger" aria-expanded="false">
+                <span class="vh-value-num">05</span><span class="vh-value-headline">Young people are co-creators now.</span>
+              </button>
+              <div class="vh-value-desc-src"><p>Young people author the work alongside us, and adults with institutional power join as listeners.</p></div>
+            </div>
+            <div class="vh-value">
+              <button type="button" class="vh-value-trigger" aria-expanded="false">
+                <span class="vh-value-num">06</span><span class="vh-value-headline">Design to regenerate.</span>
+              </button>
+              <div class="vh-value-desc-src"><p>We build processes that leave people and communities with more energy, trust, and capacity than they started with.</p></div>
+            </div>
+          </div>
+          <div class="vh-value-panel" id="vh-value-panel">
+            <div class="vh-value-panel-inner">
+              <div class="vh-value-panel-body"><p id="vh-value-panel-text"></p></div>
+            </div>
           </div>
           <p class="vh-bridge">
             Our commitment: to practice conscious, collective ways of relating — so repair is shared, imagination is practical,
@@ -1779,6 +1861,73 @@ animateWeb();
 
 // Resize handler — just update canvas size, animation loop continues
 window.addEventListener('resize', () => { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }, { passive: true });
+
+// ─── "How we operate" commitments — shared description panel ───
+// The six commitments live in a tight 2-column grid. A description box
+// popping up directly under its own trigger would cover the row below
+// it, so instead every trigger reveals its text in one shared panel
+// below the whole grid (reveal on hover/focus for mouse+keyboard users;
+// tap-to-toggle, closing any other open one, for touch).
+(function () {
+  const group = document.querySelector('.vh-values');
+  const panel = document.getElementById('vh-value-panel');
+  if (!group || !panel) return;
+  const textEl = document.getElementById('vh-value-panel-text');
+  const triggers = Array.from(group.querySelectorAll('.vh-value-trigger'));
+  if (!triggers.length) return;
+  const hoverCapable = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+  let openTrigger = null;
+
+  const openFor = (trigger) => {
+    const src = trigger.closest('.vh-value').querySelector('.vh-value-desc-src');
+    textEl.textContent = src ? src.textContent.trim() : '';
+    panel.classList.add('is-open');
+    triggers.forEach((t) => {
+      const active = t === trigger;
+      t.classList.toggle('is-open', active);
+      t.setAttribute('aria-expanded', String(active));
+      if (active) t.setAttribute('aria-describedby', 'vh-value-panel-text');
+      else t.removeAttribute('aria-describedby');
+    });
+    openTrigger = trigger;
+  };
+  const closeAll = () => {
+    panel.classList.remove('is-open');
+    triggers.forEach((t) => {
+      t.classList.remove('is-open');
+      t.setAttribute('aria-expanded', 'false');
+      t.removeAttribute('aria-describedby');
+    });
+    openTrigger = null;
+  };
+
+  triggers.forEach((trigger) => {
+    trigger.addEventListener('focus', () => openFor(trigger));
+    if (hoverCapable) {
+      trigger.addEventListener('mouseenter', () => openFor(trigger));
+      trigger.addEventListener('mouseleave', () => {
+        if (document.activeElement !== trigger) closeAll();
+      });
+    } else {
+      trigger.addEventListener('click', () => {
+        if (openTrigger === trigger) closeAll();
+        else openFor(trigger);
+      });
+    }
+  });
+
+  group.addEventListener('focusout', (e) => {
+    if (!hoverCapable) return; // touch keeps the tapped one open until another tap
+    const next = e.relatedTarget;
+    if (!next || !group.contains(next)) closeAll();
+  });
+
+  if (!hoverCapable) {
+    document.addEventListener('click', (e) => {
+      if (openTrigger && !group.contains(e.target)) closeAll();
+    });
+  }
+})();
 </script>
 <script src="../shared/nav.js"></script>
 <script src="../shared/footer.js"></script>
