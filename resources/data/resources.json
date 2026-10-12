@@ -31289,5 +31289,145 @@
     ],
     "type_display": "Academic Paper",
     "confidence": "high"
+  },
+  {
+    "id": "CFT-1134",
+    "title": "Expanding the Field from Which We Imagine",
+    "url": "https://enaeva.substack.com/p/expanding-the-field-from-which-we",
+    "primary_category": "Systems Change, Design & Futures Thinking",
+    "categories": [
+      "Systems Change, Design & Futures Thinking",
+      "Imagination, Play & Creativity"
+    ],
+    "type_normalized": "Article",
+    "type_raw_variants": [],
+    "note": "",
+    "extra_tag_text": "",
+    "hub": "",
+    "year": "2026",
+    "source_sheets": [
+      "Hand-added (Kate request — resource library additions, 2026-10-12)"
+    ],
+    "merged_from_count": 1,
+    "blurb": "An essay outlining seven practices for expanding perception — questioning inevitability, changing scale, borrowing alternative ways of knowing — as groundwork for imagining and acting on radically different futures.",
+    "tags": [
+      "Collective Imagination",
+      "Futures Thinking",
+      "Framework"
+    ],
+    "type_display": "Article",
+    "confidence": "high"
+  },
+  {
+    "id": "CFT-1135",
+    "title": "We've Got an Imagination Crisis. What Does Art Have to Do With It?",
+    "url": "https://www.culturepolicyroom.eu/insights/weve-got-an-imagination-crisis-what-does-art-have-to-do-with-it",
+    "primary_category": "Imagination, Play & Creativity",
+    "categories": [
+      "Imagination, Play & Creativity",
+      "Systems Change, Design & Futures Thinking"
+    ],
+    "type_normalized": "Article",
+    "type_raw_variants": [],
+    "note": "",
+    "extra_tag_text": "",
+    "hub": "",
+    "year": "2026",
+    "source_sheets": [
+      "Hand-added (Kate request — resource library additions, 2026-10-12)"
+    ],
+    "merged_from_count": 1,
+    "blurb": "Polivtseva argues Europe's \"imagination gap\" isn't a storytelling problem but an infrastructure one — the civic institutions and networks that once turned artists' visions into shared collective aspirations have eroded.",
+    "tags": [
+      "Collective Imagination",
+      "Civic Life",
+      "Systems Change"
+    ],
+    "type_display": "Article",
+    "confidence": "high"
+  },
+  {
+    "id": "CFT-1136",
+    "title": "America 251: State of Us",
+    "url": "https://research.murmuration.org/america-251",
+    "primary_category": "Government, Democracy & Polarization",
+    "categories": [
+      "Government, Democracy & Polarization",
+      "Relationality, Connection & Community Health"
+    ],
+    "type_normalized": "Resource Hub",
+    "type_raw_variants": [],
+    "note": "",
+    "extra_tag_text": "",
+    "hub": "",
+    "year": "2026",
+    "source_sheets": [
+      "Hand-added (Kate request — resource library additions, 2026-10-12)"
+    ],
+    "merged_from_count": 1,
+    "blurb": "A seven-part research series from Murmuration, drawn from listening to 35,000 Americans, exploring belonging, connection, joy, identity, change, nationhood, and hope as the forces beneath politics that shape everyday civic life.",
+    "tags": [
+      "Civic Life",
+      "Community Health",
+      "Hope & Empowerment"
+    ],
+    "type_display": "Resource Hub",
+    "confidence": "high"
+  },
+  {
+    "id": "CFT-1137",
+    "title": "We Have a Climate Imagination Problem",
+    "url": "https://time.com/article/2026/09/21/we-have-a-climate-imagination-problem/",
+    "primary_category": "Climate Justice & Eco-Anxiety",
+    "categories": [
+      "Climate Justice & Eco-Anxiety",
+      "Storytelling for Social Change"
+    ],
+    "type_normalized": "Article",
+    "type_raw_variants": [],
+    "note": "",
+    "extra_tag_text": "",
+    "hub": "",
+    "year": "2026",
+    "source_sheets": [
+      "Hand-added (Kate request — resource library additions, 2026-10-12)"
+    ],
+    "merged_from_count": 1,
+    "blurb": "Townsend argues the climate movement has over-invested in apocalyptic warning and under-invested in compelling visions of what comes after — and that storytelling, not science alone, supplies the emotional architecture people need to act.",
+    "tags": [
+      "Climate Anxiety",
+      "Storytelling & Narrative",
+      "Collective Imagination"
+    ],
+    "type_display": "Article",
+    "confidence": "high"
+  },
+  {
+    "id": "CFT-1138",
+    "title": "When the End of the World Comes Up at the Kitchen Table",
+    "url": "https://a10d.substack.com/p/when-the-end-of-the-world-comes-up",
+    "primary_category": "Tech, AI & Social Change",
+    "categories": [
+      "Tech, AI & Social Change",
+      "Hope & Empowerment"
+    ],
+    "type_normalized": "Article",
+    "type_raw_variants": [],
+    "note": "",
+    "extra_tag_text": "",
+    "hub": "",
+    "year": "2026",
+    "source_sheets": [
+      "Hand-added (Kate request — resource library additions, 2026-10-12)"
+    ],
+    "merged_from_count": 1,
+    "blurb": "On how parents can talk honestly with kids about AI existential-risk warnings — without false reassurance or avoidance — by grounding the conversation in hope as action, media literacy, and real ways young people can help shape AI's future.",
+    "tags": [
+      "AI & Technology",
+      "Hope & Empowerment",
+      "Intergenerational"
+    ],
+    "type_display": "Article",
+    "confidence": "high"
   }
 ]
