@@ -95,9 +95,13 @@
   var landmarksEl = document.getElementById('landmarks');
   var landmarkTiles;
 
-  var VIEW_W = 700, VIEW_H = 280;
-  var LENS_L = { cx: 198, cy: 140, r: 108 };
-  var LENS_R = { cx: 502, cy: 140, r: 108 };
+  /* Reference coordinate space = the logo PNG's native pixel size
+     (shared/assets/logo-white-glasses.png, 1501×600). Lens centers/radii
+     measured directly from the artwork so the glow mask lines up with the
+     actual lens circles in the brand mark. */
+  var VIEW_W = 1501, VIEW_H = 600;
+  var LENS_L = { cx: 739.3, cy: 387.6, r: 201.8 };
+  var LENS_R = { cx: 1264.5, cy: 395.9, r: 202.5 };
 
   function getLensScreenPositions() {
     var rect = glassesWrap.getBoundingClientRect();

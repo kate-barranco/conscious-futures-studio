@@ -125,7 +125,7 @@ a { color: inherit; text-decoration: none; }
   animation: glassesFloat 7s ease-in-out infinite;
   transition: opacity 0.6s ease;
 }
-.glasses-wrap svg { width: 100%; height: auto; display: block; }
+.glasses-wrap svg, .glasses-wrap img { width: 100%; height: auto; display: block; }
 @keyframes glassesFloat {
   0%, 100% { transform: translate(-50%, -50%) translateY(0); }
   50% { transform: translate(-50%, -50%) translateY(-8px); }
