@@ -75,6 +75,13 @@ button{font-family:inherit;cursor:pointer}
 /* Glasses icon inline in eyeline */
 .hero-eyeline-glasses{height:14px;width:auto;opacity:.55;vertical-align:middle;margin-right:.4rem}
 .hero-right{display:flex;flex-direction:column;gap:1.75rem;justify-content:flex-end}
+/* "Research. Design. Narrative. Foresight." — recast as the 4 capability zones:
+   color-coded, mono-tracked tags that stagger in on load, echoing the brand's
+   4-zone framework instead of reading as a plain descriptive line. */
+.hero-zones{display:flex;flex-wrap:wrap;align-items:center;gap:.5rem .6rem;font-family:'JetBrains Mono',monospace;font-size:.72rem;letter-spacing:.07em;text-transform:uppercase}
+.hz-word{display:inline-block;color:var(--cream);font-weight:500;border-bottom:2px solid var(--hz-c);padding-bottom:.22rem;opacity:0;transform:translateY(8px);text-shadow:0 1px 8px rgba(17,20,41,.6);animation:hzIn .55s cubic-bezier(.16,1,.3,1) forwards;animation-delay:var(--hz-delay,0s)}
+.hz-sep{color:rgba(245,241,232,.3);font-size:.9rem}
+@keyframes hzIn{to{opacity:1;transform:none}}
 .hero-desc{font-size:.95rem;line-height:1.72;color:rgba(245,241,232,.88);max-width:44ch;text-shadow:0 1px 8px rgba(17,20,41,.6)}
 .hero-stats{border-top:1px solid rgba(245,241,232,.1);max-width:var(--max-w);margin:0 auto;width:100%;padding:1.4rem var(--px);display:grid;grid-template-columns:repeat(4,1fr);position:relative;z-index:1}
 .hstat{padding:.7rem 1.4rem .7rem 0;border-right:1px solid rgba(245,241,232,.07)}
@@ -82,6 +89,52 @@ button{font-family:inherit;cursor:pointer}
 .hstat:last-child{border-right:none}
 .hstat-n{font-family:'Fraunces',serif;font-size:2.8rem;font-weight:400;font-variation-settings:"opsz" 144;color:var(--cream);line-height:1;letter-spacing:-.03em}
 .hstat-l{font-family:'JetBrains Mono',monospace;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:rgba(245,241,232,.45);margin-top:.32rem;font-weight:500}
+/* Clickable hero-stat triggers (Projects/Partners) — same accent system as hero-corner buttons */
+.hstat-trigger{display:block;width:100%;background:none;border:none;text-align:left;font:inherit;cursor:pointer;padding:.7rem 1.4rem .7rem 0;border-right:1px solid rgba(245,241,232,.07);transition:transform .2s}
+.hstat-trigger:first-child{padding-left:0}
+.hstat-trigger .hstat-n{transition:color .2s}
+.hstat-trigger:hover{transform:translateY(-2px)}
+.hstat-trigger:hover .hstat-n{color:var(--sq-accent)}
+.hstat-trigger:focus-visible{outline:2px solid var(--sq-accent);outline-offset:3px}
+/* Hero corner action buttons — open Projects/Partners/Featured/Publication/Testimony as pop-up modals.
+   Desktop: a vertical rail that stays fixed and grows as you scroll toward Work
+   terrain, then docks into normal flow (horizontal) right underneath it — see
+   the #hero-corner-rail scroll script near the end of the document. Mobile keeps
+   the simpler horizontal strip pinned inside the hero (unchanged from before). */
+.hero-corner{z-index:5;display:flex;gap:.6rem}
+.hero-sqbtn{width:74px;height:74px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.3rem;background:rgba(245,241,232,.07);border:1px solid rgba(245,241,232,.2);border-radius:10px;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);cursor:pointer;transition:background .2s,border-color .2s,transform .2s;color:var(--cream);font-family:inherit;flex-shrink:0}
+/* Per-button accent color, matching the original accordion-folder palette */
+.hero-sqbtn[data-accent="full"],.hstat-trigger[data-accent="full"]{--sq-accent:#3FA876;--sq-accent-bg:rgba(63,168,118,.22)}
+.hero-sqbtn[data-accent="partners"],.hstat-trigger[data-accent="partners"]{--sq-accent:var(--purple);--sq-accent-bg:rgba(128,2,135,.22)}
+.hero-sqbtn[data-accent="featured"]{--sq-accent:var(--orange);--sq-accent-bg:rgba(231,82,19,.18)}
+.hero-sqbtn[data-accent="pub"]{--sq-accent:#4C6FEF;--sq-accent-bg:rgba(76,111,239,.22)}
+.hero-sqbtn[data-accent="testimony"]{--sq-accent:var(--gold);--sq-accent-bg:rgba(200,161,77,.22)}
+.hero-sqbtn:hover{background:var(--sq-accent-bg);border-color:var(--sq-accent);transform:translateY(-2px)}
+.hero-sqbtn:focus-visible{outline:2px solid var(--sq-accent);outline-offset:2px}
+.hero-sqbtn-icon{color:var(--sq-accent);display:flex}
+.hero-sqbtn-lbl{font-family:'JetBrains Mono',monospace;font-size:.5rem;letter-spacing:.06em;text-transform:uppercase;color:rgba(245,241,232,.78)}
+#rail-dock-anchor{display:block;width:100%;min-height:13rem;background:linear-gradient(180deg,var(--ink) 0%,var(--ink) 50%,rgba(36,26,74,.9) 100%)}
+@media(min-width:769px){
+  .hero-corner{position:fixed;top:calc(var(--nav-h) + 1.5rem);right:var(--px);z-index:450;flex-direction:column;align-items:flex-end;transform-origin:right center}
+  .hero-corner.rail-docked{position:static;top:auto;right:auto;transform:none;flex-direction:row;flex-wrap:wrap;justify-content:center;align-items:center;margin:0 auto;max-width:var(--max-w);width:100%;padding:3rem var(--px) 2.5rem;gap:1.3rem}
+  .hero-corner.rail-docked .hero-sqbtn{width:108px;height:108px;gap:.5rem}
+  .hero-corner.rail-docked .hero-sqbtn-icon svg{width:28px;height:28px}
+  .hero-corner.rail-docked .hero-sqbtn-lbl{font-size:.62rem}
+}
+@media(max-width:768px){
+  /* 5 buttons no longer fit the corner on small screens — becomes a single-row
+     horizontal-scroll strip instead of wrapping. Sits in normal document flow
+     (via flex order, .hero is already display:flex;flex-direction:column)
+     underneath the hero-stats numbers row, rather than pinned/overlapping at
+     the top of the hero. */
+  .hero-inner{order:1}
+  .hero-stats{order:2}
+  .hero-corner{order:3;position:static;top:auto;left:auto;right:auto;margin:0;padding:1rem 1rem 1.6rem;gap:.4rem;max-width:none;flex-wrap:nowrap;flex-direction:row;justify-content:flex-start;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+  .hero-corner::-webkit-scrollbar{display:none}
+  .hero-sqbtn{width:52px;height:52px;border-radius:8px;flex-shrink:0}
+  .hero-sqbtn-icon svg{width:16px;height:16px}
+  .hero-sqbtn-lbl{font-size:.42rem}
+}
 
 /* TICKER */
 .ticker-wrap{background:var(--orange);overflow:hidden;height:40px;display:flex;align-items:center}
@@ -100,6 +153,9 @@ button{font-family:inherit;cursor:pointer}
 .na-link{display:inline-flex;align-items:center;gap:.4rem;margin-top:1.35rem;font-family:'JetBrains Mono',monospace;font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);border-bottom:1px solid rgba(200,161,77,.35);padding-bottom:.18rem;transition:border-color .2s}
 .na-link:hover{border-color:var(--gold)}
 .na-pull{font-family:'Fraunces',serif;font-style:italic;font-size:clamp(.95rem,1.7vw,1.25rem);line-height:1.58;color:rgba(245,241,232,.45);font-variation-settings:"opsz" 144,"SOFT" 80;border-left:2px solid rgba(200,161,77,.28);padding-left:1.4rem}
+.na-trigger{cursor:pointer;transition:filter .2s}
+.na-trigger:hover{filter:brightness(1.1)}
+.na-trigger:focus-visible{outline:2px solid var(--orange);outline-offset:-3px}
 
 /* ─── PORTFOLIO SECTION ─── */
 .portfolio-sec{padding:1.5rem var(--px) var(--ps);max-width:var(--max-w);margin:0 auto}
@@ -163,6 +219,7 @@ button{font-family:inherit;cursor:pointer}
 .feat-card:hover .fc-arr{transform:translateX(3px);color:var(--orange)}
 .feat-card h3{font-family:'Fraunces',serif;font-size:clamp(.95rem,1.4vw,1.15rem);font-weight:400;line-height:1.15;letter-spacing:-.015em;font-variation-settings:"opsz" 144,"SOFT" 30,"WONK" 1;flex-grow:1}
 .feat-card .fc-collab{font-family:'Fraunces',serif;font-style:italic;font-size:.8rem;color:var(--green);font-variation-settings:"opsz" 144,"SOFT" 80}
+.feat-card .fc-quote{font-family:'Fraunces',serif;font-style:italic;font-size:.82rem;line-height:1.45;color:var(--ink-soft);font-variation-settings:"opsz" 144,"SOFT" 60;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;margin:0}
 .feat-card .fc-foot{display:flex;justify-content:space-between;align-items:center;gap:.5rem;margin-top:auto;padding-top:.75rem;border-top:1px solid var(--line)}
 .fc-arr{color:var(--ink-mute);transition:transform .2s,color .2s;font-size:.82rem}
 /* "FEATURED" badge */
@@ -203,7 +260,7 @@ button{font-family:inherit;cursor:pointer}
 .no-results.vis{display:block}
 
 /* ─── TERRAIN ─── */
-.terrain-sec{padding:4.5rem 0;background:var(--ink);width:100%;margin-top:1.75rem}
+.terrain-sec{padding:4.5rem 0;background:var(--ink);width:100%}
 .terrain-hd{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:.75rem;flex-wrap:wrap;gap:1.25rem;padding:0}
 .terrain-hd p{font-size:.84rem;color:rgba(245,241,232,.45);max-width:54ch;line-height:1.58}
 .terrain-hd a{color:var(--gold);text-decoration:underline;text-underline-offset:2px}
@@ -221,6 +278,8 @@ button{font-family:inherit;cursor:pointer}
 .tstrip-head h2{font-family:'Fraunces',serif;font-size:clamp(1.6rem,3vw,2.4rem);font-weight:400;font-variation-settings:"opsz" 144,"SOFT" 30,"WONK" 1;letter-spacing:-.02em;color:var(--ink)}
 .tstrip-head h2 em{font-style:italic;font-variation-settings:"opsz" 144,"SOFT" 100;color:var(--orange)}
 .tstrip-sub{font-family:'JetBrains Mono',monospace;font-size:.62rem;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-mute);margin-top:.5rem}
+.tstrip-compact{padding:2.75rem var(--px) 2.5rem}
+.tstrip-compact .tstrip-head{margin-bottom:1.75rem}
 /* Lens-frame carousel — magnifying-glass focus effect */
 .tlens-carousel{max-width:var(--max-w);margin:0 auto;display:flex;align-items:center;gap:1.25rem}
 .tlens-arrow{flex-shrink:0;width:42px;height:42px;border-radius:50%;border:1px solid var(--line);background:var(--paper);color:var(--ink);font-size:1.15rem;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:border-color .2s,color .2s,transform .2s}
@@ -234,7 +293,7 @@ button{font-family:inherit;cursor:pointer}
 .tcard blockquote{font-family:'Fraunces',serif;font-style:normal;font-size:.93rem;line-height:1.65;font-variation-settings:"opsz" 144,"SOFT" 40;color:var(--ink-soft);flex-grow:0;
   display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:4;line-clamp:4;overflow:hidden;min-height:6.6em}
 .tcard-who{display:flex;align-items:center;gap:.75rem}
-.tcard-photo{width:60px;height:60px;border-radius:50%;object-fit:cover;object-position:center top;flex-shrink:0;border:1px solid var(--line);transition:width .4s cubic-bezier(.16,1,.3,1),height .4s cubic-bezier(.16,1,.3,1)}
+.tcard-photo{width:84px;height:84px;border-radius:50%;object-fit:cover;object-position:center top;flex-shrink:0;border:1px solid var(--line);transition:width .4s cubic-bezier(.16,1,.3,1),height .4s cubic-bezier(.16,1,.3,1)}
 .tcard-name{font-size:.82rem;font-weight:500;display:block;color:var(--ink)}
 .tcard-role{font-family:'JetBrains Mono',monospace;font-size:.57rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-mute);display:block;margin-top:.17rem;line-height:1.5}
 /* Blurred, out-of-focus neighbors */
@@ -255,6 +314,11 @@ button{font-family:inherit;cursor:pointer}
 .tlens-dots{display:flex;justify-content:center;gap:.45rem;margin-top:1.75rem}
 .tlens-dot{width:6px;height:6px;border-radius:50%;background:var(--line);border:none;cursor:pointer;padding:0;transition:background .2s,transform .2s}
 .tlens-dot.active{background:var(--orange);transform:scale(1.4)}
+/* Static "see all" testimonial list inside the Testimony modal */
+.tcard-list{display:grid;grid-template-columns:repeat(2,1fr);gap:1.1rem}
+.tcard-static{cursor:default}
+.tcard-static blockquote{font-size:.9rem;line-height:1.6;display:block;-webkit-line-clamp:unset;-webkit-box-orient:unset;overflow:visible;min-height:0;max-height:none}
+@media(max-width:700px){.tcard-list{grid-template-columns:1fr}}
 
 /* ─── PARTNERS + PROJECTS — unified cohesive section ───
    One continuous full-bleed gradient runs from the partnerships block down
@@ -304,13 +368,24 @@ button{font-family:inherit;cursor:pointer}
 .collab-collapse-wrap{text-align:center;margin-top:1.5rem}
 #collab-collapse-btn{font-family:'JetBrains Mono',monospace;font-size:.58rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);background:none;border:none;cursor:pointer;min-height:33px}
 
-/* ─── CTA ─── */
-.cta-sec{background:var(--warm);padding:6rem var(--px);text-align:center;border-top:1px solid var(--line)}
-.cta-sec h2{font-family:'Fraunces',serif;font-size:clamp(1.9rem,4.8vw,3.3rem);font-weight:400;line-height:1.05;letter-spacing:-.025em;font-variation-settings:"opsz" 144,"SOFT" 30,"WONK" 1;max-width:22ch;margin:0 auto 1.1rem}
-.cta-sec h2 em{font-style:italic;font-variation-settings:"opsz" 144,"SOFT" 100;color:var(--orange)}
-.cta-sec p{font-size:.93rem;line-height:1.65;color:var(--ink-soft);max-width:40ch;margin:0 auto 2.1rem}
+/* ─── CTA ───
+   Dawn/precipice motif, matching the homepage's signature --horizon gradient
+   (same color stops as the "Through the Lens" splash) — but run in reverse,
+   picking up exactly where #rail-dock-anchor's gradient leaves off (deep
+   plum, not flat ink) so the two sections read as one continuous flow —
+   blooming gradually into dawn orange toward the close, so the whole page's
+   ending reads as darkness slowly giving way to warmth right at the call
+   to action, rather than a sudden color shift. Angle matched to the
+   anchor's 180deg so the color bands line up with no seam/kink. */
+.cta-sec{background:linear-gradient(180deg,rgba(36,26,74,.9) 0%,rgba(90,42,74,.87) 20%,rgba(150,58,55,.86) 40%,rgba(201,76,25,.88) 58%,rgba(231,82,19,.9) 72%,rgba(90,42,74,.88) 90%,rgba(17,20,41,.97) 100%);padding:6rem var(--px);text-align:center;color:var(--cream)}
+.cta-sec .sec-lbl{color:rgba(245,241,232,.6)}
+.cta-sec h2{font-family:'Fraunces',serif;font-size:clamp(1.9rem,4.8vw,3.3rem);font-weight:400;line-height:1.05;letter-spacing:-.025em;font-variation-settings:"opsz" 144,"SOFT" 30,"WONK" 1;max-width:22ch;margin:0 auto 1.1rem;color:var(--cream)}
+.cta-sec h2 em{font-style:italic;font-variation-settings:"opsz" 144,"SOFT" 100;color:var(--gold)}
+.cta-sec p{font-size:.93rem;line-height:1.65;color:rgba(245,241,232,.82);max-width:40ch;margin:0 auto 2.1rem}
 .btn-cta{display:inline-flex;align-items:center;gap:.5rem;padding:.86rem 1.7rem;border-radius:99px;font-size:.86rem;font-family:'Inter Tight',sans-serif;font-weight:500;text-decoration:none;background:var(--ink);color:var(--cream);border:none;transition:background .22s,transform .2s;cursor:pointer}
 .btn-cta:hover{background:var(--navy);transform:translateY(-1px)}
+.cta-sec .btn-cta{background:var(--cream);color:var(--ink)}
+.cta-sec .btn-cta:hover{background:var(--gold);color:var(--ink)}
 
 /* ─── FOOTER ─── */
 .footer{background:var(--ink);color:var(--cream);padding:4.5rem var(--px) 2rem}
@@ -328,8 +403,26 @@ button{font-family:inherit;cursor:pointer}
 /* ─── MODAL ─── */
 .modal-ov{position:fixed;inset:0;background:rgba(17,20,41,.76);backdrop-filter:blur(5px);z-index:1000;display:flex;align-items:center;justify-content:center;padding:1.2rem;opacity:0;pointer-events:none;transition:opacity .22s}
 .modal-ov.open{opacity:1;pointer-events:all}
-.modal-panel{background:var(--paper);border-radius:4px;max-width:700px;width:100%;max-height:90vh;overflow-y:auto;padding:2.5rem;position:relative;transform:translateY(16px) scale(.97);transition:transform .28s cubic-bezier(.34,1.46,.64,1);box-shadow:0 32px 80px -18px rgba(26,26,24,.42)}
+.modal-panel{background:var(--paper);border-radius:4px;max-width:700px;width:100%;max-height:85vh;overflow-y:auto;-webkit-overflow-scrolling:touch;padding:2.5rem;padding-bottom:3.5rem;position:relative;transform:translateY(16px) scale(.97);transition:transform .28s cubic-bezier(.34,1.46,.64,1);box-shadow:0 32px 80px -18px rgba(26,26,24,.42),inset 0 -28px 24px -24px rgba(26,26,24,.12);scrollbar-width:thin;scrollbar-color:rgba(26,26,24,.28) transparent}
 .modal-ov.open .modal-panel{transform:none}
+/* Force a persistently-visible (non-overlay) scrollbar so it's obvious these
+   panels scroll — macOS/iOS hide overlay scrollbars at rest by default, which
+   made fully-scrollable modals look like their content was simply cut off. */
+.modal-panel::-webkit-scrollbar{width:9px}
+.modal-panel::-webkit-scrollbar-track{background:transparent}
+.modal-panel::-webkit-scrollbar-thumb{background:rgba(26,26,24,.25);border-radius:6px}
+.modal-panel::-webkit-scrollbar-thumb:hover{background:rgba(26,26,24,.42)}
+/* Explicit "there's more below" cue, injected by JS only when a panel is
+   actually taller than its scroll viewport — sits pinned bottom-right,
+   fades out once you've scrolled to the true end. */
+.modal-scroll-cue{position:sticky;bottom:10px;display:flex;justify-content:flex-end;height:0;overflow:visible;pointer-events:none}
+.modal-scroll-cue span{display:flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:50%;background:var(--ink);color:var(--cream);box-shadow:0 6px 14px rgba(26,26,24,.28);opacity:.9;transition:opacity .25s ease;animation:cueBob 1.4s ease-in-out infinite}
+.modal-scroll-cue.is-hidden span{opacity:0}
+@keyframes cueBob{0%,100%{transform:translateY(0)}50%{transform:translateY(4px)}}
+.modal-panel-wide{max-width:1180px}
+.modal-panel-wide .portfolio-sec,.modal-panel-wide .collab-sec{padding-left:0;padding-right:0}
+.modal-panel-wide .portfolio-sec{padding-top:.25rem;padding-bottom:1rem}
+.modal-panel-wide .collab-sec{padding-top:.25rem;padding-bottom:0}
 .modal-close{position:absolute;top:1rem;right:1rem;width:32px;height:32px;border-radius:50%;border:1px solid var(--line);background:var(--warm);font-size:1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--ink);transition:background .15s,transform .15s;line-height:1}
 .modal-close:hover{background:var(--ink);color:var(--cream);transform:rotate(90deg)}
 /* Glasses watermark in modal header area */
@@ -410,43 +503,9 @@ button{font-family:inherit;cursor:pointer}
   .collab-grid{grid-template-columns:1fr 1fr}
   .footer-in{grid-template-columns:1fr;gap:2rem}
   .admin-panel{width:calc(100vw - 2rem);right:1rem}
-  .terrain-wrap{display:none}
 }
 @media(max-width:480px){.collab-grid{grid-template-columns:1fr}.hero-stats{grid-template-columns:1fr 1fr}}
 
-/* ─── ACCORDION ─── */
-.acc-list{max-width:var(--max-w);margin:1.75rem auto 0;padding:0 var(--px)}
-.acc-item{margin-bottom:.85rem}
-.acc-item:last-child{margin-bottom:0}
-/* Each item's whole header is filled with the color of the section it expands
-   to reveal (navy callout, warm testimony strip, etc.) — a full color block,
-   not just an accent line, so the list reads as a set of distinct sections. */
-#acc-item-featured{--acc-accent:var(--orange);--acc-fg:var(--cream)}
-#acc-item-partners{--acc-accent:var(--purple);--acc-fg:var(--cream)}
-#acc-item-pub{--acc-accent:var(--navy);--acc-fg:var(--cream)}
-#acc-item-full{--acc-accent:var(--green);--acc-fg:var(--cream)}
-#acc-item-testimony{--acc-accent:var(--gold);--acc-fg:var(--cream)}
-.acc-header{display:flex;align-items:center;gap:1.1rem;width:100%;padding:1.7rem 1.6rem;background:var(--acc-accent);border:none;border-radius:16px;text-align:left;cursor:pointer;font-family:inherit;-webkit-appearance:none;appearance:none;transition:filter .2s,border-radius .2s}
-.acc-header:hover{filter:brightness(1.08)}
-.acc-header:focus-visible{outline:2px solid var(--acc-fg);outline-offset:-4px}
-.acc-num{font-family:'JetBrains Mono',monospace;font-size:.66rem;letter-spacing:.08em;color:var(--acc-fg);opacity:.7;flex-shrink:0;width:1.5rem}
-.acc-head-text{display:flex;flex-direction:column;gap:.2rem;flex:1;min-width:0}
-.acc-title{font-family:'Fraunces',serif;font-size:clamp(1.25rem,2.6vw,1.85rem);font-weight:400;letter-spacing:-.02em;line-height:1.1;font-variation-settings:"opsz" 144,"SOFT" 30;color:var(--acc-fg)}
-.acc-sub{font-family:'Inter Tight',sans-serif;font-size:.82rem;color:var(--acc-fg);opacity:.78}
-.acc-chevron{flex-shrink:0;width:32px;height:32px;border-radius:50%;border:1px solid var(--acc-fg);opacity:.85;display:flex;align-items:center;justify-content:center;transition:transform .3s cubic-bezier(.16,1,.3,1),background .2s}
-.acc-chevron::before{content:'';width:7px;height:7px;border-right:1.5px solid var(--acc-fg);border-bottom:1.5px solid var(--acc-fg);transform:rotate(45deg) translate(-1px,-1px)}
-.acc-header:hover .acc-chevron{background:rgba(0,0,0,.1)}
-.acc-item.open>.acc-header .acc-chevron{transform:rotate(180deg)}
-.acc-item.open>.acc-header{border-radius:16px 16px 0 0}
-.acc-panel{padding-bottom:2.75rem;background:var(--warm);border-radius:0 0 16px 16px}
-.acc-panel[hidden]{display:none}
-.acc-item.open .acc-panel{animation:accIn .4s cubic-bezier(.16,1,.3,1)}
-@keyframes accIn{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:none}}
-@media(max-width:768px){
-  .acc-header{padding:1.25rem 1.1rem;gap:.7rem}
-  .acc-title{font-size:1.1rem}
-  .acc-sub{font-size:.76rem}
-}
 </style>
 </head>
 <script id="img-data">
@@ -513,21 +572,49 @@ var IMGS = {
   <div class="hero-grid" aria-hidden="true"></div>
   <div class="hero-glasses-bg" aria-hidden="true"><img id="hero-glasses-img" alt=""></div>
   <span class="hero-ghost" aria-hidden="true">WORK</span>
+  <div class="hero-corner" id="hero-corner-rail">
+    <button type="button" class="hero-sqbtn" data-accent="full" onclick="openSimpleModal('modal-full-ov')" aria-haspopup="dialog">
+      <span class="hero-sqbtn-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg></span>
+      <span class="hero-sqbtn-lbl">Projects</span>
+    </button>
+    <button type="button" class="hero-sqbtn" data-accent="partners" onclick="openSimpleModal('modal-partners-ov')" aria-haspopup="dialog">
+      <span class="hero-sqbtn-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="6" cy="6" r="2.4"/><circle cx="18" cy="6" r="2.4"/><circle cx="12" cy="18" r="2.4"/><line x1="7.8" y1="7.6" x2="10.5" y2="16"/><line x1="16.2" y1="7.6" x2="13.5" y2="16"/><line x1="8.4" y1="6" x2="15.6" y2="6"/></svg></span>
+      <span class="hero-sqbtn-lbl">Partners</span>
+    </button>
+    <button type="button" class="hero-sqbtn" data-accent="featured" onclick="openSimpleModal('modal-featured-ov')" aria-haspopup="dialog">
+      <span class="hero-sqbtn-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3l2.4 5.2 5.6.5-4.3 3.8 1.3 5.5L12 15l-5 3 1.3-5.5-4.3-3.8 5.6-.5z"/></svg></span>
+      <span class="hero-sqbtn-lbl">Featured</span>
+    </button>
+    <button type="button" class="hero-sqbtn" data-accent="pub" onclick="openSimpleModal('modal-pub-ov')" aria-haspopup="dialog">
+      <span class="hero-sqbtn-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 4.5A1.5 1.5 0 0 1 5.5 3H11v18H5.5A1.5 1.5 0 0 1 4 19.5z"/><path d="M20 4.5A1.5 1.5 0 0 0 18.5 3H13v18h5.5a1.5 1.5 0 0 0 1.5-1.5z"/></svg></span>
+      <span class="hero-sqbtn-lbl">Publication</span>
+    </button>
+    <button type="button" class="hero-sqbtn" data-accent="testimony" onclick="openSimpleModal('modal-testimony-ov')" aria-haspopup="dialog">
+      <span class="hero-sqbtn-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 5.5A1.5 1.5 0 0 1 5.5 4h9A1.5 1.5 0 0 1 16 5.5v6A1.5 1.5 0 0 1 14.5 13H9l-3.5 3.5V13H5.5A1.5 1.5 0 0 1 4 11.5z"/></svg></span>
+      <span class="hero-sqbtn-lbl">Testimony</span>
+    </button>
+  </div>
   <div class="hero-inner">
     <div>
       <div class="hero-eyeline">
         <img id="eyeline-glasses-img" class="hero-eyeline-glasses" alt="">
         The work in focus
       </div>
-      <h1 id="hero-h1" data-r data-d="1">Work at the<br><em>intersection</em></h1>
+      <h1 id="hero-h1" data-r data-d="1">Grounded work for<br><em>ungrounded times</em></h1>
     </div>
     <div class="hero-right" data-r data-d="2">
-      <p class="hero-desc">Research, curriculum, strategic foresight, fellowship design, and publication — built with organizations navigating complex social change. The throughline: systems thinking, futures orientation, and the belief that <span style="font-family:'Fraunces',serif;font-style:italic;font-variation-settings:'opsz' 144,'SOFT' 100">how we imagine shapes what becomes possible.</span></p>
+      <div class="hero-zones">
+        <span class="hz-word" style="--hz-c:var(--orange);--hz-delay:.05s">Research</span><span class="hz-sep" aria-hidden="true">·</span>
+        <span class="hz-word" style="--hz-c:var(--purple);--hz-delay:.15s">Design</span><span class="hz-sep" aria-hidden="true">·</span>
+        <span class="hz-word" style="--hz-c:var(--gold);--hz-delay:.25s">Narrative</span><span class="hz-sep" aria-hidden="true">·</span>
+        <span class="hz-word" style="--hz-c:var(--green);--hz-delay:.35s">Foresight</span>
+      </div>
+      <p class="hero-desc">The throughline: systems thinking, futures orientation, and the belief that <span style="font-family:'Fraunces',serif;font-style:italic;font-variation-settings:'opsz' 144,'SOFT' 100">how we imagine shapes what becomes possible.</span></p>
     </div>
   </div>
   <div class="hero-stats">
-    <div class="hstat"><div class="hstat-n">30+</div><div class="hstat-l">Projects</div></div>
-    <div class="hstat"><div class="hstat-n">20+</div><div class="hstat-l">Partners &amp; collaborators</div></div>
+    <button type="button" class="hstat hstat-trigger" data-accent="full" onclick="openSimpleModal('modal-full-ov')" aria-haspopup="dialog"><div class="hstat-n">30+</div><div class="hstat-l">Projects</div></button>
+    <button type="button" class="hstat hstat-trigger" data-accent="partners" onclick="openSimpleModal('modal-partners-ov')" aria-haspopup="dialog"><div class="hstat-n">20+</div><div class="hstat-l">Partners &amp; collaborators</div></button>
     <div class="hstat"><div class="hstat-n">5+</div><div class="hstat-l">Years of practice</div></div>
     <div class="hstat"><div class="hstat-n">∞</div><div class="hstat-l">Questions worth asking</div></div>
   </div>
@@ -540,43 +627,79 @@ var IMGS = {
   </div>
 </div>
 
-<!-- ACCORDION LIST -->
-<div class="acc-list" id="acc-list">
-
-<!-- ACC 1: FEATURED PROJECTS -->
-<div class="acc-item" id="acc-item-featured">
-<button type="button" class="acc-header" aria-expanded="false" aria-controls="acc-panel-featured" onclick="toggleAcc('acc-item-featured')">
-  <span class="acc-num">01</span>
-  <span class="acc-head-text"><span class="acc-title">Featured projects</span></span>
-  <span class="acc-chevron" aria-hidden="true"></span>
-</button>
-<div class="acc-panel" id="acc-panel-featured" hidden>
-<div class="acc-panel-in">
-
-<!-- FEATURED PROJECTS -->
-<div class="feat-section-full">
-  <div class="feat-section-inner">
-    <!-- 4 Featured cards -->
-    <div class="feat-row-wrap">
-      <div class="feat-row" id="feat-row"></div>
+<!-- TERRAIN MAP -->
+<section class="terrain-sec" aria-labelledby="terrain-h">
+  <div class="terrain-hd" style="padding:0 var(--px)">
+    <div><h2 class="terrain-title" id="terrain-h">Work terrain</h2></div>
+    <p>This map shows the <strong>threads of the work</strong> and how they connect across themes — reflecting the intersectional logic that animates <a href="../our-lens/">how Conscious Futures thinks</a>. Projects live at intersections, not in silos. Click any theme node to filter.</p>
+  </div>
+  <div style="padding:0 var(--px)">
+    <!-- Zoom controls -->
+    <div style="display:flex;align-items:center;gap:.5rem;padding:.75rem 0;flex-wrap:wrap">
+      <button onclick="window._terrainZoom&&window._terrainZoom(1.25)"
+        style="display:flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:50%;border:1px solid rgba(245,241,232,.15);background:rgba(245,241,232,.07);color:rgba(245,241,232,.7);font-size:1.1rem;cursor:pointer;transition:background .18s;line-height:1"
+        title="Zoom in" onmouseenter="this.style.background='rgba(245,241,232,.14)'" onmouseleave="this.style.background='rgba(245,241,232,.07)'">+</button>
+      <button onclick="window._terrainZoom&&window._terrainZoom(0.8)"
+        style="display:flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:50%;border:1px solid rgba(245,241,232,.15);background:rgba(245,241,232,.07);color:rgba(245,241,232,.7);font-size:1.1rem;cursor:pointer;transition:background .18s;line-height:1"
+        title="Zoom out" onmouseenter="this.style.background='rgba(245,241,232,.14)'" onmouseleave="this.style.background='rgba(245,241,232,.07)'">−</button>
+      <button onclick="window._terrainReset&&window._terrainReset()"
+        style="padding:.28rem .8rem;border-radius:99px;border:1px solid rgba(245,241,232,.15);background:rgba(245,241,232,.07);color:rgba(245,241,232,.55);font-family:'JetBrains Mono',monospace;font-size:.58rem;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;transition:background .18s"
+        title="Reset view" onmouseenter="this.style.background='rgba(245,241,232,.14)'" onmouseleave="this.style.background='rgba(245,241,232,.07)'">Reset</button>
+      <span id="zoom-pct" style="font-family:'JetBrains Mono',monospace;font-size:.58rem;letter-spacing:.08em;text-transform:uppercase;color:rgba(245,241,232,.35)">100%</span>
+      <span style="font-family:'JetBrains Mono',monospace;font-size:.56rem;letter-spacing:.06em;text-transform:uppercase;color:rgba(245,241,232,.25);margin-left:auto">Scroll to zoom · drag to pan · click dot to open project</span>
     </div>
+    <div class="terrain-wrap" id="terrain-map" role="img" aria-label="Thematic terrain map"></div>
+  </div><div class="terrain-legend" id="terrain-legend" style="padding:0 var(--px)"></div>
+</section>
+
+<!-- Hero-corner rail docks here (in normal flow, horizontal) once Work terrain
+     has scrolled past — see the rail scroll-behavior script near the end of
+     the document. Featured Projects / Featured Publication / Testimony now
+     live only in their pop-up modals, reachable via the rail buttons. -->
+<div id="rail-dock-anchor" aria-hidden="true"></div>
+
+<!-- FEATURED PUBLICATION MODAL -->
+<div id="modal-pub-ov" class="modal-ov" role="dialog" aria-modal="true" aria-labelledby="pub-modal-title" hidden>
+  <div class="modal-panel">
+    <button class="modal-close" aria-label="Close">×</button>
+    <div class="modal-badge"><span class="fpill publication">Featured Publication · New America</span></div>
+    <h2 class="modal-title" id="pub-modal-title"><em>Operationalizing Imagination</em></h2>
+    <p class="modal-desc">An editorial series investigating the role of imagination as a societal capacity for navigating uncertainty, anticipating systemic risk, and strengthening long-term resilience — co-developed with New America's Futures Securities Scenarios Lab.</p>
+    <div class="modal-quote"><blockquote>&#8220;Imagination is a precondition for change, not an afterthought. It is the infrastructure through which we rehearse possibility — and the architecture of what comes next depends on our willingness to use it.&#8221;</blockquote></div>
+    <div class="modal-links"><a href="https://www.newamerica.org/insights/operationalizing-imagination/" target="_blank" rel="noopener" class="mlink primary">Read the series ↗</a></div>
   </div>
 </div>
 
-</div><!-- /.acc-panel-in --></div><!-- /.acc-panel --></div><!-- /acc-item-featured -->
+<!-- FEATURED PROJECTS MODAL (opened via hero-corner "Featured" button) -->
+<div id="modal-featured-ov" class="modal-ov" role="dialog" aria-modal="true" aria-labelledby="featured-modal-h" hidden>
+  <div class="modal-panel modal-panel-wide">
+    <button class="modal-close" aria-label="Close">×</button>
+    <div class="feat-section-inner" style="padding:0">
+      <div class="sec-lbl" id="featured-modal-h">Featured projects</div>
+      <div class="feat-row-wrap">
+        <div class="feat-row" id="feat-row-modal"></div>
+      </div>
+    </div>
+  </div>
+</div><!-- /modal-featured-ov -->
 
-<!-- ACC 2: PARTNERSHIPS -->
-<div class="acc-item" id="acc-item-partners">
-<button type="button" class="acc-header" aria-expanded="false" aria-controls="acc-panel-partners" onclick="toggleAcc('acc-item-partners')">
-  <span class="acc-num">02</span>
-  <span class="acc-head-text"><span class="acc-title">Partnerships</span><span class="acc-sub">People &amp; organizations built in partnership — click any logo to explore</span></span>
-  <span class="acc-chevron" aria-hidden="true"></span>
-</button>
-<div class="acc-panel" id="acc-panel-partners" hidden>
-<div class="acc-panel-in">
+<!-- TESTIMONY MODAL (opened via hero-corner "Testimony" button) — all testimonials, static list -->
+<div id="modal-testimony-ov" class="modal-ov" role="dialog" aria-modal="true" aria-labelledby="testimony-modal-h" hidden>
+  <div class="modal-panel modal-panel-wide">
+    <button class="modal-close" aria-label="Close">×</button>
+    <div class="sec-lbl" id="testimony-modal-h">In the words of collaborators</div>
+    <h2 style="font-family:'Fraunces',serif;font-weight:400;font-size:clamp(1.6rem,3vw,2.2rem);font-variation-settings:'opsz' 144,'SOFT' 30,'WONK' 1;letter-spacing:-.02em;margin:.3rem 0 1.6rem;color:var(--ink)">All <em style="font-style:italic;color:var(--gold)">testimonials</em></h2>
+    <div class="tcard-list" id="tcard-list"></div>
+  </div>
+</div><!-- /modal-testimony-ov -->
+
+<!-- PARTNERSHIPS MODAL (opened via hero-corner "Partners" button) -->
+<div id="modal-partners-ov" class="modal-ov" role="dialog" aria-modal="true" aria-labelledby="collab-h" hidden>
+  <div class="modal-panel modal-panel-wide">
+    <button class="modal-close" aria-label="Close">×</button>
 
 <!-- COLLABORATORS -->
-<section class="collab-sec" aria-labelledby="collab-h">
+<section class="collab-sec" id="collab-sec-anchor" aria-labelledby="collab-h">
   <div class="collab-in">
     <div class="collab-hd">
       <div>
@@ -589,42 +712,13 @@ var IMGS = {
   </div>
 </section>
 
-</div><!-- /.acc-panel-in --></div><!-- /.acc-panel --></div><!-- /acc-item-partners -->
-
-<!-- ACC 3: FEATURED PUBLICATION -->
-<div class="acc-item" id="acc-item-pub">
-<button type="button" class="acc-header" aria-expanded="false" aria-controls="acc-panel-pub" onclick="toggleAcc('acc-item-pub')">
-  <span class="acc-num">03</span>
-  <span class="acc-head-text"><span class="acc-title">Featured publication</span><span class="acc-sub">Operationalizing Imagination — New America</span></span>
-  <span class="acc-chevron" aria-hidden="true"></span>
-</button>
-<div class="acc-panel" id="acc-panel-pub" hidden>
-<div class="acc-panel-in">
-
-<!-- NEW AMERICA FEATURED CALLOUT -->
-<div class="na" data-r>
-  <div class="na-in">
-    <div>
-      <span class="na-badge">Featured Publication · New America</span>
-      <h2><em>Operationalizing Imagination</em></h2>
-      <p>An editorial series investigating the role of imagination as a societal capacity for navigating uncertainty, anticipating systemic risk, and strengthening long-term resilience — co-developed with New America's Futures Securities Scenarios Lab.</p>
-      <a href="https://www.newamerica.org/insights/operationalizing-imagination/" target="_blank" rel="noopener" class="na-link">Read the series ↗</a>
-    </div>
-    <div class="na-pull">"Imagination is a precondition for change, not an afterthought. It is the infrastructure through which we rehearse possibility — and the architecture of what comes next depends on our willingness to use it."</div>
   </div>
-</div>
+</div><!-- /modal-partners-ov -->
 
-</div><!-- /.acc-panel-in --></div><!-- /.acc-panel --></div><!-- /acc-item-pub -->
-
-<!-- ACC 4: FULL PORTFOLIO -->
-<div class="acc-item" id="acc-item-full">
-<button type="button" class="acc-header" aria-expanded="false" aria-controls="acc-panel-full" onclick="toggleAcc('acc-item-full')">
-  <span class="acc-num">04</span>
-  <span class="acc-head-text"><span class="acc-title">Full portfolio</span></span>
-  <span class="acc-chevron" aria-hidden="true"></span>
-</button>
-<div class="acc-panel" id="acc-panel-full" hidden>
-<div class="acc-panel-in">
+<!-- FULL PORTFOLIO MODAL (opened via hero-corner "Projects" button, or a terrain-map theme node) -->
+<div id="modal-full-ov" class="modal-ov" role="dialog" aria-modal="true" aria-labelledby="portfolio-h" hidden>
+  <div class="modal-panel modal-panel-wide">
+    <button class="modal-close" aria-label="Close">×</button>
 
 <!-- FULL BODY OF WORK -->
 <section class="portfolio-sec" id="portfolio-main" aria-labelledby="portfolio-h">
@@ -706,61 +800,8 @@ var IMGS = {
   <div class="no-results" id="no-results">No projects match this filter. <em>Try another combination.</em></div>
 </section>
 
-</div><!-- /.acc-panel-in --></div><!-- /.acc-panel --></div><!-- /acc-item-full -->
-
-<!-- ACC 5: TESTIMONY -->
-<div class="acc-item" id="acc-item-testimony">
-<button type="button" class="acc-header" aria-expanded="false" aria-controls="acc-panel-testimony" onclick="toggleAcc('acc-item-testimony')">
-  <span class="acc-num">05</span>
-  <span class="acc-head-text"><span class="acc-title">Testimony</span><span class="acc-sub">Seen through their lens</span></span>
-  <span class="acc-chevron" aria-hidden="true"></span>
-</button>
-<div class="acc-panel" id="acc-panel-testimony" hidden>
-<div class="acc-panel-in">
-
-<!-- TESTIMONIES — LENS FRAMES -->
-<section class="tstrip" aria-labelledby="tstrip-h">
-  <div class="tstrip-head">
-    <div class="sec-lbl" id="tstrip-h">In the words of collaborators</div>
-    <h2>Seen through <em>their lens</em></h2>
-    <div class="tstrip-sub">Perspectives from people Kate has worked alongside</div>
   </div>
-  <div class="tlens-carousel">
-    <button type="button" class="tlens-arrow tlens-arrow-prev" id="tlensPrev" aria-label="Previous testimonial">&#8249;</button>
-    <div class="tlens-grid" id="tlens-grid"></div>
-    <button type="button" class="tlens-arrow tlens-arrow-next" id="tlensNext" aria-label="Next testimonial">&#8250;</button>
-  </div>
-  <div class="tlens-dots" id="tlensDots"></div>
-</section>
-
-</div><!-- /.acc-panel-in --></div><!-- /.acc-panel --></div><!-- /acc-item-testimony -->
-
-</div><!-- /.acc-list -->
-
-<!-- TERRAIN MAP -->
-<section class="terrain-sec" aria-labelledby="terrain-h">
-  <div class="terrain-hd" style="padding:0 var(--px)">
-    <div><h2 class="terrain-title" id="terrain-h">Work terrain</h2></div>
-    <p>This map shows the <strong>threads of the work</strong> and how they connect across themes — reflecting the intersectional logic that animates <a href="../our-lens/">how Conscious Futures thinks</a>. Projects live at intersections, not in silos. Click any theme node to filter.</p>
-  </div>
-  <div style="padding:0 var(--px)">
-    <!-- Zoom controls -->
-    <div style="display:flex;align-items:center;gap:.5rem;padding:.75rem 0;flex-wrap:wrap">
-      <button onclick="window._terrainZoom&&window._terrainZoom(1.25)"
-        style="display:flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:50%;border:1px solid rgba(245,241,232,.15);background:rgba(245,241,232,.07);color:rgba(245,241,232,.7);font-size:1.1rem;cursor:pointer;transition:background .18s;line-height:1"
-        title="Zoom in" onmouseenter="this.style.background='rgba(245,241,232,.14)'" onmouseleave="this.style.background='rgba(245,241,232,.07)'">+</button>
-      <button onclick="window._terrainZoom&&window._terrainZoom(0.8)"
-        style="display:flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:50%;border:1px solid rgba(245,241,232,.15);background:rgba(245,241,232,.07);color:rgba(245,241,232,.7);font-size:1.1rem;cursor:pointer;transition:background .18s;line-height:1"
-        title="Zoom out" onmouseenter="this.style.background='rgba(245,241,232,.14)'" onmouseleave="this.style.background='rgba(245,241,232,.07)'">−</button>
-      <button onclick="window._terrainReset&&window._terrainReset()"
-        style="padding:.28rem .8rem;border-radius:99px;border:1px solid rgba(245,241,232,.15);background:rgba(245,241,232,.07);color:rgba(245,241,232,.55);font-family:'JetBrains Mono',monospace;font-size:.58rem;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;transition:background .18s"
-        title="Reset view" onmouseenter="this.style.background='rgba(245,241,232,.14)'" onmouseleave="this.style.background='rgba(245,241,232,.07)'">Reset</button>
-      <span id="zoom-pct" style="font-family:'JetBrains Mono',monospace;font-size:.58rem;letter-spacing:.08em;text-transform:uppercase;color:rgba(245,241,232,.35)">100%</span>
-      <span style="font-family:'JetBrains Mono',monospace;font-size:.56rem;letter-spacing:.06em;text-transform:uppercase;color:rgba(245,241,232,.25);margin-left:auto">Scroll to zoom · drag to pan · click dot to open project</span>
-    </div>
-    <div class="terrain-wrap" id="terrain-map" role="img" aria-label="Thematic terrain map"></div>
-  </div><div class="terrain-legend" id="terrain-legend" style="padding:0 var(--px)"></div>
-</section>
+</div><!-- /modal-full-ov -->
 
 <!-- CTA -->
 <section class="cta-sec">
@@ -930,35 +971,172 @@ function pills(fmts){return fmts.map(function(f){return'<span class="fpill '+f+'
 function dots(themes){return themes.map(function(t){var th=THEMES[t]||{color:'#888',label:t};return'<span class="tdot" style="background:'+th.color+'" title="'+th.label+'"><span class="tdot-tip">'+th.label+'</span></span>';}).join('');}
 function tags(lbls){return(lbls||[]).map(function(l){return'<span class="ttag">'+l+'</span>';}).join('');}
 
-/* ── ACCORDION ── */
-// Multiple panels can be open at once — each is independent, not exclusive.
-function toggleAcc(itemId){
-  var item=document.getElementById(itemId);if(!item)return;
-  var header=item.querySelector('.acc-header');
-  var panel=item.querySelector('.acc-panel');
-  var opening=!item.classList.contains('open');
-  item.classList.toggle('open',opening);
-  if(header)header.setAttribute('aria-expanded',opening?'true':'false');
+/* ── SIMPLE MODALS (Projects / Partners / Publication pop-ups) ── */
+// Lightweight pop-up overlays, independent of the project-detail modal
+// system (#modal-ov/openModal/closeModal) above/below. Each overlay is just
+// .modal-ov/.modal-panel reused for whole-section content instead of a
+// single project's data.
+var _simpleModalLast=null;
+function setupModalScrollCue(panel){
   if(!panel)return;
-  panel.hidden=!opening;
-  if(opening){
-    // Scroll-reveal [data-r] elements use an IntersectionObserver that never
-    // fires while their container is display:none — force them visible now
-    // that the panel is actually part of the layout.
-    panel.querySelectorAll('[data-r]').forEach(function(el){el.classList.add('vis');});
-    // The testimony carousel measures its container's clientHeight to size
-    // quote text; that measurement is meaningless while hidden, so re-run it
-    // now that the panel has real layout.
-    if(itemId==='acc-item-testimony'&&window._testimonyRerender){
-      requestAnimationFrame(function(){window._testimonyRerender();});
-    }
+  var scrollable=panel.scrollHeight>panel.clientHeight+4;
+  var cue=panel.querySelector('.modal-scroll-cue');
+  if(!scrollable){if(cue)cue.remove();return;}
+  if(!cue){
+    cue=document.createElement('div');
+    cue.className='modal-scroll-cue';
+    cue.setAttribute('aria-hidden','true');
+    cue.innerHTML='<span><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 10l6 6 6-6"/></svg></span>';
+    panel.appendChild(cue);
+    panel.addEventListener('scroll',function(){
+      var atBottom=panel.scrollTop+panel.clientHeight>=panel.scrollHeight-8;
+      cue.classList.toggle('is-hidden',atBottom);
+    },{passive:true});
   }
+  cue.classList.remove('is-hidden');
 }
-window.toggleAcc=toggleAcc;
-window.openAccPanel=function(itemId){
-  var item=document.getElementById(itemId);
-  if(item&&!item.classList.contains('open'))toggleAcc(itemId);
-};
+function openSimpleModal(ovId){
+  var ov=document.getElementById(ovId);if(!ov)return;
+  _simpleModalLast=document.activeElement;
+  ov.removeAttribute('hidden');
+  // Scroll-reveal [data-r] elements use an IntersectionObserver that never
+  // fires while their container is display:none — force them visible now
+  // that the panel is actually part of the layout.
+  ov.querySelectorAll('[data-r]').forEach(function(el){el.classList.add('vis');});
+  requestAnimationFrame(function(){
+    ov.classList.add('open');
+    setupModalScrollCue(ov.querySelector('.modal-panel'));
+  });
+  document.body.style.overflow='hidden';
+  var closeBtn=ov.querySelector('.modal-close');
+  if(closeBtn)closeBtn.focus();
+}
+function closeSimpleModal(ovId){
+  var ov=document.getElementById(ovId);if(!ov)return;
+  ov.classList.remove('open');
+  document.body.style.overflow='';
+  setTimeout(function(){ov.setAttribute('hidden','');},240);
+  if(_simpleModalLast)_simpleModalLast.focus();
+}
+window.openSimpleModal=openSimpleModal;
+window.closeSimpleModal=closeSimpleModal;
+['modal-full-ov','modal-partners-ov','modal-pub-ov','modal-featured-ov','modal-testimony-ov'].forEach(function(ovId){
+  var ov=document.getElementById(ovId);if(!ov)return;
+  var closeBtn=ov.querySelector('.modal-close');
+  if(closeBtn)closeBtn.addEventListener('click',function(){closeSimpleModal(ovId);});
+  ov.addEventListener('click',function(e){if(e.target===ov)closeSimpleModal(ovId);});
+});
+document.addEventListener('keydown',function(e){
+  if(e.key!=='Escape')return;
+  ['modal-full-ov','modal-partners-ov','modal-pub-ov','modal-featured-ov','modal-testimony-ov'].forEach(function(ovId){
+    var ov=document.getElementById(ovId);
+    if(ov&&ov.classList.contains('open'))closeSimpleModal(ovId);
+  });
+});
+
+/* ── HERO-CORNER RAIL — scroll-following, growing, then docking ──
+   Desktop only (see matchMedia below). Starts as a small vertical rail
+   fixed near the top-right of the hero, grows and recenters toward the
+   middle of the viewport as Work terrain approaches (so it reads as
+   "sitting beside" the terrain map at full size), then — once Work terrain
+   has scrolled past — the real button group is physically moved into
+   #rail-dock-anchor (right after the terrain section) and becomes a normal,
+   static, horizontal row. Scrolling back up reverses the whole sequence. */
+(function(){
+  var rail=document.getElementById('hero-corner-rail');
+  var terrainSec=document.querySelector('.terrain-sec');
+  var dockAnchor=document.getElementById('rail-dock-anchor');
+  if(!rail||!terrainSec||!dockAnchor)return;
+  var originalParent=rail.parentNode,originalNext=rail.nextSibling;
+  var mq=window.matchMedia('(min-width:769px)');
+  var ticking=false;
+
+  function clearInline(){rail.style.top='';rail.style.transform='';}
+
+  /* FLIP (First-Last-Invert-Play): used only at the exact moment the rail
+     docks/undocks, so each individual button visibly "flies" from its old
+     vertical spot+size to its new horizontal spot+size instead of snapping
+     instantly — makes the landing feel continuous rather than a jump-cut. */
+  function animateButtons(mutate){
+    var btns=Array.prototype.slice.call(rail.querySelectorAll('.hero-sqbtn'));
+    if(!btns.length){mutate();return;}
+    var firstRects=btns.map(function(b){return b.getBoundingClientRect();});
+    mutate();
+    var lastRects=btns.map(function(b){return b.getBoundingClientRect();});
+    btns.forEach(function(b,i){
+      var f=firstRects[i],l=lastRects[i];
+      if(!l.width||!l.height)return;
+      var dx=f.left-l.left,dy=f.top-l.top;
+      var sx=f.width/l.width,sy=f.height/l.height;
+      b.style.transition='none';
+      b.style.transformOrigin='top left';
+      b.style.transform='translate('+dx.toFixed(2)+'px,'+dy.toFixed(2)+'px) scale('+sx.toFixed(3)+','+sy.toFixed(3)+')';
+    });
+    requestAnimationFrame(function(){
+      requestAnimationFrame(function(){
+        btns.forEach(function(b){
+          b.style.transition='transform .5s cubic-bezier(.16,1,.3,1)';
+          b.style.transform='';
+        });
+        setTimeout(function(){
+          btns.forEach(function(b){b.style.transition='';b.style.transformOrigin='';});
+        },520);
+      });
+    });
+  }
+
+  function dock(){
+    if(rail.classList.contains('rail-docked'))return;
+    animateButtons(function(){
+      dockAnchor.appendChild(rail);
+      rail.classList.add('rail-docked');
+      clearInline();
+    });
+  }
+  /* topPx/scale are the resting values this frame would otherwise set directly —
+     when actually crossing from docked back to floating, they're applied inside
+     the FLIP mutate step so the "Last" rect reflects the true landing spot. */
+  function undock(topPx,scale){
+    if(!rail.classList.contains('rail-docked')){
+      rail.style.top=topPx+'px';
+      rail.style.transform='scale('+scale.toFixed(3)+')';
+      return;
+    }
+    animateButtons(function(){
+      originalParent.insertBefore(rail,originalNext);
+      rail.classList.remove('rail-docked');
+      rail.style.top=topPx+'px';
+      rail.style.transform='scale('+scale.toFixed(3)+')';
+    });
+  }
+
+  function update(){
+    ticking=false;
+    if(!mq.matches){
+      if(rail.classList.contains('rail-docked')){
+        originalParent.insertBefore(rail,originalNext);
+        rail.classList.remove('rail-docked');
+      }
+      clearInline();
+      return;
+    }
+    var vh=window.innerHeight;
+    var anchorTop=dockAnchor.getBoundingClientRect().top;
+    if(anchorTop<=vh*0.5){dock();return;}
+    var tRect=terrainSec.getBoundingClientRect();
+    var progress=Math.min(1,Math.max(0,1-(tRect.top/vh)));
+    var scale=1+progress*0.3;
+    var restTop=92; /* --nav-h (68px) + 1.5rem (~24px) */
+    var centerTop=Math.max(80,vh/2-(rail.offsetHeight/2));
+    var topPx=Math.max(80,restTop+(centerTop-restTop)*progress);
+    undock(topPx,scale);
+  }
+  function onScroll(){if(ticking)return;ticking=true;requestAnimationFrame(update);}
+
+  window.addEventListener('scroll',onScroll,{passive:true});
+  window.addEventListener('resize',onScroll);
+  update();
+})();
 
 /* ── FORMAT KEY ── */
 (function(){
@@ -968,9 +1146,9 @@ window.openAccPanel=function(itemId){
   });
 })();
 
-/* ── FEATURED ROW ── */
-(function(){
-  var row=document.getElementById('feat-row');if(!row)return;
+/* ── FEATURED ROW — renders into any container (inline strip + modal "see all") ── */
+function renderFeaturedRow(containerId){
+  var row=document.getElementById(containerId);if(!row)return;
   var featured=P.filter(function(p){return p.featured;}).sort(function(a,b){return(a.feat_order||0)-(b.feat_order||0);});
   featured.forEach(function(p){
     var c=document.createElement('button');
@@ -980,9 +1158,24 @@ window.openAccPanel=function(itemId){
     c.setAttribute('aria-label','Open '+p.title);
     var tl=p.themes.slice(0,2).map(function(t){return THEMES[t]?THEMES[t].label:t;});
     var badge=p.feat_context?'<div class="feat-badge feat-badge-context">Featured context</div>':'<div class="feat-badge">Featured</div>';
-    c.innerHTML=badge+pills(p.formats.slice(0,1))+'<h3>'+p.title+'</h3><p class="fc-collab">'+p.collab+'</p><div class="fc-foot"><div style="display:flex;flex-wrap:wrap;gap:.26rem">'+tags(tl)+'</div><span class="fc-arr">→</span></div>';
+    var pullQuote=p.quote?'<p class="fc-quote">&#8220;'+p.quote.text+'&#8221;</p>':'';
+    c.innerHTML=badge+pills(p.formats.slice(0,1))+'<h3>'+p.title+'</h3><p class="fc-collab">'+p.collab+'</p>'+pullQuote+'<div class="fc-foot"><div style="display:flex;flex-wrap:wrap;gap:.26rem">'+tags(tl)+'</div><span class="fc-arr">→</span></div>';
     c.addEventListener('click',function(){openModal(p.id);});
     row.appendChild(c);
+  });
+}
+renderFeaturedRow('feat-row-modal');
+
+/* ── TESTIMONY MODAL — static "see all" list, reusing TESTIMONIES + IMGS data
+   (the inline section stays a rotating carousel; this is a non-rotating companion) ── */
+(function(){
+  var list=document.getElementById('tcard-list');if(!list)return;
+  TESTIMONIES.forEach(function(t){
+    var photoImg=(t.photo&&IMGS[t.photo])?'<img class="tcard-photo" src="'+IMGS[t.photo]+'" alt="'+t.name+'">':'';
+    var c=document.createElement('div');
+    c.className='tcard tcard-static';
+    c.innerHTML='<blockquote>&#8220;'+t.quote+'&#8221;</blockquote><div class="tcard-who">'+photoImg+'<div><span class="tcard-name">'+t.name+'</span><span class="tcard-role">'+t.role+'</span></div></div>';
+    list.appendChild(c);
   });
 })();
 
@@ -1144,12 +1337,11 @@ window.openAccPanel=function(itemId){
     ng.addEventListener('mouseenter',function(){outer.setAttribute('r','22');outer.setAttribute('opacity','0.35');inner.setAttribute('r','12');});
     ng.addEventListener('mouseleave',function(){outer.setAttribute('r','16');outer.setAttribute('opacity','0.22');inner.setAttribute('r','9');});
     ng.addEventListener('click',function(){
-      // Open the Full Portfolio accordion panel so the filter controls + full grid
-      // are visible, then apply the theme filter and scroll there.
-      if(window.openAccPanel)window.openAccPanel('acc-item-full');
+      // Open the Full Portfolio pop-up so the filter controls + full grid
+      // are visible, then apply the theme filter.
+      openSimpleModal('modal-full-ov');
       var btn=document.querySelector('[data-ft="theme"][data-fv="'+tid+'"]');
       if(btn)btn.click();
-      setTimeout(function(){var sec=document.getElementById('portfolio-main');if(sec)sec.scrollIntoView({behavior:'smooth',block:'start'});},60);
     });
     ng.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();ng.click();}});
     g.appendChild(ng);
@@ -1235,91 +1427,6 @@ window.openAccPanel=function(itemId){
   }
 })();
 
-
-/* ── TESTIMONIES RENDER — magnifying-glass carousel ── */
-(function(){
-  var grid=document.getElementById('tlens-grid');if(!grid)return;
-  var dotsWrap=document.getElementById('tlensDots');
-  var prevBtn=document.getElementById('tlensPrev');
-  var nextBtn=document.getElementById('tlensNext');
-  var n=TESTIMONIES.length;
-  var idx=0;
-  var timer=null;
-
-  function cardHTML(t,extraClass){
-    var photoImg=(t.photo&&IMGS[t.photo])?'<img class="tcard-photo" src="'+IMGS[t.photo]+'" alt="'+t.name+'">':'';
-    var glass=extraClass==='tcard-focus'?'<span class="tcard-glass"><span class="tcard-glass-ring"></span><span class="tcard-glass-handle"></span></span>':'';
-    return '<div class="tcard '+extraClass+'">'+glass+'<blockquote>&#8220;'+t.quote+'&#8221;</blockquote><div class="tcard-who">'+photoImg+'<div><span class="tcard-name">'+t.name+'</span><span class="tcard-role">'+t.role+'</span></div></div></div>';
-  }
-
-  // Focus quote box is a fixed height so switching testimonials never shifts
-  // the page. Most quotes fit that box at full size and just sit centered;
-  // the handful of noticeably longer quotes get scaled down just enough to
-  // fit without clipping, so nothing is cut off and nothing overflows.
-  function fitFocusQuote(bq){
-    var target=bq.clientHeight;
-    bq.style.fontSize='1.05rem';
-    for(var i=0;i<3&&bq.scrollHeight>target;i++){
-      var ratio=target/bq.scrollHeight;
-      var current=parseFloat(getComputedStyle(bq).fontSize);
-      var next=Math.max(current*ratio*0.97,12);
-      bq.style.fontSize=next+'px';
-    }
-  }
-
-  function render(){
-    var html='';
-    for(var i=0;i<3;i++){
-      html+=cardHTML(TESTIMONIES[(idx+i)%n],i===0?'tcard-focus':'tcard-blur');
-    }
-    grid.innerHTML=html;
-    Array.prototype.forEach.call(grid.querySelectorAll('.tcard-blur'),function(el,i){
-      el.addEventListener('click',function(){goTo(idx+i+1);});
-    });
-    var focusQuote=grid.querySelector('.tcard-focus blockquote');
-    if(focusQuote)fitFocusQuote(focusQuote);
-    if(dotsWrap){
-      Array.prototype.forEach.call(dotsWrap.children,function(d,i){
-        d.classList.toggle('active',i===idx);
-      });
-    }
-  }
-
-  function buildDots(){
-    if(!dotsWrap)return;
-    var frag=document.createDocumentFragment();
-    for(var i=0;i<n;i++){
-      var b=document.createElement('button');
-      b.type='button';b.className='tlens-dot';b.setAttribute('aria-label','Go to testimonial '+(i+1));
-      (function(i){b.addEventListener('click',function(){goTo(i);});})(i);
-      frag.appendChild(b);
-    }
-    dotsWrap.appendChild(frag);
-  }
-
-  function goTo(newIdx){
-    idx=((newIdx%n)+n)%n;
-    grid.classList.add('tlens-swap');
-    setTimeout(function(){render();grid.classList.remove('tlens-swap');},220);
-    resetTimer();
-  }
-
-  function resetTimer(){
-    if(timer)clearInterval(timer);
-    timer=setInterval(function(){goTo(idx+1);},6000);
-  }
-
-  if(prevBtn)prevBtn.addEventListener('click',function(){goTo(idx-1);});
-  if(nextBtn)nextBtn.addEventListener('click',function(){goTo(idx+1);});
-
-  buildDots();
-  render();
-  resetTimer();
-  // Exposed so the accordion can force a re-measure once the testimony
-  // panel becomes visible — fitFocusQuote reads clientHeight, which is
-  // wrong (near-zero) while the panel is hidden behind an accordion.
-  window._testimonyRerender=render;
-})();
 
 /* ── COLLABS RENDER ── */
 (function(){
