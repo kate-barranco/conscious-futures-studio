@@ -31429,5 +31429,33 @@
     ],
     "type_display": "Article",
     "confidence": "high"
+  },
+  {
+    "id": "CFT-1139",
+    "title": "The problem with telling people the world is ending",
+    "url": "https://www.theguardian.com/environment/2026/oct/18/the-problem-with-telling-people-the-world-is-ending",
+    "primary_category": "Hope & Empowerment",
+    "categories": [
+      "Hope & Empowerment",
+      "Climate Justice & Eco-Anxiety"
+    ],
+    "type_normalized": "Article",
+    "type_raw_variants": [],
+    "note": "",
+    "extra_tag_text": "",
+    "hub": "",
+    "year": "2026",
+    "source_sheets": [
+      "Hand-added (Kate request — resource library additions, 2026-10-21)"
+    ],
+    "merged_from_count": 1,
+    "blurb": "Van Bavel argues that doom-laden messaging about climate, AI, and war can breed helplessness rather than action — fear appeals only work when paired with a sense of efficacy, and a negativity-driven information ecosystem leaves people tuning out.",
+    "tags": [
+      "Hope & Empowerment",
+      "Climate Anxiety",
+      "Social Media & Attention Economy"
+    ],
+    "type_display": "Article",
+    "confidence": "high"
   }
 ]
