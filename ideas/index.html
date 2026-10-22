@@ -388,6 +388,9 @@ a.recog-name:hover { color: #c97dd4; }
 .speaking-item:first-child { border-top: none; }
 .speaking-venue { font-size: 0.78rem; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase; color: var(--orange); line-height: 1.4; }
 .speaking-title { font-family: var(--f-display); font-size: 1.1rem; font-weight: 300; color: var(--navy); line-height: 1.3; }
+.speaking-photos { display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem; margin: 0.9rem 0 0.2rem; max-width: 60ch; }
+.speaking-photos img { width: 100%; aspect-ratio: 3 / 2; object-fit: cover; display: block; border-radius: 6px; }
+@media (max-width: 560px) { .speaking-photos { grid-template-columns: 1fr; } }
 .speaking-body { font-size: 0.88rem; color: rgba(17,20,41,0.58); line-height: 1.65; max-width: 60ch; }
 .speaking-venue a { color: inherit; text-decoration: underline; text-decoration-color: rgba(17,20,41,0.25); text-underline-offset: 2px; transition: color 0.2s; }
 .speaking-venue a:hover { color: var(--purple); }
@@ -477,10 +480,11 @@ a.recog-name:hover { color: #c97dd4; }
 }
 
 /* ── PHOTO STRIP ── */
-.photo-strip { display: grid; grid-template-columns: 1fr 1fr; height: 260px; overflow: hidden; }
+.photo-strip { display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: 100%; height: 260px; overflow: hidden; }
 .photo-strip img { width: 100%; height: 100%; object-fit: cover; display: block; }
-.photo-strip img:first-child { object-position: center top; transform: scale(0.75); transform-origin: center top; }
-.photo-strip img:last-child { object-position: center 35%; }
+.photo-strip img:nth-child(1) { object-position: center 55%; }
+.photo-strip img:nth-child(2) { object-position: center 35%; }
+.photo-strip img:nth-child(3) { object-position: center 28%; }
 
 /* ── FOOTER ── */
 footer { background: var(--navy); padding: 2.25rem 3rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.5rem; }
@@ -502,7 +506,8 @@ footer p { font-size: 0.68rem; color: rgba(245,241,232,0.28); }
   .recog-cols { grid-template-columns: 1fr; gap: 2rem; }
   .pub-grid { grid-template-columns: 1fr 1fr; }
   .media-grid { grid-template-columns: 1fr; }
-  .photo-strip { height: 180px; }
+  .photo-strip { height: auto; grid-template-columns: 1fr 1fr; grid-template-rows: none; grid-auto-rows: 180px; }
+  .photo-strip img:nth-child(3) { grid-column: 1 / -1; }
   .pub-featured, .media-featured { grid-template-columns: 1fr; padding: 1.5rem; }
   footer { padding: 2rem 1.5rem; }
 }
@@ -782,7 +787,7 @@ footer p { font-size: 0.68rem; color: rgba(245,241,232,0.28); }
             <div class="speaking-title">Reprogramming Democracy: Civic Agency and Imagination in the Age of AI</div>
             <div class="speaking-body">Guest lecture for Rutgers' Digital Politics course examining how AI and digital mediums are reshaping political life — from the machinery of government institutions to the everyday behavior of constituents — and the questions of civic agency and civic imagination that follow. A second thread turns to navigating the workplace and job market amid AI-driven disruption, drawing on the founding of Conscious Futures Studio as a working case study in building meaningful work at a moment of technological upheaval.</div>
           </div>
-          <div class="speaking-item">
+          <div class="speaking-item" id="climate-week">
             <div class="pub-tags">
               <span class="pdot" style="background:#800287"><span class="pdot-tip">Futures &amp; Foresight</span></span>
               <span class="pdot" style="background:#4A7B62"><span class="pdot-tip">Wellbeing &amp; Healing</span></span>
@@ -790,6 +795,10 @@ footer p { font-size: 0.68rem; color: rgba(245,241,232,0.28); }
             <div class="speaking-venue"><a href="https://luma.com/xiwtro33" target="_blank" rel="noopener">New York Climate Week 2026 · Stories that Move · September 21, 2026</a></div>
             <div class="speaking-title">Collective Futures + Climate Hope Open Mic</div>
             <div class="speaking-body">Panel co-designed with ReImagine Story Lab as part of the day-long Stories that Move program — a conversation on why hope matters in climate storytelling with Anatola Araba (ReImagine Story Lab), MaryAnn Talavera (NYU Tisch Martin Scorsese Virtual Production Center), Diamond Spratling (Girl + Environment), and Tory Stephens (Grist's Imagine 2200 Climate Fiction), followed by a collective writing and open-mic session moving the room from imagination toward shared visioning.</div>
+            <div class="speaking-photos">
+              <img src="climate-week-panel.jpg" alt="Panelists seated in a circle on a green rug between two illustrated banners at the Collective Futures + Climate Hope Open Mic, New York Climate Week 2026" loading="lazy">
+              <img src="climate-week-speaking.jpg" alt="Kate Barranco moderating the Climate Hope Open Mic panel at New York Climate Week 2026" loading="lazy">
+            </div>
             <a href="https://www.youtube.com/watch?v=-WIGIJREU-w&list=PLeWys1vIEOLg&index=4" class="pub-card-readlink" target="_blank" rel="noopener" onclick="event.stopPropagation()">Watch the recording ↗</a>
           </div>
           <div class="speaking-item">
@@ -1026,6 +1035,7 @@ footer p { font-size: 0.68rem; color: rgba(245,241,232,0.28); }
 <div class="photo-strip">
   <img src="1778546267042.jpeg" alt="Kate Barranco speaking on Next Generation Democracy panel">
   <img src="EBPhoto.png" alt="Kate Barranco co-designing with a collaborator">
+  <img src="climate-week-movement.jpg" alt="Kate Barranco leading a movement exercise at New York Climate Week 2026" loading="lazy">
 </div>
 
 <!-- FOOTER -->
@@ -1044,6 +1054,15 @@ function switchToPanel(target) {
 btns.forEach(btn => {
   btn.addEventListener('click', () => switchToPanel(btn.dataset.panel));
 });
+// Deep link from other pages: ideas/#climate-week opens Speaking and scrolls to that entry
+if (location.hash === '#climate-week') {
+  btns.forEach(b => b.classList.toggle('active', b.dataset.panel === 'speaking'));
+  panels.forEach(p => p.classList.toggle('active', p.id === 'panel-speaking'));
+  const target = document.getElementById('climate-week');
+  if (target) window.addEventListener('load', () => {
+    window.scrollTo({ top: target.getBoundingClientRect().top + window.scrollY - 140 });
+  });
+}
 // "Keep exploring" nudge buttons at the bottom of each panel — same switch logic
 document.querySelectorAll('.next-nudge-btn[data-panel]').forEach(btn => {
   btn.addEventListener('click', () => switchToPanel(btn.dataset.panel));

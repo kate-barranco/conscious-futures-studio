@@ -164,10 +164,36 @@
     .cf-what-close{ margin-top:2.25rem; font-size:1.02rem; color:var(--ink-soft); max-width:60ch; font-style:italic; font-family:'Fraunces', serif; font-variation-settings:"opsz" 144,"SOFT" 70; }
 
     /* ---- EVOLVING COLLABORATIVE ---- */
+    .cf-room{ position:relative; overflow:hidden; background:var(--navy); min-height:min(82vh,760px); display:flex; align-items:center; justify-content:space-between; gap:3rem; padding:3.5rem var(--pad-x); }
+    .cf-room-bg{ position:absolute; inset:-60px; background:url('assets/images/climate-week-worksheet.jpg') center 70%/cover no-repeat; filter:blur(28px) brightness(.5) saturate(1.15); }
+    .cf-room-card, .cf-room-photo{ position:relative; z-index:1; }
+    .cf-room-card{
+      max-width:440px; background:rgba(17,20,41,.62); -webkit-backdrop-filter:blur(10px); backdrop-filter:blur(10px);
+      color:var(--bg); border:1px solid rgba(245,241,232,.16); border-radius:10px; padding:1.6rem 1.7rem;
+      transition:opacity .7s ease, transform .7s ease;
+    }
+    .cf-room-card .section-label{ color:rgba(245,241,232,.65); margin-bottom:.9rem; }
+    .cf-room-card .section-label::before{ background:rgba(245,241,232,.5); }
+    .cf-room-card p{ font-size:1.12rem; line-height:1.6; color:rgba(245,241,232,.92); }
+    .cf-room-link{ display:inline-block; margin-top:1rem; font-size:.95rem; font-weight:500; color:var(--bg); text-decoration:none; border-bottom:1px solid rgba(245,241,232,.45); }
+    .cf-room-link:hover{ border-bottom-color:var(--bg); }
+    .cf-room-photo{ display:block; height:min(70vh,640px); aspect-ratio:2/3; border-radius:8px; overflow:hidden; box-shadow:0 20px 60px rgba(0,0,0,.4); }
+    .cf-room-photo img{ width:100%; height:100%; object-fit:cover; display:block; transition:transform .8s ease; }
+    .cf-room-photo:hover img{ transform:scale(1.03); }
+    .cf-room-photo:focus-visible{ outline:3px solid var(--bg); outline-offset:4px; }
+    /* Card reveals as the section scrolls into view (or on hover/focus); stays visible without JS */
+    .cf-room.cf-room--armed .cf-room-card{ opacity:0; transform:translateY(18px); }
+    .cf-room.cf-room--armed.is-shown .cf-room-card,
+    .cf-room.cf-room--armed:hover .cf-room-card,
+    .cf-room.cf-room--armed:focus-within .cf-room-card{ opacity:1; transform:none; }
+    @media (prefers-reduced-motion:reduce){ .cf-room-card, .cf-room-photo img{ transition:none; } .cf-room.cf-room--armed .cf-room-card{ opacity:1; transform:none; } }
+    @media (max-width:760px){ .cf-room{ flex-direction:column-reverse; justify-content:center; padding:2.5rem 1.25rem; gap:1.5rem; } .cf-room-photo{ height:auto; width:min(100%,320px); } .cf-room-card{ max-width:none; width:100%; } }
     .cf-collab{ background:var(--bg-warm); padding:5rem var(--pad-x); }
-    .cf-collab-in{ max-width:800px; margin:0 auto; text-align:center; }
-    .cf-collab .section-label{ justify-content:center; margin:0 auto 1.5rem; }
-    .cf-collab p{ font-size:1.15rem; line-height:1.7; color:var(--ink-soft); }
+    .cf-collab-in{ max-width:var(--max-w); margin:0 auto; display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:center; }
+    .cf-collab .section-label{ margin:0 0 1.5rem; }
+    .cf-collab p{ font-size:1.15rem; line-height:1.7; color:var(--ink-soft); max-width:46ch; }
+    .cf-collab-photo{ display:block; width:100%; border-radius:8px; aspect-ratio:4/3; object-fit:cover; object-position:center 35%; }
+    @media (max-width:760px){ .cf-collab-in{ grid-template-columns:1fr; gap:2rem; } }
 
     /* ---- WHY + ROUTING ---- */
     .cf-why{ position:relative; overflow:hidden; background:var(--navy); color:var(--bg); padding:4.5rem var(--pad-x); text-align:center; }
@@ -258,6 +284,31 @@
 </section>
 
 <!-- ============================================================
+     PRACTICE IN THE ROOM
+     ============================================================ -->
+<section class="cf-room" id="cfRoom">
+  <div class="cf-room-bg" aria-hidden="true"></div>
+  <div class="cf-room-card">
+    <div class="section-label"><span></span>Practice in the room</div>
+    <p>A collective writing and open-mic session at New York Climate Week, moving the room from imagination toward shared visioning.</p>
+    <a class="cf-room-link" href="../ideas/#climate-week">See the speaking engagement <span aria-hidden="true">→</span></a>
+  </div>
+  <a class="cf-room-photo" href="../ideas/#climate-week" aria-label="See the New York Climate Week speaking engagement on Ideas &amp; Recognition">
+    <img src="assets/images/climate-week-worksheet.jpg" alt="A participant writing on a Conscious Futures worksheet during the collective writing session at New York Climate Week 2026" loading="lazy">
+  </a>
+</section>
+<script>
+(function () {
+  var room = document.getElementById('cfRoom');
+  if (!room || !('IntersectionObserver' in window)) return;
+  room.classList.add('cf-room--armed');
+  new IntersectionObserver(function (entries, obs) {
+    if (entries[0].isIntersecting) { room.classList.add('is-shown'); obs.disconnect(); }
+  }, { threshold: 0.4 }).observe(room);
+})();
+</script>
+
+<!-- ============================================================
      PROOF
      ============================================================ -->
 <section class="cf-proof">
@@ -277,11 +328,14 @@
      ============================================================ -->
 <section class="cf-collab">
   <div class="cf-collab-in">
-    <div class="section-label" data-reveal>
-      <span></span>
-      An evolving collaborative
+    <div>
+      <div class="section-label" data-reveal>
+        <span></span>
+        An evolving collaborative
+      </div>
+      <p data-reveal data-reveal-delay="1">Conscious Futures is grounded in Kate Barranco's independent practice, and it's also an evolving space — partnering with organizations, artists, and change agents across disciplines and geographies, always relationally, always with curiosity.<br><br>What connects each project isn't the client; it's the practice.</p>
     </div>
-    <p data-reveal data-reveal-delay="1">Conscious Futures is grounded in Kate Barranco's independent practice, and it's also an evolving space — partnering with organizations, artists, and change agents across disciplines and geographies, always relationally, always with curiosity.<br><br>What connects each project isn't the client; it's the practice.</p>
+    <img class="cf-collab-photo" src="assets/images/co-design-session.jpg" alt="Kate Barranco and a collaborator co-designing with paper and sticky notes" loading="lazy" data-reveal data-reveal-delay="2">
   </div>
 </section>
 

@@ -135,6 +135,13 @@
     @media (max-width:900px){ .kb-proof-in{ grid-template-columns:1fr; } }
 
     /* ---- HUMAN CLOSE ---- */
+    .kb-room{ padding:5rem var(--pad-x) 1rem; background:var(--bg); }
+    .kb-room-in{ max-width:var(--max-w); margin:0 auto; }
+    .kb-room-grid{ display:grid; grid-template-columns:2fr 3fr; gap:1rem; margin-top:1.5rem; }
+    .kb-room-grid img{ width:100%; height:460px; object-fit:cover; display:block; border-radius:8px; }
+    .kb-room-grid img:first-child{ object-position:center 30%; }
+    .kb-room-cap{ margin-top:.9rem; font-size:.85rem; color:var(--ink-mute); }
+    @media (max-width:700px){ .kb-room-grid{ grid-template-columns:1fr; } .kb-room-grid img{ height:auto; aspect-ratio:3/4; } .kb-room-grid img:last-child{ aspect-ratio:3/2; } }
     .kb-human{ padding:6rem var(--pad-x); background:var(--bg); text-align:center; }
     .kb-human .section-label{ justify-content:center; margin:0 auto 1.5rem; color:var(--ink-mute); }
     .kb-human .section-label::before{ background:var(--ink-mute); }
@@ -245,6 +252,23 @@
         <p>Translating insight and imagination into strategic orientation, prototype design, and relational practice, so futures aren't just imagined but lived into.</p>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     IN THE ROOM
+     ============================================================ -->
+<section class="kb-room">
+  <div class="kb-room-in">
+    <div class="section-label" data-reveal>
+      <span></span>
+      In the room
+    </div>
+    <div class="kb-room-grid" data-reveal data-reveal-delay="1">
+      <img src="assets/images/climate-week-movement.jpg" alt="Kate Barranco leading a movement exercise with panelists at New York Climate Week 2026" loading="lazy">
+      <img src="assets/images/climate-week-speaking.jpg" alt="Kate Barranco moderating the Climate Hope Open Mic panel at New York Climate Week 2026" loading="lazy">
+    </div>
+    <p class="kb-room-cap">Moderating Collective Futures + Climate Hope Open Mic · New York Climate Week, September 2026</p>
   </div>
 </section>
 
