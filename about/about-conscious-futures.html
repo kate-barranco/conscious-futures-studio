@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>About Conscious Futures — Conscious Futures Studio</title>
-  <meta name="description" content="Conscious Futures is a research and strategy studio that helps civic and nonprofit organizations navigate change with clarity and imagination.">
+  <meta name="description" content="Conscious Futures is a research and strategy studio exploring civic and social imagination, helping civic and nonprofit organizations build it into frameworks, stories, and programs.">
   <meta property="og:title" content="About Conscious Futures">
   <meta property="og:description" content="The studio: what it does, who it's for, and how to work together.">
   <meta property="og:type" content="website">
@@ -52,21 +52,24 @@
     /* ---- HERO — navy-dominant horizon, echoes the hub's Conscious Futures lens ---- */
     .cf-hero{
       position:relative; overflow:hidden;
-      min-height:50vh;
+      min-height:62vh;
       display:flex; flex-direction:column; justify-content:flex-end;
-      color:var(--bg); background:var(--ink);
+      color:var(--bg);
+      background:linear-gradient(150deg, var(--orange) 0%, #9c3420 28%, var(--navy) 68%, var(--purple) 125%);
+      background-size:140% 140%;
+      animation:cfSunsetDrift 18s ease-in-out infinite alternate;
     }
+    @keyframes cfSunsetDrift{ from{ background-position:0% 0%; } to{ background-position:100% 100%; } }
     .cf-hero::after{
       content:''; position:absolute; inset:0; z-index:0; pointer-events:none;
       background:
-        linear-gradient(to bottom, rgba(17,20,41,.82) 0%, rgba(17,20,41,.55) 42%, rgba(17,20,41,.92) 100%),
-        linear-gradient(135deg, rgba(26,31,91,.55) 0%, transparent 55%),
-        radial-gradient(ellipse 65% 45% at 25% 100%, rgba(231,82,19,.22) 0%, transparent 65%);
+        linear-gradient(to bottom, rgba(17,20,41,.18) 0%, rgba(17,20,41,.12) 45%, rgba(17,20,41,.62) 100%),
+        radial-gradient(ellipse 60% 50% at 85% 100%, rgba(128,2,135,.35) 0%, transparent 65%);
     }
     /* Glasses watermark, same trick as the Portfolio hero */
     .cf-hero-glasses{
       position:absolute; right:-2%; top:48%; transform:translateY(-50%);
-      pointer-events:none; opacity:.08; z-index:0; filter:blur(1px);
+      pointer-events:none; opacity:.16; z-index:0; filter:blur(1px);
     }
     .cf-hero-glasses img{ width:clamp(220px,24vw,340px); }
     .cf-hero-inner{
@@ -91,7 +94,7 @@
       font-size:clamp(1.05rem,1.8vw,1.4rem);
       color:rgba(245,241,232,.9); margin-top:1.4rem;
     }
-    .cf-hero-tagline b{ color:var(--orange); font-weight:600; font-style:italic; }
+    .cf-hero-tagline b{ color:#ffe2b0; font-weight:600; font-style:italic; text-shadow:0 0 24px rgba(255,190,120,.55); }
     .cf-hero-desc{
       font-size:1.05rem; line-height:1.65; color:rgba(245,241,232,.85); max-width:38ch;
       border-left:2px solid rgba(245,241,232,.28); padding-left:1.5rem;
@@ -101,6 +104,20 @@
     @media (max-width:900px){
       .cf-hero-inner{ grid-template-columns:1fr; gap:1.25rem; }
       .cf-hero-desc{ border-left:none; padding-left:0; margin-top:.5rem; }
+    }
+
+    /* ---- SUNSET ACCENTS ---- */
+    .hl{
+      background:linear-gradient(100deg, #E75213 0%, #c2386c 55%, #800287 100%);
+      -webkit-background-clip:text; background-clip:text; color:transparent; -webkit-text-fill-color:transparent;
+      -webkit-box-decoration-break:clone; box-decoration-break:clone;
+    }
+    .hl, .hl-dk{ font-weight:500; }
+    .cf-what-head p .hl{ font-weight:500; font-style:italic; }
+    .hl-dk{
+      background:linear-gradient(100deg, #f6c26b 0%, #ff7a3d 45%, #e28bf0 100%);
+      -webkit-background-clip:text; background-clip:text; color:transparent; -webkit-text-fill-color:transparent;
+      -webkit-box-decoration-break:clone; box-decoration-break:clone;
     }
 
     /* ---- WHAT WE DO ---- */
@@ -116,22 +133,22 @@
     }
     .cf-what-in{ position:relative; z-index:1; max-width:var(--max-w); margin:0 auto; }
     .cf-what-head{
-      display:grid; grid-template-columns:repeat(2,1fr); gap:1.25rem; align-items:start;
-      margin-bottom:1.25rem;
+      display:grid; grid-template-columns:1fr; gap:1.5rem; align-items:start;
+      margin-bottom:2.5rem;
     }
     .cf-what-head h2{
       font-family:'Fraunces', serif; font-size:clamp(2rem,4vw,3rem); font-weight:400;
       letter-spacing:-.02em; font-variation-settings:"opsz" 144,"SOFT" 30,"WONK" 1;
     }
-    .cf-what-head h2 em{ font-style:italic; font-variation-settings:"opsz" 144,"SOFT" 100,"WONK" 1; color:var(--gold); }
+    .cf-what-head h2 em{ font-style:italic; font-variation-settings:"opsz" 144,"SOFT" 100,"WONK" 1; background:linear-gradient(120deg,#E75213,#800287); -webkit-background-clip:text; background-clip:text; color:transparent; -webkit-text-fill-color:transparent; padding-right:.06em; }
     .cf-what-head p{
-      font-size:1.05rem; line-height:1.65; color:var(--ink-soft); max-width:40ch;
-      margin-left:auto; text-align:right;
-      border-right:2px solid rgba(17,20,41,.14); padding-right:1.5rem;
+      font-family:'Fraunces', serif; font-size:clamp(1.3rem,2.4vw,1.85rem); line-height:1.4; font-weight:300;
+      font-variation-settings:"opsz" 144,"SOFT" 50; letter-spacing:-.005em;
+      color:var(--ink); max-width:34em;
+      border-left:3px solid transparent; border-image:linear-gradient(to bottom,#E75213,#800287) 1; padding-left:1.5rem;
     }
     @media (max-width:800px){
-      .cf-what-head{ grid-template-columns:1fr; gap:1rem; }
-      .cf-what-head p{ border-left:none; padding-left:0; max-width:none; }
+      .cf-what-head p{ padding-left:1.1rem; }
     }
     .cf-cap-grid{
       display:grid; grid-template-columns:repeat(2,1fr); gap:1.25rem;
@@ -145,6 +162,14 @@
       transition:transform .3s cubic-bezier(0.16,1,0.3,1), box-shadow .3s ease;
       box-shadow:0 10px 30px rgba(26,26,24,.08);
     }
+    .cf-cap-card::after{
+      content:''; position:absolute; top:-70px; right:-70px; width:240px; height:240px; border-radius:50%;
+      background:radial-gradient(circle, rgba(255,255,255,.18) 0%, transparent 68%); pointer-events:none;
+      transition:transform .6s cubic-bezier(0.16,1,0.3,1);
+    }
+    .cf-cap-card:hover::after{ transform:scale(1.35); }
+    .cf-cap-icon{ position:absolute; top:1.7rem; right:1.9rem; width:40px; height:40px; opacity:.6; z-index:1; }
+    .cf-cap-card--gold .cf-cap-icon{ opacity:.7; }
     .cf-cap-card:hover{ transform:translateY(-5px); box-shadow:0 18px 40px rgba(26,26,24,.16); }
     .cf-cap-card--navy{   background:linear-gradient(135deg, var(--navy) 0%, #262d78 100%);   color:var(--bg); }
     .cf-cap-card--green{  background:linear-gradient(135deg, var(--green) 0%, #5d9a7c 100%);  color:var(--bg); }
@@ -159,9 +184,33 @@
       letter-spacing:-.01em; margin-bottom:.5rem;
     }
     .cf-cap-card p{ font-size:.95rem; line-height:1.55; opacity:.88; }
+    /* avoid single-word last lines */
+    p, h1, h2, h3, blockquote, li{ text-wrap:pretty; }
+    /* balance spreads words evenly so no line ends up with just a couple of words */
+    p, h1, h2, h3, blockquote, li, .footer-tagline{ text-wrap:balance; }
     .cf-cap-card--gold p{ opacity:.78; }
     @media (max-width:800px){ .cf-cap-grid{ grid-template-columns:1fr; } }
     .cf-what-close{ margin-top:2.25rem; font-size:1.02rem; color:var(--ink-soft); max-width:60ch; font-style:italic; font-family:'Fraunces', serif; font-variation-settings:"opsz" 144,"SOFT" 70; }
+
+    /* ---- STATEMENT BAND ---- */
+    .cf-statement{
+      position:relative; overflow:hidden; color:var(--bg); text-align:left;
+      padding:clamp(4rem,9vw,7.5rem) var(--pad-x);
+      background:
+        radial-gradient(ellipse 55% 70% at 8% 105%, rgba(231,82,19,.55) 0%, transparent 62%),
+        radial-gradient(ellipse 50% 60% at 95% -10%, rgba(128,2,135,.6) 0%, transparent 62%),
+        var(--navy);
+    }
+    .cf-statement-in{ position:relative; z-index:1; max-width:var(--max-w); margin:0 auto; }
+    .cf-statement-label{ color:rgba(245,241,232,.6); margin-bottom:2rem; }
+    .cf-statement-label::before{ background:rgba(245,241,232,.45); }
+    .cf-statement-line{
+      font-family:'Fraunces', serif; font-weight:300; font-size:clamp(2rem,5.6vw,4.6rem);
+      line-height:1.04; letter-spacing:-.025em; margin:0;
+      font-variation-settings:"opsz" 144,"SOFT" 40,"WONK" 1;
+    }
+    .cf-statement-line + .cf-statement-line{ margin-top:.2em; }
+    .cf-statement-line em{ padding-right:.08em; font-style:italic; font-weight:400; font-variation-settings:"opsz" 144,"SOFT" 100,"WONK" 1; }
 
     /* ---- EVOLVING COLLABORATIVE ---- */
     .cf-room{ position:relative; overflow:hidden; background:var(--navy); min-height:min(82vh,760px); display:flex; align-items:center; justify-content:space-between; gap:3rem; padding:3.5rem var(--pad-x); }
@@ -196,7 +245,7 @@
     @media (max-width:760px){ .cf-collab-in{ grid-template-columns:1fr; gap:2rem; } }
 
     /* ---- WHY + ROUTING ---- */
-    .cf-why{ position:relative; overflow:hidden; background:var(--navy); color:var(--bg); padding:4.5rem var(--pad-x); text-align:center; }
+    .cf-why{ position:relative; overflow:hidden; background:radial-gradient(ellipse 70% 80% at 50% 130%, rgba(231,82,19,.45) 0%, transparent 65%), linear-gradient(to bottom, var(--navy) 0%, #3b1766 100%); color:var(--bg); padding:4.5rem var(--pad-x); text-align:center; }
     .cf-why-glasses{
       position:absolute; left:-4%; bottom:-10%;
       pointer-events:none; opacity:.07; z-index:0; transform:rotate(-6deg);
@@ -242,7 +291,7 @@
       <h1 data-reveal data-reveal-delay="1"><img class="cf-hero-logo" src="assets/images/logos/logo-white-full.png" alt="Conscious Futures"></h1>
       <p class="cf-hero-tagline" data-reveal data-reveal-delay="2">The future needs a <b>reframe</b>.</p>
     </div>
-    <p class="cf-hero-desc" data-reveal data-reveal-delay="3">A research and strategy studio for organizations navigating change with more clarity and imagination.</p>
+    <p class="cf-hero-desc" data-reveal data-reveal-delay="3">A research and strategy studio exploring <span class="hl-dk">civic and social&nbsp;imagination</span>.</p>
   </div>
 </section>
 
@@ -253,33 +302,52 @@
   <div class="cf-what-in">
     <div class="cf-what-head" data-reveal>
       <h2>What we <em>do</em>.</h2>
-      <p>Conscious Futures is a research and strategy studio for civic and nonprofit organizations working through change that doesn't come with a clear playbook. Most engagements draw on four connected capabilities.</p>
+      <p>Conscious Futures is a research and strategy studio exploring <span class="hl">civic and social imagination</span>: how people picture a shared future, what shapes it, and whether they believe they can help build it. We help civic and nonprofit organizations build that imagination into <span class="hl">frameworks, stories,&nbsp;and&nbsp;programs</span>.</p>
     </div>
 
     <div class="cf-cap-grid">
       <div class="cf-cap-card cf-cap-card--navy" data-reveal data-reveal-delay="1">
+        <svg class="cf-cap-icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="17" cy="17" r="10"/><path d="M24.5 24.5 34 34"/></svg>
         <div class="cf-cap-num">01 — Sensemaking</div>
         <h3>Research &amp; Synthesis</h3>
-        <p>Stakeholder interviews, landscape scans, and strategic insight development that surface what's actually happening, not just what's assumed.</p>
+        <p>Interviews, landscape scans, and survey synthesis on how people actually picture the future, and what's driving that&nbsp;picture.</p>
       </div>
       <div class="cf-cap-card cf-cap-card--green" data-reveal data-reveal-delay="2">
-        <div class="cf-cap-num">02 — Facilitation &amp; Strategy</div>
-        <h3>Design &amp; Facilitation</h3>
-        <p>Workshop and futures-lab design, program and fellowship architecture, and convening that turns a room of people into real collective thinking.</p>
+        <svg class="cf-cap-icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 14h26M27 8.5 32.5 14 27 19.5"/><path d="M34 27H8M13 21.5 7.5 27 13 32.5"/></svg>
+        <div class="cf-cap-num">02 — Translation</div>
+        <h3>Frameworks &amp; Knowledge Tools</h3>
+        <p>Frameworks, learning tools, and public resources that turn research into something people can learn from and act&nbsp;on.</p>
       </div>
       <div class="cf-cap-card cf-cap-card--gold" data-reveal data-reveal-delay="3">
+        <svg class="cf-cap-icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c-4.2-3-10-3.2-15-2v23c5-1.2 10.8-1 15 2 4.2-3 10-3.2 15-2V8c-5-1.2-10.8-1-15 2z"/><path d="M20 10v23"/></svg>
         <div class="cf-cap-num">03 — Narrative Change</div>
-        <h3>Narrative &amp; Knowledge</h3>
-        <p>Narrative strategy, messaging architecture, and reports that carry an idea from insight into something people can act on.</p>
+        <h3>Narrative &amp; Story</h3>
+        <p>Narrative strategy, exhibits, and reports that widen the range of futures people can picture and see themselves&nbsp;in.</p>
       </div>
       <div class="cf-cap-card cf-cap-card--purple" data-reveal data-reveal-delay="4">
-        <div class="cf-cap-num">04 — Futures &amp; Foresight</div>
-        <h3>Strategy &amp; Foresight</h3>
-        <p>Scenario planning, theory of change, and futures literacy work that helps an organization see past its next fiscal year.</p>
+        <svg class="cf-cap-icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="20" cy="11" r="4.5"/><circle cx="9.5" cy="29" r="4.5"/><circle cx="30.5" cy="29" r="4.5"/><path d="M17.5 15 12 25M22.5 15 28 25M14 29h12"/></svg>
+        <div class="cf-cap-num">04 — Design &amp; Facilitation</div>
+        <h3>Programs &amp; Convenings</h3>
+        <p>Fellowships, curricula, and workshops that turn a room of people into real collective thinking, and give them practice shaping what comes&nbsp;next.</p>
       </div>
     </div>
 
-    <p class="cf-what-close" data-reveal data-reveal-delay="5">The shape of an engagement follows the question — sometimes a focused sprint, sometimes an ongoing partnership.</p>
+    <p class="cf-what-close" data-reveal data-reveal-delay="5">The shape of an engagement follows the question — sometimes a focused sprint, sometimes an ongoing&nbsp;partnership.</p>
+  </div>
+</section>
+
+<!-- ============================================================
+     STATEMENT BAND
+     ============================================================ -->
+<section class="cf-statement" aria-label="What we explore">
+  <div class="cf-statement-in">
+    <div class="section-label cf-statement-label" data-reveal>
+      <span></span>
+      What we explore
+    </div>
+    <p class="cf-statement-line" data-reveal data-reveal-delay="1">How people <em class="hl-dk">picture</em> a shared&nbsp;future.</p>
+    <p class="cf-statement-line" data-reveal data-reveal-delay="2">What <em class="hl-dk">shapes</em>&nbsp;it.</p>
+    <p class="cf-statement-line" data-reveal data-reveal-delay="3">Whether they believe they can help <em class="hl-dk">build</em>&nbsp;it.</p>
   </div>
 </section>
 
@@ -290,7 +358,7 @@
   <div class="cf-room-bg" aria-hidden="true"></div>
   <div class="cf-room-card">
     <div class="section-label"><span></span>Practice in the room</div>
-    <p>A collective writing and open-mic session at New York Climate Week, moving the room from imagination toward shared visioning.</p>
+    <p>A collective writing and open-mic session at New York Climate Week, moving the room from imagination toward shared&nbsp;visioning.</p>
     <a class="cf-room-link" href="../ideas/#climate-week">See the speaking engagement <span aria-hidden="true">→</span></a>
   </div>
   <a class="cf-room-photo" href="../ideas/#climate-week" aria-label="See the New York Climate Week speaking engagement on Ideas &amp; Recognition">
@@ -315,7 +383,7 @@
   <div class="cf-proof-in">
     <div data-reveal>
       <div class="cf-proof-badge">Collaborators</div>
-      <p>Recent collaborators and partners include New_Public, AARP, New America, Made By Us, Democracy 2076, Georgetown's Red House, the Foundation for Social Connection, CoGenerate, and the National Conference on Citizenship.</p>
+      <p>Recent collaborators and partners include New_Public, AARP, New America, Made By Us, Democracy 2076, Georgetown's Red House, the Foundation for Social Connection, CoGenerate, and the National Conference on&nbsp;Citizenship.</p>
     </div>
     <div data-reveal data-reveal-delay="1">
       <a href="../portfolio/" class="btn btn-outline" style="border-color:rgba(245,241,232,.35); color:var(--bg);">See the full body of work <span class="arrow">→</span></a>
@@ -333,7 +401,7 @@
         <span></span>
         An evolving collaborative
       </div>
-      <p data-reveal data-reveal-delay="1">Conscious Futures is grounded in Kate Barranco's independent practice, and it's also an evolving space — partnering with organizations, artists, and change agents across disciplines and geographies, always relationally, always with curiosity.<br><br>What connects each project isn't the client; it's the practice.</p>
+      <p data-reveal data-reveal-delay="1">Conscious Futures is grounded in Kate Barranco's independent practice, and it's also an evolving space — partnering with organizations, artists, and change agents across disciplines and geographies, always relationally, always with&nbsp;curiosity.<br><br>What connects each project isn't the client; <span class="hl">it's&nbsp;the&nbsp;practice</span>.</p>
     </div>
     <img class="cf-collab-photo" src="assets/images/co-design-session.jpg" alt="Kate Barranco and a collaborator co-designing with paper and sticky notes" loading="lazy" data-reveal data-reveal-delay="2">
   </div>
@@ -351,7 +419,7 @@
       <span></span>
       Why this work
     </div>
-    <p data-reveal data-reveal-delay="1">This work is grounded in a specific set of beliefs about what makes change possible — and a broader framework for how we think about imagination, systems, and repair.</p>
+    <p data-reveal data-reveal-delay="1">This work is grounded in a specific set of beliefs about what makes change possible — and a broader framework for how we think about <span class="hl-dk">imagination, systems, and&nbsp;repair</span>.</p>
     <a href="../our-lens/" class="btn btn-light" data-reveal data-reveal-delay="2">Our Lens <span class="arrow">→</span></a>
   </div>
 </section>
@@ -362,7 +430,7 @@
 <footer class="footer">
   <div class="footer-logo">
     <img src="assets/images/logos/logo-white-full.png" alt="Conscious Futures Studio">
-    <p class="footer-tagline">"The future can't be predicted, but it can be envisioned and brought lovingly into being." — Donella Meadows</p>
+    <p class="footer-tagline">"The future can't be predicted, but it can be envisioned and brought lovingly into being." — Donella&nbsp;Meadows</p>
   </div>
 </footer>
 
