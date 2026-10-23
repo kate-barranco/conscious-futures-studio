@@ -7,8 +7,8 @@ const PAGE_SIZE = 60;
 const SEARCH_DEBOUNCE_MS = 340;
 
 const state = {
-  screen: "categories",
-  homeView: "lens",
+  screen: "browse",
+  homeView: "grid",
   activeCluster: null,
   query: "",
   activeTags: new Set(),
@@ -35,7 +35,7 @@ async function main() {
   animateCount(document.getElementById("odo-cats"), DATA.categoryOrder.length, 700);
 
   wireStaticEvents();
-  showCategoriesScreen();
+  showBrowseScreen();
 }
 
 /* ============================= SCREEN SWITCHING ============================= */
@@ -43,7 +43,46 @@ function showCategoriesScreen() {
   state.screen = "categories";
   document.getElementById("categories-screen").style.display = "";
   document.getElementById("browse-screen").style.display = "none";
+  document.getElementById("cat-section-label").textContent = state.homeView === "lens" ? "Explore by lens" : "Browse by theme";
   renderHomeContent();
+  updateExploreBar();
+}
+
+/* "Explore by" buttons: All resources / Lens / Theme */
+function updateExploreBar() {
+  let mode = null;
+  if (state.screen === "categories") mode = state.homeView === "lens" ? "lens" : "themes";
+  else if (state.screen === "browse" && !state.activeCluster) mode = "all";
+  // "← All themes" only makes sense while browsing inside one theme
+  document.querySelector(".back-row").style.display = state.screen === "browse" && state.activeCluster ? "" : "none";
+  document.querySelectorAll("#explore-bar .explore-btn").forEach((b) => {
+    const on = b.dataset.mode === mode;
+    b.classList.toggle("active", on);
+    b.setAttribute("aria-pressed", String(on));
+  });
+}
+
+function syncViewToggle() {
+  document.querySelectorAll("#view-toggle button").forEach((b) => b.classList.toggle("active", b.dataset.view === state.view));
+}
+
+function setExploreMode(mode) {
+  state.activeTags.clear();
+  state.activeTypes.clear();
+  state.query = "";
+  state.lensCluster = null;
+  state.lensSubgroupTag = null;
+  state.activeCluster = null;
+  state.page = 1;
+  document.getElementById("search-input").value = "";
+  document.getElementById("search-clear").classList.remove("show");
+  if (mode === "all") {
+    state.view = "grid";
+    showBrowseScreen();
+  } else {
+    state.homeView = mode === "lens" ? "lens" : "grid";
+    showCategoriesScreen();
+  }
 }
 
 function renderHomeContent() {
@@ -67,7 +106,9 @@ function showBrowseScreen() {
   state.screen = "browse";
   document.getElementById("categories-screen").style.display = "none";
   document.getElementById("browse-screen").style.display = "";
+  syncViewToggle();
   renderAll();
+  updateExploreBar();
 }
 
 function resetFiltersKeepCluster() {
@@ -378,20 +419,9 @@ function wireStaticEvents() {
     document.getElementById("search-input").value = "";
     showCategoriesScreen();
   });
-  document.getElementById("view-all-btn").addEventListener("click", () => {
-    state.activeCluster = null;
-    state.view = "grid";
-    state.lensCluster = null;
-    state.page = 1;
-    showBrowseScreen();
-  });
-  document.getElementById("home-view-toggle").addEventListener("click", (e) => {
-    const btn = e.target.closest("button[data-homeview]");
-    if (!btn) return;
-    document.querySelectorAll("#home-view-toggle button").forEach((b) => b.classList.remove("active"));
-    btn.classList.add("active");
-    state.homeView = btn.dataset.homeview;
-    renderHomeContent();
+  document.getElementById("explore-bar").addEventListener("click", (e) => {
+    const btn = e.target.closest(".explore-btn");
+    if (btn) setExploreMode(btn.dataset.mode);
   });
   updateSearchModeIndicator();
 }

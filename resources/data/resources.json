@@ -31484,5 +31484,33 @@
     ],
     "type_display": "Guide",
     "confidence": "high"
+  },
+  {
+    "id": "CFT-1141",
+    "title": "Map of the Metacrisis & Map of a More Beautiful World",
+    "url": "https://yourlocalplanet.org/map/",
+    "primary_category": "Systems Change, Design & Futures Thinking",
+    "categories": [
+      "Systems Change, Design & Futures Thinking",
+      "Hope & Empowerment"
+    ],
+    "type_normalized": "Other",
+    "type_raw_variants": [],
+    "note": "",
+    "extra_tag_text": "",
+    "hub": "",
+    "year": "",
+    "source_sheets": [
+      "Hand-added (Kate request — resource library additions, 2026-10-23)"
+    ],
+    "merged_from_count": 1,
+    "blurb": "Two interactive learning maps from Your Local Planet: one tracing how interconnected crises — from AI and arms races to addiction and aerosol loading — reinforce each other, and one imagining what a more beautiful world could look like.",
+    "tags": [
+      "Systems Change",
+      "Futures Thinking",
+      "Framework"
+    ],
+    "type_display": "Tool",
+    "confidence": "high"
   }
 ]
