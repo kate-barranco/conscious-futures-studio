@@ -31457,5 +31457,32 @@
     ],
     "type_display": "Article",
     "confidence": "high"
+  },
+  {
+    "id": "CFT-1140",
+    "title": "25 Story Structures: A Visual Guide to Storytelling Frameworks for Business Leaders",
+    "url": "https://www.betterstories.org/_files/ugd/9de62c_1ef3b0a60a7f43a9b22f26bb1df96b79.pdf",
+    "primary_category": "Storytelling for Social Change",
+    "categories": [
+      "Storytelling for Social Change"
+    ],
+    "type_normalized": "Other",
+    "type_raw_variants": [],
+    "note": "",
+    "extra_tag_text": "",
+    "hub": "",
+    "year": "2026",
+    "source_sheets": [
+      "Hand-added (Kate request — resource library additions, 2026-10-23)"
+    ],
+    "merged_from_count": 1,
+    "blurb": "Connell-Waite's visual guide to 25 story frameworks — from Pixar and the Hero's Journey to Kishōtenketsu and the Griot structure — each matched to the kind of story and audience it suits, as practical tools for choosing the right shape for a narrative.",
+    "tags": [
+      "Storytelling & Narrative",
+      "Framework",
+      "Facilitation Tool"
+    ],
+    "type_display": "Guide",
+    "confidence": "high"
   }
 ]
