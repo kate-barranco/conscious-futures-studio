@@ -31512,5 +31512,59 @@
     ],
     "type_display": "Tool",
     "confidence": "high"
+  },
+  {
+    "id": "CFT-1142",
+    "title": "Empathy as a dyadic process",
+    "url": "https://www.nature.com/articles/s44159-026-00624-4",
+    "primary_category": "Relationality, Connection & Community Health",
+    "categories": [
+      "Relationality, Connection & Community Health"
+    ],
+    "type_normalized": "Academic Paper",
+    "type_raw_variants": [],
+    "note": "",
+    "extra_tag_text": "",
+    "hub": "",
+    "year": "2026",
+    "source_sheets": [
+      "Hand-added (Kate request — resource library additions, 2026-10-23)"
+    ],
+    "merged_from_count": 1,
+    "blurb": "A Nature Reviews Psychology review by Genzer and Perry reframing empathy as a shared, ongoing exchange between two people — not something one person does to another — and mapping its cognitive, affective and motivational parts from both the empathizer's and the recipient's side.",
+    "tags": [
+      "Academic Research",
+      "Community Health"
+    ],
+    "type_display": "Academic Paper",
+    "confidence": "high"
+  },
+  {
+    "id": "CFT-1143",
+    "title": "The Neurocognitive Architecture of Human Anticipation",
+    "url": "https://www.affectiveforesight.com/p/the-neurocognitive-architecture-of",
+    "primary_category": "Systems Change, Design & Futures Thinking",
+    "categories": [
+      "Systems Change, Design & Futures Thinking",
+      "Imagination, Play & Creativity"
+    ],
+    "type_normalized": "Article",
+    "type_raw_variants": [],
+    "note": "",
+    "extra_tag_text": "",
+    "hub": "",
+    "year": "2026",
+    "source_sheets": [
+      "Hand-added (Kate request — resource library additions, 2026-10-23)"
+    ],
+    "merged_from_count": 1,
+    "blurb": "Anderson introduces Affective Foresight, a framework applying research on memory, emotion, bias, and neuropsychological variation to foresight practice — arguing that people's reactions to scenarios are part of how futures get imagined, not noise to remove.",
+    "tags": [
+      "Foresight Methodology",
+      "Futures Thinking",
+      "Framework"
+    ],
+    "type_display": "Article",
+    "confidence": "high"
   }
 ]
