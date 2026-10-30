@@ -31566,5 +31566,166 @@
     ],
     "type_display": "Article",
     "confidence": "high"
+  },
+  {
+    "id": "CFT-1144",
+    "title": "The Three Horizons Approach: Innovation Tools for Systems Transformation and Sustainable Futures",
+    "url": "https://link.springer.com/book/10.1007/978-3-032-19004-8",
+    "primary_category": "Systems Change, Design & Futures Thinking",
+    "categories": [
+      "Systems Change, Design & Futures Thinking",
+      "Imagination, Play & Creativity"
+    ],
+    "type_normalized": "Book",
+    "type_raw_variants": [],
+    "note": "",
+    "extra_tag_text": "",
+    "hub": "",
+    "year": "2026",
+    "source_sheets": [
+      "Hand-added (Kate request — resource library additions, 2026-10-30)"
+    ],
+    "merged_from_count": 1,
+    "blurb": "An open-access Springer volume offering the first comprehensive synthesis of the Three Horizons approach — a participatory framework for understanding how change happens in complex systems — with contributions from its co-originators, global case studies, and practical tools.",
+    "tags": [
+      "Futures Thinking",
+      "Systems Change",
+      "Framework"
+    ],
+    "type_display": "Book",
+    "confidence": "high"
+  },
+  {
+    "id": "CFT-1145",
+    "title": "Signals, Trends, Megatrends: How to Tell the Difference",
+    "url": "https://www.anticipate.dk/insights/signals-trends-megatrends-difference",
+    "primary_category": "Systems Change, Design & Futures Thinking",
+    "categories": [
+      "Systems Change, Design & Futures Thinking"
+    ],
+    "type_normalized": "Article",
+    "type_raw_variants": [],
+    "note": "",
+    "extra_tag_text": "",
+    "hub": "",
+    "year": "2026",
+    "source_sheets": [
+      "Hand-added (Kate request — resource library additions, 2026-10-30)"
+    ],
+    "merged_from_count": 1,
+    "blurb": "Bjørnhof's practical guide to the difference between weak signals, signals, trends, drivers and megatrends — arguing the conversation about what a phenomenon could mean matters more than the label you land on.",
+    "tags": [
+      "Foresight Methodology",
+      "Futures Thinking"
+    ],
+    "type_display": "Article",
+    "confidence": "high"
+  },
+  {
+    "id": "CFT-1146",
+    "title": "Innovation Systems as Imagination Infrastructure for Post-growth Futures",
+    "url": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7632558",
+    "primary_category": "Economy, Philanthropy & Wellbeing",
+    "categories": [
+      "Economy, Philanthropy & Wellbeing",
+      "Imagination, Play & Creativity"
+    ],
+    "type_normalized": "Academic Paper",
+    "type_raw_variants": [],
+    "note": "",
+    "extra_tag_text": "",
+    "hub": "",
+    "year": "2026",
+    "source_sheets": [
+      "Hand-added (Kate request — resource library additions, 2026-10-30)"
+    ],
+    "merged_from_count": 1,
+    "blurb": "Chakori uses a reflective case study of a post-growth Tool Library in Australia to argue that entrepreneurship programs can act as imagination infrastructure — and that innovation needs multiple narratives beyond the growth-driven model.",
+    "tags": [
+      "Economy & Wellbeing",
+      "Collective Imagination",
+      "Academic Research"
+    ],
+    "type_display": "Academic Paper",
+    "confidence": "high"
+  },
+  {
+    "id": "CFT-1147",
+    "title": "Institute of Behavioural Futures",
+    "url": "https://behaviouralfutures.com/",
+    "primary_category": "Systems Change, Design & Futures Thinking",
+    "categories": [
+      "Systems Change, Design & Futures Thinking"
+    ],
+    "type_normalized": "Resource Hub",
+    "type_raw_variants": [],
+    "note": "",
+    "extra_tag_text": "",
+    "hub": "",
+    "year": "",
+    "source_sheets": [
+      "Hand-added (Kate request — resource library additions, 2026-10-30)"
+    ],
+    "merged_from_count": 1,
+    "blurb": "An independent research and advisory initiative founded by Kristiina Paju that applies behavioural science and futures studies to the gap between intended futures and everyday behaviour, with courses, tools, and a free Futures Literacy MiniJournal.",
+    "tags": [
+      "Futures Thinking",
+      "Foresight Methodology",
+      "Framework"
+    ],
+    "type_display": "Resource Hub",
+    "confidence": "high"
+  },
+  {
+    "id": "CFT-1148",
+    "title": "Tesla Detectives: From Attention to Meaning and Action",
+    "url": "https://www.linkedin.com/posts/timeaton1_tesladetectivesstorytelling-meaningeconomy-share-7518859042434220032-5uC-/",
+    "primary_category": "Storytelling for Social Change",
+    "categories": [
+      "Storytelling for Social Change"
+    ],
+    "type_normalized": "Other",
+    "type_raw_variants": [],
+    "note": "",
+    "extra_tag_text": "",
+    "hub": "",
+    "year": "2026",
+    "source_sheets": [
+      "Hand-added (Kate request — resource library additions, 2026-10-30)"
+    ],
+    "merged_from_count": 1,
+    "blurb": "A LinkedIn post by Tim Eaton imagining a storytelling format where audiences don't just watch historical mysteries but work in teams to solve them — moving from attention toward meaning and action.",
+    "tags": [
+      "Storytelling & Narrative",
+      "Collective Imagination"
+    ],
+    "type_display": "Social Media Post",
+    "confidence": "high"
+  },
+  {
+    "id": "CFT-1149",
+    "title": "Consciousness is the only truly creative thing in the universe",
+    "url": "https://iai.tv/articles/consciousness-is-the-only-truly-creative-thing-in-the-universe-auid-3581",
+    "primary_category": "Imagination, Play & Creativity",
+    "categories": [
+      "Imagination, Play & Creativity"
+    ],
+    "type_normalized": "Article",
+    "type_raw_variants": [],
+    "note": "",
+    "extra_tag_text": "",
+    "hub": "",
+    "year": "2026",
+    "source_sheets": [
+      "Hand-added (Kate request — resource library additions, 2026-10-30)"
+    ],
+    "merged_from_count": 1,
+    "blurb": "Oxford philosopher Victoria Trumbull argues that in a universe driven by laws, consciousness is where genuine novelty arises — the space in which the possible becomes real.",
+    "tags": [
+      "Collective Imagination",
+      "Futures Thinking"
+    ],
+    "type_display": "Article",
+    "confidence": "high"
   }
 ]
