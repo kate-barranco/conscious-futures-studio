@@ -31727,5 +31727,252 @@
     ],
     "type_display": "Article",
     "confidence": "high"
+  },
+  {
+    "id": "CFT-1150",
+    "title": "Yes, Protest Still Works. Serbia Just Proved It.",
+    "url": "https://www.journalofdemocracy.org/online-exclusive/yes-protest-still-works-serbia-just-proved-it/",
+    "primary_category": "Government, Democracy & Polarization",
+    "categories": [
+      "Government, Democracy & Polarization",
+      "Hope & Empowerment"
+    ],
+    "type_normalized": "Article",
+    "type_raw_variants": [],
+    "note": "",
+    "extra_tag_text": "",
+    "hub": "",
+    "year": "2026",
+    "source_sheets": [
+      "Hand-added (Kate request — resource library additions, 2026-11-02)"
+    ],
+    "merged_from_count": 1,
+    "blurb": "Srdja Popovic argues that Serbia's student-led movement peacefully ousted a corrupt leader by turning protest into political power — pairing creativity with strategy, organization, and outreach — as evidence that nonviolent mass movements can still win.",
+    "tags": [
+      "Democracy",
+      "Civic Life",
+      "Hope & Empowerment"
+    ],
+    "type_display": "Article",
+    "confidence": "high"
+  },
+  {
+    "id": "CFT-1151",
+    "title": "France's outnumbered young people fight to get heard",
+    "url": "https://apnews.com/article/france-serbia-albania-protests-youth-baby-boomers-52faa74e83491652d3560f39b70ebc54",
+    "primary_category": "Gen Z, Youth Experience & Identity",
+    "categories": [
+      "Gen Z, Youth Experience & Identity",
+      "Government, Democracy & Polarization"
+    ],
+    "type_normalized": "Article",
+    "type_raw_variants": [],
+    "note": "",
+    "extra_tag_text": "",
+    "hub": "",
+    "year": "2026",
+    "source_sheets": [
+      "Hand-added (Kate request — resource library additions, 2026-11-02)"
+    ],
+    "merged_from_count": 1,
+    "blurb": "AP's John Leicester on French high schoolers protesting underfunded schools and uncertain futures — and how, in aging societies, young people no longer have the numbers that earlier generations had, even as youth movements rise from Serbia to Albania, India and Nepal.",
+    "tags": [
+      "Gen Z",
+      "Democracy",
+      "Civic Life"
+    ],
+    "type_display": "Article",
+    "confidence": "high"
+  },
+  {
+    "id": "CFT-1152",
+    "title": "Macron unveils $112B AI investment package, France's answer to US' Stargate",
+    "url": "https://techcrunch.com/2025/02/10/macron-unveils-a-112b-ai-investment-package-as-frances-answer-to-stargate",
+    "primary_category": "Tech, AI & Social Change",
+    "categories": [
+      "Tech, AI & Social Change",
+      "Economy, Philanthropy & Wellbeing"
+    ],
+    "type_normalized": "Article",
+    "type_raw_variants": [],
+    "note": "",
+    "extra_tag_text": "",
+    "hub": "",
+    "year": "2025",
+    "source_sheets": [
+      "Hand-added (Kate request — resource library additions, 2026-11-02)"
+    ],
+    "merged_from_count": 1,
+    "blurb": "TechCrunch on French president Emmanuel Macron's announcement of €109 billion (about $112 billion) in private investment in France's AI ecosystem, positioned as France's answer to the US Stargate project.",
+    "tags": [
+      "AI & Technology",
+      "Policy Innovation"
+    ],
+    "type_display": "Article",
+    "confidence": "high"
+  },
+  {
+    "id": "CFT-1153",
+    "title": "Record Numbers of Younger Women Want to Leave the U.S.",
+    "url": "https://news.gallup.com/poll/697382/record-numbers-younger-women-leave.aspx",
+    "primary_category": "Gen Z, Youth Experience & Identity",
+    "categories": [
+      "Gen Z, Youth Experience & Identity",
+      "Government, Democracy & Polarization"
+    ],
+    "type_normalized": "Report",
+    "type_raw_variants": [],
+    "note": "",
+    "extra_tag_text": "",
+    "hub": "",
+    "year": "2025",
+    "source_sheets": [
+      "Hand-added (Kate request — resource library additions, 2026-11-02)"
+    ],
+    "merged_from_count": 1,
+    "blurb": "Gallup analysis by Benedict Vigers and Julie Ray finding that the share of younger women in the U.S. who want to migrate permanently has surged over the past decade.",
+    "tags": [
+      "Gen Z",
+      "Gender & Sexuality"
+    ],
+    "type_display": "Report",
+    "confidence": "high"
+  },
+  {
+    "id": "CFT-1154",
+    "title": "The Labor Market for Recent College Graduates",
+    "url": "https://www.newyorkfed.org/research/college-labor-market",
+    "primary_category": "Economy, Philanthropy & Wellbeing",
+    "categories": [
+      "Economy, Philanthropy & Wellbeing",
+      "Gen Z, Youth Experience & Identity"
+    ],
+    "type_normalized": "Resource Hub",
+    "type_raw_variants": [],
+    "note": "",
+    "extra_tag_text": "",
+    "hub": "",
+    "year": "",
+    "source_sheets": [
+      "Hand-added (Kate request — resource library additions, 2026-11-02)"
+    ],
+    "merged_from_count": 1,
+    "blurb": "A Federal Reserve Bank of New York data resource tracking employment outcomes for new graduates and young workers.",
+    "tags": [
+      "Gen Z",
+      "Economy & Wellbeing"
+    ],
+    "type_display": "Resource Hub",
+    "confidence": "high"
+  },
+  {
+    "id": "CFT-1155",
+    "title": "Harvard Youth Poll, 51st Edition — Fall 2025",
+    "url": "https://iop.harvard.edu/youth-poll/51st-edition-fall-2025",
+    "primary_category": "Gen Z, Youth Experience & Identity",
+    "categories": [
+      "Gen Z, Youth Experience & Identity",
+      "Government, Democracy & Polarization"
+    ],
+    "type_normalized": "Report",
+    "type_raw_variants": [],
+    "note": "",
+    "extra_tag_text": "",
+    "hub": "",
+    "year": "2025",
+    "source_sheets": [
+      "Hand-added (Kate request — resource library additions, 2026-11-02)"
+    ],
+    "merged_from_count": 1,
+    "blurb": "The Harvard Kennedy School Institute of Politics poll of 18- to 29-year-olds, finding deep economic insecurity, eroding trust in democratic institutions, and growing social fragmentation — instability as a defining feature of young Americans' daily lives.",
+    "tags": [
+      "Gen Z",
+      "Democracy"
+    ],
+    "type_display": "Report",
+    "confidence": "high"
+  },
+  {
+    "id": "CFT-1156",
+    "title": "Opposition to Local Data Centers Rises Sharply, Annenberg Survey Finds",
+    "url": "https://www.annenbergpublicpolicycenter.org/opposition-to-local-data-centers-rises-sharply-annenberg-survey-finds/",
+    "primary_category": "Tech, AI & Social Change",
+    "categories": [
+      "Tech, AI & Social Change",
+      "Government, Democracy & Polarization"
+    ],
+    "type_normalized": "Report",
+    "type_raw_variants": [],
+    "note": "",
+    "extra_tag_text": "",
+    "hub": "",
+    "year": "2026",
+    "source_sheets": [
+      "Hand-added (Kate request — resource library additions, 2026-11-02)"
+    ],
+    "merged_from_count": 1,
+    "blurb": "An Annenberg Public Policy Center survey of 1,320 U.S. adults finding that 61% oppose new data centers in their area, up 12 points since spring, with opposition crossing party lines and highest among younger adults.",
+    "tags": [
+      "AI & Technology",
+      "Civic Life"
+    ],
+    "type_display": "Report",
+    "confidence": "high"
+  },
+  {
+    "id": "CFT-1157",
+    "title": "Meet the Gen Zers fighting back against AI data centers—70% of young adults don't want one in their town",
+    "url": "https://fortune.com/2026/10/29/meet-gen-z-fighting-back-against-data-centers/",
+    "primary_category": "Gen Z, Youth Experience & Identity",
+    "categories": [
+      "Gen Z, Youth Experience & Identity",
+      "Tech, AI & Social Change"
+    ],
+    "type_normalized": "Article",
+    "type_raw_variants": [],
+    "note": "",
+    "extra_tag_text": "",
+    "hub": "",
+    "year": "2026",
+    "source_sheets": [
+      "Hand-added (Kate request — resource library additions, 2026-11-02)"
+    ],
+    "merged_from_count": 1,
+    "blurb": "Fortune on young voters who say the AI buildout is driving up their bills and pricing them out of the future — packing council meetings days before the midterms as governors take notice.",
+    "tags": [
+      "Gen Z",
+      "AI & Technology",
+      "Civic Life"
+    ],
+    "type_display": "Article",
+    "confidence": "high"
+  },
+  {
+    "id": "CFT-1158",
+    "title": "2022 Election: Young Voters Have High Midterm Turnout, Influence Critical Races",
+    "url": "https://circle.tufts.edu/2022-election-center",
+    "primary_category": "Government, Democracy & Polarization",
+    "categories": [
+      "Government, Democracy & Polarization",
+      "Gen Z, Youth Experience & Identity"
+    ],
+    "type_normalized": "Report",
+    "type_raw_variants": [],
+    "note": "",
+    "extra_tag_text": "",
+    "hub": "",
+    "year": "2022",
+    "source_sheets": [
+      "Hand-added (Kate request — resource library additions, 2026-11-02)"
+    ],
+    "merged_from_count": 1,
+    "blurb": "Tufts CIRCLE's election center on the 2022 midterms, examining how young people used their power at the polls and the work still needed to ensure all youth are ready to participate in elections.",
+    "tags": [
+      "Gen Z",
+      "Democracy",
+      "Civic Life"
+    ],
+    "type_display": "Report",
+    "confidence": "high"
   }
 ]
