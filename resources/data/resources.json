@@ -32083,5 +32083,61 @@
     ],
     "type_display": "Article",
     "confidence": "high"
+  },
+  {
+    "id": "CFT-1163",
+    "title": "Envisioning AI futures: science fiction, the imagination gap, and its political consequences",
+    "url": "https://doi.org/10.1007/s00146-026-03236-x",
+    "primary_category": "Tech, AI & Social Change",
+    "categories": [
+      "Tech, AI & Social Change",
+      "Imagination, Play & Creativity"
+    ],
+    "type_normalized": "Academic Paper",
+    "type_raw_variants": [],
+    "note": "",
+    "extra_tag_text": "",
+    "hub": "",
+    "year": "2026",
+    "source_sheets": [
+      "Hand-added (Kate request — resource library additions, 2026-11-02)"
+    ],
+    "merged_from_count": 1,
+    "blurb": "A review in AI & Society by Vicsek and Pinter, drawing on interviews with 60 young adults, identifying an \"AI futures imagination gap\": dystopian AI futures are vivid and richly resourced by science fiction, while positive futures lack comparable narrative templates — with consequences for public deliberation.",
+    "tags": [
+      "AI & Technology",
+      "Collective Imagination",
+      "Futures Thinking"
+    ],
+    "type_display": "Academic Paper",
+    "confidence": "high"
+  },
+  {
+    "id": "CFT-1164",
+    "title": "Manufacturing Pessimism: Structural Incentives and Social Psychology's Narrative of Human Nature",
+    "url": "https://journals.sagepub.com/doi/full/10.1177/17456916261458313",
+    "primary_category": "Hope & Empowerment",
+    "categories": [
+      "Hope & Empowerment",
+      "Storytelling for Social Change"
+    ],
+    "type_normalized": "Academic Paper",
+    "type_raw_variants": [],
+    "note": "",
+    "extra_tag_text": "",
+    "hub": "",
+    "year": "2026",
+    "source_sheets": [
+      "Hand-added (Kate request — resource library additions, 2026-11-02)"
+    ],
+    "merged_from_count": 1,
+    "blurb": "Jan-Erik Lönnqvist argues in Perspectives on Psychological Science that social psychology's pessimistic narratives of human nature — obedience, cruelty, bias — are structurally produced by incentives in publishing, media and pedagogy, and that reform requires asking whom a deficit-focused discipline serves.",
+    "tags": [
+      "Academic Research",
+      "Storytelling & Narrative",
+      "Hope & Empowerment"
+    ],
+    "type_display": "Academic Paper",
+    "confidence": "high"
   }
 ]
