@@ -32055,5 +32055,33 @@
     ],
     "type_display": "Academic Paper",
     "confidence": "high"
+  },
+  {
+    "id": "CFT-1162",
+    "title": "Our culture needs to defeat dystopia",
+    "url": "https://iai.tv/articles/our-culture-needs-to-defeat-dystopia-auid-3599",
+    "primary_category": "Storytelling for Social Change",
+    "categories": [
+      "Storytelling for Social Change",
+      "Hope & Empowerment"
+    ],
+    "type_normalized": "Article",
+    "type_raw_variants": [],
+    "note": "",
+    "extra_tag_text": "",
+    "hub": "",
+    "year": "2026",
+    "source_sheets": [
+      "Hand-added (Kate request — resource library additions, 2026-11-02)"
+    ],
+    "merged_from_count": 1,
+    "blurb": "Philosopher of science Samuel McKee argues that dystopian anxiety leaves younger generations paralysed by despair, and that the real barrier to a brighter future is cultural, not scientific — calling on filmmakers, writers and educators to translate breakthroughs into narratives of a solvable future.",
+    "tags": [
+      "Storytelling & Narrative",
+      "Hope & Empowerment",
+      "Futures Thinking"
+    ],
+    "type_display": "Article",
+    "confidence": "high"
   }
 ]
