@@ -31974,5 +31974,86 @@
     ],
     "type_display": "Report",
     "confidence": "high"
+  },
+  {
+    "id": "CFT-1159",
+    "title": "The Protopian Fiction Prize 2026: Analysis Report",
+    "url": "https://drive.google.com/file/d/1F-dqGzk4BOp2PZ0ZlregW3zvpd3E01mV/view",
+    "primary_category": "Storytelling for Social Change",
+    "categories": [
+      "Storytelling for Social Change",
+      "Imagination, Play & Creativity"
+    ],
+    "type_normalized": "Report",
+    "type_raw_variants": [],
+    "note": "",
+    "extra_tag_text": "",
+    "hub": "",
+    "year": "2026",
+    "source_sheets": [
+      "Hand-added (Kate request — resource library additions, 2026-11-02)"
+    ],
+    "merged_from_count": 1,
+    "blurb": "Analysis of the inaugural Protopian Fiction Prize — over 700 stories imagining public AI and democratic futures — by Ruthanna Emrys Gordon, Val Elefante, Suzette Brooks Masters, and Gideon Lichfield, finding citizen assemblies the most common democratic innovation depicted and knowledge management systems the most common public AI theme.",
+    "tags": [
+      "Storytelling & Narrative",
+      "Collective Imagination",
+      "Democracy"
+    ],
+    "type_display": "Report",
+    "confidence": "high"
+  },
+  {
+    "id": "CFT-1160",
+    "title": "Why Relational Thinking Is Becoming Visible Now",
+    "url": "https://alicejingshan.substack.com/p/why-relational-thinking-is-becoming",
+    "primary_category": "Tech, AI & Social Change",
+    "categories": [
+      "Tech, AI & Social Change",
+      "Relationality, Connection & Community Health"
+    ],
+    "type_normalized": "Article",
+    "type_raw_variants": [],
+    "note": "",
+    "extra_tag_text": "",
+    "hub": "",
+    "year": "2026",
+    "source_sheets": [
+      "Hand-added (Kate request — resource library additions, 2026-11-02)"
+    ],
+    "merged_from_count": 1,
+    "blurb": "Alice Jing Shan argues that AI is making relational thinking newly visible because the old unit of analysis — the isolated person, tool, or system — is breaking down, and that AI should be understood less as a tool than as a condition that reshapes the field in which reasoning happens.",
+    "tags": [
+      "AI & Technology",
+      "Systems Change"
+    ],
+    "type_display": "Article",
+    "confidence": "high"
+  },
+  {
+    "id": "CFT-1161",
+    "title": "Integrating Systems Thinking and Behavioural Science",
+    "url": "https://www.mdpi.com/2076-328X/15/4/403",
+    "primary_category": "Systems Change, Design & Futures Thinking",
+    "categories": [
+      "Systems Change, Design & Futures Thinking"
+    ],
+    "type_normalized": "Academic Paper",
+    "type_raw_variants": [],
+    "note": "",
+    "extra_tag_text": "",
+    "hub": "",
+    "year": "2025",
+    "source_sheets": [
+      "Hand-added (Kate request — resource library additions, 2026-11-02)"
+    ],
+    "merged_from_count": 1,
+    "blurb": "A Behavioral Sciences review by Parkinson and colleagues arguing that complex societal problems need behavioural science and systems thinking together — individual decision-making insights paired with an understanding of feedback loops — with design thinking as a bridge between the two.",
+    "tags": [
+      "Systems Change",
+      "Academic Research"
+    ],
+    "type_display": "Academic Paper",
+    "confidence": "high"
   }
 ]
