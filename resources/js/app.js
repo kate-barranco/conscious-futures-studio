@@ -10,6 +10,7 @@ const state = {
   screen: "browse",
   homeView: "grid",
   activeCluster: null,
+  recent: false,
   query: "",
   activeTags: new Set(),
   activeTypes: new Set(),
@@ -52,6 +53,7 @@ function showCategoriesScreen() {
 function updateExploreBar() {
   let mode = null;
   if (state.screen === "categories") mode = state.homeView === "lens" ? "lens" : "themes";
+  else if (state.screen === "browse" && state.recent) mode = "recent";
   else if (state.screen === "browse" && !state.activeCluster) mode = "all";
   // "← All themes" only makes sense while browsing inside one theme
   document.querySelector(".back-row").style.display = state.screen === "browse" && state.activeCluster ? "" : "none";
@@ -73,10 +75,11 @@ function setExploreMode(mode) {
   state.lensCluster = null;
   state.lensSubgroupTag = null;
   state.activeCluster = null;
+  state.recent = mode === "recent";
   state.page = 1;
   document.getElementById("search-input").value = "";
   document.getElementById("search-clear").classList.remove("show");
-  if (mode === "all") {
+  if (mode === "all" || mode === "recent") {
     state.view = "grid";
     showBrowseScreen();
   } else {
@@ -122,7 +125,19 @@ function resetFiltersKeepCluster() {
 }
 
 /* ============================= FILTER / SEARCH LOGIC ============================= */
+const RECENT_COUNT = 20;
+let recentCache = null;
+function recentResources() {
+  // Newest additions have the highest CFT-#### ids
+  if (!recentCache) {
+    const num = (r) => parseInt(String(r.id).replace(/\D/g, ""), 10) || 0;
+    recentCache = DATA.resources.slice().sort((a, b) => num(b) - num(a)).slice(0, RECENT_COUNT);
+  }
+  return recentCache;
+}
+
 function scopedResources() {
+  if (state.recent) return recentResources();
   // Resources within the active category (if any) -- used as the base for
   // both filtering and for computing tag/type counts.
   return state.activeCluster ? DATA.resources.filter((r) => r.categories.includes(state.activeCluster)) : DATA.resources;
@@ -200,6 +215,7 @@ function renderFilters() {
 
 function renderBrowsingLabel(count, total) {
   const parts = [];
+  if (state.recent) parts.push("Recent adds — the 20 latest");
   if (state.activeCluster) parts.push(state.activeCluster);
   if (state.activeTags.size) parts.push([...state.activeTags].join(", "));
   if (state.activeTypes.size) parts.push([...state.activeTypes].join(", "));
@@ -345,6 +361,7 @@ function updateSearchModeIndicator() {
 async function handleSearchInput(value) {
   state.query = value;
   state.page = 1;
+  if (state.query && state.recent) { state.recent = false; updateExploreBar(); }
   document.getElementById("search-clear").classList.toggle("show", !!state.query);
 
   if (state.query && state.screen === "categories") {
@@ -412,6 +429,7 @@ function wireStaticEvents() {
   });
   document.getElementById("back-to-categories").addEventListener("click", () => {
     state.activeCluster = null;
+    state.recent = false;
     state.activeTags.clear();
     state.activeTypes.clear();
     state.query = "";
