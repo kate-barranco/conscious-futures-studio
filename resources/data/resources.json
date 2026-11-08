@@ -32139,5 +32139,33 @@
     ],
     "type_display": "Academic Paper",
     "confidence": "high"
+  },
+  {
+    "id": "CFT-1165",
+    "title": "Climate Decisions: New Horizons — A Governance Scenarios Explorer",
+    "url": "https://climate-decisions.cfg.eu/",
+    "primary_category": "Systems Change, Design & Futures Thinking",
+    "categories": [
+      "Systems Change, Design & Futures Thinking",
+      "Government, Democracy & Polarization"
+    ],
+    "type_normalized": "Other",
+    "type_raw_variants": [],
+    "note": "",
+    "extra_tag_text": "",
+    "hub": "",
+    "year": "",
+    "source_sheets": [
+      "Hand-added (Kate request — resource library additions, 2026-11-08)"
+    ],
+    "merged_from_count": 1,
+    "blurb": "An interactive scenario explorer from CFG in which players act as head of state of a fictional country weighing sovereignty, alliances, and public trust as climate intervention technologies emerge — built from a year of research on plausible futures, for solo play or facilitated group sessions, with trade-offs rather than a winning outcome.",
+    "tags": [
+      "Futures Thinking",
+      "Policy Innovation",
+      "Facilitation Tool"
+    ],
+    "type_display": "Tool",
+    "confidence": "high"
   }
 ]
