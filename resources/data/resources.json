@@ -32167,5 +32167,61 @@
     ],
     "type_display": "Tool",
     "confidence": "high"
+  },
+  {
+    "id": "CFT-1166",
+    "title": "Decolonising through the body with Kaia Hawkins",
+    "url": "https://www.youtube.com/watch?v=EkcduC1Ybwk",
+    "primary_category": "Individual Healing Practice & Applied Somatics",
+    "categories": [
+      "Individual Healing Practice & Applied Somatics",
+      "Intergenerational Trauma & Trauma-Informed Practice"
+    ],
+    "type_normalized": "Video/Talk",
+    "type_raw_variants": [],
+    "note": "",
+    "extra_tag_text": "",
+    "hub": "",
+    "year": "2026",
+    "source_sheets": [
+      "Hand-added (Kate request — resource library additions, 2026-11-08)"
+    ],
+    "merged_from_count": 1,
+    "blurb": "A Social Design Sydney session with embodiment teacher Kaia Hawkins exploring how colonial patterns and values become internalised in the body, using somatic movement practice as a site for resistance, repair, and re-indigenisation.",
+    "tags": [
+      "Somatics & Embodiment",
+      "Decolonial Thinking",
+      "Healing Practice"
+    ],
+    "type_display": "Video/Talk",
+    "confidence": "high"
+  },
+  {
+    "id": "CFT-1167",
+    "title": "Young voters supported Democrats in midterms in reversal from 2024",
+    "url": "https://apnews.com/article/young-voters-democrats-republicans-midterms-gen-z-70dc21f87d633f6936faf0200922bc57",
+    "primary_category": "Gen Z, Youth Experience & Identity",
+    "categories": [
+      "Gen Z, Youth Experience & Identity",
+      "Government, Democracy & Polarization"
+    ],
+    "type_normalized": "Article",
+    "type_raw_variants": [],
+    "note": "",
+    "extra_tag_text": "",
+    "hub": "",
+    "year": "2026",
+    "source_sheets": [
+      "Hand-added (Kate request — resource library additions, 2026-11-08)"
+    ],
+    "merged_from_count": 1,
+    "blurb": "AP's analysis of the AP Voter Poll of more than 100,000 midterm voters, showing voters under 30 swinging sharply toward Democrats and reversing the Republican gains among young voters in 2024, with young voters describing economic frustration and a first real urge to vote.",
+    "tags": [
+      "Gen Z",
+      "Democracy",
+      "Civic Life"
+    ],
+    "type_display": "Article",
+    "confidence": "high"
   }
 ]
