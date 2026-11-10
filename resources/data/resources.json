@@ -32223,5 +32223,33 @@
     ],
     "type_display": "Article",
     "confidence": "high"
+  },
+  {
+    "id": "CFT-1168",
+    "title": "Corners of the Internet: 2027 Signal Map | Digital Culturist",
+    "url": "https://corners.digitalculturist.ai/map",
+    "primary_category": "Systems Change, Design & Futures Thinking",
+    "categories": [
+      "Systems Change, Design & Futures Thinking",
+      "Social Media, Attention Economy & Youth MH"
+    ],
+    "type_normalized": "Other",
+    "type_raw_variants": [],
+    "note": "",
+    "extra_tag_text": "",
+    "hub": "",
+    "year": "2026",
+    "source_sheets": [
+      "Hand-added (Kate request — resource library additions, 2026-11-10)"
+    ],
+    "merged_from_count": 1,
+    "blurb": "Digital Culturist's Edition 01 signal report: a strategist-curated map of the cultural signals that will reshape how people live, consume, and create in 2027, with each contributor naming one signal. Access is by email sign-in.",
+    "tags": [
+      "Futures Thinking",
+      "Foresight Methodology",
+      "Social Media & Attention Economy"
+    ],
+    "type_display": "Report",
+    "confidence": "high"
   }
 ]
