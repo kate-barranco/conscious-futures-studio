@@ -454,22 +454,6 @@ button{font-family:inherit;cursor:pointer}
 .modal-soon{font-family:'JetBrains Mono',monospace;font-size:.6rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-mute);padding:.42em .95em;border:1px dashed var(--line);border-radius:99px;display:inline-block;margin-bottom:.9rem}
 .modal-status{font-family:'JetBrains Mono',monospace;font-size:.58rem;letter-spacing:.09em;text-transform:uppercase;color:var(--orange);margin-top:.5rem}
 
-/* ADMIN */
-.admin-fab{position:fixed;bottom:1.5rem;right:1.5rem;z-index:400;width:48px;height:48px;border-radius:50%;background:var(--orange);color:var(--cream);border:none;font-size:1.3rem;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 4px 16px rgba(231,82,19,.42);transition:transform .2s}
-.admin-fab:hover{transform:scale(1.08)}
-.admin-panel{position:fixed;bottom:5rem;right:1.5rem;z-index:400;width:330px;max-height:76vh;overflow-y:auto;background:var(--paper);border-radius:6px;box-shadow:0 18px 55px -10px rgba(26,26,24,.36);border:1px solid var(--line);display:none}
-.admin-panel.open{display:block}
-.admin-ph{padding:1.1rem 1.2rem .65rem;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between}
-.admin-ph h3{font-family:'Fraunces',serif;font-size:.98rem;font-weight:400;font-variation-settings:"opsz" 144,"SOFT" 30;letter-spacing:-.01em}
-.admin-xb{background:none;border:none;font-size:1rem;cursor:pointer;color:var(--ink-mute);padding:.2rem}
-.admin-body{padding:1.1rem}
-.admin-body label{display:block;font-family:'JetBrains Mono',monospace;font-size:.57rem;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-mute);margin-bottom:.28rem;margin-top:.82rem}
-.admin-body label:first-of-type{margin-top:0}
-.admin-body input,.admin-body textarea{width:100%;background:var(--warm);border:1px solid var(--line);border-radius:2px;padding:.48rem .62rem;font-family:'Inter Tight',sans-serif;font-size:.84rem;color:var(--ink);resize:vertical}
-.admin-body textarea{height:72px}
-.admin-save{margin-top:1.1rem;width:100%;padding:.6rem;background:var(--ink);color:var(--cream);border:none;border-radius:2px;font-family:'JetBrains Mono',monospace;font-size:.6rem;letter-spacing:.09em;text-transform:uppercase;cursor:pointer;transition:background .2s}
-.admin-save:hover{background:var(--navy)}
-.admin-note{font-size:.74rem;color:var(--ink-mute);line-height:1.5;margin-top:.65rem;font-style:italic}
 
 /* SCROLL REVEAL */
 [data-r]{opacity:0;transform:translateY(18px);transition:opacity .7s cubic-bezier(.16,1,.3,1),transform .7s cubic-bezier(.16,1,.3,1)}
@@ -502,7 +486,6 @@ button{font-family:inherit;cursor:pointer}
   .tstrip-in{grid-template-columns:1fr;gap:2.5rem}
   .collab-grid{grid-template-columns:1fr 1fr}
   .footer-in{grid-template-columns:1fr;gap:2rem}
-  .admin-panel{width:calc(100vw - 2rem);right:1rem}
 }
 @media(max-width:480px){.collab-grid{grid-template-columns:1fr}.hero-stats{grid-template-columns:1fr 1fr}}
 
@@ -830,22 +813,6 @@ var IMGS = {
   </div>
 </div>
 
-<!-- ADMIN FAB -->
-<button class="admin-fab" id="admin-fab" title="Add project (admin only)" aria-label="Admin panel">＋</button>
-<div class="admin-panel" id="admin-panel">
-  <div class="admin-ph"><h3>Add project</h3><button class="admin-xb" id="admin-xb">×</button></div>
-  <div class="admin-body">
-    <label>Project title</label><input type="text" id="a-title" placeholder="Title">
-    <label>Collaborator / Partner</label><input type="text" id="a-collab" placeholder="Org or person">
-    <label>Format(s) — comma separated</label><input type="text" id="a-fmt" placeholder="research, framework">
-    <label>Themes — comma separated</label><input type="text" id="a-themes" placeholder="civic, futures, healing">
-    <label>Description</label><textarea id="a-desc" placeholder="Short description..."></textarea>
-    <label>Primary link URL</label><input type="text" id="a-url" placeholder="https://...">
-    <label>Primary link label</label><input type="text" id="a-lbl" placeholder="View project ↗">
-    <button class="admin-save" id="admin-save">Add to portfolio</button>
-    <div class="admin-note">Session only. To save permanently, paste entry into the P array in the source code.</div>
-  </div>
-</div>
 <script>
 /* ── IMAGE DATA (base64 set at runtime) ── */
 window.addEventListener('DOMContentLoaded',function(){
@@ -1567,31 +1534,6 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeModal()
 
 /* ── SCROLL REVEAL ── */
 (function(){var els=document.querySelectorAll('[data-r]');if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('vis');});return;}var obs=new IntersectionObserver(function(entries){entries.forEach(function(en){if(en.isIntersecting){en.target.classList.add('vis');obs.unobserve(en.target);}});},{threshold:.08});els.forEach(function(e){obs.observe(e);});})();
-
-/* ── ADMIN ── */
-(function(){
-  var fab=document.getElementById('admin-fab'),panel=document.getElementById('admin-panel'),xb=document.getElementById('admin-xb'),save=document.getElementById('admin-save');
-  if(!fab)return;
-  fab.addEventListener('click',function(){panel.classList.toggle('open');});
-  if(xb)xb.addEventListener('click',function(){panel.classList.remove('open');});
-  if(save)save.addEventListener('click',function(){
-    var title=document.getElementById('a-title').value.trim();if(!title)return alert('Please enter a title.');
-    var fmts=document.getElementById('a-fmt').value.split(',').map(function(s){return s.trim();}).filter(Boolean);
-    var themes=document.getElementById('a-themes').value.split(',').map(function(s){return s.trim();}).filter(Boolean);
-    var lu=document.getElementById('a-url').value.trim(),ll=document.getElementById('a-lbl').value.trim();
-    var np={id:'custom-'+Date.now(),num:(P.length+1)+'',title:title,collab:document.getElementById('a-collab').value.trim()||'—',formats:fmts.length?fmts:['research'],themes:themes.length?themes:['civic'],desc:document.getElementById('a-desc').value.trim(),outcomes:[]};
-    if(lu)np.links=[{url:lu,label:ll||'View ↗',primary:true}];
-    P.push(np);PMAP[np.id]=np;
-    var grid=document.getElementById('proj-grid'),c=document.createElement('button');
-    c.className='pcard';c.setAttribute('data-f',np.formats.join(' '));c.setAttribute('data-t',np.themes.join(' '));c.dataset.modal=np.id;c.setAttribute('aria-label','Open '+np.title);
-    var tl=np.themes.slice(0,2).map(function(t){return THEMES[t]?THEMES[t].label:t;});
-    c.innerHTML='<div class="pc-hd">'+pills(np.formats.slice(0,2))+'<span class="pc-num">'+np.num+'</span></div><h3>'+np.title+'</h3><p class="pc-collab">'+np.collab+'</p><div class="pc-foot"><div style="display:flex;flex-wrap:wrap;gap:.26rem">'+tags(tl)+'</div><span class="pc-arr">→</span></div>';
-    c.addEventListener('click',function(){openModal(np.id);});if(grid)grid.appendChild(c);
-    ['a-title','a-collab','a-fmt','a-themes','a-desc','a-url','a-lbl'].forEach(function(id){var el=document.getElementById(id);if(el)el.value='';});
-    panel.classList.remove('open');alert('Project "'+title+'" added for this session. To save permanently, add it to the P array in the HTML source.');
-  });
-})();
-
 
 /* ── SEARCH & PARTNER FILTER ── */
 var activePartner='all';
