@@ -33134,5 +33134,33 @@
     ],
     "type_display": "Video/Talk",
     "confidence": "medium"
+  },
+  {
+    "id": "CFT-1201",
+    "title": "Rethinking Prefiguration: Between Radical Imagination and Imaginal Politics | Aris Komporozos-Athanasiou & Chiara Bottici",
+    "url": "https://bristoluniversitypressdigital.com/edcollchap/book/9781529215687/ch004.xml",
+    "primary_category": "Imagination, Play & Creativity",
+    "categories": [
+      "Imagination, Play & Creativity",
+      "Systems Change, Design & Futures Thinking"
+    ],
+    "type_normalized": "Academic Paper",
+    "type_raw_variants": [],
+    "note": "",
+    "extra_tag_text": "",
+    "hub": "",
+    "year": "2022",
+    "source_sheets": [
+      "Hand-added (Kate request, 2026-11-12)"
+    ],
+    "merged_from_count": 1,
+    "blurb": "Book chapter (pp. 65-75, in The Future Is Now: An Introduction to Prefigurative Politics, ed. Lara Monticelli, Bristol University Press) on how prefiguration and imagination connect, developing \"radical imagination\" as the capacity to produce visions of the future that materially shape an uncertain present.",
+    "tags": [
+      "Collective Imagination",
+      "Futures Thinking",
+      "Academic Research"
+    ],
+    "type_display": "Academic Paper",
+    "confidence": "medium"
   }
 ]
