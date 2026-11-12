@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>About Conscious Futures — Conscious Futures Studio</title>
-  <meta name="description" content="Conscious Futures is a research and strategy studio exploring civic and social imagination, helping civic and nonprofit organizations build it into frameworks, stories, and programs.">
+  <meta name="description" content="Conscious Futures is a research and strategy studio exploring civic and social imagination, helping civic and nonprofit organizations build it into research, strategy, stories, programs, and futures practice.">
   <meta property="og:title" content="About Conscious Futures">
   <meta property="og:description" content="The studio: what it does, who it's for, and how to work together.">
   <meta property="og:type" content="website">
@@ -151,9 +151,9 @@
       .cf-what-head p{ padding-left:1.1rem; }
     }
     .cf-cap-grid{
-      display:grid; grid-template-columns:repeat(2,1fr); gap:1.25rem;
+      display:grid; grid-template-columns:repeat(6,1fr); gap:1.25rem;
     }
-    .cf-cap-card{
+    .cf-cap-card{ grid-column:span 2;
       position:relative; overflow:hidden;
       border-radius:var(--radius);
       padding:2rem 2rem 2.25rem;
@@ -169,15 +169,17 @@
     }
     .cf-cap-card:hover::after{ transform:scale(1.35); }
     .cf-cap-icon{ position:absolute; top:1.7rem; right:1.9rem; width:40px; height:40px; opacity:.6; z-index:1; }
-    .cf-cap-card--gold .cf-cap-icon{ opacity:.7; }
+    .cf-cap-card--narr .cf-cap-icon{ opacity:.7; }
     .cf-cap-card:hover{ transform:translateY(-5px); box-shadow:0 18px 40px rgba(26,26,24,.16); }
-    .cf-cap-card--navy{   background:linear-gradient(135deg, var(--navy) 0%, #262d78 100%);   color:var(--bg); }
-    .cf-cap-card--green{  background:linear-gradient(135deg, var(--green) 0%, #5d9a7c 100%);  color:var(--bg); }
-    .cf-cap-card--gold{   background:linear-gradient(135deg, var(--thread-gold) 0%, #ddb968 100%); color:var(--ink); }
-    .cf-cap-card--purple{ background:linear-gradient(135deg, var(--purple) 0%, #a3169f 100%);  color:var(--bg); }
+    .cf-cap-card:nth-child(n+4){ grid-column:span 3; }
+    .cf-cap-card--res{  background:linear-gradient(135deg, #E75213 0%, #f07a3f 100%); color:var(--bg); }
+    .cf-cap-card--des{  background:linear-gradient(135deg, #2F5DA8 0%, #4f7cc4 100%); color:var(--bg); }
+    .cf-cap-card--strat{ background:linear-gradient(135deg, var(--purple) 0%, #a3169f 100%);  color:var(--bg); }
+    .cf-cap-card--narr{ background:linear-gradient(135deg, var(--thread-gold) 0%, #ddb968 100%); color:var(--ink); }
+    .cf-cap-card--fut{  background:linear-gradient(135deg, #2D4A3E 0%, #4a7a64 100%);  color:var(--bg); }
     .cf-cap-num{
       font-family:'JetBrains Mono', monospace; font-size:.72rem; letter-spacing:.09em;
-      opacity:.65; margin-bottom:1.5rem;
+      opacity:.75; margin-bottom:1.1rem; line-height:1.5; text-transform:uppercase; font-size:.68rem; padding-right:3.2rem; text-wrap:balance;
     }
     .cf-cap-card h3{
       font-family:'Fraunces', serif; font-size:1.4rem; font-weight:400;
@@ -188,8 +190,10 @@
     p, h1, h2, h3, blockquote, li{ text-wrap:pretty; }
     /* balance spreads words evenly so no line ends up with just a couple of words */
     p, h1, h2, h3, blockquote, li, .footer-tagline{ text-wrap:balance; }
-    .cf-cap-card--gold p{ opacity:.78; }
-    @media (max-width:800px){ .cf-cap-grid{ grid-template-columns:1fr; } }
+    .cf-cap-card--narr p{ opacity:.78; }
+    @media (max-width:1000px){ .cf-cap-grid{ grid-template-columns:repeat(2,1fr); } .cf-cap-card, .cf-cap-card:nth-child(n+4){ grid-column:span 1; } .cf-cap-card:last-child{ grid-column:span 2; } }
+    @media (max-width:700px){ .cf-cap-grid{ grid-template-columns:1fr; } .cf-cap-card:last-child{ grid-column:span 1; } }
+    .cf-what-close a{ color:var(--orange,#E75213); text-decoration:underline; text-underline-offset:3px; white-space:nowrap; }
     .cf-what-close{ margin-top:2.25rem; font-size:1.02rem; color:var(--ink-soft); max-width:60ch; font-style:italic; font-family:'Fraunces', serif; font-variation-settings:"opsz" 144,"SOFT" 70; }
 
     /* ---- STATEMENT BAND ---- */
@@ -302,37 +306,43 @@
   <div class="cf-what-in">
     <div class="cf-what-head" data-reveal>
       <h2>What we <em>do</em>.</h2>
-      <p>Conscious Futures is a research and strategy studio exploring <span class="hl">civic and social imagination</span>: how people picture a shared future, what shapes it, and whether they believe they can help build it. We help civic and nonprofit organizations build that imagination into <span class="hl">frameworks, stories,&nbsp;and&nbsp;programs</span>.</p>
+      <p>Conscious Futures is a research and strategy studio exploring <span class="hl">civic and social imagination</span>: how people picture a shared future, what shapes it, and whether they believe they can help build it. We help civic and nonprofit organizations build that imagination into <span class="hl">research, strategy, stories, programs,&nbsp;and&nbsp;futures&nbsp;practice</span>.</p>
     </div>
 
     <div class="cf-cap-grid">
-      <div class="cf-cap-card cf-cap-card--navy" data-reveal data-reveal-delay="1">
+      <div class="cf-cap-card cf-cap-card--res" data-reveal data-reveal-delay="1">
         <svg class="cf-cap-icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="17" cy="17" r="10"/><path d="M24.5 24.5 34 34"/></svg>
-        <div class="cf-cap-num">01 — Sensemaking</div>
-        <h3>Research &amp; Synthesis</h3>
-        <p>Interviews, landscape scans, and survey synthesis on how people actually picture the future, and what's driving that&nbsp;picture.</p>
+        <div class="cf-cap-num">Research · Evaluation · Synthesis · Field studies</div>
+        <h3>Research</h3>
+        <p>Interviews, landscape scans, evaluation, and field studies on how people actually picture the future, and what’s driving that&nbsp;picture.</p>
       </div>
-      <div class="cf-cap-card cf-cap-card--green" data-reveal data-reveal-delay="2">
-        <svg class="cf-cap-icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 14h26M27 8.5 32.5 14 27 19.5"/><path d="M34 27H8M13 21.5 7.5 27 13 32.5"/></svg>
-        <div class="cf-cap-num">02 — Translation</div>
-        <h3>Frameworks &amp; Knowledge Tools</h3>
-        <p>Frameworks, learning tools, and public resources that turn research into something people can learn from and act&nbsp;on.</p>
-      </div>
-      <div class="cf-cap-card cf-cap-card--gold" data-reveal data-reveal-delay="3">
-        <svg class="cf-cap-icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c-4.2-3-10-3.2-15-2v23c5-1.2 10.8-1 15 2 4.2-3 10-3.2 15-2V8c-5-1.2-10.8-1-15 2z"/><path d="M20 10v23"/></svg>
-        <div class="cf-cap-num">03 — Narrative Change</div>
-        <h3>Narrative &amp; Story</h3>
-        <p>Narrative strategy, exhibits, and reports that widen the range of futures people can picture and see themselves&nbsp;in.</p>
-      </div>
-      <div class="cf-cap-card cf-cap-card--purple" data-reveal data-reveal-delay="4">
+      <div class="cf-cap-card cf-cap-card--des" data-reveal data-reveal-delay="2">
         <svg class="cf-cap-icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="20" cy="11" r="4.5"/><circle cx="9.5" cy="29" r="4.5"/><circle cx="30.5" cy="29" r="4.5"/><path d="M17.5 15 12 25M22.5 15 28 25M14 29h12"/></svg>
-        <div class="cf-cap-num">04 — Design &amp; Facilitation</div>
-        <h3>Programs &amp; Convenings</h3>
-        <p>Fellowships, curricula, and workshops that turn a room of people into real collective thinking, and give them practice shaping what comes&nbsp;next.</p>
+        <div class="cf-cap-num">Experience design · Workshops &amp; convenings · Curriculum · Fellowships</div>
+        <h3>Design &amp; Facilitation</h3>
+        <p>Workshops, curricula, and fellowships that turn a room of people into real collective thinking, and give them practice shaping what comes&nbsp;next.</p>
+      </div>
+      <div class="cf-cap-card cf-cap-card--strat" data-reveal data-reveal-delay="3">
+        <svg class="cf-cap-icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 14h26M27 8.5 32.5 14 27 19.5"/><path d="M34 27H8M13 21.5 7.5 27 13 32.5"/></svg>
+        <div class="cf-cap-num">Strategy · Frameworks · Advocacy · Advisory &amp; boards</div>
+        <h3>Strategy</h3>
+        <p>Frameworks, advocacy, and advisory work that turn research into something organizations can act&nbsp;on.</p>
+      </div>
+      <div class="cf-cap-card cf-cap-card--narr" data-reveal data-reveal-delay="4">
+        <svg class="cf-cap-icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c-4.2-3-10-3.2-15-2v23c5-1.2 10.8-1 15 2 4.2-3 10-3.2 15-2V8c-5-1.2-10.8-1-15 2z"/><path d="M20 10v23"/></svg>
+        <div class="cf-cap-num">Narrative strategy · Narrative change · Storytelling · Publications · Editorial series</div>
+        <h3>Narrative</h3>
+        <p>Narrative strategy, narrative change, storytelling, and publications that widen the range of futures people can picture and see themselves&nbsp;in.</p>
+      </div>
+      <div class="cf-cap-card cf-cap-card--fut" data-reveal data-reveal-delay="5">
+        <svg class="cf-cap-icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="20" cy="20" r="4"/><path d="M20 4v6M20 30v6M4 20h6M30 20h6M9 9l4 4M27 27l4 4M31 9l-4 4M13 27l-4 4"/></svg>
+        <div class="cf-cap-num">Scenarios · Futures literacy · Foresight coalitions · Futures training</div>
+        <h3>Futuring</h3>
+        <p>Scenarios, futures literacy, and foresight coalitions and training that build the capacity to imagine what comes&nbsp;next.</p>
       </div>
     </div>
 
-    <p class="cf-what-close" data-reveal data-reveal-delay="5">The shape of an engagement follows the question — sometimes a focused sprint, sometimes an ongoing&nbsp;partnership.</p>
+    <p class="cf-what-close" data-reveal data-reveal-delay="6">Five intertwined threads: most projects weave two or three. The shape of an engagement follows the question, sometimes a focused sprint, sometimes an ongoing&nbsp;partnership. <a href="../portfolio/">See the work&nbsp;&rarr;</a></p>
   </div>
 </section>
 
