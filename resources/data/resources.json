@@ -33106,5 +33106,33 @@
     ],
     "type_display": "Report",
     "confidence": "medium"
+  },
+  {
+    "id": "CFT-1200",
+    "title": "A Brand Strategist's Guide To Culture | Jasmine Bina",
+    "url": "https://www.youtube.com/watch?v=m3LRm_iBdOY",
+    "primary_category": "Storytelling for Social Change",
+    "categories": [
+      "Storytelling for Social Change",
+      "Systems Change, Design & Futures Thinking"
+    ],
+    "type_normalized": "Video/Talk",
+    "type_raw_variants": [],
+    "note": "",
+    "extra_tag_text": "",
+    "hub": "",
+    "year": "2026",
+    "source_sheets": [
+      "Hand-added (Kate request, 2026-11-12)"
+    ],
+    "merged_from_count": 1,
+    "blurb": "Longform video from brand strategist Jasmine Bina on \"psychotechnology\": the big ideas, market conditioning, and outdated units of culture that shape what people believe is possible, and how brands can reshape the measures people use to understand their lives.",
+    "tags": [
+      "Storytelling & Narrative",
+      "Identity & Culture",
+      "Collective Imagination"
+    ],
+    "type_display": "Video/Talk",
+    "confidence": "medium"
   }
 ]
