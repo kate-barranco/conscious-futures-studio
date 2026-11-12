@@ -33162,5 +33162,89 @@
     ],
     "type_display": "Academic Paper",
     "confidence": "medium"
+  },
+  {
+    "id": "CFT-1202",
+    "title": "Imagining, Designing and Teaching Regenerative Futures: Art-Science Approaches and Inspirations From Around the World | Julia Bentz & Jelena Ristić Trajković (eds.)",
+    "url": "https://link.springer.com/book/10.1007/978-981-96-9029-9",
+    "primary_category": "Systems Change, Design & Futures Thinking",
+    "categories": [
+      "Systems Change, Design & Futures Thinking",
+      "Imagination, Play & Creativity"
+    ],
+    "type_normalized": "Book",
+    "type_raw_variants": [],
+    "note": "",
+    "extra_tag_text": "",
+    "hub": "",
+    "year": "2025",
+    "source_sheets": [
+      "Hand-added (Kate request, 2026-11-12)"
+    ],
+    "merged_from_count": 1,
+    "blurb": "Open-access edited volume (Springer, Science for Sustainable Societies) presenting 65 art-science methods for imagining, designing and teaching regenerative futures, building capacities like imagination, empathy, critical reflection and collaboration for societal transformation.",
+    "tags": [
+      "Futures Thinking",
+      "Collective Imagination",
+      "Facilitation Tool"
+    ],
+    "type_display": "Book",
+    "confidence": "medium"
+  },
+  {
+    "id": "CFT-1203",
+    "title": "Carceral Fictions & Abolitionist Realities | Lauren Williams (Respair)",
+    "url": "https://www.respairmedia.com/carceral-fictions-abolitionist-realities",
+    "primary_category": "Racial Equity, Reproductive Justice & Gender",
+    "categories": [
+      "Racial Equity, Reproductive Justice & Gender",
+      "Storytelling for Social Change"
+    ],
+    "type_normalized": "Podcast",
+    "type_raw_variants": [],
+    "note": "",
+    "extra_tag_text": "",
+    "hub": "",
+    "year": "",
+    "source_sheets": [
+      "Hand-added (Kate request, 2026-11-12)"
+    ],
+    "merged_from_count": 1,
+    "blurb": "Limited podcast series of narrative essays by Lauren Williams, with Detroit-based organizers and futurists working to abolish police and prisons, examining the narratives that sustain punishment and offering abolitionist realities and brief dispatches from abolitionist futures.",
+    "tags": [
+      "Racial Equity",
+      "Storytelling & Narrative",
+      "Collective Imagination"
+    ],
+    "type_display": "Podcast",
+    "confidence": "medium"
+  },
+  {
+    "id": "CFT-1204",
+    "title": "The Archive and the Repertoire: Performing Cultural Memory in the Americas | Diana Taylor",
+    "url": "https://palestinianstudies.wordpress.com/wp-content/uploads/2017/01/taylor-the-archive-and-the-reportoire.pdf",
+    "primary_category": "Art & Healing",
+    "categories": [
+      "Art & Healing",
+      "Storytelling for Social Change"
+    ],
+    "type_normalized": "Book",
+    "type_raw_variants": [],
+    "note": "",
+    "extra_tag_text": "",
+    "hub": "",
+    "year": "2003",
+    "source_sheets": [
+      "Hand-added (Kate request, 2026-11-12)"
+    ],
+    "merged_from_count": 1,
+    "blurb": "Diana Taylor's book (Duke University Press, 2003) on how cultural memory and identity are passed on through embodied performance, the \"repertoire\", as well as through documents and archives, and what that means for who gets remembered.",
+    "tags": [
+      "Storytelling & Narrative",
+      "Identity & Culture",
+      "Academic Research"
+    ],
+    "type_display": "Book",
+    "confidence": "medium"
   }
 ]
