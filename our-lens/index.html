@@ -31,15 +31,15 @@
   /* ── Accent ── */
   --accent: #E75213;      /* brand orange */
 
-  /* ── Thread palette — reconciled to match the portfolio's finalized
-        7-theme retag (kate-barranco.github.io/conscious-futures-portfolio) ── */
-  --thread-civic:           #1A1F5B;   /* deep navy — new: civic imagination & democratic futures */
-  --thread-imagination:     #800287;   /* brand purple — futures & foresight */
-  --thread-leadership:      #3B6FBF;   /* steel blue — relational leadership */
-  --thread-intergenerational: #8B6B4A; /* warm taupe — intergenerational */
-  --thread-technology:      #E75213;   /* brand orange — tech & society */
-  --thread-healing:         #4A7B62;   /* sage green — wellbeing & healing */
-  --thread-youth:           #3A6B8A;   /* slate blue — youth / gen z */
+  /* ── Thread palette — the five spokes match the portfolio's five themes;
+        imagination + story are the through-lines that run through all of them ── */
+  --thread-civic:           #5B6EF5;   /* Democracy & Civic Life */
+  --thread-learning:        #9B7EDB;   /* Learning, Work & Leadership */
+  --thread-technology:      #2A9D8F;   /* Technology, Media & Society */
+  --thread-healing:         #D0587E;   /* Healing & Belonging */
+  --thread-intergenerational: #C49A6C; /* Intergenerational */
+  --thread-imagination:     #B66FCB;   /* through-line: imagination */
+  --thread-story:           #B66FCB;   /* through-line: story (same as imagination) */
 }
 
 * { margin:0; padding:0; box-sizing:border-box; }
@@ -67,7 +67,7 @@ body::before {
   position: fixed; top: 0; left: 0;
   width: 100%; height: 100%;
   pointer-events: none; z-index: 1;
-  opacity: 1;
+  opacity: 0.82;
 }
 
 /* ── LAYOUT ── */
@@ -597,6 +597,12 @@ body::before {
   font-size: .85rem; color: var(--ink2); line-height: 1.75;
 }
 .threads-lead em { font-style: italic; color: #FFE9C7; }
+.threads-through { display:flex; flex-wrap:wrap; justify-content:center; align-items:center; gap:.45rem .5rem; margin-top:1.4rem; }
+.tt-label { flex-basis:100%; font-size:.58rem; letter-spacing:.16em; text-transform:uppercase; color:var(--ink3); margin-bottom:.3rem; }
+.tt-pill { font-size:.68rem; letter-spacing:.03em; padding:.28rem .8rem; border-radius:20px; border:1px solid rgba(182,111,203,.5); color:#D9B3E6; background:rgba(128,2,135,.12); }
+.mm-center-sub { font-size:.52rem; letter-spacing:.08em; text-transform:uppercase; color:rgba(255,233,199,.6); margin-top:.45rem; line-height:1.4; }
+.mm-detail-mission { font-family:'Fraunces',serif; font-style:italic; font-size:.8rem; line-height:1.5; color:#FFE9C7; border-left:2px solid var(--mc, #E75213); padding:.1rem 0 .1rem .75rem; margin:0 0 1rem; }
+.mm-detail-mission b { display:block; font-family:inherit; font-style:normal; font-weight:400; font-size:.54rem; letter-spacing:.16em; text-transform:uppercase; color:rgba(255,233,199,.55); margin-bottom:.25rem; }
 
 /* ═══════════════════════ VISION HERO ═══════════════════════ */
 .vision-hero {
@@ -724,21 +730,59 @@ body::before {
 .vh-value-panel-body p { margin: 0; }
 .vh-bridge {
   position: relative; z-index: 0;
-  font-size: .82rem; line-height: 1.8; color: rgba(245,241,232,0.92);
-  text-align: left; max-width: 100%; margin: 0;
-  border-top: 0.5px solid rgba(245,241,232,0.18);
-  padding: 1.9rem 1.8rem 1.5rem;
+  margin: 1.4rem 0 0; text-align: left; max-width: 100%;
+  padding: 1.7rem 1.9rem 1.8rem;
+  border: 1px solid rgba(255,233,199,.55);
+  border-radius: 12px;
+  box-shadow: 0 0 0 4px rgba(255,201,102,.08), 0 18px 50px -18px rgba(255,201,102,.45);
 }
 .vh-bridge::before {
   content: '';
-  position: absolute; z-index: -1;
-  top: 0.55rem; left: 0; right: 0; bottom: 0;
-  background: linear-gradient(100deg, rgba(255,201,102,0.26) 0%, rgba(255,201,102,0.13) 100%);
-  border-radius: 10px;
+  position: absolute; z-index: -1; inset: 0;
+  background: linear-gradient(100deg, rgba(255,201,102,0.38) 0%, rgba(255,201,102,0.16) 100%);
+  border-radius: 12px;
   transform: scaleX(0); transform-origin: left center;
   transition: transform 1.1s cubic-bezier(.65,0,.35,1) .3s;
 }
 .reveal.in .vh-bridge::before { transform: scaleX(1); }
+.vh-bridge-label {
+  display: inline-block; margin-bottom: .7rem;
+  font-size: .68rem; font-weight: 600; letter-spacing: .22em; text-transform: uppercase;
+  color: #1A1F5B; background: #FFE9C7; border-radius: 99px; padding: .32rem .85rem;
+}
+.vh-bridge-text {
+  margin: 0; font-family: 'Fraunces', serif; font-weight: 400;
+  font-size: clamp(1.1rem, 1.9vw, 1.38rem); line-height: 1.45; color: #FFF7E8;
+  font-variation-settings: "opsz" 144, "SOFT" 40;
+}
+/* "widen the frame" — a frame that opens outward when the section reveals, then keeps breathing */
+.vh-widen { position: relative; display: inline-block; white-space: nowrap; padding: 0 .1em; }
+.vh-widen-txt {
+  position: relative; z-index: 1; display: inline-block;
+  font-family: 'Fraunces', serif; font-style: italic; font-weight: 500;
+  color: #FFE9C7; letter-spacing: 0; font-size: 1.12em;
+  transition: letter-spacing 1.4s cubic-bezier(.22,1,.36,1) 1.2s;
+}
+.vh-widen::before, .vh-widen::after {
+  content: ''; position: absolute; top: 50%; left: 50%;
+  border: 1.5px solid #FFE9C7; border-radius: 6px;
+  width: 100%; height: 100%; transform: translate(-50%,-50%) scale(1);
+  opacity: 0; pointer-events: none;
+}
+.reveal.in .vh-widen-txt { letter-spacing: .07em; }
+.reveal.in .vh-widen::before { animation: vhFrame 4.2s cubic-bezier(.22,1,.36,1) 1.2s infinite; }
+.reveal.in .vh-widen::after { animation: vhFrame 4.2s cubic-bezier(.22,1,.36,1) 2.3s infinite; }
+@keyframes vhFrame {
+  0%   { opacity: .9; transform: translate(-50%,-50%) scale(1,1); }
+  70%  { opacity: 0;  transform: translate(-50%,-50%) scale(1.7,2.6); }
+  100% { opacity: 0;  transform: translate(-50%,-50%) scale(1.7,2.6); }
+}
+@media (max-width: 480px) { .vh-widen { white-space: normal; } }
+@media (prefers-reduced-motion: reduce) {
+  .vh-widen-txt { transition: none; letter-spacing: .07em; }
+  .vh-widen::before, .vh-widen::after { animation: none !important; opacity: 0; }
+  .vh-widen { border-bottom: 2px solid #FFE9C7; }
+}
 .vh-explore {
   font-size: .82rem; line-height: 1.7; text-align: center;
   max-width: 600px; margin: .9rem auto 0;
@@ -922,7 +966,7 @@ body::before {
           </div>
           <p class="vh-thesis">
             We believe the future is not fixed — it is shaped by how we pay attention, what we imagine, and how we act together.
-            Conscious Futures exists to interrupt the single, narrowing story that treats the future as inevitable, extractive, or already lost — and widen the frame.
+            Conscious Futures exists to interrupt the single, narrowing story that treats the future as inevitable, extractive, or already lost — and <span class="vh-widen"><span class="vh-widen-txt">widen the frame</span></span>.
           </p>
         </div>
 
@@ -934,7 +978,7 @@ body::before {
           <div class="vh-values">
             <div class="vh-value">
               <button type="button" class="vh-value-trigger" aria-expanded="false">
-                <span class="vh-value-num">01</span><span class="vh-value-headline">Imagination is a precondition for change.</span>
+                <span class="vh-value-num">01</span><span class="vh-value-headline">Begin by listening.</span>
               </button>
               <div class="vh-value-desc-src"><p>We begin by listening to the stories people carry, because being heard is what makes room to imagine.</p></div>
             </div>
@@ -974,10 +1018,10 @@ body::before {
               <div class="vh-value-panel-body"><p id="vh-value-panel-text"></p></div>
             </div>
           </div>
-          <p class="vh-bridge">
-            Our commitment: to practice conscious, collective ways of relating — so repair is shared, imagination is practical,
-            and the future becomes something we build together.
-          </p>
+          <div class="vh-bridge">
+            <span class="vh-bridge-label">Our commitment</span>
+            <p class="vh-bridge-text">To practice conscious, collective ways of relating — so repair is shared, imagination is practical, and the future becomes something we build together.</p>
+          </div>
         </div>
       </div>
 
@@ -994,24 +1038,25 @@ body::before {
   <!-- THREADS -->
   <div class="threads-intro reveal">
     <div class="threads-eyebrow">the six signals above converge into</div>
-    <h2 class="threads-heading">Seven threads, one web</h2>
+    <h2 class="threads-heading">Five threads, one mission</h2>
     <p class="threads-lead">
-      No single thread shapes the future alone — imagination without leadership stays theoretical, technology without
-      healing extracts, intergenerational thinking without youth becomes nostalgia. This is
-      <em>designing from the intersections, consciously</em> — click a thread
-      below, then click any connection inside it to see exactly where the real work lives.
+      Every thread serves the same mission: <em>imagination as a practical, collective discipline</em>. Democracy needs it,
+      learning and leadership build it, technology and media shape it, healing makes room for it, and each generation
+      hands it on. Click a thread below, then click any connection inside it to see exactly where the real work lives.
     </p>
+    <div class="threads-through" aria-label="Through-lines running through every thread">
+      <span class="tt-label">running through all five</span>
+      <span class="tt-pill">imagination</span><span class="tt-pill">story</span><span class="tt-pill">futures &amp; foresight</span><span class="tt-pill">agency</span><span class="tt-pill">power</span><span class="tt-pill">action</span><span class="tt-pill">relational practice</span>
+    </div>
   </div>
 
   <!-- Thread nav strip -->
   <div class="thread-nav-strip" id="thread-nav">
-    <button class="tnav-pill" data-thread="civic" onclick="selectThread('civic')">civic imagination & democratic futures</button>
-    <button class="tnav-pill" data-thread="imagination" onclick="selectThread('imagination')">futures & foresight</button>
-    <button class="tnav-pill" data-thread="leadership" onclick="selectThread('leadership')">relational leadership</button>
+    <button class="tnav-pill" data-thread="civic" onclick="selectThread('civic')">democracy & civic life</button>
+    <button class="tnav-pill" data-thread="learning" onclick="selectThread('learning')">learning, work & leadership</button>
+    <button class="tnav-pill" data-thread="technology" onclick="selectThread('technology')">technology, media & society</button>
+    <button class="tnav-pill" data-thread="healing" onclick="selectThread('healing')">healing & belonging</button>
     <button class="tnav-pill" data-thread="intergenerational" onclick="selectThread('intergenerational')">intergenerational</button>
-    <button class="tnav-pill" data-thread="technology" onclick="selectThread('technology')">tech & society</button>
-    <button class="tnav-pill" data-thread="healing" onclick="selectThread('healing')">wellbeing & healing</button>
-    <button class="tnav-pill" data-thread="youth" onclick="selectThread('youth')">youth / gen z</button>
   </div>
 
   <!-- Desktop spatial map (>=769px) -->
@@ -1021,10 +1066,11 @@ body::before {
       <div class="mm-canvas" id="mm-canvas">
         <svg class="mm-lines" id="mm-lines"></svg>
         <div class="mm-center" id="mm-center" onclick="focusThreadMap(null)">
-          <div class="mm-center-label">the vision</div>
+          <div class="mm-center-label">the mission</div>
           <div class="mm-center-text">Imagination as a practical, collective discipline.</div>
+          <div class="mm-center-sub">story · agency · power · action</div>
         </div>
-        <!-- 7 .mm-node elements injected by JS from THREADS -->
+        <!-- 5 .mm-node elements injected by JS from THREADS -->
       </div>
       <div class="mm-detail" id="mm-detail"></div>
     </div>
@@ -1049,128 +1095,97 @@ body::before {
 <script>
 // ─── THREAD DATA (single source of truth — renders both the desktop map and the mobile accordion) ──
 const THREAD_COLORS = {
-  civic:'#1A1F5B', imagination:'#800287', leadership:'#3B6FBF',
-  intergenerational:'#8B6B4A', technology:'#E75213',
-  healing:'#4A7B62', youth:'#3A6B8A'
+  civic:'#5B6EF5', learning:'#9B7EDB', technology:'#2A9D8F',
+  healing:'#D0587E', intergenerational:'#C49A6C'
 };
 
 const PORTFOLIO_URL = '../portfolio/';
 
+// Five spokes — the same five themes the portfolio is organised around — all serving one central
+// mission: imagination as a practical, collective discipline. Futures/foresight, story, agency,
+// power, action and relational practice are the through-lines that run through every spoke.
 const THREADS = [
   {
     id: 'civic', color: 'var(--thread-civic)',
-    navLabel: 'civic imagination & democratic futures', shortLabel: 'civic imagination',
+    navLabel: 'democracy & civic life', shortLabel: 'democracy & civic life',
+    mission: "Imagination becomes public when people can practice shaping the systems they live inside.",
     title: "Democracy is not something we inherit finished — it's a story we keep imagining our way into.",
     question: "What happens to democratic futures when most people have nowhere left to practice civic imagination at all?",
     ideas: [
       { tag:'civic imagination', expand:'Civic imagination is the felt sense that collective life can still be authored, not just endured — that people can shape the systems they are inside of.' },
       { tag:'democracy as practice', expand:'Democracy is not a spectator sport. It is rehearsed, muscle by muscle, in the small decisions of everyday civic life — or it atrophies.' },
       { tag:'public imagination infrastructure', expand:'Civic imagination is public infrastructure: something a society builds and maintains — or lets fall into disrepair, like a bridge no one is tending.' },
-      { tag:'young people as co-authors', expand:'Young people are not future stakeholders waiting their turn. They are already co-authoring democratic life, with lived expertise in the systems they are inheriting.' }
+      { tag:'futures as a public conversation', expand:'The futures we can conceive set the ceiling on what we will attempt to build. Who gets to imagine them — and be heard — is a democratic question.' }
     ],
-    body: "Democracy is not something that happens to us — it is a story we have to keep imagining our way into, together. Civic imagination is the felt sense that collective life can still be authored, not just endured: that people can shape the systems they're inside of, across generations and across difference. When that imaginative capacity atrophies — when civic life starts to feel like spectatorship rather than authorship — democratic futures narrow with it. This thread treats civic imagination as public infrastructure, practiced by the young people already building it, not just inheriting it.",
+    body: "Democracy is not something that happens to us — it is a story we have to keep imagining our way into, together. Civic imagination is the felt sense that collective life can still be authored, not just endured: that people can shape the systems they're inside of, across generations and across difference. When that imaginative capacity atrophies — when civic life starts to feel like spectatorship rather than authorship — democratic futures narrow with it. This thread treats civic imagination as public infrastructure, practiced by the people already building it, not just inheriting it.",
     work: [
-      { label:'Civic Health AI Index (NCoC)', url: PORTFOLIO_URL },
-      { label:'New_Public — AI & Civic Conversation', url:'https://newpublic.org/afterthefeed' },
+      { label:'Civic Health AI Index (NCoC)', url:'https://civicaiaudit.org/' },
+      { label:'New America — Operationalizing Imagination', url:'https://www.newamerica.org/insights/operationalizing-imagination/' },
+      { label:'Democracy 2076', url: PORTFOLIO_URL },
       { label:'ReThink Citizen', url: PORTFOLIO_URL }
     ],
-    connections: ['imagination','technology','youth']
+    connections: ['learning','technology','healing','intergenerational']
   },
   {
-    id: 'imagination', color: 'var(--thread-imagination)',
-    navLabel: 'futures & foresight', shortLabel: 'futures & foresight',
-    title: "The futures we can imagine are the only futures we'll build.",
-    question: "So what happens when we've stopped imagining?",
+    id: 'learning', color: 'var(--thread-learning)',
+    navLabel: 'learning, work & leadership', shortLabel: 'learning, work & leadership',
+    mission: "Imagination becomes capacity when it is taught, practiced, and led — not left to talent or luck.",
+    title: "How we learn, work, and lead together shapes what everyone around us can become.",
+    question: "Are we building learners and leaders for the world we have — or the world we need?",
     ideas: [
       { tag:'futures literacy', expand:'Futures literacy is a learnable skill — the capacity to imagine multiple plausible futures instead of one inevitable one, and to use that range to act differently now.' },
-      { tag:'story shapes reality', expand:'The futures we can conceive set the ceiling on what we will attempt to build. The stories we rehearse become the futures we enact.' },
-      { tag:'possibility as discipline', expand:'Imagination is not soft — it is infrastructure. It can be cultivated, protected, and practiced like any other discipline.' },
-      { tag:'imagination as infrastructure', expand:'Before policies are written, before institutions are built, there is imagination: the capacity to envision what does not yet exist.' }
+      { tag:'imagination as a discipline', expand:'Imagination is not soft. It can be cultivated, protected, and practiced like any other discipline — in classrooms, workplaces, and organizations.' },
+      { tag:'curiosity as practice', expand:'Curious leadership treats not-knowing as a starting point, not a weakness — a civic practice as much as a personal one.' },
+      { tag:'relational leadership', expand:'The relational dimension of leadership — holding paradox, staying in relationship under pressure — is the mechanism by which change either sustains or collapses.' }
     ],
-    body: "Imagination is not soft — it is infrastructure. Before policies are written, before institutions are built, there is imagination: the capacity to envision what does not yet exist. The futures we can conceive set the ceiling on what we will attempt to build. This thread asks how we cultivate, protect, and share imaginative capacity equitably — especially when systems actively narrow it.",
+    body: "Imagination is not a talent some people have — it is a capacity, and capacities are built. Futures literacy, curiosity, and the ability to hold paradox can all be learned and practiced, in schools, in workplaces, and in the way leaders show up for the people around them. Leadership is not just a role; it is a set of relational practices that shape how communities experience change. This thread asks who gets to develop that capacity, and what it would take to build it before crisis arrives, not after.",
     work: [
       { label:'Experiential Futures Sandbox', url: PORTFOLIO_URL },
-      { label:'New America — Operationalizing Imagination', url:'https://www.newamerica.org/insights/operationalizing-imagination/' },
-      { label:'Democracy 2076', url: PORTFOLIO_URL }
-    ],
-    connections: ['leadership','civic','technology'],
-    openQuestion: {
-      q: "Why is dystopia the only story we tell about the future — and what does that cost us?",
-      body: "When 92% of future-set media portrays collapse, control, or catastrophe, what imaginative range are we actually operating with? The stories we rehearse become the futures we enact. Dystopia as the only frame is not realism — it is a failure of collective imagination with direct civic consequences. What would it take to make hopeful futures feel as compelling as collapse?"
-    }
-  },
-  {
-    id: 'leadership', color: 'var(--thread-leadership)',
-    navLabel: 'relational leadership', shortLabel: 'relational leadership',
-    title: "How leaders navigate complexity shapes what everyone around them can become.",
-    question: "Are we building leaders for the world we have — or the world we need?",
-    ideas: [
-      { tag:'curiosity as civic practice', expand:'Curious leadership treats not-knowing as a starting point, not a weakness — a civic practice as much as a personal one.' },
-      { tag:'holding paradox', expand:'The relational dimension of leadership is the mechanism by which change either sustains or collapses under pressure.' },
-      { tag:'healing leadership', expand:'Healing leadership builds conditions for repair, not just performance — leaders whose institutions survive complexity.' },
-      { tag:'neuroscience of change', expand:'The neuroscience and sociology of how people exercise influence, hold paradox, and stay in relationship under pressure.' }
-    ],
-    body: "Leadership is not just a role — it is a set of practices that shape how communities experience change. Curious leadership. Healing leadership. The neuroscience and sociology of how people exercise influence, hold paradox, and stay in relationship under pressure. The relational dimension is not optional — it is the mechanism by which change either sustains or collapses.",
-    work: [
       { label:'Curiosity Mobile / Scott Shigeoka', url: PORTFOLIO_URL },
       { label:'Early Years Leadership Diversity Initiative', url: PORTFOLIO_URL }
     ],
-    connections: ['imagination','healing','intergenerational'],
+    connections: ['civic','technology','healing','intergenerational'],
     openQuestion: {
       q: "What does it mean to lead — or make change — when the map runs out?",
       body: "The challenges people face today — ecological breakdown, democratic erosion, AI's reshaping of work and relationship — are genuinely novel. They have no precedent, no clear playbook. That means the most important capacity is not expertise in a known domain — it is the ability to stay curious, stay in relationship, and keep imagining in conditions of uncertainty. That is a learnable skill. It is also a design challenge."
     }
   },
   {
-    id: 'intergenerational', color: 'var(--thread-intergenerational)',
-    navLabel: 'intergenerational', shortLabel: 'intergenerational',
-    title: "Every generation is both inheriting something and passing something forward.",
-    question: "Are we conscious of what that is?",
+    id: 'technology', color: 'var(--thread-technology)',
+    navLabel: 'technology, media & society', shortLabel: 'technology, media & society',
+    mission: "Imagination is widened or narrowed by the technologies and stories we absorb — so we ask who is writing them.",
+    nodeTitle: "Technology and media are writing the futures we can picture.",
+    title: "Technology and media are writing the futures we can picture — and most of those choices were never conscious.",
+    question: "What would it mean to make them so?",
     ideas: [
-      { tag:'ancestral thinking', expand:'We exist inside a long story — one that began before us and will continue after us.' },
-      { tag:'generational trauma + repair', expand:'This thread takes seriously the biological, cultural, and civic transmission of both harm and possibility.' },
-      { tag:'civic voice across age', expand:'What does it mean to make decisions as if future generations are already in the room?' },
-      { tag:'what we inherit', expand:'What have previous generations passed forward — their visions, their traumas, their unfinished work — and what are we metabolizing right now?' }
+      { tag:'story shapes reality', expand:'The stories we rehearse become the futures we enact. What a generation sees on screen sets the ceiling on what it believes is possible.' },
+      { tag:'attention as a resource', expand:'Attention is being shaped and extracted — platforms that capture attention shape the imaginative ceiling of an entire generation.' },
+      { tag:'AI as social force', expand:"AI is becoming a social role in young people's lives, with design choices that shape relational behavior and emotional development." },
+      { tag:'paradox of connection', expand:'Tools designed to connect us are producing epidemic loneliness. Holding tech with intention, not fear.' }
     ],
-    body: "Intergenerational is not just \"youngers and olders in a room.\" It is the recognition that we exist inside a long story — one that began before us and will continue after us. What have previous generations passed forward: their visions, their traumas, their unfinished work? What are we metabolizing right now, and what will we leave behind? This thread takes seriously the biological, cultural, and civic transmission of both harm and possibility — and asks what it means to make decisions as if future generations are already in the room.",
+    body: "Technology and media are not separate domains — they are woven through questions of imagination, democracy, healing, and intergenerational wellbeing. They are also where most people now get their stories about the future. Attention is a resource being shaped and extracted; AI is becoming a social role in young people's lives; tools designed to connect us are producing epidemic loneliness. This thread holds tech and media with intention, not fear — and asks what it would take to design them for the futures we want rather than the ones engagement rewards.",
     work: [
-      { label:'CoGenerate / CoGen Voices', url: PORTFOLIO_URL },
-      { label:'Trauma-Informed Publication (ADVANCE)', url: PORTFOLIO_URL }
+      { label:'New_Public / AI & Civic Conversation', url:'https://newpublic.org/afterthefeed' },
+      { label:'Harmony Labs — Narrative R&D Lab', url: PORTFOLIO_URL },
+      { label:'Online & IRL — Conscious Tech Research', url: PORTFOLIO_URL }
     ],
-    connections: ['healing','youth','leadership'],
+    connections: ['civic','learning','healing','intergenerational'],
     openQuestion: {
-      q: "What do we owe the generations who come after us — and how would we design differently if we took that seriously?",
-      body: "Intergenerational responsibility is rarely built into how we make decisions — in institutions, in policy, in design. We optimize for the immediate. But every choice we make is an inheritance: a set of conditions, norms, stories, and systems that future generations will inhabit without having been asked. What would it mean to design with them in mind — not as recipients of our solutions, but as co-authors of what comes next?"
+      q: "Why is dystopia the only story we tell about the future — and what does that cost us?",
+      body: "When 92% of future-set media portrays collapse, control, or catastrophe, what imaginative range are we actually operating with? The stories we rehearse become the futures we enact. Dystopia as the only frame is not realism — it is a failure of collective imagination with direct civic consequences. What would it take to make hopeful futures feel as compelling as collapse?"
     }
   },
   {
-    id: 'technology', color: 'var(--thread-technology)',
-    navLabel: 'tech & society', shortLabel: 'tech & society',
-    title: "Technology is reshaping how we relate — and most of those design choices were never conscious.",
-    question: "What would it mean to make them so?",
-    ideas: [
-      { tag:'attention as a resource', expand:'Attention as a resource is being shaped and extracted — platforms that capture attention shape the imaginative ceiling of an entire generation.' },
-      { tag:'AI as social force', expand:"AI is becoming a social role in young people's lives, with design choices that shape relational behavior and emotional development." },
-      { tag:'paradox of connection', expand:'Tools designed to connect us are producing epidemic loneliness. Holding tech with intention, not fear.' },
-      { tag:'digital belonging', expand:'Technology is woven through questions of imagination, democracy, healing, and intergenerational wellbeing — not a separate domain.' }
-    ],
-    body: "Technology is not a separate domain — it is woven through questions of imagination, democracy, healing, and intergenerational wellbeing. The paradox: tools designed to connect us are producing epidemic loneliness. AI as a social role in young people's lives. Attention as a resource being shaped and extracted. Holding tech with intention, not fear.",
-    work: [
-      { label:'New_Public / AI & Civic Conversation', url:'https://newpublic.org/afterthefeed' },
-      { label:'Online & IRL — Conscious Tech Research', url: PORTFOLIO_URL }
-    ],
-    connections: ['imagination','youth','healing','civic']
-  },
-  {
     id: 'healing', color: 'var(--thread-healing)',
-    navLabel: 'wellbeing & healing', shortLabel: 'wellbeing & healing',
+    navLabel: 'healing & belonging', shortLabel: 'healing & belonging',
+    mission: "Imagination needs safety — no one pictures a future from exhaustion, isolation, or unrepaired harm.",
     title: "The systems we build either regenerate people — or extract from them.",
     question: "Why do we keep designing for extraction — and what does repair actually require?",
     ideas: [
       { tag:'trauma-informed design', expand:'Trauma-informed practice as cultural, structural, and intergenerational work — not confined to language.' },
       { tag:'social-ecological resilience', expand:'Burnout is not a failure of individual resilience — it is a systems design issue.' },
       { tag:'repair as collective practice', expand:'Repair as a shared responsibility, practiced through participation, dialogue, and embodied collective design.' },
-      { tag:'embodied change', expand:'The systems we build either regenerate or extract — healing is practiced, not just discussed.' }
+      { tag:'belonging as infrastructure', expand:'Connection is not a luxury. The systems we build either regenerate or extract — healing is practiced, not just discussed.' }
     ],
     body: "Burnout is not a failure of individual resilience — it is a systems design issue. Trauma-informed practice as cultural, structural, and intergenerational work. Social-ecological resilience. Repair as a shared responsibility. Healing is not confined to language — it is practiced through participation, dialogue, and embodied collective design. The systems we build either regenerate or extract.",
     work: [
@@ -1178,29 +1193,38 @@ const THREADS = [
       { label:'Social-Ecological Resilience Framework', url: PORTFOLIO_URL },
       { label:'Trauma-Informed Publication', url: PORTFOLIO_URL }
     ],
-    connections: ['intergenerational','youth','leadership','technology'],
+    connections: ['civic','learning','technology','intergenerational'],
     openQuestion: {
       q: "What actually makes it possible for someone to pursue — and sustain — a commitment to change?",
       body: "The barriers aren't just burnout. They're financial precarity, isolation, the pressure to be a savior generation, the slow pace of systems change, and a cultural narrative that treats exhaustion as a badge of purpose. 1 in 4 young changemakers experiences burnout; fewer than 1 in 10 can financially sustain their work. The question is not \"how do we motivate more people?\" It's \"what infrastructures of support, belonging, and sustainability do we need to build?\""
     }
   },
   {
-    id: 'youth', color: 'var(--thread-youth)',
-    navLabel: 'youth / gen z', shortLabel: 'youth / gen z',
-    title: "Young people aren't apathetic. They're unrooted from any story of the future worth inhabiting.",
-    question: "What would it take to change that?",
+    id: 'intergenerational', color: 'var(--thread-intergenerational)',
+    navLabel: 'intergenerational', shortLabel: 'intergenerational',
+    mission: "Imagination stretches across time — what we inherit, and the futures we owe those who come after.",
+    nodeTitle: "Every generation inherits something — and passes something forward.",
+    title: "Every generation is both inheriting something and passing something forward — and young people are already shaping what comes next.",
+    question: "Are we conscious of what that is?",
     ideas: [
-      { tag:'Gen Z as shapers', expand:'Gen Z as shapers — not just inheritors — of what comes next.' },
-      { tag:'purpose & belonging', expand:'What gives people purpose, where they choose to serve, what communities form around shared futures.' },
+      { tag:'ancestral thinking', expand:'We exist inside a long story — one that began before us and will continue after us.' },
+      { tag:'generational trauma + repair', expand:'This thread takes seriously the biological, cultural, and civic transmission of both harm and possibility.' },
+      { tag:'Gen Z as shapers', expand:'Young people are not future stakeholders waiting their turn. They are shapers — not just inheritors — of what comes next, with lived expertise in the systems they are inheriting.' },
       { tag:'practicing hope', expand:'Young people are not lacking hope — they lack spaces to practice it.' },
       { tag:'unrootedness', expand:"The crisis is not apathy; it is unrootedness from any story of the future worth inhabiting." }
     ],
-    body: "Young people are not lacking hope — they lack spaces to practice it. What gives people purpose, where they choose to serve, what communities form around shared futures. Gen Z as shapers — not just inheritors — of what comes next. The crisis is not apathy; it is unrootedness from any story of the future worth inhabiting.",
+    body: "Intergenerational is not just \"youngers and olders in a room.\" It is the recognition that we exist inside a long story — one that began before us and will continue after us. What have previous generations passed forward: their visions, their traumas, their unfinished work? What are we metabolizing right now, and what will we leave behind? Young people are not apathetic; they are unrooted from any story of the future worth inhabiting — and they are already co-authoring what comes next. This thread takes seriously the transmission of both harm and possibility, and asks what it means to make decisions as if future generations are already in the room.",
     work: [
+      { label:'CoGenerate / CoGen Voices', url: PORTFOLIO_URL },
+      { label:'Trauma-Informed Publication (ADVANCE)', url: PORTFOLIO_URL },
       { label:'Made By Us × Smithsonian', url: PORTFOLIO_URL },
       { label:'For You Page — Youth Changemaker Research', url: PORTFOLIO_URL }
     ],
-    connections: ['intergenerational','healing','technology','civic']
+    connections: ['civic','learning','technology','healing'],
+    openQuestion: {
+      q: "What do we owe the generations who come after us — and how would we design differently if we took that seriously?",
+      body: "Intergenerational responsibility is rarely built into how we make decisions — in institutions, in policy, in design. We optimize for the immediate. But every choice we make is an inheritance: a set of conditions, norms, stories, and systems that future generations will inhabit without having been asked. What would it mean to design with them in mind — not as recipients of our solutions, but as co-authors of what comes next?"
+    }
   }
 ];
 const THREADS_BY_ID = Object.fromEntries(THREADS.map(t => [t.id, t]));
@@ -1208,18 +1232,16 @@ const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)
 
 // ─── INTERSECTIONS (where the real work lives — keyed the same way as the map's connection lines) ──
 const INTERSECTIONS = {
-  'imagination-leadership': { label:'Curious & futures-facing leaders', desc:'A curious leader is a futures-facing leader. The capacity to imagine alternatives is itself a leadership skill — one that can be taught, cultivated, and made structural.' },
-  'civic-imagination': { label:'Civic imagination as practice', desc:"Young people don't need to be told to hope — they need spaces to practice it. Civic imagination is the infrastructure that makes that practice possible." },
-  'civic-technology': { label:'Civic infrastructure meets platform power', desc:'The platforms shaping public attention are also, by design or by default, shaping civic life. Designing technology consciously is inseparable from designing for democratic futures.' },
-  'civic-youth': { label:'Young people as civic co-authors', desc:"Civic imagination isn't handed down from one generation to the next — it's practiced by the people inheriting the system. Gen Z's civic voice belongs in the room now, not someday." },
-  'imagination-technology': { label:'Attention shapes what we can envision', desc:'What we pay attention to shapes what we believe is real and possible. Platforms that capture attention shape the imaginative ceiling of an entire generation.' },
+  'civic-learning': { label:'Civic imagination as a learned practice', desc:"Young people don't need to be told to hope — they need spaces to practice it. Civic imagination is a capacity that can be taught, modeled by leaders, and made structural." },
+  'civic-technology': { label:'Civic infrastructure meets platform power', desc:'The platforms and stories shaping public attention are also, by design or by default, shaping civic life. Designing technology and media consciously is inseparable from designing for democratic futures.' },
+  'civic-intergenerational': { label:'Young people as civic co-authors', desc:"Civic imagination isn't handed down from one generation to the next — it's practiced by the people inheriting the system. Gen Z's civic voice belongs in the room now, not someday." },
+  'civic-healing': { label:'Democracy needs people who can show up', desc:'Civic life frays when people are exhausted, isolated, or unheard. Belonging and repair are not side issues for democracy — they are what make participation sustainable.' },
+  'learning-technology': { label:'Attention shapes what we can envision', desc:'What we pay attention to shapes what we believe is real and possible. Platforms that capture attention shape the imaginative ceiling of an entire generation — and how we learn to lead with them.' },
   'healing-intergenerational': { label:'Inherited harm requires long-arc repair', desc:'Generational trauma is not metaphor — it is biologically and culturally transmitted. Repair that ignores its long arc will reproduce the harm at a different scale.' },
-  'intergenerational-youth': { label:'What we pass forward', desc:'Young people don’t exist in isolation — they exist in relationship to every generation before them. The question "what kind of ancestors are we?" is a youth question as much as an elder one.' },
-  'healing-leadership': { label:'Healing leadership', desc:'The leaders who build conditions for repair — not just performance — are the ones whose institutions survive complexity. Healing and leading are not separate disciplines.' },
-  'intergenerational-leadership': { label:'Leading across time', desc:'Leadership in complexity requires thinking in longer timescales. The best leaders ask not just "what works now" but "what are we leaving behind?"' },
-  'technology-youth': { label:'Designing for agency, not extraction', desc:'AI is becoming a social role in young people’s lives. The design choices baked into those systems shape relational behavior, emotional development, and long-term civic futures.' },
+  'intergenerational-learning': { label:'Leading across time', desc:'Leadership in complexity requires thinking in longer timescales. The best leaders ask not just "what works now" but "what are we leaving behind?" — and make room for the people who will inherit it.' },
+  'intergenerational-technology': { label:'Designing for agency, not extraction', desc:'AI is becoming a social role in young people’s lives. The design choices baked into those systems shape relational behavior, emotional development, and long-term civic futures.' },
   'healing-technology': { label:'Conscious tech design', desc:'Technology that was designed to connect us may be redesigning what connection means. Designing for resilience and digital sovereignty is trauma-informed work.' },
-  'healing-youth': { label:'Sustaining the changemakers', desc:'Burnout among young changemakers is not a personal failing — it is a systems design issue. Sustainable change requires infrastructures of rest, interdependence, and care.' }
+  'healing-learning': { label:'Healing leadership', desc:'The leaders who build conditions for repair — not just performance — are the ones whose institutions survive complexity. Sustaining changemakers is a systems design issue, not a personal failing.' }
 };
 function intersectionFor(a, b) {
   return INTERSECTIONS[[a, b].sort().join('-')];
@@ -1233,7 +1255,7 @@ const EVIDENCE = [
     claim: '98% of children ages 4–5 score at "creative genius" levels on divergent thinking tests. By high school: 12%. By adulthood: less than 2%.',
     implication: '"The same test. The same people. Thirty years apart. Imagination is not lost — it is designed out of us." — Dr. George Land, NASA-commissioned research',
     source: 'https://twentyonetoys.com/blogs/teaching-21st-century-skills/creative-genius-divergent-thinking',
-    tags: [ { label:'imagination', var:'--thread-imagination' }, { label:'youth', var:'--thread-youth' }, { label:'systems', var:'--thread-healing' } ]
+    tags: [ { label:'imagination', var:'--thread-imagination' }, { label:'learning', var:'--thread-learning' }, { label:'intergenerational', var:'--thread-intergenerational' } ]
   },
   {
     color: '#3A6B8A', num: '8%',
@@ -1241,7 +1263,7 @@ const EVIDENCE = [
     claim: 'Only 8% of streaming media content is set in a future context — and the vast majority of that future is dystopian or authoritarian.',
     implication: '"The stories we rehearse become the futures we build. We are practicing collapse." — Harmony Labs & Democracy 2076, 2024',
     source: 'https://harmonylabs.org/news/democracy-highlights',
-    tags: [ { label:'imagination', var:'--thread-imagination' }, { label:'technology', var:'--thread-technology' }, { label:'youth', var:'--thread-youth' } ]
+    tags: [ { label:'story', var:'--thread-story' }, { label:'technology & media', var:'--thread-technology' }, { label:'civic', var:'--thread-civic' } ]
   },
   {
     color: '#8B6B4A', num: '80%',
@@ -1249,7 +1271,7 @@ const EVIDENCE = [
     claim: '80% of Americans do not believe their children\'s generation will be better off than they were — a majority position across age, income, and party.',
     implication: '"Despair is not a personal failing. It is a collective signal — and collective signals have collective responses." — WSJ/NORC Poll',
     source: 'https://www.wsj.com/articles/most-americans-doubt-their-children-will-be-better-off-wsj-norc-poll-finds-35500ba8',
-    tags: [ { label:'intergenerational', var:'--thread-intergenerational' }, { label:'youth', var:'--thread-youth' } ]
+    tags: [ { label:'intergenerational', var:'--thread-intergenerational' }, { label:'civic', var:'--thread-civic' } ]
   },
   {
     color: '#E75213', num: '1 in 2',
@@ -1265,7 +1287,7 @@ const EVIDENCE = [
     claim: '1 in 4 young changemakers experience burnout. Fewer than 1 in 10 can financially sustain their social change work without another job.',
     implication: '"We are asking people to change the world on empty. Sustainability of people is inseparable from sustainability of movements." — The Possibilists, 2023',
     source: 'https://thepossibilists.org/',
-    tags: [ { label:'youth', var:'--thread-youth' }, { label:'healing', var:'--thread-healing' }, { label:'leadership', var:'--thread-leadership' } ]
+    tags: [ { label:'learning & leadership', var:'--thread-learning' }, { label:'healing', var:'--thread-healing' }, { label:'intergenerational', var:'--thread-intergenerational' } ]
   },
   {
     color: '#3B6FBF', num: '42%',
@@ -1273,7 +1295,7 @@ const EVIDENCE = [
     claim: '42% of Americans actively avoid the news. Only 59% receive formal civic education. Entertainment media may be the primary source of civic imagination for most people.',
     implication: '"If people aren\'t getting civic education in school or news, story is doing the work. The question is which stories — and whose futures they imagine." — Harmony Labs, 2024',
     source: 'https://harmonylabs.org/news/democracy-highlights',
-    tags: [ { label:'civic', var:'--thread-civic', civic:true }, { label:'imagination', var:'--thread-imagination' }, { label:'youth', var:'--thread-youth' }, { label:'technology', var:'--thread-technology' } ]
+    tags: [ { label:'civic', var:'--thread-civic' }, { label:'story', var:'--thread-story' }, { label:'technology & media', var:'--thread-technology' } ]
   }
 ];
 
@@ -1363,6 +1385,7 @@ function renderAccordion() {
       <div class="thread-number"><span class="thread-dot"></span>${t.navLabel}</div>
       <div class="thread-title">${t.title}</div>
       <div class="thread-question">${t.question}</div>
+      <p class="mm-detail-mission" style="--mc:${t.color}"><b>how this serves the mission</b>${t.mission}</p>
       <div class="thread-ideas">
         ${t.ideas.map(i => `<span class="idea-tag">${i.tag}</span>`).join('')}
       </div>
@@ -1463,7 +1486,7 @@ function renderMap() {
     node.className = 'mm-node';
     node.style.setProperty('--thread-color', t.color);
     node.dataset.id = t.id;
-    node.innerHTML = `<div><div class="mm-node-label">${t.navLabel}</div><div class="mm-node-title">${t.title}</div></div>`;
+    node.innerHTML = `<div><div class="mm-node-label">${t.navLabel}</div><div class="mm-node-title">${t.nodeTitle || t.title}</div></div>`;
     node.addEventListener('click', () => focusThreadMap(t.id));
     canvas.appendChild(node);
   });
@@ -1476,6 +1499,7 @@ function renderDetail(t) {
     <div class="mm-detail-label" style="color:color-mix(in srgb, ${t.color} 55%, white 45%)">${t.navLabel}</div>
     <h3 class="mm-detail-title">${t.title}</h3>
     <p class="mm-detail-q">${t.question}</p>
+    <p class="mm-detail-mission" style="--mc:${t.color}"><b>how this serves the mission</b>${t.mission}</p>
     <div class="mm-detail-ideas">
       ${t.ideas.map((i, idx) => `
         <button class="mm-idea-btn" data-idx="${idx}">${i.tag}</button>
@@ -1694,13 +1718,13 @@ const canvas = document.getElementById('web-canvas');
 const ctx = canvas.getContext('2d');
 
 const COLORS = {
-  civic:             '#1A1F5B',   // deep navy
+  civic:             '#5B6EF5',   // deep navy
   imagination:       '#800287',   // brand purple
-  leadership:        '#3B6FBF',   // steel blue
-  intergenerational: '#8B6B4A',   // warm taupe
-  technology:        '#E75213',   // brand orange
-  healing:           '#4A7B62',   // sage green
-  youth:             '#3A6B8A'    // slate blue
+  learning:           '#9B7EDB',   // steel blue
+  intergenerational: '#C49A6C',   // warm taupe
+  technology:        '#2A9D8F',   // brand orange
+  healing:           '#D0587E',   // sage green
+  story:             '#800287'
 };
 
 // (thread colors used by nav pill sync above)
@@ -1722,31 +1746,31 @@ let animRAF = null;
 // fractions of viewport width/height, with gentle drift offsets.
 // Each thread has: color, base control points, drift speeds, opacity
 const THREAD_PATHS = [
-  // civic — navy, wide slow sweep near center
-  { col:'#1A1F5B', pts:[[-0.05,0.44],[0.20,0.38],[0.44,0.50],[0.66,0.40],[0.88,0.52],[1.06,0.44]],
+  // civic — indigo, wide slow sweep near center
+  { col:'#5B6EF5', pts:[[-0.05,0.44],[0.20,0.38],[0.44,0.50],[0.66,0.40],[0.88,0.52],[1.06,0.44]],
     drift:[0,0.5,0.7,0.4,0.6,0.3], driftAmp:0.024, speed:0.00015, alpha:0.40, width:1.0 },
   // imagination — purple, sweeps upper-left to lower-right
   { col:'#800287', pts:[[-0.05,0.12],[0.18,0.08],[0.42,0.22],[0.65,0.15],[0.88,0.32],[1.06,0.25]],
     drift:[0,0.6,0.8,0.5,0.7,0.4], driftAmp:0.028, speed:0.00018, alpha:0.55, width:1.2 },
-  // leadership — blue, mid band
-  { col:'#3B6FBF', pts:[[-0.05,0.35],[0.15,0.28],[0.38,0.42],[0.60,0.33],[0.82,0.46],[1.06,0.38]],
+  // learning — lavender, mid band
+  { col:'#9B7EDB', pts:[[-0.05,0.35],[0.15,0.28],[0.38,0.42],[0.60,0.33],[0.82,0.46],[1.06,0.38]],
     drift:[0,0.4,0.9,0.3,0.8,0.5], driftAmp:0.022, speed:0.00014, alpha:0.45, width:1.0 },
   // intergenerational — taupe, lower sweep
-  { col:'#8B6B4A', pts:[[-0.05,0.55],[0.22,0.48],[0.45,0.62],[0.68,0.52],[0.90,0.65],[1.06,0.58]],
+  { col:'#C49A6C', pts:[[-0.05,0.55],[0.22,0.48],[0.45,0.62],[0.68,0.52],[0.90,0.65],[1.06,0.58]],
     drift:[0,0.7,0.3,0.9,0.4,0.6], driftAmp:0.030, speed:0.00022, alpha:0.42, width:1.1 },
-  // technology — orange, crosses near top
-  { col:'#E75213', pts:[[-0.05,0.08],[0.20,0.20],[0.48,0.10],[0.70,0.28],[0.92,0.16],[1.06,0.30]],
+  // technology — teal, crosses near top
+  { col:'#2A9D8F', pts:[[-0.05,0.08],[0.20,0.20],[0.48,0.10],[0.70,0.28],[0.92,0.16],[1.06,0.30]],
     drift:[0,0.5,1.0,0.2,0.7,0.3], driftAmp:0.025, speed:0.00016, alpha:0.40, width:0.9 },
-  // healing — sage green, lower third
-  { col:'#4A7B62', pts:[[-0.05,0.70],[0.25,0.62],[0.50,0.75],[0.72,0.65],[0.95,0.78],[1.06,0.72]],
+  // healing — rose, lower third
+  { col:'#D0587E', pts:[[-0.05,0.70],[0.25,0.62],[0.50,0.75],[0.72,0.65],[0.95,0.78],[1.06,0.72]],
     drift:[0,0.8,0.2,0.6,0.9,0.4], driftAmp:0.020, speed:0.00020, alpha:0.38, width:0.9 },
-  // youth — slate blue, energetic mid-upper
-  { col:'#3A6B8A', pts:[[-0.05,0.22],[0.28,0.32],[0.52,0.18],[0.74,0.38],[0.96,0.24],[1.06,0.42]],
+  // story — purple (same as imagination), energetic mid-upper
+  { col:'#800287', pts:[[-0.05,0.22],[0.28,0.32],[0.52,0.18],[0.74,0.38],[0.96,0.24],[1.06,0.42]],
     drift:[0,0.6,0.4,0.8,0.2,0.7], driftAmp:0.032, speed:0.00024, alpha:0.50, width:1.15 },
   // secondary crossing threads (cross-connections)
   { col:'#800287', pts:[[-0.05,0.45],[0.30,0.55],[0.55,0.40],[0.78,0.58],[1.06,0.48]],
     drift:[0,0.3,0.8,0.5,0], driftAmp:0.018, speed:0.00013, alpha:0.22, width:0.7 },
-  { col:'#E75213', pts:[[-0.05,0.62],[0.35,0.52],[0.58,0.68],[0.82,0.56],[1.06,0.70]],
+  { col:'#2A9D8F', pts:[[-0.05,0.62],[0.35,0.52],[0.58,0.68],[0.82,0.56],[1.06,0.70]],
     drift:[0,0.7,0.2,0.9,0], driftAmp:0.016, speed:0.00017, alpha:0.20, width:0.7 },
 ];
 

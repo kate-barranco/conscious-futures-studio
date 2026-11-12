@@ -308,6 +308,56 @@ a.recog-name:hover { color: #c97dd4; }
 .recog-org { font-size: 0.68rem; color: rgba(245,241,232,0.38); margin-top: 0.2rem; }
 .recog-year { font-size: 0.68rem; color: rgba(245,241,232,0.28); white-space: nowrap; padding-top: 0.1rem; }
 
+
+/* ── ORG LOGOS on cards ── */
+.org-mark{display:block;height:26px;width:auto;max-width:112px;object-fit:contain;object-position:left center;mix-blend-mode:multiply;margin:0 0 .35rem}
+.org-mark--sp{height:38px;max-width:160px;margin:.1rem 0 .15rem}
+.media-card{position:relative}
+.media-card .org-mark{position:absolute;top:1.05rem;right:1.4rem;margin:0;height:32px;max-width:130px;object-position:right center}
+.pub-card-logo{mix-blend-mode:multiply}
+.org-chip{background:#FBF8F0;border-radius:4px;display:flex;align-items:center;justify-content:center;padding:.3rem .5rem}
+.org-chip img{display:block;max-height:30px;max-width:100%;width:auto;object-fit:contain}
+.recog-item{grid-template-columns:92px 1fr auto;align-items:center}
+.recog-item .org-chip{height:46px;width:92px}
+.org-chip--feat{display:inline-flex;margin-bottom:.9rem;padding:.4rem .75rem}
+.org-chip--feat img{height:24px}
+.pill-logo--sq{height:16px!important;mix-blend-mode:normal!important}
+.pill-logo{height:15px;width:auto;max-width:70px;vertical-align:middle;margin-right:.4em;mix-blend-mode:multiply}
+.media-coverage-links a:hover .pill-logo{mix-blend-mode:normal;filter:brightness(0) invert(1)}
+.media-coverage-links a:hover .pill-logo--sq{filter:none}
+.fo-logo img{mix-blend-mode:multiply}
+.fo-row-sub .fo-logo.fo-gup img{height:42px}
+.fo-row-sub .fo-logo.fo-cwnyc img{height:40px}
+.fo-row-sub .fo-logo.fo-cu img{height:40px}
+.fo-row-sub .fo-logo.fo-fsc img{height:34px}
+.fo-row-sub .fo-logo.fo-fsj img{height:40px}
+.fo-row-main .fo-logo.fo-ideo img{height:36px}
+.fo-row-main .fo-logo.fo-pew img{height:32px}
+.fo-row-main .fo-logo.fo-vp img{height:42px;mix-blend-mode:normal}
+@media(max-width:700px){.recog-item{grid-template-columns:64px 1fr auto}.recog-item .org-chip{width:64px;height:40px}.media-card .org-mark{position:static;margin:0 0 .35rem;object-position:left center}}
+
+/* ── PRESTIGE STRIP: work featured by / presented at (real logos on a light band) ── */
+.featured-on{background:#FBF8F0;padding:2rem 3.5rem 2.1rem;border-top:1px solid rgba(17,20,41,.08);border-bottom:1px solid rgba(17,20,41,.08);}
+.featured-on-inner{max-width:1100px;margin:0 auto;display:flex;flex-direction:column;align-items:center;gap:1.1rem;}
+.fo-label{font-size:.62rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:rgba(17,20,41,.5);}
+.fo-row{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:1rem 2.8rem;}
+.fo-logo{display:inline-flex;align-items:center;transition:transform .2s,opacity .2s;opacity:.92}
+a.fo-logo:hover{transform:translateY(-2px);opacity:1}
+.fo-logo img{display:block;height:34px;width:auto;max-width:190px;object-fit:contain}
+.fo-row-main .fo-logo img{height:38px}
+.fo-row-main .fo-wapo img{height:auto;width:190px}
+.fo-row-main .fo-forbes img{height:34px}
+.fo-row-main .fo-cnn img{height:34px}
+.fo-row-main .fo-reuters img{height:30px}
+.fo-row-sub .fo-logo img{height:32px}
+.fo-row-sub .fo-logo.fo-palgrave img{height:36px}
+.fo-row-sub .fo-logo.fo-plos img{height:38px}
+.fo-row-sub .fo-logo.fo-columbia img{height:42px}
+.fo-row-sub .fo-logo.fo-visions img{height:36px}
+.fo-row-sub .fo-logo.fo-na img{height:30px}
+.fo-rule{width:3rem;height:1px;background:rgba(17,20,41,.18);}
+@media(max-width:700px){.featured-on{padding:1.5rem 1.25rem;}.fo-row{gap:.9rem 1.6rem;}.fo-logo img{max-width:130px}.fo-row-main .fo-logo img{height:26px}.fo-row-main .fo-wapo img{width:140px}.fo-row-main .fo-reuters img{height:22px}.fo-row-sub .fo-logo img{height:24px}.fo-row-sub .fo-logo.fo-columbia img{height:32px}.fo-row-sub .fo-logo.fo-plos img{height:28px}}
+
 /* ── PANEL: PUBLICATIONS ── */
 .pub-featured {
   background: var(--navy);
@@ -315,7 +365,7 @@ a.recog-name:hover { color: #c97dd4; }
   padding: 2rem 2.5rem;
   margin-bottom: 2rem;
   display: grid;
-  grid-template-columns: 1fr auto;
+  grid-template-columns: 1fr auto auto;
   gap: 2rem;
   align-items: center;
   text-decoration: none;
@@ -327,6 +377,10 @@ a.recog-name:hover { color: #c97dd4; }
 .pub-feat-source { font-size: 0.76rem; color: rgba(245,241,232,0.42); }
 .pub-feat-arrow { width: 2.4rem; height: 2.4rem; border: 1px solid rgba(245,241,232,0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--cream); flex-shrink: 0; }
 
+.pub-feat-logo{background:#FBF8F0;border-radius:4px;padding:.7rem 1rem;display:flex;align-items:center}
+.pub-feat-logo img{display:block;height:28px;width:auto}
+.pub-card-logo{display:block;height:26px;width:auto;max-width:150px;object-fit:contain;object-position:left center;margin:.1rem 0 .5rem}
+@media(max-width:700px){.pub-featured{grid-template-columns:1fr auto}.pub-feat-logo{grid-row:1;grid-column:1/-1;justify-self:start}}
 /* thematic tag dots — shared palette, echoes Portfolio's theme system */
 .pub-tags { display: flex; gap: 0.4rem; align-items: center; }
 .pdot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; position: relative; cursor: help; }
@@ -552,6 +606,38 @@ footer p { font-size: 0.68rem; color: rgba(245,241,232,0.28); }
   </div>
 </div>
 
+<!-- FEATURED ON -->
+<section class="featured-on" aria-label="Work featured by and presented at">
+  <div class="featured-on-inner">
+    <div class="fo-label">Work featured by</div>
+    <div class="fo-row fo-row-main">
+      <a class="fo-logo fo-forbes" href="https://www.forbes.com/sites/solitairetownsend/2026/09/12/climate-week-2026-storytelling-is-finally-a-major-climate-solution/" target="_blank" rel="noopener" aria-label="Forbes"><img src="../assets/images/logos/forbes.png" alt="Forbes"></a>
+      <a class="fo-logo fo-cnn" href="https://www.cnn.com/2026/10/28/politics/video/political-ai-model-influence-campaigns-chatbots" target="_blank" rel="noopener" aria-label="CNN"><img src="../assets/images/logos/cnn.svg" alt="CNN"></a>
+      <a class="fo-logo fo-reuters" href="https://www.reuters.com/business/media-telecom/us-political-candidates-tailor-messages-ai-models-used-by-voters-2026-10-26/" target="_blank" rel="noopener" aria-label="Reuters"><img src="../assets/images/logos/reuters.png" alt="Reuters"></a>
+      <a class="fo-logo fo-wapo" href="https://www.washingtonpost.com/technology/2026/10/24/we-asked-six-chatbots-make-voter-guides-they-made-serious-errors/" target="_blank" rel="noopener" aria-label="The Washington Post"><img src="../assets/images/logos/wapo.png" alt="The Washington Post"></a>
+      <a class="fo-logo fo-ideo" href="https://www.ideou.com/blogs/inspiration/why-leaders-who-practice-curiosity-handle-uncertainty-better" target="_blank" rel="noopener" aria-label="IDEO U"><img src="../assets/images/logos/ideo-u.png" alt="IDEO U"></a>
+      <a class="fo-logo fo-pew" href="https://www.pew.org/en/research-and-analysis/articles/2026/06/10/to-find-connection-in-america-look-for-the-curiosity-mobile" target="_blank" rel="noopener" aria-label="Pew"><img src="../assets/images/logos/pew.png" alt="Pew"></a>
+      <a class="fo-logo fo-vp" href="https://www.prnewswire.com/news-releases/visit-philadelphia-and-ted-announce-programming-and-initial-speaker-lineup-for-founding-futures-ahead-of-americas-250th-302729373.html" target="_blank" rel="noopener" aria-label="Visit Philadelphia"><img src="../assets/images/logos/visit-philadelphia.png" alt="Visit Philadelphia"></a>
+    </div>
+    <div class="fo-rule"></div>
+    <div class="fo-label">Published and presented with</div>
+    <div class="fo-row fo-row-sub">
+      <span class="fo-logo fo-na"><img src="../assets/images/logos/new-america.svg" alt="New America"></span>
+      <span class="fo-logo fo-palgrave"><img src="../assets/images/logos/palgrave.png" alt="Palgrave Macmillan"></span>
+      <span class="fo-logo fo-plos"><img src="../assets/images/logos/plos-digital-health.png" alt="PLOS Digital Health"></span>
+      <span class="fo-logo fo-chatham"><img src="../assets/images/logos/chatham-house.png" alt="Chatham House"></span>
+      <span class="fo-logo fo-harvard"><img src="../assets/images/logos/harvard-ilab.png" alt="Harvard Innovation Labs"></span>
+      <span class="fo-logo fo-columbia"><img src="../assets/images/logos/columbia-climate.png" alt="Columbia Climate School"></span>
+      <span class="fo-logo fo-visions"><img src="../assets/images/logos/visions2030.png" alt="Visions 2030"></span>
+      <span class="fo-logo fo-gup"><img src="../assets/images/logos/georgetown-university-press.png" alt="Georgetown University Press"></span>
+      <span class="fo-logo fo-cwnyc"><img src="../assets/images/logos/climate-week-nyc.png" alt="Climate Week NYC"></span>
+      <span class="fo-logo fo-cu"><img src="../assets/images/logos/civics-unplugged.png" alt="Civics Unplugged"></span>
+      <span class="fo-logo fo-fsc"><img src="../assets/images/logos/fsc.png" alt="Foundation for Social Connection"></span>
+      <span class="fo-logo fo-fsj"><img src="../assets/images/logos/freestate-justice.png" alt="FreeState Justice"></span>
+    </div>
+  </div>
+</section>
+
 <!-- SECTION SWITCHER -->
 <div class="switcher-wrap">
   <div class="switcher">
@@ -575,21 +661,22 @@ footer p { font-size: 0.68rem; color: rgba(245,241,232,0.28); }
         <div class="pub-feat-title">Operationalizing Imagination</div>
         <div class="pub-feat-source">Futures Security Scenario Lab · New America</div>
         <div class="pub-tags" style="margin-top:0.65rem">
-          <span class="pdot" style="background:#800287"><span class="pdot-tip">Futures &amp; Foresight</span></span>
-          <span class="pdot" style="background:#1A1F5B;box-shadow:0 0 0 1px rgba(245,241,232,0.4)"><span class="pdot-tip">Civic Imagination &amp; Democratic Futures</span></span>
+          <span class="pdot" style="background:#5B6EF5;box-shadow:0 0 0 1px rgba(245,241,232,0.4)"><span class="pdot-tip">Democracy &amp; Civic Life</span></span>
         </div>
       </div>
+      <div class="pub-feat-logo"><img src="../assets/images/logos/new-america.svg" alt="New America"></div>
       <div class="pub-feat-arrow">
         <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 12L12 2M12 2H5M12 2V9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </div>
     </a>
     <div class="pub-grid">
-      <div class="pub-card" style="--tcolor:#800287" tabindex="0" role="button">
+      <div class="pub-card" style="--tcolor:#D0587E" tabindex="0" role="button">
         <div class="pub-tags">
-          <span class="pdot" style="background:#800287"><span class="pdot-tip">Futures &amp; Foresight</span></span>
-          <span class="pdot" style="background:#4A7B62"><span class="pdot-tip">Wellbeing &amp; Healing</span></span>
+          <span class="pdot" style="background:#D0587E"><span class="pdot-tip">Healing &amp; Belonging</span></span>
+          <span class="pdot" style="background:#2A9D8F"><span class="pdot-tip">Technology, Media &amp; Society</span></span>
         </div>
         <div class="pub-card-title">Why It's Easier to Joke About the Apocalypse Than Imagine a Better Community</div>
+        <img class="pub-card-logo" src="../assets/images/logos/timeleft.png" alt="Timeleft" loading="lazy">
         <div class="pub-card-source">Timeleft</div>
         <div class="pub-card-teaser">Why dark humor has become our default response to crisis — and "protopia," incremental progress, as the antidote.</div>
         <div class="pub-card-expand">
@@ -598,12 +685,14 @@ footer p { font-size: 0.68rem; color: rgba(245,241,232,0.28); }
         </div>
         <div class="pub-card-toggle">Read abstract <span class="chev">⌄</span></div>
       </div>
-      <div class="pub-card" style="--tcolor:#3A6B8A" tabindex="0" role="button">
+      <div class="pub-card" style="--tcolor:#C49A6C" tabindex="0" role="button">
         <div class="pub-tags">
-          <span class="pdot" style="background:#3A6B8A"><span class="pdot-tip">Youth / Gen Z</span></span>
-          <span class="pdot" style="background:#4A7B62"><span class="pdot-tip">Wellbeing &amp; Healing</span></span>
+          <span class="pdot" style="background:#C49A6C"><span class="pdot-tip">Intergenerational</span></span>
+          <span class="pdot" style="background:#D0587E"><span class="pdot-tip">Healing &amp; Belonging</span></span>
+          <span class="pdot" style="background:#2A9D8F"><span class="pdot-tip">Technology, Media &amp; Society</span></span>
         </div>
         <div class="pub-card-title">Is Gen Z Too Emotionally Literate to Feel?</div>
+        <img class="pub-card-logo" src="../assets/images/logos/thred-media.png" alt="Thred Media" loading="lazy">
         <div class="pub-card-source">Thred Media</div>
         <div class="pub-card-teaser">Does fluency in therapy-speak help Gen Z process emotion — or let them intellectualize it instead?</div>
         <div class="pub-card-expand">
@@ -612,12 +701,12 @@ footer p { font-size: 0.68rem; color: rgba(245,241,232,0.28); }
         </div>
         <div class="pub-card-toggle">Read abstract <span class="chev">⌄</span></div>
       </div>
-      <div class="pub-card" style="--tcolor:#4A7B62" tabindex="0" role="button">
+      <div class="pub-card" style="--tcolor:#D0587E" tabindex="0" role="button">
         <div class="pub-tags">
-          <span class="pdot" style="background:#4A7B62"><span class="pdot-tip">Wellbeing &amp; Healing</span></span>
-          <span class="pdot" style="background:#800287"><span class="pdot-tip">Futures &amp; Foresight</span></span>
+          <span class="pdot" style="background:#D0587E"><span class="pdot-tip">Healing &amp; Belonging</span></span>
         </div>
         <div class="pub-card-title">Ecological Belonging: Weaving People, Purpose and Planet</div>
+        <img class="pub-card-logo" src="../assets/images/logos/wellbeing-project.png" alt="The Wellbeing Project" loading="lazy">
         <div class="pub-card-source">Network of Wellbeing</div>
         <div class="pub-card-teaser">An invitation to remember, renew, and reweave humanity's connection to the natural world.</div>
         <div class="pub-card-expand">
@@ -626,13 +715,13 @@ footer p { font-size: 0.68rem; color: rgba(245,241,232,0.28); }
         </div>
         <div class="pub-card-toggle">Read abstract <span class="chev">⌄</span></div>
       </div>
-      <div class="pub-card" style="--tcolor:#1A1F5B" tabindex="0" role="button">
+      <div class="pub-card" style="--tcolor:#5B6EF5" tabindex="0" role="button">
         <div class="pub-tags">
-          <span class="pdot" style="background:#1A1F5B"><span class="pdot-tip">Civic Imagination &amp; Democratic Futures</span></span>
-          <span class="pdot" style="background:#800287"><span class="pdot-tip">Futures &amp; Foresight</span></span>
-          <span class="pdot" style="background:#E75213"><span class="pdot-tip">Tech &amp; Society</span></span>
+          <span class="pdot" style="background:#5B6EF5"><span class="pdot-tip">Democracy &amp; Civic Life</span></span>
+          <span class="pdot" style="background:#2A9D8F"><span class="pdot-tip">Technology, Media &amp; Society</span></span>
         </div>
         <div class="pub-card-title">The Right to Hope: Collective Agency and the Politics of Repair in the Digital Age</div>
+        <img class="pub-card-logo" src="../assets/images/logos/palgrave.png" alt="Palgrave Macmillan">
         <div class="pub-card-source">Development (Palgrave Macmillan) · with Bareera Rauf</div>
         <div class="pub-card-teaser">Reframing hope as a collective political right — not a privatized resilience skill.</div>
         <div class="pub-card-expand">
@@ -641,12 +730,13 @@ footer p { font-size: 0.68rem; color: rgba(245,241,232,0.28); }
         </div>
         <div class="pub-card-toggle">Read abstract <span class="chev">⌄</span></div>
       </div>
-      <div class="pub-card" style="--tcolor:#E75213" tabindex="0" role="button">
+      <div class="pub-card" style="--tcolor:#2A9D8F" tabindex="0" role="button">
         <div class="pub-tags">
-          <span class="pdot" style="background:#E75213"><span class="pdot-tip">Tech &amp; Society</span></span>
-          <span class="pdot" style="background:#3A6B8A"><span class="pdot-tip">Youth / Gen Z</span></span>
+          <span class="pdot" style="background:#2A9D8F"><span class="pdot-tip">Technology, Media &amp; Society</span></span>
+          <span class="pdot" style="background:#C49A6C"><span class="pdot-tip">Intergenerational</span></span>
         </div>
         <div class="pub-card-title">The Digital Crossroads: Media Literacy and the Future of Youth Online</div>
+        <img class="pub-card-logo" src="../assets/images/logos/plos-digital-health.png" alt="PLOS Digital Health">
         <div class="pub-card-source">PLOS Digital Health</div>
         <div class="pub-card-teaser">Media literacy as the critical skill for young people navigating an algorithmically shaped online world.</div>
         <div class="pub-card-expand">
@@ -655,10 +745,10 @@ footer p { font-size: 0.68rem; color: rgba(245,241,232,0.28); }
         </div>
         <div class="pub-card-toggle">Read abstract <span class="chev">⌄</span></div>
       </div>
-      <div class="pub-card" style="--tcolor:#8B6B4A" tabindex="0" role="button">
+      <div class="pub-card" style="--tcolor:#C49A6C" tabindex="0" role="button">
         <div class="pub-tags">
-          <span class="pdot" style="background:#8B6B4A"><span class="pdot-tip">Intergenerational</span></span>
-          <span class="pdot" style="background:#4A7B62"><span class="pdot-tip">Wellbeing &amp; Healing</span></span>
+          <span class="pdot" style="background:#C49A6C"><span class="pdot-tip">Intergenerational</span></span>
+          <span class="pdot" style="background:#D0587E"><span class="pdot-tip">Healing &amp; Belonging</span></span>
         </div>
         <div class="pub-card-title">Transforming Higher Education: Trauma-Informed Communities for Healing and Intergenerational Wellbeing</div>
         <div class="pub-card-source">The ADVANCE OSU Journal · Vol. 5, 2024</div>
@@ -669,12 +759,13 @@ footer p { font-size: 0.68rem; color: rgba(245,241,232,0.28); }
         </div>
         <div class="pub-card-toggle">Read abstract <span class="chev">⌄</span></div>
       </div>
-      <div class="pub-card" style="--tcolor:#8B6B4A" tabindex="0" role="button">
+      <div class="pub-card" style="--tcolor:#C49A6C" tabindex="0" role="button">
         <div class="pub-tags">
-          <span class="pdot" style="background:#8B6B4A"><span class="pdot-tip">Intergenerational</span></span>
-          <span class="pdot" style="background:#4A7B62"><span class="pdot-tip">Wellbeing &amp; Healing</span></span>
+          <span class="pdot" style="background:#C49A6C"><span class="pdot-tip">Intergenerational</span></span>
+          <span class="pdot" style="background:#D0587E"><span class="pdot-tip">Healing &amp; Belonging</span></span>
         </div>
         <div class="pub-card-title">The Journey Framework</div>
+        <img class="pub-card-logo" src="../assets/images/logos/red-house.png" alt="Georgetown University Red House" loading="lazy">
         <div class="pub-card-source">Red House, Georgetown University</div>
         <div class="pub-card-teaser">A five-year framework for turning generational cycles of harm into generational healing.</div>
         <div class="pub-card-expand">
@@ -702,6 +793,7 @@ footer p { font-size: 0.68rem; color: rgba(245,241,232,0.28); }
       <div>
         <div class="recog-group-label">Awards</div>
         <div class="recog-item">
+          <div class="org-chip"><img src="../assets/images/logos/georgetown-university.png" alt="Georgetown University" loading="lazy"></div>
           <div>
             <a href="https://sips.georgetown.edu/" class="recog-name" target="_blank">Social Innovation &amp; Public Service Award</a>
             <div class="recog-org">Georgetown University</div>
@@ -709,6 +801,7 @@ footer p { font-size: 0.68rem; color: rgba(245,241,232,0.28); }
           <div class="recog-year">2020</div>
         </div>
         <div class="recog-item">
+          <div class="org-chip"><img src="../assets/images/logos/georgetown-university.png" alt="Georgetown University" loading="lazy"></div>
           <div>
             <a href="https://global.georgetown.edu/features/improving-the-human-condition-grant-enables-students-to-contribute-to-global-communities" class="recog-name" target="_blank">Improving the Human Condition Award</a>
             <div class="recog-org">Georgetown University</div>
@@ -719,6 +812,7 @@ footer p { font-size: 0.68rem; color: rgba(245,241,232,0.28); }
       <div>
         <div class="recog-group-label">Fellowships</div>
         <div class="recog-item">
+          <div class="org-chip"><img src="../assets/images/logos/chatham-house.png" alt="Chatham House" loading="lazy"></div>
           <div>
             <a href="https://www.chathamhouse.org/academy/common-futures-conversations" class="recog-name" target="_blank">Common Futures Conversations Member</a>
             <div class="recog-org">Chatham House</div>
@@ -726,6 +820,7 @@ footer p { font-size: 0.68rem; color: rgba(245,241,232,0.28); }
           <div class="recog-year">2026</div>
         </div>
         <div class="recog-item">
+          <div class="org-chip"><img src="../assets/images/logos/new-public.png" alt="New_Public" loading="lazy"></div>
           <div>
             <a href="https://newpublic.org/afterthefeed" class="recog-name" target="_blank">New_Public Co-Investigator — AI &amp; Social Conversation</a>
             <div class="recog-org">New_Public</div>
@@ -733,6 +828,7 @@ footer p { font-size: 0.68rem; color: rgba(245,241,232,0.28); }
           <div class="recog-year">2025–26</div>
         </div>
         <div class="recog-item">
+          <div class="org-chip"><img src="../assets/images/logos/legacy-project.png" alt="The Legacy Project" loading="lazy"></div>
           <div>
             <a href="https://www.legacyprojectinc.org/intergenchange" class="recog-name" target="_blank">Intergenerational Changemakers Fellowship</a>
             <div class="recog-org">The Legacy Project</div>
@@ -740,6 +836,7 @@ footer p { font-size: 0.68rem; color: rgba(245,241,232,0.28); }
           <div class="recog-year">2025</div>
         </div>
         <div class="recog-item">
+          <div class="org-chip"><img src="../assets/images/logos/beeck.png" alt="Beeck Center" loading="lazy"></div>
           <div>
             <a href="https://beeckcenter.georgetown.edu/projects/gu-impacts-fellowship/" class="recog-name" target="_blank">GU Impacts Fellowship</a>
             <div class="recog-org">Georgetown University Beeck Center</div>
@@ -747,6 +844,7 @@ footer p { font-size: 0.68rem; color: rgba(245,241,232,0.28); }
           <div class="recog-year">2021</div>
         </div>
         <div class="recog-item">
+          <div class="org-chip"><img src="../assets/images/logos/georgetown-university.png" alt="Georgetown University" loading="lazy"></div>
           <div>
             <a href="https://college.georgetown.edu/research/undergraduate-research/royden-b-davis-fellowship/" class="recog-name" target="_blank">Royden B. Davis Summer Fellowship</a>
             <div class="recog-org">Georgetown University</div>
@@ -779,27 +877,29 @@ footer p { font-size: 0.68rem; color: rgba(245,241,232,0.28); }
         <div class="speaking-list">
           <div class="speaking-item">
             <div class="pub-tags">
-              <span class="pdot" style="background:#E75213"><span class="pdot-tip">Tech &amp; Society</span></span>
-              <span class="pdot" style="background:#3A6B8A"><span class="pdot-tip">Youth / Gen Z</span></span>
+              <span class="pdot" style="background:#2A9D8F"><span class="pdot-tip">Technology, Media &amp; Society</span></span>
+              <span class="pdot" style="background:#C49A6C"><span class="pdot-tip">Intergenerational</span></span>
             </div>
+            <img class="org-mark org-mark--sp" src="../assets/images/logos/unm.png" alt="University of New Mexico" loading="lazy">
             <div class="speaking-venue">University of New Mexico · Fall 2026</div>
             <div class="speaking-title">Growing Up Algorithmic: What It Means to Emerge Alongside an Era of Emerging Technology</div>
             <div class="speaking-body">Guest lecture on algorithmic justice, examining what it means for young people to develop identity, agency, and ethics while emerging alongside rapidly advancing technology.</div>
           </div>
           <div class="speaking-item">
             <div class="pub-tags">
-              <span class="pdot" style="background:#E75213"><span class="pdot-tip">Tech &amp; Society</span></span>
-              <span class="pdot" style="background:#1A1F5B"><span class="pdot-tip">Civic Imagination &amp; Democratic Futures</span></span>
+              <span class="pdot" style="background:#2A9D8F"><span class="pdot-tip">Technology, Media &amp; Society</span></span>
+              <span class="pdot" style="background:#5B6EF5"><span class="pdot-tip">Democracy &amp; Civic Life</span></span>
             </div>
+            <img class="org-mark org-mark--sp" src="../assets/images/logos/rutgers.png" alt="Rutgers University" loading="lazy">
             <div class="speaking-venue">Rutgers University · Digital Politics · Fall 2026</div>
             <div class="speaking-title">Reprogramming Democracy: Civic Agency and Imagination in the Age of AI</div>
             <div class="speaking-body">Guest lecture for Rutgers' Digital Politics course examining how AI and digital mediums are reshaping political life — from the machinery of government institutions to the everyday behavior of constituents — and the questions of civic agency and civic imagination that follow. A second thread turns to navigating the workplace and job market amid AI-driven disruption, drawing on the founding of Conscious Futures Studio as a working case study in building meaningful work at a moment of technological upheaval.</div>
           </div>
           <div class="speaking-item" id="climate-week">
             <div class="pub-tags">
-              <span class="pdot" style="background:#800287"><span class="pdot-tip">Futures &amp; Foresight</span></span>
-              <span class="pdot" style="background:#4A7B62"><span class="pdot-tip">Wellbeing &amp; Healing</span></span>
+              <span class="pdot" style="background:#D0587E"><span class="pdot-tip">Healing &amp; Belonging</span></span>
             </div>
+            <img class="org-mark org-mark--sp" src="../assets/images/logos/climate-week-nyc.png" alt="Climate Week NYC" loading="lazy">
             <div class="speaking-venue"><a href="https://luma.com/xiwtro33" target="_blank" rel="noopener">New York Climate Week 2026 · Stories that Move · September 21, 2026</a></div>
             <div class="speaking-title">Collective Futures + Climate Hope Open Mic</div>
             <div class="speaking-body">Panel co-designed with ReImagine Story Lab as part of the day-long Stories that Move program — a conversation on why hope matters in climate storytelling with Anatola Araba (ReImagine Story Lab), MaryAnn Talavera (NYU Tisch Martin Scorsese Virtual Production Center), Diamond Spratling (Girl + Environment), and Tory Stephens (Grist's Imagine 2200 Climate Fiction), followed by a collective writing and open-mic session moving the room from imagination toward shared visioning.</div>
@@ -811,17 +911,17 @@ footer p { font-size: 0.68rem; color: rgba(245,241,232,0.28); }
           </div>
           <div class="speaking-item">
             <div class="pub-tags">
-              <span class="pdot" style="background:#800287"><span class="pdot-tip">Futures &amp; Foresight</span></span>
-              <span class="pdot" style="background:#3A6B8A"><span class="pdot-tip">Youth / Gen Z</span></span>
+              <span class="pdot" style="background:#C49A6C"><span class="pdot-tip">Intergenerational</span></span>
             </div>
+            <img class="org-mark org-mark--sp" src="../assets/images/logos/rethink-citizen.png" alt="ReThink Citizen" loading="lazy">
             <div class="speaking-venue">Youth Innovators Fellowship · ReThink Citizen · September 2026</div>
             <div class="speaking-title">Connecting the MVP to the Vision: Grounding Speculative Futures in Lived Reality</div>
             <div class="speaking-body">Returning for a second year to facilitate the fellowship's Week 4 session for youth innovators ages 14–23 — helping participants define success beyond their MVPs, connect individual projects to a shared collective vision, and ground speculative futures, protopia over utopia, in lived reality.</div>
           </div>
           <div class="speaking-item">
             <div class="pub-tags">
-              <span class="pdot" style="background:#8B6B4A"><span class="pdot-tip">Intergenerational</span></span>
-              <span class="pdot" style="background:#1A1F5B"><span class="pdot-tip">Civic Imagination &amp; Democratic Futures</span></span>
+              <span class="pdot" style="background:#C49A6C"><span class="pdot-tip">Intergenerational</span></span>
+              <span class="pdot" style="background:#5B6EF5"><span class="pdot-tip">Democracy &amp; Civic Life</span></span>
             </div>
             <div class="speaking-venue"><a href="https://keeseschool.org/aboutus" target="_blank" rel="noopener">Keese School · September 2026</a></div>
             <div class="speaking-title">Intergenerational Perspectives on Navigating the Moment: Crisis, Changemaking, and Community Change Efforts</div>
@@ -830,36 +930,37 @@ footer p { font-size: 0.68rem; color: rgba(245,241,232,0.28); }
           </div>
           <div class="speaking-item">
             <div class="pub-tags">
-              <span class="pdot" style="background:#800287"><span class="pdot-tip">Futures &amp; Foresight</span></span>
-              <span class="pdot" style="background:#E75213"><span class="pdot-tip">Tech &amp; Society</span></span>
+              <span class="pdot" style="background:#2A9D8F"><span class="pdot-tip">Technology, Media &amp; Society</span></span>
             </div>
+            <img class="org-mark org-mark--sp" src="../assets/images/logos/civics-unplugged.png" alt="Civics Unplugged" loading="lazy">
             <div class="speaking-venue">Civics Unplugged Civic Innovation Academy · UPenn · Philadelphia, PA</div>
             <div class="speaking-title">Workshop: What Futures Have We yet to Imagine?: Imagination, Education, and Future of Work in the Age of AI</div>
             <div class="speaking-body">Designed and led an experiential 60-minute session on operationalizing imagination for 40+ high school fellows at a week-long civic leadership academy hosted at the University of Pennsylvania. Session centered on constrained creativity as a tool for navigating AI-driven uncertainty in education and the future of work.</div>
           </div>
           <div class="speaking-item">
             <div class="pub-tags">
-              <span class="pdot" style="background:#800287"><span class="pdot-tip">Futures &amp; Foresight</span></span>
-              <span class="pdot" style="background:#3A6B8A"><span class="pdot-tip">Youth / Gen Z</span></span>
+              <span class="pdot" style="background:#C49A6C"><span class="pdot-tip">Intergenerational</span></span>
             </div>
+            <img class="org-mark org-mark--sp" src="../assets/images/logos/teach-the-future.png" alt="Teach the Future" loading="lazy">
             <div class="speaking-venue">World Futures Day – Young Voices · Teach the Future</div>
             <div class="speaking-title">Sandbox for Imagination: A Playground for Regenerative Futures</div>
             <div class="speaking-body">Designed and facilitated an interactive, intergenerational workshop engaging global youth and adult participants in experiential futures practices, ethical AI dialogue, and collaborative worldbuilding exercises to strengthen futures literacy and regenerative imagination.</div>
           </div>
           <div class="speaking-item">
             <div class="pub-tags">
-              <span class="pdot" style="background:#800287"><span class="pdot-tip">Futures &amp; Foresight</span></span>
-              <span class="pdot" style="background:#E75213"><span class="pdot-tip">Tech &amp; Society</span></span>
+              <span class="pdot" style="background:#2A9D8F"><span class="pdot-tip">Technology, Media &amp; Society</span></span>
             </div>
+            <img class="org-mark org-mark--sp" src="../assets/images/logos/harvard-ilab.png" alt="Harvard Innovation Labs" loading="lazy">
             <div class="speaking-venue">Harvard Innovation Lab Start-Up Fair</div>
             <div class="speaking-title">Experiential Futures Sandbox</div>
             <div class="speaking-body">Activated an interactive AI + Imagination Curriculum experience at Harvard's i-lab, engaging undergraduate and graduate innovators in hands-on futures literacy, ethical AI exploration, and worldbuilding practices that strengthen imagination as a real-world skill.</div>
           </div>
           <div class="speaking-item">
             <div class="pub-tags">
-              <span class="pdot" style="background:#1A1F5B"><span class="pdot-tip">Civic Imagination &amp; Democratic Futures</span></span>
-              <span class="pdot" style="background:#E75213"><span class="pdot-tip">Tech &amp; Society</span></span>
+              <span class="pdot" style="background:#5B6EF5"><span class="pdot-tip">Democracy &amp; Civic Life</span></span>
+              <span class="pdot" style="background:#2A9D8F"><span class="pdot-tip">Technology, Media &amp; Society</span></span>
             </div>
+            <img class="org-mark org-mark--sp" src="../assets/images/logos/wired-human.png" alt="Wired Human" loading="lazy">
             <div class="speaking-venue">Wired Human Roundtable · U.S. Capitol</div>
             <div class="speaking-title">Youth Coalition Ambassador</div>
             <div class="speaking-body">Facilitated a cross-sector roundtable convening policymakers, technologists, and civic leaders to explore ethical AI, youth wellbeing, and the future of digital public infrastructure — guiding dialogue that bridged youth voice, policy design, and human-centered innovation.</div>
@@ -876,26 +977,27 @@ footer p { font-size: 0.68rem; color: rgba(245,241,232,0.28); }
         <div class="speaking-list">
           <div class="speaking-item">
             <div class="pub-tags">
-              <span class="pdot" style="background:#800287"><span class="pdot-tip">Futures &amp; Foresight</span></span>
-              <span class="pdot" style="background:#3A6B8A"><span class="pdot-tip">Youth / Gen Z</span></span>
+              <span class="pdot" style="background:#C49A6C"><span class="pdot-tip">Intergenerational</span></span>
             </div>
+            <img class="org-mark org-mark--sp" src="../assets/images/logos/rethink-citizen.png" alt="ReThink Citizen" loading="lazy">
             <div class="speaking-venue">Youth Innovators Fellowship · ReThink Citizen</div>
             <div class="speaking-title">Storytelling for Social Change &amp; Catalyzing Imagination</div>
             <div class="speaking-body">Facilitated storytelling for social change workshop and catalyzing imagination sessions with youth innovators from diverse Midwest communities.</div>
           </div>
           <div class="speaking-item">
             <div class="pub-tags">
-              <span class="pdot" style="background:#8B6B4A"><span class="pdot-tip">Intergenerational</span></span>
-              <span class="pdot" style="background:#E75213"><span class="pdot-tip">Tech &amp; Society</span></span>
+              <span class="pdot" style="background:#C49A6C"><span class="pdot-tip">Intergenerational</span></span>
+              <span class="pdot" style="background:#2A9D8F"><span class="pdot-tip">Technology, Media &amp; Society</span></span>
             </div>
+            <img class="org-mark org-mark--sp" src="../assets/images/logos/fsc.png" alt="Foundation for Social Connection" loading="lazy">
             <div class="speaking-venue">Foundation for Social Connection</div>
             <div class="speaking-title">Intergenerational Dialogue Series</div>
             <div class="speaking-body">Led participatory dialogues on AI, technology, and intergenerational connection in partnership with Joint Family, bridging youth and elder perspectives.</div>
           </div>
           <div class="speaking-item">
             <div class="pub-tags">
-              <span class="pdot" style="background:#3A6B8A"><span class="pdot-tip">Youth / Gen Z</span></span>
-              <span class="pdot" style="background:#4A7B62"><span class="pdot-tip">Wellbeing &amp; Healing</span></span>
+              <span class="pdot" style="background:#C49A6C"><span class="pdot-tip">Intergenerational</span></span>
+              <span class="pdot" style="background:#D0587E"><span class="pdot-tip">Healing &amp; Belonging</span></span>
             </div>
             <div class="speaking-venue">UN Science Summit · UN General Assembly</div>
             <div class="speaking-title">Beyond Awareness — For You Page</div>
@@ -903,17 +1005,18 @@ footer p { font-size: 0.68rem; color: rgba(245,241,232,0.28); }
           </div>
           <div class="speaking-item">
             <div class="pub-tags">
-              <span class="pdot" style="background:#E75213"><span class="pdot-tip">Tech &amp; Society</span></span>
-              <span class="pdot" style="background:#3A6B8A"><span class="pdot-tip">Youth / Gen Z</span></span>
+              <span class="pdot" style="background:#2A9D8F"><span class="pdot-tip">Technology, Media &amp; Society</span></span>
+              <span class="pdot" style="background:#C49A6C"><span class="pdot-tip">Intergenerational</span></span>
             </div>
+            <img class="org-mark org-mark--sp" src="../assets/images/logos/plos-digital-health.png" alt="PLOS Digital Health" loading="lazy">
             <div class="speaking-venue">Digital Health Week · PLOS Digital Health &amp; DTH-Lab</div>
             <div class="speaking-title">Building Trust, Literacy, and Participation in the Digital Health Era</div>
             <div class="speaking-body">Panelist exploring Gen-Z media literacy, health futures, and digital participation.</div>
           </div>
           <div class="speaking-item">
             <div class="pub-tags">
-              <span class="pdot" style="background:#3B6FBF"><span class="pdot-tip">Relational Leadership</span></span>
-              <span class="pdot" style="background:#8B6B4A"><span class="pdot-tip">Intergenerational</span></span>
+              <span class="pdot" style="background:#9B7EDB"><span class="pdot-tip">Learning, Work &amp; Leadership</span></span>
+              <span class="pdot" style="background:#C49A6C"><span class="pdot-tip">Intergenerational</span></span>
             </div>
             <div class="speaking-venue">Joint Family · Northeastern University</div>
             <div class="speaking-title">Guest Lecture</div>
@@ -921,9 +1024,9 @@ footer p { font-size: 0.68rem; color: rgba(245,241,232,0.28); }
           </div>
           <div class="speaking-item">
             <div class="pub-tags">
-              <span class="pdot" style="background:#4A7B62"><span class="pdot-tip">Wellbeing &amp; Healing</span></span>
-              <span class="pdot" style="background:#800287"><span class="pdot-tip">Futures &amp; Foresight</span></span>
+              <span class="pdot" style="background:#D0587E"><span class="pdot-tip">Healing &amp; Belonging</span></span>
             </div>
+            <img class="org-mark org-mark--sp" src="../assets/images/logos/columbia-climate.png" alt="Columbia Climate School" loading="lazy">
             <div class="speaking-venue">Columbia Climate School · MR2025</div>
             <div class="speaking-title">Crafting a Shared Story for Resilience in Transitions</div>
             <div class="speaking-body">Co-facilitated workshop guiding participants through narrative and ecological resilience exercises rooted in solastalgia, belonging, and transition design.</div>
@@ -940,9 +1043,10 @@ footer p { font-size: 0.68rem; color: rgba(245,241,232,0.28); }
         <div class="speaking-list">
           <div class="speaking-item">
             <div class="pub-tags">
-              <span class="pdot" style="background:#4A7B62"><span class="pdot-tip">Wellbeing &amp; Healing</span></span>
-              <span class="pdot" style="background:#8B6B4A"><span class="pdot-tip">Intergenerational</span></span>
+              <span class="pdot" style="background:#D0587E"><span class="pdot-tip">Healing &amp; Belonging</span></span>
+              <span class="pdot" style="background:#C49A6C"><span class="pdot-tip">Intergenerational</span></span>
             </div>
+            <img class="org-mark org-mark--sp" src="../assets/images/logos/wellbeing-project.png" alt="The Wellbeing Project" loading="lazy">
             <div class="speaking-venue">The Wellbeing Project · Global Gatherings</div>
             <div class="speaking-title">Ecological Belonging &amp; Intergenerational Healing</div>
             <div class="speaking-body">Facilitated conversations on ecological belonging and intergenerational healing with global social-change leaders, integrating art, systems thinking, and dialogue practice.</div>
@@ -959,9 +1063,10 @@ footer p { font-size: 0.68rem; color: rgba(245,241,232,0.28); }
         <div class="speaking-list">
           <div class="speaking-item">
             <div class="pub-tags">
-              <span class="pdot" style="background:#4A7B62"><span class="pdot-tip">Wellbeing &amp; Healing</span></span>
-              <span class="pdot" style="background:#3B6FBF"><span class="pdot-tip">Relational Leadership</span></span>
+              <span class="pdot" style="background:#D0587E"><span class="pdot-tip">Healing &amp; Belonging</span></span>
+              <span class="pdot" style="background:#9B7EDB"><span class="pdot-tip">Learning, Work &amp; Leadership</span></span>
             </div>
+            <img class="org-mark org-mark--sp" src="../assets/images/logos/georgetown-university.png" alt="Georgetown University" loading="lazy">
             <div class="speaking-venue">Georgetown University · Class Lecture</div>
             <div class="speaking-title">Bearing Witness</div>
             <div class="speaking-body">Guest lecture on trauma-informed approaches to systems change, narrative strategy, and intergenerational wellbeing.</div>
@@ -986,6 +1091,7 @@ footer p { font-size: 0.68rem; color: rgba(245,241,232,0.28); }
     </div>
     <a href="https://www.forbes.com/sites/solitairetownsend/2026/09/12/climate-week-2026-storytelling-is-finally-a-major-climate-solution/" class="media-featured" target="_blank">
       <div>
+        <div class="org-chip org-chip--feat"><img src="../assets/images/logos/forbes.png" alt="Forbes"></div>
         <div class="media-feat-badge"><span class="pulse-dot"></span>Featured · Forbes</div>
         <div class="media-feat-title">Climate Week 2026: Storytelling Is Finally A Major Climate Solution</div>
         <div class="media-feat-source">Solitaire Townsend — features Stories that Move, Sept 21</div>
@@ -1000,24 +1106,39 @@ footer p { font-size: 0.68rem; color: rgba(245,241,232,0.28); }
         <div class="media-title">Research from the Civic Health AI Index featured by CNN, Reuters, and The Washington Post</div>
         <div class="media-source">Project coverage — research developed with the National Conference on Citizenship (NCoC) · October 2026</div>
         <div class="media-coverage-links">
-          <a href="https://www.cnn.com/2026/10/28/politics/video/political-ai-model-influence-campaigns-chatbots" target="_blank" rel="noopener">CNN<span>Oct 28 ↗</span></a>
-          <a href="https://www.reuters.com/business/media-telecom/us-political-candidates-tailor-messages-ai-models-used-by-voters-2026-10-26/" target="_blank" rel="noopener">Reuters<span>Oct 26 ↗</span></a>
-          <a href="https://www.washingtonpost.com/technology/2026/10/24/we-asked-six-chatbots-make-voter-guides-they-made-serious-errors/" target="_blank" rel="noopener">The Washington Post<span>Oct 24 ↗</span></a>
+          <a href="https://civicaiaudit.org/" target="_blank" rel="noopener"><img class="pill-logo" src="../assets/images/logos/ncoc.png" alt="National Conference on Citizenship"><span>Civic AI Audit ↗</span></a>
+          <a href="https://www.cnn.com/2026/10/28/politics/video/political-ai-model-influence-campaigns-chatbots" target="_blank" rel="noopener"><img class="pill-logo" src="../assets/images/logos/cnn.svg" alt="CNN"><span>Oct 28 ↗</span></a>
+          <a href="https://www.reuters.com/business/media-telecom/us-political-candidates-tailor-messages-ai-models-used-by-voters-2026-10-26/" target="_blank" rel="noopener"><img class="pill-logo" src="../assets/images/logos/reuters.png" alt="Reuters"><span>Oct 26 ↗</span></a>
+          <a href="https://www.washingtonpost.com/technology/2026/10/24/we-asked-six-chatbots-make-voter-guides-they-made-serious-errors/" target="_blank" rel="noopener"><img class="pill-logo" src="../assets/images/logos/wapo.png" alt="The Washington Post"><span>Oct 24 ↗</span></a>
+        </div>
+      </div>
+      <div class="media-card media-card--coverage">
+        <div class="media-type mtype-coverage">Project Coverage</div>
+        <div class="media-title">Curiosity Mobile featured by Pew, IDEO U, and the Visit Philadelphia × TED Democracy announcement</div>
+        <div class="media-source">Project coverage — futurist &amp; narrative strategy, outreach and partnerships for Curiosity Mobile (Scott Shigeoka). Toolkit developed by Kate Barranco.</div>
+        <div class="media-coverage-links">
+          <a href="https://curiosity-toolkit.netlify.app/" target="_blank" rel="noopener"><img class="pill-logo" src="../assets/images/logos/curiosity-mobile.png" alt="Curiosity Mobile"><span>Building a Culture of Curiosity toolkit ↗</span></a>
+          <a href="https://www.ideou.com/blogs/inspiration/why-leaders-who-practice-curiosity-handle-uncertainty-better" target="_blank" rel="noopener"><img class="pill-logo" src="../assets/images/logos/ideo-u.png" alt="IDEO U"><span>IDEO U article ↗</span></a>
+          <a href="https://www.pew.org/en/research-and-analysis/articles/2026/06/10/to-find-connection-in-america-look-for-the-curiosity-mobile" target="_blank" rel="noopener"><img class="pill-logo" src="../assets/images/logos/pew.png" alt="Pew"><span>Jun 10 ↗</span></a>
+          <a href="https://www.prnewswire.com/news-releases/visit-philadelphia-and-ted-announce-programming-and-initial-speaker-lineup-for-founding-futures-ahead-of-americas-250th-302729373.html" target="_blank" rel="noopener"><img class="pill-logo pill-logo--sq" src="../assets/images/logos/visit-philadelphia.png" alt="Visit Philadelphia"><span>TED Democracy Philadelphia release ↗</span></a>
         </div>
       </div>
       <a href="https://www.hercampus.com/career/college-major-doesnt-determine-career-post-grad-jobs/" class="media-card" target="_blank">
+        <img class="org-mark" src="../assets/images/logos/her-campus-media.png" alt="Her Campus" loading="lazy">
         <div class="media-type mtype-press">Press Feature</div>
         <div class="media-title">The Biggest Post-Grad Myth? Your Major Locks You Into A Specific Career</div>
         <div class="media-source">Her Campus</div>
         <div class="media-link">Read →</div>
       </a>
       <a href="https://www.georgetown.edu/news/georgetown-expands-commitment-to-mental-health-services-for-university-community/" class="media-card" target="_blank">
+        <img class="org-mark" src="../assets/images/logos/georgetown-university.png" alt="Georgetown University" loading="lazy">
         <div class="media-type mtype-release">Press Release</div>
         <div class="media-title">Georgetown Expands Commitment to Mental Health Services for University Community</div>
         <div class="media-source">Georgetown University</div>
         <div class="media-link">Read →</div>
       </a>
       <a href="https://www.social-connection.ai/" class="media-card" target="_blank">
+        <img class="org-mark" src="../assets/images/logos/fsc.png" alt="Foundation for Social Connection" loading="lazy">
         <div class="media-type mtype-research">Research</div>
         <div class="media-title">Navigating Generative AI and Youth Social Connection Through Intergenerational Conversation</div>
         <div class="media-source">Foundation for Social Connection</div>
@@ -1030,12 +1151,14 @@ footer p { font-size: 0.68rem; color: rgba(245,241,232,0.28); }
         <div class="media-link">Listen →</div>
       </a>
       <a href="https://indd.adobe.com/view/11ad3a3f-a931-40c1-a758-4b643b2785a6" class="media-card" target="_blank">
+        <img class="org-mark" src="../assets/images/logos/red-house.png" alt="Georgetown University Red House" loading="lazy">
         <div class="media-type mtype-framework">Framework</div>
         <div class="media-title">The Journey Framework</div>
         <div class="media-source">Georgetown University Red House</div>
         <div class="media-link">Learn more →</div>
       </a>
       <a href="https://www.instagram.com/stories/highlights/17958273148422808/?hl=en" class="media-card" target="_blank">
+        <img class="org-mark" src="../assets/images/logos/freestate-justice.png" alt="FreeState Justice" loading="lazy">
         <div class="media-type mtype-social">Social / Collaboration</div>
         <div class="media-title">FreeState Justice / One Love Instagram Live — Inclusive Curriculum</div>
         <div class="media-source">FreeState Justice &amp; One Love</div>
@@ -1072,6 +1195,18 @@ function switchToPanel(target) {
 btns.forEach(btn => {
   btn.addEventListener('click', () => switchToPanel(btn.dataset.panel));
 });
+// Deep link to a tab: ideas/#publications (also #media, #recognition, #speaking)
+(function(){
+  const h = location.hash.slice(1);
+  if (['media','publications','recognition','speaking'].includes(h)) {
+    btns.forEach(b => b.classList.toggle('active', b.dataset.panel === h));
+    panels.forEach(p => p.classList.toggle('active', p.id === 'panel-' + h));
+    window.addEventListener('load', () => {
+      const sw = document.querySelector('.switcher-wrap');
+      window.scrollTo({ top: sw.getBoundingClientRect().top + window.scrollY - 80 });
+    });
+  }
+})();
 // Deep link from other pages: ideas/#climate-week opens Speaking and scrolls to that entry
 if (location.hash === '#climate-week') {
   btns.forEach(b => b.classList.toggle('active', b.dataset.panel === 'speaking'));
