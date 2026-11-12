@@ -302,8 +302,32 @@ a { color: inherit; text-decoration: none; }
   from { transform: translateX(0); }
   to { transform: translateX(-50%); }
 }
+/* Pinned under the nav so the logos are seen without scrolling */
+.marquee-section--top {
+  position: fixed; top: 62px; left: 0; right: 0; z-index: 900;
+  display: flex; align-items: center;
+  padding: 0; height: 56px;
+  background: rgba(17,20,41,0.72);
+  -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
+  border-top: 0; border-bottom: 1px solid rgba(245,241,232,0.10);
+}
+.marquee-section--top .marquee-label {
+  flex: 0 0 auto; margin: 0; padding: 0 1.4rem 0 2rem; white-space: nowrap;
+  position: relative; z-index: 2; height: 100%; display: flex; align-items: center;
+  background: linear-gradient(90deg, rgba(17,20,41,0.96) 78%, rgba(17,20,41,0));
+  padding-right: 2.6rem; color: rgba(245,241,232,0.6);
+}
+.marquee-section--top .marquee-track { gap: 3.25rem; padding-right: 3.25rem; }
+.marquee-section--top .marquee-item img { height: 28px; max-width: 130px; opacity: .58; }
+@media (max-width: 860px) {
+  .marquee-section--top .marquee-label { display: none; }
+  .marquee-section--top { height: 48px; }
+  .marquee-section--top .marquee-item img { height: 24px; max-width: 110px; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .marquee-track { animation: none; flex-wrap: wrap; justify-content: center; }
+  .marquee-section--top .marquee-track { flex-wrap: nowrap; justify-content: flex-start; width: auto; overflow-x: auto; scrollbar-width: none; }
 }
 
 /* ══════════════════════ FOOTER ══════════════════════ */

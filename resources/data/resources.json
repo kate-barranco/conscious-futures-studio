@@ -33078,5 +33078,33 @@
     ],
     "type_display": "Article",
     "confidence": "high"
+  },
+  {
+    "id": "CFT-1199",
+    "title": "The Future Starts Today: Young Climate Leaders' Stories of Action | UN Secretary-General's Youth Advisory Group on Climate Change",
+    "url": "https://thefuturestartstoday.net/gallery/THE_FUTURE_STARTS_TODAY_report_digitalversion_5_Nov_26.pdf",
+    "primary_category": "Climate Justice & Eco-Anxiety",
+    "categories": [
+      "Climate Justice & Eco-Anxiety",
+      "Gen Z, Youth Experience & Identity"
+    ],
+    "type_normalized": "Report",
+    "type_raw_variants": [],
+    "note": "",
+    "extra_tag_text": "",
+    "hub": "",
+    "year": "2026",
+    "source_sheets": [
+      "Hand-added (Kate request, 2026-11-12)"
+    ],
+    "merged_from_count": 1,
+    "blurb": "Report launched at COP31 by members of the UN Secretary-General's Youth Advisory Group on Climate Change, gathering 19 stories of young people's climate action, what made each possible, and what young leaders need from the next Secretary-General.",
+    "tags": [
+      "Climate Justice",
+      "Storytelling & Narrative",
+      "Intergenerational"
+    ],
+    "type_display": "Report",
+    "confidence": "medium"
   }
 ]

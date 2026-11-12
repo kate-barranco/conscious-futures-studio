@@ -67,6 +67,14 @@
   /* ── Reduced motion: normal-flow reveal, no scroll-jacking ── */
   var portal = document.getElementById('portal');
   var scrollCue = document.getElementById('scrollCue');
+  var logoStrip = document.querySelector('.marquee-section--top');
+
+  /* Fade the pinned logo strip out as the quote arrives */
+  function setStripFade(amount) {
+    if (!logoStrip) return;
+    logoStrip.style.opacity = String(1 - amount);
+    logoStrip.style.visibility = amount >= 1 ? 'hidden' : 'visible';
+  }
 
   function initReducedMotion() {
     portal.classList.add('reduced-motion');
@@ -77,6 +85,15 @@
       });
     }, { threshold: 0.25 });
     sections.forEach(function (el) { io.observe(el); });
+
+    var qEl = document.getElementById('quoteLayer');
+    if (qEl && logoStrip) {
+      new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          setStripFade(entry.isIntersecting || entry.boundingClientRect.top < 0 ? 1 : 0);
+        });
+      }, { threshold: 0, rootMargin: '0px 0px -40% 0px' }).observe(qEl);
+    }
 
     if (scrollCue) {
       scrollCue.addEventListener('click', function () {
@@ -180,6 +197,9 @@
     var quoteOut = phase(p, 0.80, 0.86);
     quoteLayer.style.opacity = String(Math.min(quoteIn, 1 - quoteOut));
     quoteLayer.style.pointerEvents = quoteIn > 0.1 && quoteOut < 0.9 ? 'auto' : 'none';
+
+    /* Logo strip fades away just before the quote arrives (0.58 – 0.66) */
+    setStripFade(phase(p, 0.58, 0.66));
 
     /* Phase F: landmarks (0.82 – 1.0) */
     var landmarksIn = phase(p, 0.82, 0.92);
