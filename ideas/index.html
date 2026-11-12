@@ -67,9 +67,7 @@ nav {
   margin-top: 68px;
   position: relative;
   width: 100%;
-  height: calc(100vh - 68px);
-  max-height: 920px;
-  min-height: 560px;
+  height: clamp(440px, 56vh, 520px);
   overflow: hidden;
 }
 
@@ -243,8 +241,9 @@ nav {
 .panel-inner {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 3.5rem 3rem;
+  padding: 2.25rem 3rem 3.5rem;
 }
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 .panel-header {
   margin-bottom: 2.5rem;
   padding-bottom: 1.25rem;
@@ -651,10 +650,7 @@ footer p { font-size: 0.68rem; color: rgba(245,241,232,0.28); }
 <!-- PANEL: PUBLICATIONS -->
 <div class="panel" id="panel-publications">
   <div class="panel-inner">
-    <div class="panel-header">
-      <div class="panel-label">Writing</div>
-      <h2 class="panel-h2"><em>Publications</em></h2>
-    </div>
+    <h2 class="sr-only">Publications</h2>
     <a href="https://www.newamerica.org/insights/operationalizing-imagination/" class="pub-featured" target="_blank">
       <div>
         <div class="pub-feat-badge">Featured · New America</div>
@@ -785,10 +781,7 @@ footer p { font-size: 0.68rem; color: rgba(245,241,232,0.28); }
 <!-- PANEL: AWARDS & FELLOWSHIPS -->
 <div class="panel" id="panel-recognition">
   <div class="panel-inner">
-    <div class="panel-header">
-      <div class="panel-label">Recognition</div>
-      <h2 class="panel-h2">Awards &amp; <em>Fellowships</em></h2>
-    </div>
+    <h2 class="sr-only">Awards &amp; Fellowships</h2>
     <div class="recog-cols">
       <div>
         <div class="recog-group-label">Awards</div>
@@ -863,10 +856,7 @@ footer p { font-size: 0.68rem; color: rgba(245,241,232,0.28); }
 <!-- PANEL: SPEAKING -->
 <div class="panel" id="panel-speaking">
   <div class="panel-inner">
-    <div class="panel-header">
-      <div class="panel-label">In the room</div>
-      <h2 class="panel-h2">Speaking &amp; <em>Facilitation</em></h2>
-    </div>
+    <h2 class="sr-only">Speaking &amp; Facilitation</h2>
     <div class="speaking-accordion">
       <div class="year-group open" data-year="2026">
         <button class="year-header">
@@ -1085,10 +1075,7 @@ footer p { font-size: 0.68rem; color: rgba(245,241,232,0.28); }
 <!-- PANEL: MEDIA -->
 <div class="panel active" id="panel-media">
   <div class="panel-inner">
-    <div class="panel-header">
-      <div class="panel-label">Press &amp; Podcast</div>
-      <h2 class="panel-h2">Media <em>Features</em></h2>
-    </div>
+    <h2 class="sr-only">Media &amp; Press</h2>
     <a href="https://www.forbes.com/sites/solitairetownsend/2026/09/12/climate-week-2026-storytelling-is-finally-a-major-climate-solution/" class="media-featured" target="_blank">
       <div>
         <div class="org-chip org-chip--feat"><img src="../assets/images/logos/forbes.png" alt="Forbes"></div>
@@ -1121,6 +1108,26 @@ footer p { font-size: 0.68rem; color: rgba(245,241,232,0.28); }
           <a href="https://www.ideou.com/blogs/inspiration/why-leaders-who-practice-curiosity-handle-uncertainty-better" target="_blank" rel="noopener"><img class="pill-logo" src="../assets/images/logos/ideo-u.png" alt="IDEO U"><span>IDEO U article ↗</span></a>
           <a href="https://www.pew.org/en/research-and-analysis/articles/2026/06/10/to-find-connection-in-america-look-for-the-curiosity-mobile" target="_blank" rel="noopener"><img class="pill-logo" src="../assets/images/logos/pew.png" alt="Pew"><span>Jun 10 ↗</span></a>
           <a href="https://www.prnewswire.com/news-releases/visit-philadelphia-and-ted-announce-programming-and-initial-speaker-lineup-for-founding-futures-ahead-of-americas-250th-302729373.html" target="_blank" rel="noopener"><img class="pill-logo pill-logo--sq" src="../assets/images/logos/visit-philadelphia.png" alt="Visit Philadelphia"><span>TED Democracy Philadelphia release ↗</span></a>
+        </div>
+      </div>
+      <div class="media-card media-card--coverage">
+        <div class="media-type mtype-coverage">Project Coverage</div>
+        <div class="media-title">Harmony Labs&rsquo; Narrative R&amp;D Lab: lessons from year one and the 2026&ndash;27 Community of Practice</div>
+        <div class="media-source">Project coverage — cohort experience design &amp; strategy for the Narrative R&amp;D Lab · Harmony Labs, 2026</div>
+        <div class="media-coverage-links">
+          <a href="https://harmonylabs.org/news/building-the-narrative-lab" target="_blank" rel="noopener"><img class="pill-logo" src="../assets/images/logos/harmony.png" alt="Harmony Labs"><span>Building the Narrative R&amp;D Lab ↗</span></a>
+          <a href="https://harmonylabs.org/news/lab-community-of-practice" target="_blank" rel="noopener"><img class="pill-logo" src="../assets/images/logos/harmony.png" alt="Harmony Labs"><span>2026&ndash;27 Community of Practice ↗</span></a>
+        </div>
+      </div>
+      <div class="media-card media-card--coverage">
+        <div class="media-type mtype-coverage">Project Coverage</div>
+        <div class="media-title">New_Public&rsquo;s &ldquo;After the Feed&rdquo; report, discussed at Media Party, Public Media Innovators and the Prosocial Design Network</div>
+        <div class="media-source">Project coverage — research I contributed to as Co-Investigator with New_Public and Eli Pariser · May&ndash;November 2026</div>
+        <div class="media-coverage-links">
+          <a href="https://newpublic.org/afterthefeed" target="_blank" rel="noopener"><img class="pill-logo" src="../assets/images/logos/new-public.png" alt="New_Public"><span>Final report ↗</span></a>
+          <a href="https://mediaparty.org/2026/05/18/media-party-new-york-2026-recap-ai-journalism/" target="_blank" rel="noopener"><span>Media Party NY keynote recap · May 18 ↗</span></a>
+          <a href="https://publicmedia.is/talking-about/ai-and-the-future-of-community/" target="_blank" rel="noopener"><span>Public Media Innovators webinar · Aug 20 ↗</span></a>
+          <a href="https://www.prosocialdesign.org/blog/prosocial-design-after-social-media" target="_blank" rel="noopener"><span>Prosocial Design Network · Nov 5 ↗</span></a>
         </div>
       </div>
       <a href="https://www.hercampus.com/career/college-major-doesnt-determine-career-post-grad-jobs/" class="media-card" target="_blank">
