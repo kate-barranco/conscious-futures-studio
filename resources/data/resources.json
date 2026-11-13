@@ -33246,5 +33246,33 @@
     ],
     "type_display": "Book",
     "confidence": "medium"
+  },
+  {
+    "id": "CFT-1205",
+    "title": "Daniel Goleman Emotional Intelligence Courses Learner's Guide | Key Step Media",
+    "url": "https://www.keystepmedia.com/daniel-goleman-emotional-intelligence-courses-learners-guide/",
+    "primary_category": "Organizational Wellbeing & Embodied Leadership",
+    "categories": [
+      "Organizational Wellbeing & Embodied Leadership",
+      "Relationality, Connection & Community Health"
+    ],
+    "type_normalized": "Article",
+    "type_raw_variants": [],
+    "note": "",
+    "extra_tag_text": "",
+    "hub": "",
+    "year": "2022",
+    "source_sheets": [
+      "Hand-added (Kate request, 2026-11-13)"
+    ],
+    "merged_from_count": 1,
+    "blurb": "Key Step Media's guide to Daniel Goleman's two six-week, cohort-based online emotional intelligence courses (Foundational Skills and Relational Skills), covering how the lessons, short steps and live coach-led group check-ins are structured.",
+    "tags": [
+      "Leadership",
+      "Organizational Wellbeing",
+      "Community Health"
+    ],
+    "type_display": "Article",
+    "confidence": "medium"
   }
 ]
