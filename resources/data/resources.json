@@ -33274,5 +33274,144 @@
     ],
     "type_display": "Article",
     "confidence": "medium"
+  },
+  {
+    "id": "CFT-1206",
+    "title": "The Man Who Would Oust a Dynasty | Marlon Ariyasinghe (Journal of Democracy)",
+    "url": "https://www.journalofdemocracy.org/elections/the-man-who-would-oust-a-dynasty/",
+    "primary_category": "Government, Democracy & Polarization",
+    "categories": [
+      "Government, Democracy & Polarization"
+    ],
+    "type_normalized": "Article",
+    "type_raw_variants": [],
+    "note": "",
+    "extra_tag_text": "",
+    "hub": "",
+    "year": "2024",
+    "source_sheets": [
+      "Hand-added (Kate request, 2026-11-19)"
+    ],
+    "merged_from_count": 1,
+    "blurb": "Journal of Democracy election-watch piece on how Anura Kumara Dissanayake and the NPP went from a marginal party to Sri Lanka's presidency, riding the 2022 Aragalaya protests, and the limits of that mandate, from IMF constraints to whether he will give up the executive presidency.",
+    "tags": [
+      "Democracy",
+      "Civic Life",
+      "Academic Research"
+    ],
+    "type_display": "Article",
+    "confidence": "medium"
+  },
+  {
+    "id": "CFT-1207",
+    "title": "How Serbia's Students Defeated a Regime | Pavle Cicvarić (Journal of Democracy)",
+    "url": "https://www.journalofdemocracy.org/the-frontline/how-serbias-students-defeated-a-regime/",
+    "primary_category": "Government, Democracy & Polarization",
+    "categories": [
+      "Government, Democracy & Polarization",
+      "Gen Z, Youth Experience & Identity"
+    ],
+    "type_normalized": "Article",
+    "type_raw_variants": [],
+    "note": "",
+    "extra_tag_text": "",
+    "hub": "",
+    "year": "2026",
+    "source_sheets": [
+      "Hand-added (Kate request, 2026-11-19)"
+    ],
+    "merged_from_count": 1,
+    "blurb": "First-hand essay on how Serbia's student-led, plenum-organized protest movement, sparked by the November 2024 Novi Sad canopy collapse, defeated the ruling party at the ballot box, and why keeping its organizational structures matters for holding the new government accountable.",
+    "tags": [
+      "Democracy",
+      "Civic Life",
+      "Gen Z"
+    ],
+    "type_display": "Article",
+    "confidence": "medium"
+  },
+  {
+    "id": "CFT-1208",
+    "title": "Why Kenya's Gen Z Has Taken to the Streets | Judy Mbugua (Journal of Democracy)",
+    "url": "https://www.journalofdemocracy.org/online-exclusive/why-kenyas-gen-z-has-taken-to-the-streets/",
+    "primary_category": "Government, Democracy & Polarization",
+    "categories": [
+      "Government, Democracy & Polarization",
+      "Gen Z, Youth Experience & Identity"
+    ],
+    "type_normalized": "Article",
+    "type_raw_variants": [],
+    "note": "",
+    "extra_tag_text": "",
+    "hub": "",
+    "year": "2025",
+    "source_sheets": [
+      "Hand-added (Kate request, 2026-11-19)"
+    ],
+    "merged_from_count": 1,
+    "blurb": "Online-exclusive essay on Kenya's Gen Z-led protest movement, from the 2024 Finance Bill protests through the repression that followed, arguing that young people's refusal to accept unaccountable politics is reshaping Kenyan democracy ahead of the 2027 elections.",
+    "tags": [
+      "Democracy",
+      "Gen Z",
+      "Human Rights"
+    ],
+    "type_display": "Article",
+    "confidence": "medium"
+  },
+  {
+    "id": "CFT-1209",
+    "title": "The Future of Nonviolent Resistance | Erica Chenoweth (Journal of Democracy)",
+    "url": "https://muse.jhu.edu/article/760088",
+    "primary_category": "Government, Democracy & Polarization",
+    "categories": [
+      "Government, Democracy & Polarization",
+      "Systems Change, Design & Futures Thinking"
+    ],
+    "type_normalized": "Article",
+    "type_raw_variants": [],
+    "note": "",
+    "extra_tag_text": "",
+    "hub": "",
+    "year": "2020",
+    "source_sheets": [
+      "Hand-added (Kate request, 2026-11-19)"
+    ],
+    "merged_from_count": 1,
+    "blurb": "Chenoweth's essay on the record wave of nonviolent mass movements in 2019 and why their effectiveness had begun to decline even before the pandemic, pointing to changes in how movements are structured and their capacities, and to a return to relationship-building, grassroots organizing, strategy and narrative.",
+    "tags": [
+      "Democracy",
+      "Civic Life",
+      "Academic Research"
+    ],
+    "type_display": "Article",
+    "confidence": "high"
+  },
+  {
+    "id": "CFT-1210",
+    "title": "Why Gen-Z Is Rising | Erica Chenoweth & Matthew Cebul (Journal of Democracy)",
+    "url": "https://muse.jhu.edu/article/977940",
+    "primary_category": "Government, Democracy & Polarization",
+    "categories": [
+      "Government, Democracy & Polarization",
+      "Gen Z, Youth Experience & Identity"
+    ],
+    "type_normalized": "Article",
+    "type_raw_variants": [],
+    "note": "",
+    "extra_tag_text": "",
+    "hub": "",
+    "year": "2026",
+    "source_sheets": [
+      "Hand-added (Kate request, 2026-11-19)"
+    ],
+    "merged_from_count": 1,
+    "blurb": "Essay on the 2025 wave of Gen-Z protests from Indonesia to Kenya, Madagascar, Peru and Nepal: anticorruption as the rallying cry, and research showing nonviolent campaigns with extensive youth participation succeed more often, though often at a cost.",
+    "tags": [
+      "Gen Z",
+      "Democracy",
+      "Academic Research"
+    ],
+    "type_display": "Article",
+    "confidence": "high"
   }
 ]
