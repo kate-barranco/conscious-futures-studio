@@ -33413,5 +33413,61 @@
     ],
     "type_display": "Article",
     "confidence": "high"
+  },
+  {
+    "id": "CFT-1211",
+    "title": "Mitigation of Shock (London) | Superflux",
+    "url": "https://superflux.in/work/mitigation-of-shock/",
+    "primary_category": "Systems Change, Design & Futures Thinking",
+    "categories": [
+      "Systems Change, Design & Futures Thinking",
+      "Climate Justice & Eco-Anxiety"
+    ],
+    "type_normalized": "Other",
+    "type_raw_variants": [],
+    "note": "",
+    "extra_tag_text": "",
+    "hub": "",
+    "year": "2017",
+    "source_sheets": [
+      "Hand-added (Kate request, 2026-11-20)"
+    ],
+    "merged_from_count": 1,
+    "blurb": "Superflux's immersive design experiment (2017-2019, first shown at CCCB Barcelona): a walk-through London apartment set around 2050 and adapted to climate-driven food insecurity, built to make climate change tangible and to practice hope through improvised food-growing tools and tactics.",
+    "tags": [
+      "Futures Thinking",
+      "Climate Anxiety",
+      "Collective Imagination"
+    ],
+    "type_display": "Other",
+    "confidence": "medium"
+  },
+  {
+    "id": "CFT-1212",
+    "title": "Time Travelers Converge on Campus | Caltech",
+    "url": "https://www.caltech.edu/about/news/time-travelers-converge-on-campus",
+    "primary_category": "Systems Change, Design & Futures Thinking",
+    "categories": [
+      "Systems Change, Design & Futures Thinking",
+      "Imagination, Play & Creativity"
+    ],
+    "type_normalized": "Article",
+    "type_raw_variants": [],
+    "note": "",
+    "extra_tag_text": "",
+    "hub": "",
+    "year": "2026",
+    "source_sheets": [
+      "Hand-added (Kate request, 2026-11-20)"
+    ],
+    "merged_from_count": 1,
+    "blurb": "Caltech news story on the Time Travel Gathering (May 2026), a participatory experiential-futures event led by futurist Stuart Candy with Caltech's theatre group TACIT and the Institute for Quantum Information and Matter, where actors and students played visitors from possible futures.",
+    "tags": [
+      "Futures Thinking",
+      "Collective Imagination",
+      "Foresight Methodology"
+    ],
+    "type_display": "Article",
+    "confidence": "medium"
   }
 ]
