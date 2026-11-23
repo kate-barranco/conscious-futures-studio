@@ -33469,5 +33469,33 @@
     ],
     "type_display": "Article",
     "confidence": "medium"
+  },
+  {
+    "id": "CFT-1213",
+    "title": "Futures Methods from Around the World (FMAW) | Futures Ecologies",
+    "url": "https://futuresecologies.soif.network/",
+    "primary_category": "Systems Change, Design & Futures Thinking",
+    "categories": [
+      "Systems Change, Design & Futures Thinking",
+      "Imagination, Play & Creativity"
+    ],
+    "type_normalized": "Resource Hub",
+    "type_raw_variants": [],
+    "note": "",
+    "extra_tag_text": "",
+    "hub": "",
+    "year": "2026",
+    "source_sheets": [
+      "Hand-added (Kate request, 2026-11-23)"
+    ],
+    "merged_from_count": 1,
+    "blurb": "A School of International Futures initiative, led by the Next Generation Foresight Practitioners network, that gathers culturally grounded ways of knowing and anticipating the future from around the world. It offers country zines (India, Aotearoa New Zealand, Mexico, Dubai), a video, and a growing repository, organized around themes of time, agency, trust, stewardship and infrastructure.",
+    "tags": [
+      "Futures Thinking",
+      "Decolonial Thinking",
+      "Foresight Methodology"
+    ],
+    "type_display": "Resource Hub",
+    "confidence": "medium"
   }
 ]
