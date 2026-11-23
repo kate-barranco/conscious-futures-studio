@@ -33497,5 +33497,86 @@
     ],
     "type_display": "Resource Hub",
     "confidence": "medium"
+  },
+  {
+    "id": "CFT-1214",
+    "title": "Emotive Immersion: EEG-Driven AI Art in Immersive Visual Spaces (Full Dome) | Chen & Corino",
+    "url": "https://pearl.plymouth.ac.uk/ada-research/682/",
+    "primary_category": "Tech, AI & Social Change",
+    "categories": [
+      "Tech, AI & Social Change",
+      "Imagination, Play & Creativity"
+    ],
+    "type_normalized": "Academic Paper",
+    "type_raw_variants": [],
+    "note": "",
+    "extra_tag_text": "",
+    "hub": "",
+    "year": "2025",
+    "source_sheets": [
+      "Hand-added (Kate request, 2026-11-23)"
+    ],
+    "merged_from_count": 1,
+    "blurb": "Chen and Corino (University of Plymouth, Digitcult 10(2), 2025) present Coids, an interactive full-dome installation where audiences' real-time EEG-detected emotions shape AI-generated visuals. Audience engagement suggests that affective responsiveness strengthens both immersion and a sense of personal agency, pointing to the 'Future Screen' as an adaptive, embodied, relational system.",
+    "tags": [
+      "AI & Technology",
+      "Collective Imagination",
+      "Framework"
+    ],
+    "type_display": "Academic Paper",
+    "confidence": "high"
+  },
+  {
+    "id": "CFT-1215",
+    "title": "Do You See What I See? Effectiveness of 360-Degree vs. 2D Video Ads Using a Neuroscience Approach | Frontiers in Psychology",
+    "url": "https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2021.612717/full",
+    "primary_category": "Tech, AI & Social Change",
+    "categories": [
+      "Tech, AI & Social Change"
+    ],
+    "type_normalized": "Academic Paper",
+    "type_raw_variants": [],
+    "note": "",
+    "extra_tag_text": "",
+    "hub": "",
+    "year": "2021",
+    "source_sheets": [
+      "Hand-added (Kate request, 2026-11-23)"
+    ],
+    "merged_from_count": 1,
+    "blurb": "Ausin-Azofra and colleagues (Frontiers in Psychology, 2021) compare responses to 360-degree and flat 2D video ads using EEG, eye-tracking, electrodermal activity and facial coding. For durable products, 360-degree video increased positive emotion and engagement, but it also reduced attention to some content and brand recognition, showing the risk of cognitive overload.",
+    "tags": [
+      "Responsible Tech",
+      "Foresight Methodology"
+    ],
+    "type_display": "Academic Paper",
+    "confidence": "high"
+  },
+  {
+    "id": "CFT-1216",
+    "title": "Real-Time AI EEG Cognitive Painting, UK installation | Video Illusions (Ouchhh)",
+    "url": "https://www.facebook.com/VideoIllusions/posts/reflecting-on-an-epic-collaboration-video-illusions-were-contracted-to-bringing-/1180977927368342/",
+    "primary_category": "Imagination, Play & Creativity",
+    "categories": [
+      "Imagination, Play & Creativity",
+      "Tech, AI & Social Change"
+    ],
+    "type_normalized": "Other",
+    "type_raw_variants": [],
+    "note": "",
+    "extra_tag_text": "",
+    "hub": "",
+    "year": "2026",
+    "source_sheets": [
+      "Hand-added (Kate request, 2026-11-23)"
+    ],
+    "merged_from_count": 1,
+    "blurb": "Facebook post from Video Illusions reflecting on bringing the UK installation of a real-time AI EEG 'cognitive painting' project to life with media studio Ouchhh, using a large LED cube that displays AI visuals driven by participants' live brainwave data. A public art installation, not a controlled study.",
+    "tags": [
+      "AI & Technology",
+      "Collective Imagination"
+    ],
+    "type_display": "Other",
+    "confidence": "medium"
   }
 ]
