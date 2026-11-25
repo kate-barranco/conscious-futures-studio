@@ -33578,5 +33578,33 @@
     ],
     "type_display": "Other",
     "confidence": "medium"
+  },
+  {
+    "id": "CFT-1217",
+    "title": "A systems framework for remedying dysfunction in US democracy | PNAS",
+    "url": "https://www.pnas.org/doi/full/10.1073/pnas.2102154118",
+    "primary_category": "Government, Democracy & Polarization",
+    "categories": [
+      "Government, Democracy & Polarization",
+      "Systems Change, Design & Futures Thinking"
+    ],
+    "type_normalized": "Academic Paper",
+    "type_raw_variants": [],
+    "note": "",
+    "extra_tag_text": "",
+    "hub": "",
+    "year": "2021",
+    "source_sheets": [
+      "Hand-added (Kate request, 2026-11-25)"
+    ],
+    "merged_from_count": 1,
+    "blurb": "Wang, Cervas, Grofman and Lipsitz (PNAS 118(50), 2021) propose systems-level modeling to diagnose and repair US democratic dysfunction, treating voting rules, gerrymandering, checks and balances and polarization as interacting dynamics. They examine polarization and antimajoritarianism, arguing that rigorous modeling can help design reforms that work and last.",
+    "tags": [
+      "Democracy",
+      "Systems Change",
+      "Polarization"
+    ],
+    "type_display": "Academic Paper",
+    "confidence": "high"
   }
 ]
